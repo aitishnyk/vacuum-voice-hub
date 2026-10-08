@@ -83,12 +83,16 @@ def assess_candidate(path, model_id, evidence_path=None):
     digest, size = _archive_sha256(archive)
     suffix = archive.suffix.lower()
     opaque = False
+    with archive.open("rb") as stream:
+        header = stream.read(512)
+    archive_signature = (header.startswith((b"PK\\x03\\x04", b"PK\\x05\\x06", b"PK\\x07\\x08", b"\\x1f\\x8b"))
+                         or header[257:262] == b"ustar")
     try:
         inventory = inspect_archive(archive)
     except ArchiveInspectionError as exc:
         # Proprietary encrypted .pkg cannot safely be inspected as an archive.
         # Retain only its hash and size and never treat it as installable.
-        if suffix != ".pkg":
+        if suffix != ".pkg" or archive_signature:
             raise ResearchError(str(exc)) from exc
         opaque = True
         inventory = None
@@ -101,24 +105,13 @@ def assess_candidate(path, model_id, evidence_path=None):
             raise ResearchError(f"invalid research evidence: {exc}") from exc
         if evidence["package_sha256"] != digest:
             raise ResearchError("evidence SHA-256 does not match candidate bytes")
-        # The original report also declares exact byte size and format.
-        from .transport_evidence import MAX_BYTES
-        import json
-        raw_path = Path(evidence_path)
-        with raw_path.open("rb") as stream:
-            raw = stream.read(MAX_BYTES + 1)
-        if len(raw) > MAX_BYTES:
-            raise ResearchError("evidence file exceeds 64 KiB")
-        record = json.loads(raw.decode("utf-8"))
-        if record["package"]["size_bytes"] != size:
+        if evidence["package_size_bytes"] != size:
             raise ResearchError("evidence size does not match candidate bytes")
-        fmt = record["package"]["format"]
+        fmt = evidence["package_format"]
         if fmt == "zip" and (opaque or inventory["container"] != "zip"):
             raise ResearchError("evidence format disagrees with candidate")
         if fmt == "tar.gz":
-            with archive.open("rb") as stream:
-                magic = stream.read(2)
-            if opaque or inventory["container"] != "tar" or magic != b"\x1f\x8b":
+            if opaque or inventory["container"] != "tar" or not header.startswith(b"\\x1f\\x8b"):
                 raise ResearchError("evidence tar.gz format disagrees with candidate")
         if fmt in {"pkg", "ogg", "mp3"}:
             if not opaque or fmt != "pkg":
