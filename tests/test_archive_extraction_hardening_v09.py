@@ -101,3 +101,14 @@ def test_invalid_or_missing_container_rejected(tmp_path):
     src.write_bytes(b"not zip or tar")
     with pytest.raises(ValueError, match="unsupported"):
         extract(src, tmp_path / "dest")
+
+
+def test_file_parent_of_directory_rejected_prewrite(tmp_path):
+    src = tmp_path / "collision-directory.zip"
+    with zipfile.ZipFile(src, "w") as zf:
+        zf.writestr("parent", b"ordinary file")
+        zf.writestr("parent/subdir/", b"")
+    dest = tmp_path / "dest"
+    with pytest.raises(ValueError, match="collision"):
+        extract(src, dest)
+    assert not (dest / "parent").exists()
