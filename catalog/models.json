@@ -288,6 +288,87 @@
       "notes": "Dreame numeric package adaptation is supported; direct local install transport is not claimed for this exact model."
     },
     {
+      "id": "dreame.vacuum.p2036",
+      "name": "Trouver LDS Finder",
+      "vendor": "Xiaomi / Dreame",
+      "aliases": [
+        "dreame.vacuum.p2036"
+      ],
+      "adapter": "dreame_numeric",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "tar.gz",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<canonical_event_id>.ogg"
+      },
+      "event_profile": "dreame-modern-conservative-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "family-format-unverified",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Source confirms model ID, not voice format. Conservative Dreame-family OGG/tar.gz research build; custom installation remains blocked pending exact-device/firmware evidence."
+    },
+    {
+      "id": "dreame.vacuum.p2041",
+      "name": "Mi Robot Vacuum-Mop 1T",
+      "vendor": "Xiaomi / Dreame",
+      "aliases": [
+        "dreame.vacuum.p2041"
+      ],
+      "adapter": "dreame_numeric",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "tar.gz",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<canonical_event_id>.ogg"
+      },
+      "event_profile": "dreame-modern-conservative-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "family-format-unverified",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Source confirms model ID, not voice format. Conservative Dreame-family OGG/tar.gz research build; custom installation remains blocked pending exact-device/firmware evidence."
+    },
+    {
+      "id": "dreame.vacuum.p2041o",
+      "name": "Mi Robot Vacuum-Mop 2 Pro+",
+      "vendor": "Xiaomi / Dreame",
+      "aliases": [
+        "dreame.vacuum.p2041o"
+      ],
+      "adapter": "dreame_numeric",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "tar.gz",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<canonical_event_id>.ogg"
+      },
+      "event_profile": "dreame-modern-conservative-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "family-format-unverified",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Source confirms model ID, not voice format. Conservative Dreame-family OGG/tar.gz research build; custom installation remains blocked pending exact-device/firmware evidence."
+    },
+    {
       "id": "dreame.vacuum.p2114a",
       "name": "Xiaomi Robot Vacuum X10+",
       "vendor": "Dreame / Xiaomi",
@@ -319,6 +400,33 @@
         "evidence": "Dreame family VOICE_CHANGE / MIoT audio service research"
       },
       "notes": "Model-specific event list is not yet extracted. Uses a conservative modern-Dreame intersection; local install requires explicit experimental opt-in."
+    },
+    {
+      "id": "dreame.vacuum.p2114o",
+      "name": "Mijia Self-Cleaning Vacuum-Mop",
+      "vendor": "Xiaomi / Dreame",
+      "aliases": [
+        "dreame.vacuum.p2114o"
+      ],
+      "adapter": "dreame_numeric",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "tar.gz",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<canonical_event_id>.ogg"
+      },
+      "event_profile": "dreame-modern-conservative-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "family-format-unverified",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Source confirms model ID, not voice format. Conservative Dreame-family OGG/tar.gz research build; custom installation remains blocked pending exact-device/firmware evidence."
     },
     {
       "id": "dreame.vacuum.p2140",
@@ -379,6 +487,60 @@
       "notes": "Dreame numeric package adaptation is supported; direct local install transport is not claimed for this exact model."
     },
     {
+      "id": "dreame.vacuum.p2140o",
+      "name": "Mi Robot Vacuum-Mop 2 (O)",
+      "vendor": "Xiaomi / Dreame",
+      "aliases": [
+        "dreame.vacuum.p2140o"
+      ],
+      "adapter": "dreame_numeric",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "tar.gz",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<canonical_event_id>.ogg"
+      },
+      "event_profile": "dreame-modern-conservative-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "family-format-unverified",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Source confirms model ID, not voice format. Conservative Dreame-family OGG/tar.gz research build; custom installation remains blocked pending exact-device/firmware evidence."
+    },
+    {
+      "id": "dreame.vacuum.p2140p",
+      "name": "Mi Robot Vacuum-Mop 2 (P)",
+      "vendor": "Xiaomi / Dreame",
+      "aliases": [
+        "dreame.vacuum.p2140p"
+      ],
+      "adapter": "dreame_numeric",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "tar.gz",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<canonical_event_id>.ogg"
+      },
+      "event_profile": "dreame-modern-conservative-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "family-format-unverified",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Source confirms model ID, not voice format. Conservative Dreame-family OGG/tar.gz research build; custom installation remains blocked pending exact-device/firmware evidence."
+    },
+    {
       "id": "dreame.vacuum.p2140q",
       "name": "Mi Robot Vacuum-Mop 2",
       "vendor": "Dreame / Xiaomi",
@@ -408,6 +570,33 @@
       "notes": "Dreame numeric package adaptation is supported; direct local install transport is not claimed for this exact model."
     },
     {
+      "id": "dreame.vacuum.p2148o",
+      "name": "Mijia Ultra Slim Vacuum Mop",
+      "vendor": "Xiaomi / Dreame",
+      "aliases": [
+        "dreame.vacuum.p2148o"
+      ],
+      "adapter": "dreame_numeric",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "tar.gz",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<canonical_event_id>.ogg"
+      },
+      "event_profile": "dreame-modern-conservative-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "family-format-unverified",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Source confirms model ID, not voice format. Conservative Dreame-family OGG/tar.gz research build; custom installation remains blocked pending exact-device/firmware evidence."
+    },
+    {
       "id": "dreame.vacuum.p2149o",
       "name": "Mijia Self-Cleaning Robot Vacuum-Mop Pro",
       "vendor": "Dreame / Xiaomi",
@@ -435,6 +624,195 @@
         "evidence": "https://github.com/czaky/dreame_voice_pack"
       },
       "notes": "Dreame numeric package adaptation is supported; direct local install transport is not claimed for this exact model."
+    },
+    {
+      "id": "dreame.vacuum.p2150a",
+      "name": "Mi Robot Vacuum-Mop 2 Ultra",
+      "vendor": "Xiaomi / Dreame",
+      "aliases": [
+        "dreame.vacuum.p2150a"
+      ],
+      "adapter": "dreame_numeric",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "tar.gz",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<canonical_event_id>.ogg"
+      },
+      "event_profile": "dreame-modern-conservative-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "family-format-unverified",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Source confirms model ID, not voice format. Conservative Dreame-family OGG/tar.gz research build; custom installation remains blocked pending exact-device/firmware evidence."
+    },
+    {
+      "id": "dreame.vacuum.p2150b",
+      "name": "Mi Robot Vacuum-Mop 2 Ultra Set",
+      "vendor": "Xiaomi / Dreame",
+      "aliases": [
+        "dreame.vacuum.p2150b"
+      ],
+      "adapter": "dreame_numeric",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "tar.gz",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<canonical_event_id>.ogg"
+      },
+      "event_profile": "dreame-modern-conservative-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "family-format-unverified",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Source confirms model ID, not voice format. Conservative Dreame-family OGG/tar.gz research build; custom installation remains blocked pending exact-device/firmware evidence."
+    },
+    {
+      "id": "dreame.vacuum.p2150o",
+      "name": "Mijia Vacuum-Mop (p2150o)",
+      "vendor": "Xiaomi / Dreame",
+      "aliases": [
+        "dreame.vacuum.p2150o"
+      ],
+      "adapter": "dreame_numeric",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "tar.gz",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<canonical_event_id>.ogg"
+      },
+      "event_profile": "dreame-modern-conservative-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "family-format-unverified",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Source confirms model ID, not voice format. Conservative Dreame-family OGG/tar.gz research build; custom installation remains blocked pending exact-device/firmware evidence."
+    },
+    {
+      "id": "dreame.vacuum.p2156o",
+      "name": "MOVA Z500",
+      "vendor": "MOVA / Dreame",
+      "aliases": [
+        "dreame.vacuum.p2156o"
+      ],
+      "adapter": "dreame_numeric",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "tar.gz",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<canonical_event_id>.ogg"
+      },
+      "event_profile": "dreame-modern-conservative-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "family-format-unverified",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Source confirms model ID, not voice format. Conservative Dreame-family OGG/tar.gz research build; custom installation remains blocked pending exact-device/firmware evidence."
+    },
+    {
+      "id": "dreame.vacuum.p2157",
+      "name": "MOVA L600",
+      "vendor": "MOVA / Dreame",
+      "aliases": [
+        "dreame.vacuum.p2157"
+      ],
+      "adapter": "dreame_numeric",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "tar.gz",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<canonical_event_id>.ogg"
+      },
+      "event_profile": "dreame-modern-conservative-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "family-format-unverified",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Source confirms model ID, not voice format. Conservative Dreame-family OGG/tar.gz research build; custom installation remains blocked pending exact-device/firmware evidence."
+    },
+    {
+      "id": "dreame.vacuum.p2187",
+      "name": "Dreame D9 Pro",
+      "vendor": "Xiaomi / Dreame",
+      "aliases": [
+        "dreame.vacuum.p2187"
+      ],
+      "adapter": "dreame_numeric",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "tar.gz",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<canonical_event_id>.ogg"
+      },
+      "event_profile": "dreame-modern-conservative-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "family-format-unverified",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Source confirms model ID, not voice format. Conservative Dreame-family OGG/tar.gz research build; custom installation remains blocked pending exact-device/firmware evidence."
+    },
+    {
+      "id": "dreame.vacuum.p2259",
+      "name": "Dreame D9 Max",
+      "vendor": "Xiaomi / Dreame",
+      "aliases": [
+        "dreame.vacuum.p2259"
+      ],
+      "adapter": "dreame_numeric",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "tar.gz",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<canonical_event_id>.ogg"
+      },
+      "event_profile": "dreame-modern-conservative-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "family-format-unverified",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Source confirms model ID, not voice format. Conservative Dreame-family OGG/tar.gz research build; custom installation remains blocked pending exact-device/firmware evidence."
     },
     {
       "id": "dreame.vacuum.r2104",
@@ -535,6 +913,33 @@
       "compatibility_note": "VVH v0.2 uses a conservative 106-event hardware-verified profile. Extra IDs are reported but omitted from X10 builds until separately verified."
     },
     {
+      "id": "dreame.vacuum.r2211o",
+      "name": "Dreame S10+",
+      "vendor": "Dreame",
+      "aliases": [
+        "dreame.vacuum.r2211o"
+      ],
+      "adapter": "dreame_numeric",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "tar.gz",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<canonical_event_id>.ogg"
+      },
+      "event_profile": "dreame-modern-conservative-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "family-format-unverified",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Source confirms model ID, not voice format. Conservative Dreame-family OGG/tar.gz research build; custom installation remains blocked pending exact-device/firmware evidence."
+    },
+    {
       "id": "dreame.vacuum.r2215",
       "name": "DreameBot X10 Pro",
       "vendor": "Dreame / Xiaomi",
@@ -566,6 +971,33 @@
         "evidence": "Dreame family VOICE_CHANGE / MIoT audio service research"
       },
       "notes": "Model-specific event list is not yet extracted. Uses a conservative modern-Dreame intersection; local install requires explicit experimental opt-in."
+    },
+    {
+      "id": "dreame.vacuum.r2215o",
+      "name": "Dreame L10s Pro (regional)",
+      "vendor": "Dreame",
+      "aliases": [
+        "dreame.vacuum.r2215o"
+      ],
+      "adapter": "dreame_numeric",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "tar.gz",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<canonical_event_id>.ogg"
+      },
+      "event_profile": "dreame-modern-conservative-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "family-format-unverified",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Source confirms model ID, not voice format. Conservative Dreame-family OGG/tar.gz research build; custom installation remains blocked pending exact-device/firmware evidence."
     },
     {
       "id": "dreame.vacuum.r2216o",
@@ -698,6 +1130,33 @@
         "evidence": "Dreame family VOICE_CHANGE / MIoT audio service research"
       },
       "notes": "Model-specific event list is not yet extracted. Uses a conservative modern-Dreame intersection; local install requires explicit experimental opt-in."
+    },
+    {
+      "id": "dreame.vacuum.r2232b",
+      "name": "Dreame L10s Prime",
+      "vendor": "Dreame",
+      "aliases": [
+        "dreame.vacuum.r2232b"
+      ],
+      "adapter": "dreame_numeric",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "tar.gz",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<canonical_event_id>.ogg"
+      },
+      "event_profile": "dreame-modern-conservative-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "family-format-unverified",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Source confirms model ID, not voice format. Conservative Dreame-family OGG/tar.gz research build; custom installation remains blocked pending exact-device/firmware evidence."
     },
     {
       "id": "dreame.vacuum.r2233",
@@ -862,6 +1321,33 @@
       "notes": "Model-specific event list is not yet extracted. Uses a conservative modern-Dreame intersection; local install requires explicit experimental opt-in."
     },
     {
+      "id": "dreame.vacuum.r2251a",
+      "name": "Dreame L10 Prime",
+      "vendor": "Dreame",
+      "aliases": [
+        "dreame.vacuum.r2251a"
+      ],
+      "adapter": "dreame_numeric",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "tar.gz",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<canonical_event_id>.ogg"
+      },
+      "event_profile": "dreame-modern-conservative-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "family-format-unverified",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Source confirms model ID, not voice format. Conservative Dreame-family OGG/tar.gz research build; custom installation remains blocked pending exact-device/firmware evidence."
+    },
+    {
       "id": "dreame.vacuum.r2251o",
       "name": "DreameBot W10s",
       "vendor": "Dreame / Xiaomi",
@@ -895,6 +1381,141 @@
       "notes": "Model-specific event list is not yet extracted. Uses a conservative modern-Dreame intersection; local install requires explicit experimental opt-in."
     },
     {
+      "id": "dreame.vacuum.r2253b",
+      "name": "Dreame L20 Ultra (R2253)",
+      "vendor": "Dreame",
+      "aliases": [
+        "dreame.vacuum.r2253b"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Model ID sourced from Dreame registry. Portable semantic preview/research only; exact vendor voice format and installation path are unverified."
+    },
+    {
+      "id": "dreame.vacuum.r2253c",
+      "name": "Dreame L20 Ultra Complete",
+      "vendor": "Dreame",
+      "aliases": [
+        "dreame.vacuum.r2253c"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Model ID sourced from Dreame registry. Portable semantic preview/research only; exact vendor voice format and installation path are unverified."
+    },
+    {
+      "id": "dreame.vacuum.r2253m",
+      "name": "Dreame L20 Ultra (variant)",
+      "vendor": "Dreame",
+      "aliases": [
+        "dreame.vacuum.r2253m"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Model ID sourced from Dreame registry. Portable semantic preview/research only; exact vendor voice format and installation path are unverified."
+    },
+    {
+      "id": "dreame.vacuum.r2253t",
+      "name": "Dreame L20 Ultra (regional T)",
+      "vendor": "Dreame",
+      "aliases": [
+        "dreame.vacuum.r2253t"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Model ID sourced from Dreame registry. Portable semantic preview/research only; exact vendor voice format and installation path are unverified."
+    },
+    {
+      "id": "dreame.vacuum.r2253w",
+      "name": "Dreame L20 Ultra (regional W)",
+      "vendor": "Dreame",
+      "aliases": [
+        "dreame.vacuum.r2253w"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Model ID sourced from Dreame registry. Portable semantic preview/research only; exact vendor voice format and installation path are unverified."
+    },
+    {
       "id": "dreame.vacuum.r2254",
       "name": "Mijia Infinite Robot Vacuum-Mop 1S",
       "vendor": "Dreame / Xiaomi",
@@ -926,6 +1547,303 @@
         "evidence": "Dreame family VOICE_CHANGE / MIoT audio service research"
       },
       "notes": "Model-specific event list is not yet extracted. Uses a conservative modern-Dreame intersection; local install requires explicit experimental opt-in."
+    },
+    {
+      "id": "dreame.vacuum.r2257o",
+      "name": "Dreame L10 Ultra",
+      "vendor": "Dreame",
+      "aliases": [
+        "dreame.vacuum.r2257o"
+      ],
+      "adapter": "dreame_numeric",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "tar.gz",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<canonical_event_id>.ogg"
+      },
+      "event_profile": "dreame-modern-conservative-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "family-format-unverified",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Source confirms model ID, not voice format. Conservative Dreame-family OGG/tar.gz research build; custom installation remains blocked pending exact-device/firmware evidence."
+    },
+    {
+      "id": "dreame.vacuum.r2338a",
+      "name": "Dreame L10s Pro Ultra Heat",
+      "vendor": "Dreame",
+      "aliases": [
+        "dreame.vacuum.r2338a"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Model ID sourced from Dreame registry. Portable semantic preview/research only; exact vendor voice format and installation path are unverified."
+    },
+    {
+      "id": "dreame.vacuum.r2361a",
+      "name": "Dreame L30 Ultra",
+      "vendor": "Dreame",
+      "aliases": [
+        "dreame.vacuum.r2361a"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Model ID sourced from Dreame registry. Portable semantic preview/research only; exact vendor voice format and installation path are unverified."
+    },
+    {
+      "id": "dreame.vacuum.r2363",
+      "name": "Dreame L10s Plus",
+      "vendor": "Dreame",
+      "aliases": [
+        "dreame.vacuum.r2363"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Model ID sourced from Dreame registry. Portable semantic preview/research only; exact vendor voice format and installation path are unverified."
+    },
+    {
+      "id": "dreame.vacuum.r2363a",
+      "name": "Dreame L10s Plus (regional)",
+      "vendor": "Dreame",
+      "aliases": [
+        "dreame.vacuum.r2363a"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Model ID sourced from Dreame registry. Portable semantic preview/research only; exact vendor voice format and installation path are unverified."
+    },
+    {
+      "id": "dreame.vacuum.r2364",
+      "name": "Dreame L10s Pro Gen 2",
+      "vendor": "Dreame",
+      "aliases": [
+        "dreame.vacuum.r2364"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Model ID sourced from Dreame registry. Portable semantic preview/research only; exact vendor voice format and installation path are unverified."
+    },
+    {
+      "id": "dreame.vacuum.r2364a",
+      "name": "Dreame L10s Pro Gen 2 (regional)",
+      "vendor": "Dreame",
+      "aliases": [
+        "dreame.vacuum.r2364a"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Model ID sourced from Dreame registry. Portable semantic preview/research only; exact vendor voice format and installation path are unverified."
+    },
+    {
+      "id": "dreame.vacuum.r2367",
+      "name": "Dreame L10s Ultra Heat",
+      "vendor": "Dreame",
+      "aliases": [
+        "dreame.vacuum.r2367"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Model ID sourced from Dreame registry. Portable semantic preview/research only; exact vendor voice format and installation path are unverified."
+    },
+    {
+      "id": "dreame.vacuum.r2377",
+      "name": "Dreame L10s Pro Ultra Heat (variant)",
+      "vendor": "Dreame",
+      "aliases": [
+        "dreame.vacuum.r2377"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Model ID sourced from Dreame registry. Portable semantic preview/research only; exact vendor voice format and installation path are unverified."
+    },
+    {
+      "id": "dreame.vacuum.r2394a",
+      "name": "Dreame L20 Ultra (R2394)",
+      "vendor": "Dreame",
+      "aliases": [
+        "dreame.vacuum.r2394a"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Model ID sourced from Dreame registry. Portable semantic preview/research only; exact vendor voice format and installation path are unverified."
+    },
+    {
+      "id": "dreame.vacuum.r2394f",
+      "name": "Dreame L20 Ultra (regional)",
+      "vendor": "Dreame",
+      "aliases": [
+        "dreame.vacuum.r2394f"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Model ID sourced from Dreame registry. Portable semantic preview/research only; exact vendor voice format and installation path are unverified."
     },
     {
       "id": "dreame.vacuum.r2416a",
@@ -962,6 +1880,60 @@
       "notes": "Build/coverage supported. Local VOICE_CHANGE transport is family-inferred and requires --allow-experimental-transport until a verified X40 local install report exists."
     },
     {
+      "id": "dreame.vacuum.r2469a",
+      "name": "Dreame L10s Ultra Gen 2",
+      "vendor": "Dreame",
+      "aliases": [
+        "dreame.vacuum.r2469a"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Model ID sourced from Dreame registry. Portable semantic preview/research only; exact vendor voice format and installation path are unverified."
+    },
+    {
+      "id": "dreame.vacuum.r2469x",
+      "name": "Dreame L10s Ultra Gen 2 (regional)",
+      "vendor": "Dreame",
+      "aliases": [
+        "dreame.vacuum.r2469x"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Model ID sourced from Dreame registry. Portable semantic preview/research only; exact vendor voice format and installation path are unverified."
+    },
+    {
       "id": "dreame.vacuum.r2492a",
       "name": "Dreame L40 Ultra",
       "vendor": "Dreame",
@@ -992,6 +1964,303 @@
         "evidence": "https://github.com/jan-hinter-droid/dreame-l40-voicepack"
       },
       "notes": "Upstream L40 research documents working siid 7 / piid 4 VOICE_CHANGE. VVH physical-device verification pending."
+    },
+    {
+      "id": "dreame.vacuum.r2492b",
+      "name": "Dreame L40 Ultra (regional)",
+      "vendor": "Dreame",
+      "aliases": [
+        "dreame.vacuum.r2492b"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Model ID sourced from Dreame registry. Portable semantic preview/research only; exact vendor voice format and installation path are unverified."
+    },
+    {
+      "id": "dreame.vacuum.r2492j",
+      "name": "Dreame L40 Ultra (regional J)",
+      "vendor": "Dreame",
+      "aliases": [
+        "dreame.vacuum.r2492j"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Model ID sourced from Dreame registry. Portable semantic preview/research only; exact vendor voice format and installation path are unverified."
+    },
+    {
+      "id": "dreame.vacuum.r2551a",
+      "name": "Dreame L40s Ultra",
+      "vendor": "Dreame",
+      "aliases": [
+        "dreame.vacuum.r2551a"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Model ID sourced from Dreame registry. Portable semantic preview/research only; exact vendor voice format and installation path are unverified."
+    },
+    {
+      "id": "dreame.vacuum.r2579a",
+      "name": "Dreame L40 Ultra AE",
+      "vendor": "Dreame",
+      "aliases": [
+        "dreame.vacuum.r2579a"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Model ID sourced from Dreame registry. Portable semantic preview/research only; exact vendor voice format and installation path are unverified."
+    },
+    {
+      "id": "dreame.vacuum.r2579h",
+      "name": "Dreame L40 Ultra AE (variant)",
+      "vendor": "Dreame",
+      "aliases": [
+        "dreame.vacuum.r2579h"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Model ID sourced from Dreame registry. Portable semantic preview/research only; exact vendor voice format and installation path are unverified."
+    },
+    {
+      "id": "dreame.vacuum.r500za",
+      "name": "Dreame L40 Ultra AE (regional)",
+      "vendor": "Dreame",
+      "aliases": [
+        "dreame.vacuum.r500za"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Model ID sourced from Dreame registry. Portable semantic preview/research only; exact vendor voice format and installation path are unverified."
+    },
+    {
+      "id": "dreame.vacuum.r501t",
+      "name": "Dreame L40 Ultra Gen 2",
+      "vendor": "Dreame",
+      "aliases": [
+        "dreame.vacuum.r501t"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Model ID sourced from Dreame registry. Portable semantic preview/research only; exact vendor voice format and installation path are unverified."
+    },
+    {
+      "id": "dreame.vacuum.r5020a",
+      "name": "Dreame L10s Ultra Gen 2 (revision)",
+      "vendor": "Dreame",
+      "aliases": [
+        "dreame.vacuum.r5020a"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Model ID sourced from Dreame registry. Portable semantic preview/research only; exact vendor voice format and installation path are unverified."
+    },
+    {
+      "id": "dreame.vacuum.r5023a",
+      "name": "Dreame L10s Ultra Gen 3",
+      "vendor": "Dreame",
+      "aliases": [
+        "dreame.vacuum.r5023a"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Model ID sourced from Dreame registry. Portable semantic preview/research only; exact vendor voice format and installation path are unverified."
+    },
+    {
+      "id": "dreame.vacuum.r9419a",
+      "name": "Dreame L40s Pro Ultra",
+      "vendor": "Dreame",
+      "aliases": [
+        "dreame.vacuum.r9419a"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Model ID sourced from Dreame registry. Portable semantic preview/research only; exact vendor voice format and installation path are unverified."
+    },
+    {
+      "id": "dreame.vacuum.r9419e",
+      "name": "Dreame L40s Pro Ultra (regional)",
+      "vendor": "Dreame",
+      "aliases": [
+        "dreame.vacuum.r9419e"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
+      },
+      "notes": "Model ID sourced from Dreame registry. Portable semantic preview/research only; exact vendor voice format and installation path are unverified."
     },
     {
       "id": "ijai.vacuum.v1",
@@ -3369,9 +4638,61 @@
     }
   ],
   "expansion": {
-    "version": "v0.8",
+    "version": "v0.10.0",
     "requested_inventory_rows": 103,
     "source": "https://gruzdev.kiev.ua/en/blog/translations-xiaomi-home-mi-home-plugins-xiaomi-smart-home",
-    "policy": "Model presence and Mi Home plugin metadata do not imply custom voice installation support."
+    "policy": "New catalog IDs are research/build profiles; no new custom-install transport verified.",
+    "previous_count": 109,
+    "source_backed_added": 47,
+    "extra_registry_source": "https://dv.tasshack.com/ru/guide/more/supported-devices",
+    "added_model_ids": [
+      "dreame.vacuum.p2259",
+      "dreame.vacuum.p2187",
+      "dreame.vacuum.p2150o",
+      "dreame.vacuum.p2150a",
+      "dreame.vacuum.p2150b",
+      "dreame.vacuum.p2114o",
+      "dreame.vacuum.p2036",
+      "dreame.vacuum.p2041",
+      "dreame.vacuum.p2041o",
+      "dreame.vacuum.p2140o",
+      "dreame.vacuum.p2140p",
+      "dreame.vacuum.p2148o",
+      "dreame.vacuum.p2157",
+      "dreame.vacuum.p2156o",
+      "dreame.vacuum.r2215o",
+      "dreame.vacuum.r2211o",
+      "dreame.vacuum.r2251a",
+      "dreame.vacuum.r2257o",
+      "dreame.vacuum.r2232b",
+      "dreame.vacuum.r2363",
+      "dreame.vacuum.r2363a",
+      "dreame.vacuum.r2364",
+      "dreame.vacuum.r2364a",
+      "dreame.vacuum.r2338a",
+      "dreame.vacuum.r2377",
+      "dreame.vacuum.r2394a",
+      "dreame.vacuum.r2394f",
+      "dreame.vacuum.r2492b",
+      "dreame.vacuum.r2492j",
+      "dreame.vacuum.r2253b",
+      "dreame.vacuum.r2253m",
+      "dreame.vacuum.r2253c",
+      "dreame.vacuum.r2469a",
+      "dreame.vacuum.r2469x",
+      "dreame.vacuum.r2367",
+      "dreame.vacuum.r2361a",
+      "dreame.vacuum.r2579a",
+      "dreame.vacuum.r500za",
+      "dreame.vacuum.r2579h",
+      "dreame.vacuum.r2551a",
+      "dreame.vacuum.r9419a",
+      "dreame.vacuum.r9419e",
+      "dreame.vacuum.r501t",
+      "dreame.vacuum.r5020a",
+      "dreame.vacuum.r5023a",
+      "dreame.vacuum.r2253t",
+      "dreame.vacuum.r2253w"
+    ]
   }
 }
