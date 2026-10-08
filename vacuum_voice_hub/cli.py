@@ -1,19 +1,22 @@
 import argparse,json
-from .catalog import voices,models,voice_by_id,backlog,model_by_id,categories
+from .catalog import voices,models,voice_by_id,backlog,model_by_id,categories,events,event_profile_for_model
 from .build import build_voice
 from .install import install_voice
 from .server import serve
 from .stock import list_stock,install_stock
 from .preview import preview_file
 from .local_import import convert_local
+from .creator import (
+    new_workspace,validate_workspace,assign_audio,remove_event,
+    workspace_model_coverage,build_workspace,list_workspaces,workspace_snapshot
+)
 from . import miot,__version__
 
 def _dump(x):
     print(json.dumps(x,ensure_ascii=False,indent=2,default=str))
 
 def _parse_category_fallbacks(values):
-    out={}
-    valid=set(categories())
+    out={};valid=set(categories())
     for raw in values or []:
         if "=" not in raw:
             raise SystemExit(f"--fallback-category expects CATEGORY=VOICE, got {raw!r}")
@@ -32,10 +35,85 @@ def _add_build_args(s):
     s.add_argument("--fallback",help="Default fallback voice for all remaining missing events")
     s.add_argument("--fallback-category",action="append",default=[],metavar="CATEGORY=VOICE",help="Fill only one semantic category; repeatable")
 
+def _creator_parser(sub):
+    c=sub.add_parser("creator",help="Create and build semantic vvh.voicepack.v1 packs")
+    cs=c.add_subparsers(dest="creator_cmd",required=True)
+
+    s=cs.add_parser("new")
+    s.add_argument("path",nargs="?")
+    s.add_argument("--id",required=True,dest="pack_id")
+    s.add_argument("--name",required=True)
+    s.add_argument("--author",required=True)
+    s.add_argument("--language",required=True)
+    s.add_argument("--adult",action="store_true")
+    s.add_argument("--license",default="UNLICENSED",dest="license_name")
+    s.add_argument("--source-url")
+    s.add_argument("--description")
+
+    cs.add_parser("list")
+
+    s=cs.add_parser("validate")
+    s.add_argument("path")
+
+    s=cs.add_parser("assign")
+    s.add_argument("path")
+    s.add_argument("semantic")
+    s.add_argument("audio_file")
+
+    s=cs.add_parser("remove")
+    s.add_argument("path")
+    s.add_argument("semantic")
+
+    s=cs.add_parser("coverage")
+    s.add_argument("path")
+    s.add_argument("--model",default="dreame.vacuum.r2209")
+
+    s=cs.add_parser("build")
+    s.add_argument("path")
+    s.add_argument("--model",default="dreame.vacuum.r2209")
+    s.add_argument("--output")
+
+    s=cs.add_parser("events")
+    s.add_argument("--model")
+    s.add_argument("--category")
+
+def _creator_main(a):
+    if a.creator_cmd=="new":
+        _dump(new_workspace(
+            a.path,pack_id=a.pack_id,name=a.name,author=a.author,
+            language=a.language,adult=a.adult,license_name=a.license_name,
+            source_url=a.source_url,description=a.description,
+        ))
+    elif a.creator_cmd=="list":
+        _dump(list_workspaces())
+    elif a.creator_cmd=="validate":
+        _dump(validate_workspace(a.path))
+    elif a.creator_cmd=="assign":
+        _dump(assign_audio(a.path,a.semantic,a.audio_file))
+    elif a.creator_cmd=="remove":
+        _dump(remove_event(a.path,a.semantic))
+    elif a.creator_cmd=="coverage":
+        _dump(workspace_model_coverage(a.path,a.model))
+    elif a.creator_cmd=="build":
+        _dump(build_workspace(a.path,a.model,a.output))
+    elif a.creator_cmd=="events":
+        allowed=None
+        if a.model:
+            allowed=set(event_profile_for_model(a.model)["known_event_ids"])
+        rows=[]
+        for e in events():
+            if allowed is not None and int(e["id"]) not in allowed:
+                continue
+            if a.category and e.get("category")!=a.category:
+                continue
+            rows.append(e)
+        _dump(rows)
+
 def main():
     p=argparse.ArgumentParser(prog="vvh",description=f"Vacuum Voice Hub {__version__}")
     p.add_argument("--version",action="version",version=__version__)
     sub=p.add_subparsers(dest="cmd",required=True)
+
     s=sub.add_parser("list");s.add_argument("--language");s.add_argument("--adult",action="store_true")
     sub.add_parser("stats")
     sub.add_parser("models")
@@ -52,7 +130,11 @@ def main():
     s=sub.add_parser("preview");s.add_argument("voice_id");s.add_argument("--model",default="dreame.vacuum.r2209");s.add_argument("--play",action="store_true")
     s=sub.add_parser("stock");s.add_argument("--model",default="dreame.vacuum.r2209");s.add_argument("--manifest-url")
     s=sub.add_parser("restore-stock");s.add_argument("stock_id");s.add_argument("--model",default="dreame.vacuum.r2209");s.add_argument("--ip",required=True);s.add_argument("--token");s.add_argument("--manifest-url");s.add_argument("--allow-experimental-transport",action="store_true")
+    _creator_parser(sub)
+
     a=p.parse_args()
+    if a.cmd=="creator":
+        return _creator_main(a)
     if a.cmd=="list":
         for v in voices():
             if a.language and v["language"]!=a.language:continue
@@ -69,7 +151,9 @@ def main():
             "models":len(mm),
             "hardware_verified_models":sum(bool(m.get("device_tested")) for m in mm),
             "install_default_models":sum(bool(m.get("transport",{}).get("allow_default")) for m in mm),
+            "semantic_events":len(events()),
             "semantic_categories":categories(),
+            "creator_schema":"vvh.voicepack.v1",
             "research_backlog":len(backlog()),
         })
     elif a.cmd=="models":
@@ -103,8 +187,7 @@ def main():
         r=list_stock(a.model,a.manifest_url);print("manifest:",r["manifest"]);[print(f"{x['id']:<18} {x['size']:>9}  {x['url']}") for x in r["items"]]
     elif a.cmd=="restore-stock":
         import getpass
-        r=list_stock(a.model,a.manifest_url)
-        item=next((x for x in r["items"] if x["id"]==a.stock_id),None)
+        r=list_stock(a.model,a.manifest_url);item=next((x for x in r["items"] if x["id"]==a.stock_id),None)
         if not item:raise SystemExit(f"stock id not found: {a.stock_id}")
         token=a.token or getpass.getpass("TOKEN (hidden): ")
         _dump(install_stock(a.model,a.ip,token,item,allow_experimental_transport=a.allow_experimental_transport))
@@ -119,4 +202,4 @@ def main():
         print("python:",sys.version.split()[0])
         print("ffmpeg:",shutil.which("ffmpeg") or "bundled via imageio-ffmpeg after install")
         print("ccrypt:",shutil.which("ccrypt") or "optional; required only for legacy Roborock .pkg")
-        print("voices:",len(voices()));print("models:",len(models()));print("categories:",",".join(categories()));print("OK")
+        print("voices:",len(voices()));print("models:",len(models()));print("events:",len(events()));print("creator: vvh.voicepack.v1");print("OK")
