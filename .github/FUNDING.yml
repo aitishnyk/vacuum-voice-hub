@@ -1,0 +1,8 @@
+# Vacuum Voice Hub funding configuration
+# GitHub will show a Sponsor button for supported funding accounts.
+github: [aitishnyk]
+
+# You can add external funding later, for example:
+# ko_fi: YOUR_KOFI_USERNAME
+# buy_me_a_coffee: YOUR_USERNAME
+# custom: ["https://your-payment-link.example"]
