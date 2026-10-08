@@ -1,35 +1,57 @@
 # Changelog
 
-## 0.7.0 — 2026-10-08
+## 0.8.0 — 2026-10-08
 
-### Distribution hardening
-- added `vvh.release-manifest.v1`;
-- added `vvh.update-feed.v1`;
-- added deterministic public release ZIP;
-- added SPDX 2.3 SBOM;
-- added `SHA256SUMS`;
-- added release verifier;
-- added double-build reproducibility CI gate;
-- documented strict signing/notarization claim boundaries;
-- source/PR manifests remain explicitly unsigned.
+### Mass Model Expansion
+- imported 103 requested Mi Home ecosystem rows;
+- expanded catalog from 7 to **109 model profiles**;
+- retained exact product/plugin metadata from the supplied inventory;
+- software matrix = **109 models × 55 voices = 5,995 target combinations**.
+
+### Target adapters
+- Dreame numeric OGG/tar.gz;
+- classic Roborock named WAV / encrypted .pkg;
+- IJAI named MP3/ZIP;
+- portable semantic OGG ZIP for unverified package families.
+
+### Compatibility safety
+- added conservative modern-Dreame intersection profile;
+- added Roborock semantic profile;
+- added IJAI semantic profile;
+- added portable semantic core profile;
+- compatibility analysis no longer requires target packaging;
+- preview now works from canonical audio before vendor packaging.
+
+### Installation transports
+- retained verified X10 MIoT property install;
+- added experimental Roborock `dnld_install_sound`;
+- added experimental IJAI URL+MD5 MIoT action;
+- newer signed Roborock models fail closed;
+- unknown vendor transports remain build-only.
+
+### UX / QA
+- model search in main UI, Creator Studio and public catalog;
+- model cards show adapter/container/product/plugin metadata;
+- CI model-matrix audit;
+- exact family-count and 5,995-combination tests.
+
+## 0.7.0 — 2026-10-08
+- reproducible distribution, SPDX SBOM, SHA256SUMS and update feed.
 
 ## 0.6.0 — 2026-10-08
-- deterministic public website/catalog;
-- `vvh.public-catalog.v1`;
-- SHA-256 manifest and Public Site artifact.
+- deterministic public catalog.
 
 ## 0.5.0 — 2026-10-08
-- desktop shell / 3-OS packaging;
-- keyring, install history, `vvh.compat-report.v1`.
+- desktop + community verification.
 
 ## 0.4.0 — 2026-10-08
-- Creator Studio / `vvh.voicepack.v1`.
+- Creator Studio.
 
 ## 0.3.0 — 2026-10-08
-- seven model profiles and semantic compatibility.
+- initial multi-model wave.
 
 ## 0.2.0 — 2026-10-08
-- 55 attributed voice variants.
+- 55 voice wave.
 
 ## 0.1.0 — 2026-10-08
 - X10 foundation.

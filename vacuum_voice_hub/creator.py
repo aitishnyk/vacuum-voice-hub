@@ -237,8 +237,10 @@ def build_workspace(path,model_id,output=None):
                 (canonical/f"{event_id}.ogg").write_bytes(payload)
         if len(list(canonical.glob("*.ogg")))<5:
             raise ValueError("fewer than 5 target-model events were mapped; add more semantic events before building")
-        out=Path(output).expanduser().resolve() if output else root/f"{manifest['id']}__{model['id'].replace('.','_')}.tar.gz"
-        meta=get_model(model["id"]).package(canonical,out,allowed_ids=known_ids)
+        adapter=get_model(model["id"])
+        suffix=getattr(adapter,"OUTPUT_SUFFIX",".tar.gz")
+        out=Path(output).expanduser().resolve() if output else root/f"{manifest['id']}__{model['id'].replace('.','_')}{suffix}"
+        meta=adapter.package(canonical,out,allowed_ids=known_ids)
     return {
         **meta,
         "workspace":str(root),
@@ -246,6 +248,8 @@ def build_workspace(path,model_id,output=None):
         "pack_name":manifest["name"],
         "author":manifest["author"],
         "model_id":model["id"],
+        "target_adapter":model.get("adapter"),
+        "output_suffix":getattr(get_model(model["id"]),"OUTPUT_SUFFIX",".tar.gz"),
         "semantic_mappings":semantic_to_ids,
         "coverage":workspace_model_coverage(root,model["id"]),
     }

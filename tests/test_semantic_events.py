@@ -17,7 +17,7 @@ def test_semantic_event_union_and_namespace():
 
 def test_event_profiles_have_provenance():
     doc=json.loads((ROOT/"catalog/event_profiles.json").read_text())
-    assert len(doc["profiles"])==7
+    assert len(doc["profiles"])==11
     for p in doc["profiles"]:
         assert p.get("source_evidence")
         assert p.get("profile_kind")

@@ -1,4 +1,4 @@
-import shutil, tempfile, tarfile, re
+import shutil, tempfile, re
 from pathlib import Path
 from .archive import extract
 from .audio import normalize
@@ -54,7 +54,9 @@ def convert_local(path, model_id="dreame.vacuum.r2209", fmt="auto", output=None)
             extract(src,raw)
         adapted=_adapt_dir(raw,work,fmt)
         compatibility=report_dir(adapted["dir"],model_id)
-        out=Path(output).expanduser().resolve() if output else src.parent/f'{src.stem}__{model_id.replace(".","_")}.tar.gz'
+        adapter=get_model(model_id)
+        suffix=getattr(adapter,"OUTPUT_SUFFIX",".tar.gz")
+        out=Path(output).expanduser().resolve() if output else src.parent/f'{src.stem}__{model_id.replace(".","_")}{suffix}'
         profile=event_profile_for_model(model_id)
-        meta=get_model(model_id).package(adapted["dir"],out,allowed_ids=set(profile["known_event_ids"]))
-        return {**meta,"detected":adapted.get("detected"),"compatibility":compatibility,"output":str(out)}
+        meta=adapter.package(adapted["dir"],out,allowed_ids=set(profile["known_event_ids"]))
+        return {**meta,"detected":adapted.get("detected"),"compatibility":compatibility,"output":str(out),"output_suffix":suffix}

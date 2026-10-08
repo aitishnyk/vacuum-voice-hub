@@ -18,7 +18,7 @@ EXPECTED={
 
 def test_v03_has_seven_model_profiles_with_expected_counts():
     doc=json.loads((ROOT/"catalog/models.json").read_text())
-    assert len(doc["models"])==7
+    assert len(doc["models"])>=7
     for model_id,count in EXPECTED.items():
         profile=event_profile_for_model(model_id)
         assert profile["known_count"]==count

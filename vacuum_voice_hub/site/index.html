@@ -31,6 +31,7 @@
 </section>
 <section id="modelSection" class="hidden">
   <div class="notice">Hardware verified means a physical robot produced accepted/downloaded/success evidence. Similar hardware alone is not enough.</div>
+  <div class="toolbar"><input id="modelQ" class="grow" placeholder="Search model, ID, adapter, transport…"></div>
   <div id="modelGrid" class="grid"></div>
 </section>
 <div class="notice">Generated from the canonical repository catalog. Machine-readable files: catalog.json, models.json, manifest.json.</div>
@@ -57,12 +58,15 @@ function renderVoices(){
   }).join('');
 }
 function renderModels(){
-  byId('modelGrid').innerHTML=models.models.map(function(m){
-    const badge=m.device_tested?'<span class="tag verified">hardware verified</span>':(m.install_default?'<span class="tag">install supported</span>':'<span class="tag experimental">pending/experimental</span>');
-    return '<article class="card"><h3>'+esc(m.name)+' '+badge+'</h3><div class="small">Model ID: '+esc(m.id)+'<br>Events: '+esc(m.event_count)+'<br>Profile: '+esc(m.event_profile)+' · '+esc(m.profile_kind)+'<br>Transport: '+esc(m.transport_verification||m.transport_kind)+'<br>'+esc(m.notes||'')+'</div></article>';
+  const term=(byId('modelQ')?byId('modelQ').value:'').toLowerCase();
+  const rows=models.models.filter(function(m){const hay=(m.name+' '+m.id+' '+(m.adapter||'')+' '+(m.transport_verification||'')+' '+(m.custom_install_policy||'')).toLowerCase();return !term||hay.indexOf(term)>=0});
+  byId('modelGrid').innerHTML=rows.map(function(m){
+    const policy=m.custom_install_policy||'build-only';
+    const badge=m.device_tested?'<span class="tag verified">hardware verified</span>':(policy==='experimental'?'<span class="tag experimental">experimental install</span>':policy==='official-signed-only'?'<span class="tag experimental">official signed only</span>':'<span class="tag">build only</span>');
+    return '<article class="card"><h3>'+esc(m.name)+' '+badge+'</h3><div class="small">Model ID: '+esc(m.id)+'<br>Adapter: '+esc(m.adapter)+' · '+esc(m.package_container)+'<br>Events: '+esc(m.event_count)+'<br>Profile: '+esc(m.event_profile)+' · '+esc(m.profile_kind)+'<br>Transport: '+esc(m.transport_verification||m.transport_kind)+'<br>Mi Home product/plugin: '+esc(m.product_id||'—')+' / '+esc(m.plugin_id||'—')+'<br>'+esc(m.notes||'')+'</div></article>';
   }).join('');
 }
-byId('q').oninput=renderVoices;byId('lang').onchange=renderVoices;byId('adult').onchange=renderVoices;
+byId('q').oninput=renderVoices;byId('lang').onchange=renderVoices;byId('adult').onchange=renderVoices;byId('modelQ').oninput=renderModels;
 byId('tabVoices').onclick=function(){byId('voiceSection').classList.remove('hidden');byId('modelSection').classList.add('hidden');byId('tabVoices').classList.add('active');byId('tabModels').classList.remove('active')};
 byId('tabModels').onclick=function(){byId('modelSection').classList.remove('hidden');byId('voiceSection').classList.add('hidden');byId('tabModels').classList.add('active');byId('tabVoices').classList.remove('active')};
 init();

@@ -158,6 +158,8 @@ def main():
             "hardware_verified_models":sum(bool(m.get("device_tested")) for m in mm),
             "install_default_models":sum(bool(m.get("transport",{}).get("allow_default")) for m in mm),
             "semantic_events":len(events()),"semantic_categories":categories(),
+            "target_combinations":len(vv)*len(mm),
+            "adapters":sorted({m.get("adapter") for m in mm}),
             "creator_schema":"vvh.voicepack.v1","compat_report_schema":"vvh.compat-report.v1","public_catalog_schema":"vvh.public-catalog.v1","release_manifest_schema":"vvh.release-manifest.v1","update_feed_schema":"vvh.update-feed.v1",
             "research_backlog":len(backlog()),
         })
@@ -170,7 +172,7 @@ def main():
     elif a.cmd in {"coverage","build","install"}:
         fbc=_parse_category_fallbacks(a.fallback_category)
         if a.cmd=="coverage":
-            b=build_voice(a.voice_id,a.model,fallback_voice_id=a.fallback,fallback_categories=fbc)
+            b=build_voice(a.voice_id,a.model,fallback_voice_id=a.fallback,fallback_categories=fbc,package_output=False)
             _dump({"voice_id":a.voice_id,"model":b["model"],"compatibility":b["compatibility"],"original_compatibility":b["original_compatibility"],"fallbacks":b.get("fallbacks")})
         elif a.cmd=="build":_dump(build_voice(a.voice_id,a.model,fallback_voice_id=a.fallback,fallback_categories=fbc))
         else:_dump(install_voice(a.voice_id,a.model,a.ip,_resolve_token(a),fallback_voice_id=a.fallback,fallback_categories=fbc,allow_experimental_transport=a.allow_experimental_transport))

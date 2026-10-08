@@ -22,7 +22,7 @@ def _parse_fallback_plan(fallback_voice_id=None,fallback_categories=None):
         plan.append({"voice_id":fallback_voice_id,"categories":[]})
     return plan
 
-def build_voice(voice_id,model_id,fallback_voice_id=None,fallback_categories=None):
+def build_voice(voice_id,model_id,fallback_voice_id=None,fallback_categories=None,package_output=True):
     voice=voice_by_id(voice_id)
     model=model_by_id(model_id)
     if fallback_voice_id==voice_id:

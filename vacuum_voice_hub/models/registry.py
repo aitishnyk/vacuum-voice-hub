@@ -1,8 +1,11 @@
-from . import dreame_numeric
+from . import dreame_numeric,roborock_legacy,ijai_zip,semantic_bundle
 from ..catalog import model_by_id
 
 ADAPTERS={
     "dreame_numeric":dreame_numeric,
+    "roborock_legacy":roborock_legacy,
+    "ijai_zip":ijai_zip,
+    "semantic_bundle":semantic_bundle,
 }
 
 def get(model_id):

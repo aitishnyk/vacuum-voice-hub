@@ -1,29 +1,41 @@
 # Roadmap
 
-## v0.1 — X10 foundation ✅
-## v0.2 — 50 Voice Wave + Compatibility Engine ✅
-## v0.3 — Multi-model Hardware Wave ✅
-## v0.4 — Creator Studio ✅
-## v0.5 — Desktop + Community Verification ✅
-## v0.6 — Public Catalog / Website ✅
+## Completed
 
-## v0.7 — Distribution Hardening
-- reproducible release bundle
-- SPDX SBOM
-- SHA256SUMS
-- `vvh.release-manifest.v1`
-- `vvh.update-feed.v1`
-- double-build reproducibility gate
-- signing/notarization claim boundaries
+- v0.1 — X10 foundation ✅
+- v0.2 — 55 Voice Wave + Compatibility ✅
+- v0.3 — Multi-model foundation ✅
+- v0.4 — Creator Studio ✅
+- v0.5 — Desktop + Community Verification ✅
+- v0.6 — Public Catalog ✅
+- v0.7 — Distribution Hardening ✅
+- v0.8 — 109-model Mass Expansion
 
-## Post-v0.7 / v1 readiness
-Software platform contracts are now in place. v1.0 must **not** be declared solely by changing a version number.
+## v0.9 — Transport & Package Research Wave
 
-Remaining evidence-driven goals:
-- grow legitimate source-attributed catalog when recoverable and redistributable;
-- add more model profiles only with source-backed event/transport evidence;
-- promote hardware verification only from reviewed physical-device reports;
-- add real release signing/notarization only after trusted keys/certificates are provisioned;
-- optionally enable live GitHub Pages deployment for the already Pages-ready static artifact.
+Primary goal: convert the highest-value build-only profiles into evidence-backed target adapters without weakening fail-closed safety.
 
-No false `100+ voices`, `10+ verified devices`, signed, or notarized claims are permitted before those facts exist.
+Priority:
+- ROIDMI EVA / EVE package and set-voice payload;
+- Xiaomi H40 / M30 / M40 families;
+- Xiaomi X20+;
+- Mijia 5/6 families with global voice-pack references;
+- Viomi Alpha/V3 families;
+- additional IJAI action models;
+- exact event extraction for modern Dreame S10/X10/W10 lines.
+
+Also:
+- pure-Python or bundled legacy Roborock ccrypt-compatible packaging if legally/technically practical;
+- community report review tooling;
+- adapter evidence fixtures;
+- per-model official voice discovery where vendor endpoints are known.
+
+## v1.0 readiness
+
+v1.0 is evidence-driven, not a version-number exercise.
+
+Do not claim:
+- hardware verified without physical evidence;
+- custom install on vendor-signed generations;
+- signed/notarized binaries without real signatures;
+- universal package compatibility when only semantic/build support exists.

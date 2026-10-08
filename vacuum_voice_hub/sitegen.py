@@ -44,6 +44,16 @@ def _public_model(m,profiles):
         "transport_verification":t.get("verification"),
         "install_default":bool(t.get("allow_default")),
         "notes":m.get("notes"),
+        "adapter":m.get("adapter"),
+        "package_container":(m.get("package") or {}).get("container"),
+        "product_id":m.get("product_id"),
+        "plugin_id":m.get("plugin_id"),
+        "custom_install_policy":(
+            "hardware-verified" if m.get("device_tested")
+            else "experimental" if t.get("kind") in {"miot-local-property","roborock-miio-sound","miot-action-url-md5"}
+            else "official-signed-only" if t.get("kind")=="signed-official-only"
+            else "build-only"
+        ),
     }
 
 def build_site(output):
