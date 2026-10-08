@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/aitishnyk/vacuum-voice-hub/schemas/vvh.script-pack.v1.schema.json",
+  "title": "Model-aware text scripts, not prerecorded robot voice packs",
+  "type": "object",
+  "required": [
+    "schema",
+    "status",
+    "semantics",
+    "locales"
+  ],
+  "properties": {
+    "schema": {
+      "const": "vvh.script-pack.v1"
+    },
+    "status": {
+      "const": "text-only-not-audio-pack"
+    },
+    "note": {
+      "type": "string"
+    },
+    "semantics": {
+      "type": "array",
+      "minItems": 16,
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "locales": {
+      "type": "object",
+      "minProperties": 18,
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "name",
+          "phrases"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "phrases": {
+            "type": "object",
+            "minProperties": 16,
+            "additionalProperties": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    }
+  }
+}
