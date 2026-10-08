@@ -7,6 +7,17 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: {python-version: '3.12'}
-      - run: python -m pip install pytest
-      - run: pytest -q
-      - run: python -m compileall -q vacuum_voice_hub
+      - name: Install package and test dependencies
+        run: python -m pip install -e . pytest
+      - name: Unit tests
+        run: pytest -q
+      - name: Python compile
+        run: python -m compileall -q vacuum_voice_hub
+      - name: CLI smoke
+        run: |
+          vvh --version
+          vvh stats
+      - name: macOS installer shell syntax
+        run: bash -n scripts/INSTALL_MACOS.command
+      - name: Web UI JavaScript syntax
+        run: python scripts/check_web_js.py

@@ -1,32 +1,63 @@
-# Voice catalog
+# Voice catalog — v0.2
 
-Every installable entry keeps an upstream source and an explicit thank-you.
+**55 attributed voice variants** across **7 languages**. Explicit packs are marked 🔞.
 
-| ID | Voice | Lang | 18+ | Status | Thanks / source |
-|---|---|---:|:---:|---|---|
-| `fluttershy` | Fluttershy | en |  | convertible | [czaky community pack](https://github.com/czaky/dreame_voice_pack/tree/master/fluttershy) |
-| `glados-czaky` | GLaDOS — Dreame edition | en |  | convertible | [czaky; based on Dreame/15.ai community work](https://github.com/czaky/dreame_voice_pack/tree/master/glados) |
-| `glados-findus` | GLaDOS — Findus23 / 15.ai | en |  | convertible | [Findus23; generated with 15.ai; inspired by ccoors/dreame_voice_packs](https://github.com/Findus23/voice_pack_dreame) |
-| `glados-robovoice` | GLaDOS — RoboVoice edition | en |  | convertible | [Community GLaDOS pack; RoboVoice adaptation by SashaEee](https://github.com/SashaEee/Trouver_audio_install) |
-| `sweetie-belle` | Sweetie Belle | en |  | convertible | [czaky community pack](https://github.com/czaky/dreame_voice_pack/tree/master/sweetie-belle) |
-| `tiff` | Tiff / Kirby | en |  | convertible | [czaky community pack](https://github.com/czaky/dreame_voice_pack/tree/master/kirby-tiff) |
-| `warcraft` | Warcraft | ru |  | convertible | [Community Warcraft pack; RoboVoice adaptation by SashaEee](https://github.com/SashaEee/vac-voice) |
-| `alice-ru` | Алиса | ru |  | convertible | [RoboVoice community / SashaEee; original pack author if known upstream](https://github.com/SashaEee/vac-voice) |
-| `derzkaya-galya` | Дерзкая Галя | ru | 🔞 | convertible | [RoboVoice community / SashaEee](https://github.com/SashaEee/Trouver_audio_install) |
-| `dobkin` | Добкин | ru |  | convertible | [RoboVoice community / SashaEee](https://github.com/SashaEee/vac-voice) |
-| `kuzya` | Домовёнок Кузя | ru |  | convertible | [RoboVoice community / SashaEee](https://github.com/SashaEee/vac-voice) |
-| `kuzya-3` | Домовёнок Кузя — версия 3 | ru |  | convertible | [RoboVoice community / SashaEee](https://github.com/SashaEee/vac-voice) |
-| `leather-bastards` | Кожаные ублюдки | ru | 🔞 | convertible | [Rubler4ik (credited upstream) + community; RoboVoice adaptation by SashaEee](https://github.com/SashaEee/Trouver_audio_install/blob/main/docs/CREDITS.md) |
-| `q0-leather-bastards-loud` | Кожаные ублюдки Loud — Ijai edition | ru | 🔞 | convertible | [Q0/ijai.vacuum contributors; Leather Bastards community creators (Rubler4ik credited by RoboVoice)](https://github.com/Q0/ijai.vacuum) |
-| `kuzya-winnie-ostrov` | Кузя + Винни + Остров | ru |  | convertible | [RoboVoice community / SashaEee](https://github.com/SashaEee/vac-voice) |
-| `q0-maxim` | Максим 18+ — Ijai edition | ru | 🔞 | convertible | [Q0/ijai.vacuum contributors; original Maxim community pack makers](https://github.com/Q0/ijai.vacuum) |
-| `maxim-full` | Максим Full | ru | 🔞 | convertible | [RoboVoice community / SashaEee](https://github.com/SashaEee/Trouver_audio_install) |
-| `q0-maxim-spazzy` | Максим Spazzy | ru |  | convertible | [Q0/ijai.vacuum contributors; Maxim Spazzy community pack makers](https://github.com/Q0/ijai.vacuum) |
-| `rick-and-morty` | Рик и Морти | ru | 🔞 | convertible | [RoboVoice community / SashaEee](https://github.com/SashaEee/vac-voice) |
-| `q0-russian` | Русский штатный Ijai pack | ru |  | convertible | [Q0/ijai.vacuum contributors; Xiaomi/Ijai source package](https://github.com/Q0/ijai.vacuum) |
-| `soviet-movies` | Советские фильмы | ru |  | convertible | [RoboVoice community / SashaEee](https://github.com/SashaEee/vac-voice) |
-| `super-botanik` | Супер ботаник | ru | 🔞 | convertible | [RoboVoice community / SashaEee](https://github.com/SashaEee/Trouver_audio_install) |
-| `eleonora` | Элеонора | ru |  | convertible | [RoboVoice community / SashaEee](https://github.com/SashaEee/vac-voice) |
-| `uk-glados` | GLaDOS українською | uk |  | convertible | [Lost Human; sverdlyuk; community supporters; mapping credit to Oleksandr Belei](https://github.com/sverdlyuk/glados_ukr) |
-| `uk-female-pensive` | Український жіночий — Pensive | uk |  | convertible | [Oleksandr Belei and contributors](https://github.com/oleksandr-belei/dreame-vacuum-uk-voice-packs) |
-| `r2d2` | R2-D2 / Star Wars | zxx |  | convertible | [b73tt / Valetudo R2-D2; RoboVoice adaptation by SashaEee](https://github.com/b73tt/valetudo-r2d2) |
+Every row points back to its upstream source. “Convertible” means VVH has a source-format adapter; it does **not** mean every pack has been physically tested on Xiaomi X10. Use `vvh coverage <id>` for the model-specific report.
+
+| ID | Voice | Lang | 18+ | Status | Source verification | Origin layout/model | Thanks / source |
+|---|---|---:|:---:|---|---|---|---|
+| `alice-ru` | Алиса | ru |  | convertible | git-blob+size | RoboVoice / Trouver r2567r semantic layout | [source](https://github.com/SashaEee/vac-voice) · RoboVoice community / SashaEee; original pack author if known upstream |
+| `derzkaya-galya` | Дерзкая Галя | ru | 🔞 | convertible | git-blob+size | RoboVoice / Trouver r2567r semantic layout | [source](https://github.com/SashaEee/Trouver_audio_install) · RoboVoice community / SashaEee |
+| `dobkin` | Добкин | ru |  | convertible | git-blob+size | RoboVoice / Trouver r2567r semantic layout | [source](https://github.com/SashaEee/vac-voice) · RoboVoice community / SashaEee |
+| `kuzya` | Домовёнок Кузя | ru |  | convertible | git-blob+size | RoboVoice / Trouver r2567r semantic layout | [source](https://github.com/SashaEee/vac-voice) · RoboVoice community / SashaEee |
+| `kuzya-3` | Домовёнок Кузя — версия 3 | ru |  | convertible | git-blob+size | RoboVoice / Trouver r2567r semantic layout | [source](https://github.com/SashaEee/vac-voice) · RoboVoice community / SashaEee |
+| `leather-bastards` | Кожаные ублюдки | ru | 🔞 | convertible | git-blob+size | RoboVoice / Trouver r2567r semantic layout | [source](https://github.com/SashaEee/Trouver_audio_install/blob/main/docs/CREDITS.md) · Rubler4ik (credited upstream) + community; RoboVoice adaptation by SashaEee |
+| `q0-leather-bastards-loud` | Кожаные ублюдки Loud — Ijai edition | ru | 🔞 | convertible | git-blob+size | Xiaomi Ijai legacy named-MP3 layout | [source](https://github.com/Q0/ijai.vacuum) · Q0/ijai.vacuum contributors; Leather Bastards community creators (Rubler4ik credited by RoboVoice) |
+| `kuzya-winnie-ostrov` | Кузя + Винни + Остров | ru |  | convertible | git-blob+size | RoboVoice / Trouver r2567r semantic layout | [source](https://github.com/SashaEee/vac-voice) · RoboVoice community / SashaEee |
+| `q0-maxim` | Максим 18+ — Ijai edition | ru | 🔞 | convertible | git-blob+size | Xiaomi Ijai legacy named-MP3 layout | [source](https://github.com/Q0/ijai.vacuum) · Q0/ijai.vacuum contributors; original Maxim community pack makers |
+| `maxim-full` | Максим Full | ru | 🔞 | convertible | git-blob+size | RoboVoice / Trouver r2567r semantic layout | [source](https://github.com/SashaEee/Trouver_audio_install) · RoboVoice community / SashaEee |
+| `q0-maxim-spazzy` | Максим Spazzy | ru |  | convertible | git-blob+size | Xiaomi Ijai legacy named-MP3 layout | [source](https://github.com/Q0/ijai.vacuum) · Q0/ijai.vacuum contributors; Maxim Spazzy community pack makers |
+| `rick-and-morty` | Рик и Морти | ru | 🔞 | convertible | git-blob+size | RoboVoice / Trouver r2567r semantic layout | [source](https://github.com/SashaEee/vac-voice) · RoboVoice community / SashaEee |
+| `q0-russian` | Русский штатный Ijai pack | ru |  | convertible | git-blob+size | Xiaomi Ijai legacy named-MP3 layout | [source](https://github.com/Q0/ijai.vacuum) · Q0/ijai.vacuum contributors; Xiaomi/Ijai source package |
+| `soviet-movies` | Советские фильмы | ru |  | convertible | git-blob+size | RoboVoice / Trouver r2567r semantic layout | [source](https://github.com/SashaEee/vac-voice) · RoboVoice community / SashaEee |
+| `super-botanik` | Супер ботаник | ru | 🔞 | convertible | git-blob+size | RoboVoice / Trouver r2567r semantic layout | [source](https://github.com/SashaEee/Trouver_audio_install) · RoboVoice community / SashaEee |
+| `uk-female-pensive` | Український жіночий — Pensive | uk |  | convertible | git-blob+size | Classic Dreame numeric OGG layout | [source](https://github.com/oleksandr-belei/dreame-vacuum-uk-voice-packs) · Oleksandr Belei and contributors |
+| `eleonora` | Элеонора | ru |  | convertible | git-blob+size | RoboVoice / Trouver r2567r semantic layout | [source](https://github.com/SashaEee/vac-voice) · RoboVoice community / SashaEee |
+| `arnold-d10s` | Arnold — D10S Plus edition | en |  | convertible | git-blob+size | Dreame D10S Plus | [source](https://github.com/spikeygg/valetudo_voice_pack_arnold_standard) · spikeygg; synthesized character voice pack |
+| `l40-bertram` | Bertram — sarcastic butler | en |  | convertible | git-blob+size | Dreame L40 Ultra / dreame.vacuum.r2492j | [source](https://github.com/jan-hinter-droid/dreame-l40-voicepack) · willemcvu character pack; jan-hinter-droid mirror and compatibility research |
+| `l40-bob-ross` | Bob Ross — calm edition | en |  | convertible | git-blob+size | Dreame L40 Ultra / dreame.vacuum.r2492j | [source](https://github.com/jan-hinter-droid/dreame-l40-voicepack) · willemcvu character pack; jan-hinter-droid mirror and compatibility research |
+| `l40-c3po` | C-3PO | en |  | convertible | git-blob+size | Dreame L40 Ultra / dreame.vacuum.r2492j | [source](https://github.com/jan-hinter-droid/dreame-l40-voicepack) · willemcvu character pack; jan-hinter-droid mirror and compatibility research |
+| `l40-dalek` | Dalek — EXTERMINATE | en |  | convertible | git-blob+size | Dreame L40 Ultra / dreame.vacuum.r2492j | [source](https://github.com/jan-hinter-droid/dreame-l40-voicepack) · willemcvu character pack; jan-hinter-droid mirror and compatibility research |
+| `l40-german-custom` | Deutsch — DECUSTOM | de |  | convertible | git-blob+size | Dreame L40 Ultra / dreame.vacuum.r2492j | [source](https://github.com/jan-hinter-droid/dreame-l40-voicepack) · jan-hinter-droid; locally synthesized compact German pack |
+| `l40-german-full` | Deutsch — FULLDE | de |  | convertible | git-blob+size | Dreame L40 Ultra / dreame.vacuum.r2492j | [source](https://github.com/jan-hinter-droid/dreame-l40-voicepack) · jan-hinter-droid; locally synthesized German pack |
+| `l40-dj-catnip` | DJ Catnip | en |  | convertible | git-blob+size | Dreame L40 Ultra / dreame.vacuum.r2492j | [source](https://github.com/jan-hinter-droid/dreame-l40-voicepack) · willemcvu character pack; jan-hinter-droid mirror and compatibility research |
+| `fluttershy` | Fluttershy | en |  | convertible | git-blob+size | Classic Dreame numeric OGG layout | [source](https://github.com/czaky/dreame_voice_pack/tree/master/fluttershy) · czaky community pack |
+| `glados-ccoors` | GLaDOS — ccoors edition | en |  | convertible | git-blob+size | classic Dreame canonical | [source](https://github.com/ccoors/dreame_voice_packs) · ccoors and community contributors |
+| `glados-czaky` | GLaDOS — Dreame edition | en |  | convertible | git-blob+size | Classic Dreame numeric OGG layout | [source](https://github.com/czaky/dreame_voice_pack/tree/master/glados) · czaky; based on Dreame/15.ai community work |
+| `glados-findus` | GLaDOS — Findus23 / 15.ai | en |  | convertible | git-blob+size | Classic Dreame numeric OGG layout | [source](https://github.com/Findus23/voice_pack_dreame) · Findus23; generated with 15.ai; inspired by ccoors/dreame_voice_packs |
+| `glados-robovoice` | GLaDOS — RoboVoice edition | en |  | convertible | git-blob+size | RoboVoice / Trouver r2567r semantic layout | [source](https://github.com/SashaEee/Trouver_audio_install) · Community GLaDOS pack; RoboVoice adaptation by SashaEee |
+| `uk-glados` | GLaDOS українською | uk |  | convertible | git-blob+size | Classic Dreame numeric OGG layout | [source](https://github.com/sverdlyuk/glados_ukr) · Lost Human; sverdlyuk; community supporters; mapping credit to Oleksandr Belei |
+| `l40-gordon-ramsay` | Gordon Ramsay | en | 🔞 | convertible | git-blob+size | Dreame L40 Ultra / dreame.vacuum.r2492j | [source](https://github.com/jan-hinter-droid/dreame-l40-voicepack) · willemcvu character pack; jan-hinter-droid mirror and compatibility research |
+| `l40-gordon-ramsay-loud` | Gordon Ramsay — Loud | en | 🔞 | convertible | git-blob+size | Dreame L40 Ultra / dreame.vacuum.r2492j | [source](https://github.com/jan-hinter-droid/dreame-l40-voicepack) · willemcvu character pack; jan-hinter-droid mirror and compatibility research |
+| `l40-gordon-ramsay-normal` | Gordon Ramsay — Normal | en | 🔞 | convertible | git-blob+size | Dreame L40 Ultra / dreame.vacuum.r2492j | [source](https://github.com/jan-hinter-droid/dreame-l40-voicepack) · willemcvu character pack; jan-hinter-droid mirror and compatibility research |
+| `l40-gordon-ramsay-sass` | Gordon Ramsay — Sass | en | 🔞 | convertible | git-blob+size | Dreame L40 Ultra / dreame.vacuum.r2492j | [source](https://github.com/jan-hinter-droid/dreame-l40-voicepack) · willemcvu character pack; jan-hinter-droid mirror and compatibility research |
+| `hebrew-official-backup` | Hebrew — Dreame official backup | he |  | convertible | git-blob+md5+size | modern Dreame family | [source](https://github.com/meirlo/dreame-vacuum-he-voice-packs) · Dreame source voice pack; backup and documentation by meirlo; layout inspired by Oleksandr Belei |
+| `hungarian-vulgar` | Hungarian — Harsh / Vulgar | hu | 🔞 | convertible | git-blob+md5+size | Dreame family | [source](https://github.com/benedek0203/dreame-vacuum-hun-voice-packs) · benedek0203; inspired by Oleksandr Belei; AI-generated and Audacity-tuned |
+| `hungarian-jenny` | Hungarian — Jenny | hu |  | convertible | git-blob+md5+size | Dreame family | [source](https://github.com/v1k70rk4/dreame_hu_tts) · v1k70rk4; Hungarian Dreame TTS project |
+| `hungarian-noemi` | Hungarian — Noémi | hu |  | convertible | git-blob+md5+size | Dreame family | [source](https://github.com/v1k70rk4/dreame_hu_tts) · v1k70rk4; Hungarian Dreame TTS project |
+| `hungarian-ryan` | Hungarian — Ryan | hu |  | convertible | git-blob+md5+size | Dreame family | [source](https://github.com/v1k70rk4/dreame_hu_tts) · v1k70rk4; Hungarian Dreame TTS project |
+| `hungarian-tamas` | Hungarian — Tamás | hu |  | convertible | git-blob+md5+size | Dreame family | [source](https://github.com/v1k70rk4/dreame_hu_tts) · v1k70rk4; Hungarian Dreame TTS project |
+| `l40-jarvis` | JARVIS — butler edition | en |  | convertible | git-blob+size | Dreame L40 Ultra / dreame.vacuum.r2492j | [source](https://github.com/jan-hinter-droid/dreame-l40-voicepack) · willemcvu character pack; jan-hinter-droid mirror and compatibility research |
+| `marge-simpson-d10s` | Marge Simpson — D10S Plus edition | en |  | convertible | git-blob+size | Dreame D10S Plus | [source](https://github.com/spikeygg/valetudo_voice_pack_marge_simpson) · spikeygg; synthesized character voice pack |
+| `l40-memes` | Meme Sounds | en | 🔞 | convertible | git-blob+size | Dreame L40 Ultra / dreame.vacuum.r2492j | [source](https://github.com/jan-hinter-droid/dreame-l40-voicepack) · n15c meme pack; jan-hinter-droid mirror and compatibility research |
+| `michael-jackson-robin` | Michael Jackson — L10S Ultra edition | en |  | convertible | release-md5+size | Dreame L10S Ultra | [source](https://github.com/RobinFrcd/valetudo-dreame-voicepack) · RobinFrcd; AI-generated community voice pack |
+| `phil-british-butler` | Phil — British Butler | en |  | convertible-requires-ccrypt | git-blob+size | Roborock S5 gen2 | [source](https://github.com/fredless/RoborockVoicePacks) · fredless; UK English Brian generated with AWS Polly; dustcloud/python-miio contributors |
+| `queen-elizabeth-robin-v1` | Queen Elizabeth II — L10S Ultra v1 | en |  | convertible | release-md5+size | Dreame L10S Ultra | [source](https://github.com/RobinFrcd/valetudo-dreame-voicepack) · RobinFrcd; AI-generated community voice pack |
+| `queen-elizabeth-robin-v2` | Queen Elizabeth II — L10S Ultra v2 | en |  | convertible | release-md5+size | Dreame L10S Ultra | [source](https://github.com/RobinFrcd/valetudo-dreame-voicepack) · RobinFrcd; AI-generated community voice pack |
+| `queen-elizabeth-ii-yllwdg` | Queen Elizabeth II — yllwdg | en |  | convertible | git-blob+md5+size | classic Dreame canonical | [source](https://github.com/yllwdg/voice_pack_dreame) · yllwdg; inspired by ccoors/dreame_voice_packs |
+| `r2d2-valetudo-original` | R2-D2 — Valetudo original | zxx |  | convertible | git-blob+md5+size | Dreame D9 | [source](https://github.com/b73tt/valetudo-r2d2) · b73tt / Valetudo R2-D2 |
+| `r2d2` | R2-D2 / Star Wars | zxx |  | convertible | git-blob+size | RoboVoice / Trouver r2567r semantic layout | [source](https://github.com/b73tt/valetudo-r2d2) · b73tt / Valetudo R2-D2; RoboVoice adaptation by SashaEee |
+| `sweetie-belle` | Sweetie Belle | en |  | convertible | git-blob+size | Classic Dreame numeric OGG layout | [source](https://github.com/czaky/dreame_voice_pack/tree/master/sweetie-belle) · czaky community pack |
+| `tiff` | Tiff / Kirby | en |  | convertible | git-blob+size | Classic Dreame numeric OGG layout | [source](https://github.com/czaky/dreame_voice_pack/tree/master/kirby-tiff) · czaky community pack |
+| `warcraft` | Warcraft | ru |  | convertible | git-blob+size | RoboVoice / Trouver r2567r semantic layout | [source](https://github.com/SashaEee/vac-voice) · Community Warcraft pack; RoboVoice adaptation by SashaEee |
+| `zoidberg` | Zoidberg | en |  | convertible | release-md5+size | L10 Pro / Z10 Pro / W10 / D9 / Dreame 1C | [source](https://github.com/flxai/valetudo-voice-pack-zoidberg) · flxai; thanks upstream to Findus23, Entepotenz, Felonius445, uberduck.ai and GNU Parallel |
