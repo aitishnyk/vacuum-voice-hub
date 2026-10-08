@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/aitishnyk/vacuum-voice-hub/schemas/vvh.transport-evidence.v1.schema.json",
+  "title": "Offline transport research evidence (not hardware certification)",
+  "type": "object",
+  "required": [
+    "schema",
+    "model_id",
+    "source",
+    "package",
+    "observations"
+  ],
+  "properties": {
+    "schema": {
+      "const": "vvh.transport-evidence.v1"
+    },
+    "model_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+([._-][a-z0-9]+)+$"
+    },
+    "source": {
+      "type": "string",
+      "pattern": "^https://",
+      "maxLength": 2048
+    },
+    "package": {
+      "type": "object",
+      "required": [
+        "sha256",
+        "size_bytes",
+        "format"
+      ],
+      "properties": {
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "size_bytes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000000000
+        },
+        "format": {
+          "enum": [
+            "tar.gz",
+            "pkg",
+            "zip",
+            "ogg",
+            "mp3",
+            "unknown"
+          ]
+        }
+      }
+    },
+    "observations": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 4,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "package_inspected",
+          "request_observed",
+          "device_downloaded",
+          "device_reported_success"
+        ]
+      }
+    },
+    "hardware": {
+      "type": "object",
+      "required": [
+        "firmware"
+      ],
+      "properties": {
+        "firmware": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        }
+      }
+    }
+  }
+}
