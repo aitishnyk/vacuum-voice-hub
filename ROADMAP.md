@@ -1,47 +1,37 @@
 # Roadmap
 
 ## v0.1 — X10 foundation ✅
-- X10 `dreame.vacuum.r2209` adapter
-- credits-first catalog
-- CLI + local web UI
-- local MIoT install + stock restore
-
 ## v0.2 — 50 Voice Wave + Compatibility Engine ✅
-- 55 source-attributed voice variants
-- semantic event catalog
-- 106-event conservative X10 profile
-- coverage / core coverage / extra-event reporting
-- fallback pack filling
-- remote legacy Roborock `.pkg` adapter
-- historical source recovery metadata
-- compatibility-aware Web UI
-
 ## v0.3 — Multi-model Hardware Wave
-- add additional Dreame/Xiaomi models as explicit event profiles
-- physically verify at least 3 additional robot models
-- add Roborock model family adapters
-- Mova / Trouver adapters
-- model-specific official donor/fallback workflows
-- community “Works on my robot” compatibility reports
+- 7 source-backed model profiles
+- transport evidence policy
+- semantic category fallback
+- model-aware Web UI
+- hardware verification remains pending for non-X10 devices
 
 ## v0.4 — Creator Studio
-- drag-and-drop custom pack builder
-- event-level audio preview
-- waveform/trim/normalize tools
-- per-event replacement
-- semantic `vvh.voicepack.v1` manifest
-- publish-your-own-pack generator
+- `vvh.voicepack.v1` semantic manifest
+- create/validate/build commands
+- drag-and-drop local Creator Studio
+- event-level preview/replacement
+- audio normalization and manifest QA
 
-## v0.5 — Desktop App
-- macOS app
-- Windows portable installer
-- device discovery wizard
-- Keychain/Credential Manager integration
-- local update channel for catalog metadata
+## v0.5 — Desktop + Community Verification
+- native desktop shell for macOS/Windows/Linux
+- compatibility report workflow
+- privacy-safe diagnostics bundle
+- install history without secrets
+- GitHub Actions packaging matrix
 
-## v1.0
-- 100+ source-attributed voices
-- 10+ physically verified robot models
-- signed catalog releases
-- reproducible package builds
-- Creator Studio + Desktop App
+## v0.6 — Public catalog / website
+- static searchable site generated from the catalog
+- compatibility matrix and credits
+- Pages-ready artifact workflow
+- machine-readable catalog manifest
+
+## v1.0 target
+- 100+ legitimate source-attributed voice variants when recoverable;
+- 10+ model profiles;
+- 10+ **hardware verified** only after actual device evidence exists;
+- signed/reproducible catalog architecture;
+- Creator Studio + desktop distribution.

@@ -1,5 +1,13 @@
-from . import dreame_r2209
-MODELS={"dreame.vacuum.r2209":dreame_r2209}
+from . import dreame_numeric
+from ..catalog import model_by_id
+
+ADAPTERS={
+    "dreame_numeric":dreame_numeric,
+}
+
 def get(model_id):
-    if model_id not in MODELS: raise KeyError(f"No runtime adapter for {model_id}")
-    return MODELS[model_id]
+    model=model_by_id(model_id)
+    name=model.get("adapter")
+    if name not in ADAPTERS:
+        raise KeyError(f"No runtime adapter {name!r} for {model_id}")
+    return ADAPTERS[name]

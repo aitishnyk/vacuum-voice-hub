@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "vacuum-voice-hub"
-version = "0.2.0"
-description = "Credits-first voice-pack library, compatibility engine, converter and installer for robot vacuums"
+version = "0.3.0"
+description = "Credits-first multi-model voice-pack compatibility engine, converter and installer for robot vacuums"
 readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"
@@ -15,6 +15,10 @@ dependencies = [
   "python-miio>=0.5.12",
   "imageio-ffmpeg>=0.6.0"
 ]
+
+[project.optional-dependencies]
+desktop = ["pywebview>=5.0"]
+security = ["keyring>=25.0"]
 
 [project.scripts]
 vvh = "vacuum_voice_hub.cli:main"
