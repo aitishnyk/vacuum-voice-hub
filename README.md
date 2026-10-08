@@ -4,9 +4,9 @@
 
 **Credits-first multi-model voice platform for robot vacuums.**
 
-## v0.8
+## v0.9
 
-Vacuum Voice Hub now targets **109 model profiles** and **55 attributed voice variants** — a **5,995 target-combination** software matrix.
+Vacuum Voice Hub v0.9 retains **109 model profiles** and **55 attributed voice variants** — a **5,995 target-combination** software matrix.
 
 Target families:
 
@@ -17,7 +17,24 @@ Target families:
 
 All targets participate in model-aware compatibility, preview and Creator Studio. Installation remains evidence-scoped: Xiaomi X10 is the only VVH hardware-verified device; experimental or vendor-signed limitations are shown explicitly.
 
-Read [Mass Model Expansion](docs/MASS_MODEL_EXPANSION.md) and the full [Model Matrix](docs/MODEL_MATRIX.md).
+Read [Mass Model Expansion](docs/MASS_MODEL_EXPANSION.md), the full [Model Matrix](docs/MODEL_MATRIX.md), and the [v0.9 Offline Research Workflow](docs/RESEARCH_WORKFLOW_V09.md).
+
+### New in v0.9 — offline package research
+
+- safe bounded archive inventory for ZIP/TAR without extracting or running untrusted files;
+- SHA-256 + size validation of exact candidate against optional vvh.transport-evidence.v1 reports;
+- conservative numeric OGG, IJAI MP3 and Roborock WAV filename-pattern discovery;
+- cross-check against the chosen model's declared event profile;
+- versioned research schemas, CLI and negative regression tests;
+- opaque proprietary .pkg metadata intake without decryption or installation.
+
+```bash
+vvh research inspect ./candidate.zip --model xiaomi.vacuum.d101
+vvh research validate-evidence ./evidence.json --model xiaomi.vacuum.d101
+vvh research inspect ./candidate.zip --model xiaomi.vacuum.d101 --evidence ./evidence.json
+```
+
+**v0.9 does not certify new custom-install transports.** Filename similarities and community reports do not constitute robot hardware tests. Build-only/official-signed-only restrictions remain in force.
 
 ## Main capabilities
 
@@ -34,7 +51,8 @@ Read [Mass Model Expansion](docs/MASS_MODEL_EXPANSION.md) and the full [Model Ma
 - desktop UI for macOS / Windows / Linux;
 - privacy-safe install history and `vvh.compat-report.v1`;
 - searchable public catalog;
-- reproducible release bundles, SPDX SBOM and SHA256 verification.
+- reproducible release bundles, SPDX SBOM and SHA256 verification;
+- offline package forensics and privacy-safe evidence assessment (v0.9).
 
 ## Local app
 

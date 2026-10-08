@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/aitishnyk/vacuum-voice-hub/schemas/vvh.archive-inventory.v1.schema.json",
+  "title": "Untrusted archive inspection inventory",
+  "type": "object",
+  "required": [
+    "schema",
+    "container",
+    "install_authorized",
+    "hardware_verified",
+    "file_count",
+    "audio_count",
+    "files"
+  ],
+  "properties": {
+    "schema": {
+      "const": "vvh.archive-inventory.v1"
+    },
+    "container": {
+      "enum": [
+        "zip",
+        "tar"
+      ]
+    },
+    "install_authorized": {
+      "const": false
+    },
+    "hardware_verified": {
+      "const": false
+    },
+    "file_count": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 512
+    },
+    "audio_count": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 512
+    },
+    "files": {
+      "type": "array",
+      "maxItems": 512,
+      "items": {
+        "type": "object",
+        "required": [
+          "path",
+          "size_bytes",
+          "sha256",
+          "audio"
+        ],
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "size_bytes": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 16777216
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "audio": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

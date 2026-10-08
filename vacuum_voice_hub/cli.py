@@ -118,7 +118,15 @@ def main():
     sub.add_parser("doctor")
     s=sub.add_parser("detect");s.add_argument("--ip",required=True);_add_auth_args(s)
     s=sub.add_parser("import-pack");s.add_argument("path");s.add_argument("--model",default="dreame.vacuum.r2209");s.add_argument("--format",default="auto",choices=["auto","dreame-canonical-ogg","robovoice-r2567r-mp3","ijai-named-mp3","roborock-named"]);s.add_argument("--output")
-    sub.add_parser("research")
+    research=sub.add_parser("research",help="Offline package research and existing source backlog")
+    research_sub=research.add_subparsers(dest="research_cmd")
+    s=research_sub.add_parser("inspect",help="Inventory candidate and optionally cross-check package evidence")
+    s.add_argument("path")
+    s.add_argument("--model",required=True)
+    s.add_argument("--evidence",help="Path to vvh.transport-evidence.v1 JSON report")
+    s=research_sub.add_parser("validate-evidence",help="Validate local transport evidence without installing")
+    s.add_argument("path")
+    s.add_argument("--model",help="Require exact model id")
     s=sub.add_parser("preview");s.add_argument("voice_id");s.add_argument("--model",default="dreame.vacuum.r2209");s.add_argument("--play",action="store_true")
     s=sub.add_parser("stock");s.add_argument("--model",default="dreame.vacuum.r2209");s.add_argument("--manifest-url")
     s=sub.add_parser("restore-stock");s.add_argument("stock_id");s.add_argument("--model",default="dreame.vacuum.r2209");s.add_argument("--ip",required=True);_add_auth_args(s);s.add_argument("--manifest-url");s.add_argument("--allow-experimental-transport",action="store_true")
@@ -181,7 +189,21 @@ def main():
         from .desktop import main as desktop_main
         desktop_main()
     elif a.cmd=="research":
-        for x in backlog():print(f"{x['status']:<38} {x['title']} — {x.get('source_page','')}")
+        if a.research_cmd=="inspect":
+            from .research_pipeline import ResearchError,assess_candidate
+            from .archive_inspector import ArchiveInspectionError
+            try:
+                _dump(assess_candidate(a.path,a.model,evidence_path=a.evidence))
+            except (ResearchError,ArchiveInspectionError,KeyError,ValueError,OSError) as exc:
+                raise SystemExit(f"research inspect failed: {exc}") from exc
+        elif a.research_cmd=="validate-evidence":
+            from .transport_evidence import EvidenceError,inspect_file
+            try:
+                _dump(inspect_file(a.path,expected_model=a.model))
+            except (EvidenceError,OSError) as exc:
+                raise SystemExit(f"research evidence failed: {exc}") from exc
+        else:
+            for x in backlog():print(f"{x['status']:<38} {x['title']} — {x.get('source_page','')}")
     elif a.cmd=="preview":
         f=preview_file(a.voice_id,a.model);print(f)
         if a.play:
