@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.9.1 — 2026-10-09 (source security release)
+
+- replaced legacy `tar.extractall` / `zip.extractall` with bounded streaming extraction for local voice pack imports on Python 3.10+;
+- fail-closed on absolute/traversal/ambiguous paths, symlinks, special members, duplicate/colliding entries and oversized archives;
+- added positive/negative archive security regression tests;
+- preserved all 109 model IDs, 55 voice variants and evidence-scoped install policies;
+- verified exact-main CI, CodeQL, public catalog and PR desktop builds across macOS, Windows and Linux;
+- source release sealed; independent hardware-wide installation acceptance and distribution signing remain pending.
+
+## 0.9.0 — 2026-10-09 (offline research workflow)
+
+- added `vvh.transport-evidence.v1` source-report intake with model-identity, SHA-256, size and format constraints;
+- added `vvh.archive-inventory.v1` bounded read-only ZIP/TAR inventory;
+- introduced `vvh research inspect` and `vvh research validate-evidence` with `vvh.research-assessment.v1` output;
+- added event-profile numeric ID comparison, filename-pattern heuristics and opaque proprietary package hashing without decoding/install;
+- published three JSON schemas and security-focused tests;
+- research reports cannot authorize installation, and no new physical robot has been claimed verified.
+
 ## 0.8.0 — 2026-10-08
 
 ### Mass Model Expansion
