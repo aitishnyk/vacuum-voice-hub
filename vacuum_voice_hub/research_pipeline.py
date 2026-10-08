@@ -85,7 +85,7 @@ def assess_candidate(path, model_id, evidence_path=None):
     opaque = False
     with archive.open("rb") as stream:
         header = stream.read(512)
-    archive_signature = (header.startswith((b"PK\\x03\\x04", b"PK\\x05\\x06", b"PK\\x07\\x08", b"\\x1f\\x8b"))
+    archive_signature = (header.startswith((b"PK\x03\x04", b"PK\x05\x06", b"PK\x07\x08", b"\x1f\x8b"))
                          or header[257:262] == b"ustar")
     try:
         inventory = inspect_archive(archive)
@@ -111,7 +111,7 @@ def assess_candidate(path, model_id, evidence_path=None):
         if fmt == "zip" and (opaque or inventory["container"] != "zip"):
             raise ResearchError("evidence format disagrees with candidate")
         if fmt == "tar.gz":
-            if opaque or inventory["container"] != "tar" or not header.startswith(b"\\x1f\\x8b"):
+            if opaque or inventory["container"] != "tar" or not header.startswith(b"\x1f\x8b"):
                 raise ResearchError("evidence tar.gz format disagrees with candidate")
         if fmt in {"pkg", "ogg", "mp3"}:
             if not opaque or fmt != "pkg":
