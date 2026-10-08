@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/aitishnyk/vacuum-voice-hub/schemas/vvh.release-manifest.v1.schema.json",
+  "title": "Vacuum Voice Hub release manifest",
+  "type": "object",
+  "required": [
+    "schema",
+    "version",
+    "channel",
+    "source_date_epoch",
+    "artifacts",
+    "contracts",
+    "desktop_builds",
+    "signature"
+  ],
+  "properties": {
+    "schema": {
+      "const": "vvh.release-manifest.v1"
+    },
+    "version": {
+      "type": "string"
+    },
+    "channel": {
+      "const": "stable"
+    },
+    "source_date_epoch": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "artifacts": {
+      "type": "object"
+    },
+    "contracts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "desktop_builds": {
+      "type": "object"
+    },
+    "signature": {
+      "type": "object",
+      "required": [
+        "scheme",
+        "status"
+      ]
+    }
+  }
+}
