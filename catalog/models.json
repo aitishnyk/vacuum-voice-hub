@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "models": [
+    {
+      "id": "dreame.vacuum.r2209",
+      "name": "Xiaomi Robot Vacuum X10",
+      "vendor": "Xiaomi / Dreame",
+      "aliases": [
+        "dreame.vacuum.r2209"
+      ],
+      "adapter": "dreame_r2209",
+      "device_tested": true,
+      "tested_firmware": [
+        "4.3.9_1321"
+      ],
+      "package": {
+        "container": "tar.gz",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<canonical_event_id>.ogg"
+      },
+      "transport": {
+        "kind": "miot-local",
+        "audio_service_siid": 7,
+        "set_voice_piid": 4,
+        "voice_id_piid": 2,
+        "state_piid": 3
+      },
+      "notes": "Physical-device installation path verified: set_property code 0, LAN HTTP 200 from robot, state=success progress=100."
+    }
+  ]
+}
