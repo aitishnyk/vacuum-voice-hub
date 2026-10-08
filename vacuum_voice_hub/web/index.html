@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vacuum Voice Hub</title>
+<style>
+:root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#18181b;background:#f4f4f1}*{box-sizing:border-box}body{margin:0}.wrap{max-width:1180px;margin:auto;padding:32px 20px 72px}.hero{background:#111114;color:#fff;border-radius:28px;padding:36px;box-shadow:0 18px 60px #0001}.hero h1{font-size:clamp(36px,6vw,62px);letter-spacing:-.045em;margin:0 0 10px}.hero p{color:#c7c7cc;max-width:780px;font-size:17px;line-height:1.5}.pill{display:inline-flex;padding:6px 10px;border:1px solid #ffffff25;border-radius:99px;font-size:12px;color:#ddd;margin-right:6px}.toolbar,.install{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}.install{background:#fff;padding:16px;border-radius:18px;border:1px solid #e6e6e3;align-items:center}input,select,button{font:inherit;padding:11px 13px;border:1px solid #d5d5d2;border-radius:12px;background:#fff}input,select{min-height:44px}button{background:#18181b;color:#fff;border:0;cursor:pointer;font-weight:600}button.secondary{background:#f1f1ef;color:#18181b;border:1px solid #ddd}button:disabled{opacity:.5;cursor:not-allowed}.install input{flex:1;min-width:210px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}.card{background:#fff;padding:18px;border-radius:18px;border:1px solid #e7e7e4;display:flex;flex-direction:column;min-height:190px}.card h3{margin:0 0 8px;font-size:19px}.tags{margin:4px 0 10px}.tag{font-size:11px;background:#f1f1ef;border-radius:99px;padding:4px 8px;display:inline-block;margin:2px}.adult{background:#fee2e2;color:#991b1b}.small{font-size:12px;color:#71717a}.credit{margin-top:auto;padding-top:12px;font-size:12px;color:#52525b;line-height:1.45}.credit a{color:#18181b}.status{white-space:pre-wrap;background:#111114;color:#cbffd7;padding:16px;border-radius:16px;min-height:56px;font:12px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace}audio{width:100%;margin:8px 0 18px}h2{margin-top:30px}.notice{font-size:12px;color:#666;margin:8px 2px}
+</style>
+</head>
+<body><div class="wrap">
+<section class="hero">
+  <span class="pill">credits-first</span><span class="pill">multi-model</span><span class="pill">X10 verified</span>
+  <h1>Vacuum Voice Hub</h1>
+  <p>Открытая библиотека, конвертер и установщик голосовых пакетов для роботов‑пылесосов. Каждый пакет показывает, кому сказать спасибо и откуда взят исходник.</p>
+</section>
+
+<div class="toolbar">
+  <input id="q" placeholder="Поиск: Максим, Warcraft, GLaDOS…">
+  <select id="lang"><option value="">Все языки</option><option value="ru">Русский</option><option value="uk">Українська</option><option value="en">English</option><option value="zxx">Без речи</option></select>
+  <label><input type="checkbox" id="adult"> только 18+</label>
+</div>
+
+<div class="install">
+  <select id="voice" title="Озвучка"></select>
+  <select id="model" title="Модель"></select>
+  <input id="ip" placeholder="IP робота, например 192.168.0.106">
+  <input id="token" type="password" autocomplete="off" placeholder="Local token (не сохраняется)">
+  <button id="go">Установить</button>
+</div>
+<div class="install">
+  <button id="loadStock" class="secondary">Загрузить официальные голоса</button>
+  <select id="stock" title="Официальный голос"></select>
+  <button id="restoreStock">Вернуть официальный</button>
+</div>
+<div class="notice">Web UI работает только на 127.0.0.1. Token отправляется только локальному процессу VVH и не записывается на диск.</div>
+<audio id="player" controls></audio>
+<div id="status" class="status">Готов.</div>
+
+<h2>Каталог</h2><div id="grid" class="grid"></div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const q=$('q'),lang=$('lang'),adult=$('adult'),voice=$('voice'),model=$('model'),ip=$('ip'),token=$('token'),go=$('go'),grid=$('grid'),status=$('status'),player=$('player'),loadStock=$('loadStock'),stock=$('stock'),restoreStock=$('restoreStock');
+let data={voices:[],models:[],backlog:[]};
+async function init(){
+  data=await (await fetch('/api/catalog')).json();
+  voice.innerHTML=data.voices.map(v=>`<option value="${v.id}">${v.title}${v.adult?' 🔞':''}</option>`).join('');
+  model.innerHTML=data.models.map(m=>`<option value="${m.id}">${m.name}</option>`).join('');
+  render();
+}
+function render(){
+  const search=q.value.toLowerCase(), l=lang.value, onlyAdult=adult.checked;
+  const items=data.voices.filter(v=>(!search||(`${v.title} ${v.id} ${(v.tags||[]).join(' ')}`).toLowerCase().includes(search))&&(!l||v.language===l)&&(!onlyAdult||v.adult));
+  grid.innerHTML=items.map(v=>`<article class="card"><h3>${v.title}${v.adult?' <span class="tag adult">18+</span>':''}</h3><div class="tags">${(v.tags||[]).map(t=>`<span class="tag">${t}</span>`).join('')}</div><div class="small">${v.language} · ${v.status} · ${v.format}</div><div class="credit"><b>Спасибо:</b> ${v.credit}<br><a href="${v.source.page}" target="_blank" rel="noopener">Источник ↗</a> · <a href="#" data-preview="${v.id}">▶ Preview</a></div></article>`).join('');
+  grid.querySelectorAll('[data-preview]').forEach(a=>a.onclick=e=>{e.preventDefault();preview(a.dataset.preview)});
+}
+async function preview(id){
+  status.textContent='Скачиваю/адаптирую пакет для preview…';
+  player.src=`/api/preview?voice_id=${encodeURIComponent(id)}&model_id=${encodeURIComponent(model.value)}`;
+  try{await player.play();status.textContent='Preview готов.'}catch(e){status.textContent='Preview: '+e}
+}
+q.oninput=render;lang.onchange=render;adult.onchange=render;
+loadStock.onclick=async()=>{
+  status.textContent='Читаю официальный Dreame soundpackage.json…';
+  const j=await (await fetch(`/api/stock?model_id=${encodeURIComponent(model.value)}`)).json();
+  if(j.error){status.textContent=j.error;return}
+  stock.innerHTML=(j.items||[]).map(x=>`<option value="${x.id}">${x.id} · ${Math.round(x.size/1024)} KB</option>`).join('');
+  status.textContent=`Официальных пакетов найдено: ${(j.items||[]).length}`;
+};
+restoreStock.onclick=async()=>{
+  status.textContent='Возвращаю официальный голос…';restoreStock.disabled=true;
+  try{const r=await fetch('/api/restore-stock',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({stock_id:stock.value,model_id:model.value,ip:ip.value,token:token.value})});status.textContent=JSON.stringify(await r.json(),null,2)}finally{restoreStock.disabled=false}
+};
+go.onclick=async()=>{
+  status.textContent='Скачивание → проверка → адаптация → установка…';go.disabled=true;
+  try{const r=await fetch('/api/install',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({voice_id:voice.value,model_id:model.value,ip:ip.value,token:token.value})});status.textContent=JSON.stringify(await r.json(),null,2)}catch(e){status.textContent=String(e)}finally{go.disabled=false}
+};
+init();
+</script></body></html>
