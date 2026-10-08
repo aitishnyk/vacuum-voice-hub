@@ -1,0 +1,669 @@
+{
+  "schema": "vvh.baseline-model-identity.v0.8",
+  "model_count": 109,
+  "models": [
+    {
+      "id": "chuangmi.vacuum.hmi707",
+      "aliases": [
+        "chuangmi.vacuum.hmi707"
+      ]
+    },
+    {
+      "id": "dreame.vacuum.ma1808",
+      "aliases": [
+        "dreame.vacuum.ma1808"
+      ]
+    },
+    {
+      "id": "dreame.vacuum.mb1808",
+      "aliases": [
+        "dreame.vacuum.mb1808"
+      ]
+    },
+    {
+      "id": "dreame.vacuum.mc1808",
+      "aliases": [
+        "dreame.vacuum.mc1808"
+      ]
+    },
+    {
+      "id": "dreame.vacuum.p2008",
+      "aliases": [
+        "dreame.vacuum.p2008"
+      ]
+    },
+    {
+      "id": "dreame.vacuum.p2009",
+      "aliases": [
+        "dreame.vacuum.p2009"
+      ]
+    },
+    {
+      "id": "dreame.vacuum.p2027",
+      "aliases": [
+        "dreame.vacuum.p2027"
+      ]
+    },
+    {
+      "id": "dreame.vacuum.p2028",
+      "aliases": [
+        "dreame.vacuum.p2028"
+      ]
+    },
+    {
+      "id": "dreame.vacuum.p2028a",
+      "aliases": [
+        "dreame.vacuum.p2028a"
+      ]
+    },
+    {
+      "id": "dreame.vacuum.p2029",
+      "aliases": [
+        "dreame.vacuum.p2029"
+      ]
+    },
+    {
+      "id": "dreame.vacuum.p2114a",
+      "aliases": [
+        "dreame.vacuum.p2114a"
+      ]
+    },
+    {
+      "id": "dreame.vacuum.p2140",
+      "aliases": [
+        "dreame.vacuum.p2140"
+      ]
+    },
+    {
+      "id": "dreame.vacuum.p2140a",
+      "aliases": [
+        "dreame.vacuum.p2140a"
+      ]
+    },
+    {
+      "id": "dreame.vacuum.p2140q",
+      "aliases": [
+        "dreame.vacuum.p2140q"
+      ]
+    },
+    {
+      "id": "dreame.vacuum.p2149o",
+      "aliases": [
+        "dreame.vacuum.p2149o"
+      ]
+    },
+    {
+      "id": "dreame.vacuum.r2104",
+      "aliases": [
+        "dreame.vacuum.r2104"
+      ]
+    },
+    {
+      "id": "dreame.vacuum.r2205",
+      "aliases": [
+        "dreame.vacuum.r2205"
+      ]
+    },
+    {
+      "id": "dreame.vacuum.r2209",
+      "aliases": [
+        "dreame.vacuum.r2209"
+      ]
+    },
+    {
+      "id": "dreame.vacuum.r2215",
+      "aliases": [
+        "dreame.vacuum.r2215"
+      ]
+    },
+    {
+      "id": "dreame.vacuum.r2216o",
+      "aliases": [
+        "dreame.vacuum.r2216o"
+      ]
+    },
+    {
+      "id": "dreame.vacuum.r2228",
+      "aliases": [
+        "dreame.vacuum.r2228"
+      ]
+    },
+    {
+      "id": "dreame.vacuum.r2228o",
+      "aliases": [
+        "dreame.vacuum.r2228o"
+      ]
+    },
+    {
+      "id": "dreame.vacuum.r2232a",
+      "aliases": [
+        "dreame.vacuum.r2232a"
+      ]
+    },
+    {
+      "id": "dreame.vacuum.r2233",
+      "aliases": [
+        "dreame.vacuum.r2233"
+      ]
+    },
+    {
+      "id": "dreame.vacuum.r2235",
+      "aliases": [
+        "dreame.vacuum.r2235"
+      ]
+    },
+    {
+      "id": "dreame.vacuum.r2240",
+      "aliases": [
+        "dreame.vacuum.r2240"
+      ]
+    },
+    {
+      "id": "dreame.vacuum.r2246",
+      "aliases": [
+        "dreame.vacuum.r2246"
+      ]
+    },
+    {
+      "id": "dreame.vacuum.r2247",
+      "aliases": [
+        "dreame.vacuum.r2247"
+      ]
+    },
+    {
+      "id": "dreame.vacuum.r2251o",
+      "aliases": [
+        "dreame.vacuum.r2251o"
+      ]
+    },
+    {
+      "id": "dreame.vacuum.r2254",
+      "aliases": [
+        "dreame.vacuum.r2254"
+      ]
+    },
+    {
+      "id": "dreame.vacuum.r2416a",
+      "aliases": [
+        "dreame.vacuum.r2416a",
+        "dreame.vacuum.r2416c",
+        "dreame.vacuum.r2449a",
+        "dreame.vacuum.r2449k",
+        "dreame.vacuum.r2416"
+      ]
+    },
+    {
+      "id": "dreame.vacuum.r2492a",
+      "aliases": [
+        "dreame.vacuum.r2492a",
+        "dreame.vacuum.r2492b",
+        "dreame.vacuum.r2492j"
+      ]
+    },
+    {
+      "id": "ijai.vacuum.v1",
+      "aliases": [
+        "ijai.vacuum.v1"
+      ]
+    },
+    {
+      "id": "ijai.vacuum.v10",
+      "aliases": [
+        "ijai.vacuum.v10"
+      ]
+    },
+    {
+      "id": "ijai.vacuum.v13",
+      "aliases": [
+        "ijai.vacuum.v13"
+      ]
+    },
+    {
+      "id": "ijai.vacuum.v14",
+      "aliases": [
+        "ijai.vacuum.v14"
+      ]
+    },
+    {
+      "id": "ijai.vacuum.v18",
+      "aliases": [
+        "ijai.vacuum.v18"
+      ]
+    },
+    {
+      "id": "ijai.vacuum.v19",
+      "aliases": [
+        "ijai.vacuum.v19"
+      ]
+    },
+    {
+      "id": "ijai.vacuum.v2",
+      "aliases": [
+        "ijai.vacuum.v2"
+      ]
+    },
+    {
+      "id": "ijai.vacuum.v3",
+      "aliases": [
+        "ijai.vacuum.v3"
+      ]
+    },
+    {
+      "id": "mijia.vacuum.b108zb",
+      "aliases": [
+        "mijia.vacuum.b108zb"
+      ]
+    },
+    {
+      "id": "mijia.vacuum.v1",
+      "aliases": [
+        "mijia.vacuum.v1"
+      ]
+    },
+    {
+      "id": "mijia.vacuum.v2",
+      "aliases": [
+        "mijia.vacuum.v2"
+      ]
+    },
+    {
+      "id": "mova.vacuum.r2491a",
+      "aliases": [
+        "mova.vacuum.r2491a",
+        "mova.vacuum.r2491",
+        "dreame.vacuum.r2491a",
+        "dreame.vacuum.r2491"
+      ]
+    },
+    {
+      "id": "roborock.vacuum.a01",
+      "aliases": [
+        "roborock.vacuum.a01"
+      ]
+    },
+    {
+      "id": "roborock.vacuum.a08",
+      "aliases": [
+        "roborock.vacuum.a08"
+      ]
+    },
+    {
+      "id": "roborock.vacuum.a09",
+      "aliases": [
+        "roborock.vacuum.a09"
+      ]
+    },
+    {
+      "id": "roborock.vacuum.a10",
+      "aliases": [
+        "roborock.vacuum.a10"
+      ]
+    },
+    {
+      "id": "roborock.vacuum.a11",
+      "aliases": [
+        "roborock.vacuum.a11"
+      ]
+    },
+    {
+      "id": "roborock.vacuum.a14",
+      "aliases": [
+        "roborock.vacuum.a14"
+      ]
+    },
+    {
+      "id": "roborock.vacuum.a15",
+      "aliases": [
+        "roborock.vacuum.a15"
+      ]
+    },
+    {
+      "id": "roborock.vacuum.a19",
+      "aliases": [
+        "roborock.vacuum.a19"
+      ]
+    },
+    {
+      "id": "roborock.vacuum.a23",
+      "aliases": [
+        "roborock.vacuum.a23"
+      ]
+    },
+    {
+      "id": "roborock.vacuum.a26",
+      "aliases": [
+        "roborock.vacuum.a26"
+      ]
+    },
+    {
+      "id": "roborock.vacuum.a27",
+      "aliases": [
+        "roborock.vacuum.a27"
+      ]
+    },
+    {
+      "id": "roborock.vacuum.a29",
+      "aliases": [
+        "roborock.vacuum.a29"
+      ]
+    },
+    {
+      "id": "roborock.vacuum.a38",
+      "aliases": [
+        "roborock.vacuum.a38"
+      ]
+    },
+    {
+      "id": "roborock.vacuum.a40",
+      "aliases": [
+        "roborock.vacuum.a40"
+      ]
+    },
+    {
+      "id": "roborock.vacuum.a46",
+      "aliases": [
+        "roborock.vacuum.a46"
+      ]
+    },
+    {
+      "id": "roborock.vacuum.a51",
+      "aliases": [
+        "roborock.vacuum.a51"
+      ]
+    },
+    {
+      "id": "roborock.vacuum.a52",
+      "aliases": [
+        "roborock.vacuum.a52"
+      ]
+    },
+    {
+      "id": "roborock.vacuum.a62",
+      "aliases": [
+        "roborock.vacuum.a62"
+      ]
+    },
+    {
+      "id": "roborock.vacuum.a65",
+      "aliases": [
+        "roborock.vacuum.a65"
+      ]
+    },
+    {
+      "id": "roborock.vacuum.a66",
+      "aliases": [
+        "roborock.vacuum.a66"
+      ]
+    },
+    {
+      "id": "roborock.vacuum.a69",
+      "aliases": [
+        "roborock.vacuum.a69"
+      ]
+    },
+    {
+      "id": "roborock.vacuum.a70",
+      "aliases": [
+        "roborock.vacuum.a70"
+      ]
+    },
+    {
+      "id": "roborock.vacuum.c1",
+      "aliases": [
+        "roborock.vacuum.c1"
+      ]
+    },
+    {
+      "id": "roborock.vacuum.e2",
+      "aliases": [
+        "roborock.vacuum.e2"
+      ]
+    },
+    {
+      "id": "roborock.vacuum.m1s",
+      "aliases": [
+        "roborock.vacuum.m1s"
+      ]
+    },
+    {
+      "id": "roborock.vacuum.p5",
+      "aliases": [
+        "roborock.vacuum.p5"
+      ]
+    },
+    {
+      "id": "roborock.vacuum.s4",
+      "aliases": [
+        "roborock.vacuum.s4"
+      ]
+    },
+    {
+      "id": "roborock.vacuum.s5",
+      "aliases": [
+        "roborock.vacuum.s5"
+      ]
+    },
+    {
+      "id": "roborock.vacuum.s5e",
+      "aliases": [
+        "roborock.vacuum.s5e"
+      ]
+    },
+    {
+      "id": "roborock.vacuum.s6",
+      "aliases": [
+        "roborock.vacuum.s6"
+      ]
+    },
+    {
+      "id": "roborock.vacuum.t4",
+      "aliases": [
+        "roborock.vacuum.t4"
+      ]
+    },
+    {
+      "id": "roborock.vacuum.t6",
+      "aliases": [
+        "roborock.vacuum.t6"
+      ]
+    },
+    {
+      "id": "rockrobo.vacuum.v1",
+      "aliases": [
+        "rockrobo.vacuum.v1"
+      ]
+    },
+    {
+      "id": "roidmi.vacuum.v1",
+      "aliases": [
+        "roidmi.vacuum.v1"
+      ]
+    },
+    {
+      "id": "roidmi.vacuum.v60",
+      "aliases": [
+        "roidmi.vacuum.v60"
+      ]
+    },
+    {
+      "id": "roidmi.vacuum.v66",
+      "aliases": [
+        "roidmi.vacuum.v66"
+      ]
+    },
+    {
+      "id": "szkj.mop.mjhvc1",
+      "aliases": [
+        "szkj.mop.mjhvc1"
+      ]
+    },
+    {
+      "id": "viomi.vacuum.v15",
+      "aliases": [
+        "viomi.vacuum.v15"
+      ]
+    },
+    {
+      "id": "viomi.vacuum.v23",
+      "aliases": [
+        "viomi.vacuum.v23"
+      ]
+    },
+    {
+      "id": "viomi.vacuum.v45",
+      "aliases": [
+        "viomi.vacuum.v45"
+      ]
+    },
+    {
+      "id": "viomi.vacuum.v49",
+      "aliases": [
+        "viomi.vacuum.v49"
+      ]
+    },
+    {
+      "id": "viomi.vacuum.v7",
+      "aliases": [
+        "viomi.vacuum.v7"
+      ]
+    },
+    {
+      "id": "viomi.vacuum.v8",
+      "aliases": [
+        "viomi.vacuum.v8"
+      ]
+    },
+    {
+      "id": "xiaomi.cleaner.wx3",
+      "aliases": [
+        "xiaomi.cleaner.wx3"
+      ]
+    },
+    {
+      "id": "xiaomi.mop.wx4m",
+      "aliases": [
+        "xiaomi.mop.wx4m"
+      ]
+    },
+    {
+      "id": "xiaomi.mop.wx5m",
+      "aliases": [
+        "xiaomi.mop.wx5m"
+      ]
+    },
+    {
+      "id": "xiaomi.vacuum.c101",
+      "aliases": [
+        "xiaomi.vacuum.c101"
+      ]
+    },
+    {
+      "id": "xiaomi.vacuum.c102cn",
+      "aliases": [
+        "xiaomi.vacuum.c102cn"
+      ]
+    },
+    {
+      "id": "xiaomi.vacuum.c102gl",
+      "aliases": [
+        "xiaomi.vacuum.c102gl"
+      ]
+    },
+    {
+      "id": "xiaomi.vacuum.c103",
+      "aliases": [
+        "xiaomi.vacuum.c103"
+      ]
+    },
+    {
+      "id": "xiaomi.vacuum.c104",
+      "aliases": [
+        "xiaomi.vacuum.c104"
+      ]
+    },
+    {
+      "id": "xiaomi.vacuum.c107",
+      "aliases": [
+        "xiaomi.vacuum.c107"
+      ]
+    },
+    {
+      "id": "xiaomi.vacuum.d101",
+      "aliases": [
+        "xiaomi.vacuum.d101"
+      ]
+    },
+    {
+      "id": "xiaomi.vacuum.d102ev",
+      "aliases": [
+        "xiaomi.vacuum.d102ev"
+      ]
+    },
+    {
+      "id": "xiaomi.vacuum.d103cn",
+      "aliases": [
+        "xiaomi.vacuum.d103cn"
+      ]
+    },
+    {
+      "id": "xiaomi.vacuum.d110ch",
+      "aliases": [
+        "xiaomi.vacuum.d110ch"
+      ]
+    },
+    {
+      "id": "xiaomi.vacuum.ov21cn",
+      "aliases": [
+        "xiaomi.vacuum.ov21cn"
+      ]
+    },
+    {
+      "id": "xiaomi.vacuum.ov31cn",
+      "aliases": [
+        "xiaomi.vacuum.ov31cn"
+      ]
+    },
+    {
+      "id": "xiaomi.vacuum.ov42cn",
+      "aliases": [
+        "xiaomi.vacuum.ov42cn"
+      ]
+    },
+    {
+      "id": "xiaomi.vacuum.pv11cn",
+      "aliases": [
+        "xiaomi.vacuum.pv11cn"
+      ]
+    },
+    {
+      "id": "xiaomi.vacuum.pv21cn",
+      "aliases": [
+        "xiaomi.vacuum.pv21cn"
+      ]
+    },
+    {
+      "id": "xiaomi.vacuum.pv31cn",
+      "aliases": [
+        "xiaomi.vacuum.pv31cn"
+      ]
+    },
+    {
+      "id": "xiaomi.vacuum.pv32cn",
+      "aliases": [
+        "xiaomi.vacuum.pv32cn"
+      ]
+    },
+    {
+      "id": "zhimi.vacuum.w2",
+      "aliases": [
+        "zhimi.vacuum.w2"
+      ]
+    },
+    {
+      "id": "zhimi.vacuum.wa1",
+      "aliases": [
+        "zhimi.vacuum.wa1"
+      ]
+    }
+  ]
+}
