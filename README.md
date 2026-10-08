@@ -65,6 +65,12 @@ This project is deliberately attribution-first. See [CREDITS.md](CREDITS.md). Ev
 
 Installing a custom voice is an unsupported modification on many devices. VVH verifies the model before sending a package and refuses cross-model installation unless explicitly supported by the model adapter. It never needs your Xiaomi UID/DID for the local X10 path.
 
+## Support the project
+
+If Vacuum Voice Hub saves you time or helps bring custom voices to another robot model, you can support continued development through the **Sponsor** button on GitHub.
+
+Sponsorship helps fund source recovery, compatibility research, hardware testing and maintenance of the voice/model catalog.
+
 ## Status
 
 - `dreame.vacuum.r2209`: installation transport and package acceptance **tested on a physical device** with firmware `4.3.9_1321`.
