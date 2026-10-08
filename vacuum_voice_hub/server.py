@@ -8,6 +8,8 @@ from .build import build_voice
 from .install import install_voice
 from .preview import preview_file
 from .stock import list_stock,install_stock
+from .history import load_history
+from .report import build_report,write_report
 from .creator import (
     new_workspace,workspace_by_id,list_workspaces,workspace_snapshot,
     assign_audio_bytes,remove_event,build_workspace,update_manifest,load_workspace
@@ -100,6 +102,11 @@ class H(BaseHTTPRequestHandler):
             try:
                 mid=q.get("model_id",["dreame.vacuum.r2209"])[0];return self._json(list_stock(mid))
             except Exception as e:return self._json({"ok":False,"error":str(e)},400)
+        if parsed.path=="/api/history":
+            try:
+                limit=min(200,max(1,int(q.get("limit",["50"])[0])))
+                return self._json({"ok":True,"history":load_history(limit)})
+            except Exception as e:return self._json({"ok":False,"error":str(e)},400)
 
         if parsed.path=="/api/creator/workspaces":
             return self._json({"ok":True,"workspaces":list_workspaces()})
@@ -142,6 +149,8 @@ class H(BaseHTTPRequestHandler):
             d=self._read_json()
             if parsed.path=="/api/install":
                 result=install_voice(d["voice_id"],d["model_id"],d["ip"],d["token"],fallback_voice_id=d.get("fallback") or None,fallback_categories=d.get("fallback_categories") or {},allow_experimental_transport=bool(d.get("allow_experimental_transport")))
+            elif parsed.path=="/api/report":
+                result=write_report(build_report(d["ip"],d["token"],d.get("model_id")))
             elif parsed.path=="/api/restore-stock":
                 stock=list_stock(d["model_id"]);item=next((x for x in stock["items"] if x["id"]==d["stock_id"]),None)
                 if not item:raise ValueError("stock id not found")
@@ -164,8 +173,16 @@ class H(BaseHTTPRequestHandler):
 
     def log_message(self,*a):pass
 
+def make_server(port=8787):
+    return ThreadingHTTPServer(("127.0.0.1",port),H)
+
 def serve(port=8787):
-    print(f"Vacuum Voice Hub → http://127.0.0.1:{port}")
-    print(f"Creator Studio → http://127.0.0.1:{port}/creator")
+    server=make_server(port)
+    actual_port=server.server_address[1]
+    print(f"Vacuum Voice Hub → http://127.0.0.1:{actual_port}")
+    print(f"Creator Studio → http://127.0.0.1:{actual_port}/creator")
     print("The UI is bound to localhost only. Ctrl+C to stop.")
-    ThreadingHTTPServer(("127.0.0.1",port),H).serve_forever()
+    try:
+        server.serve_forever()
+    finally:
+        server.server_close()

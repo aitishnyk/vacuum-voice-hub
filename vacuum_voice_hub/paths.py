@@ -30,3 +30,11 @@ def creator_dir()->Path:
     p=data_dir()/"creator"
     p.mkdir(parents=True,exist_ok=True)
     return p
+
+def history_file()->Path:
+    return data_dir()/"install-history.jsonl"
+
+def reports_dir()->Path:
+    p=data_dir()/"reports"
+    p.mkdir(parents=True,exist_ok=True)
+    return p

@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/aitishnyk/vacuum-voice-hub/schemas/vvh.compat-report.v1.schema.json",
+  "title": "Vacuum Voice Hub community compatibility report",
+  "type": "object",
+  "required": [
+    "schema",
+    "report_id",
+    "generated_at",
+    "vvh_version",
+    "platform",
+    "device",
+    "profile",
+    "transport",
+    "live_voice_status",
+    "last_install",
+    "privacy"
+  ],
+  "properties": {
+    "schema": {
+      "const": "vvh.compat-report.v1"
+    },
+    "report_id": {
+      "type": "string",
+      "minLength": 8
+    },
+    "generated_at": {
+      "type": "string"
+    },
+    "vvh_version": {
+      "type": "string"
+    },
+    "platform": {
+      "type": "object"
+    },
+    "device": {
+      "type": "object",
+      "required": [
+        "model"
+      ],
+      "properties": {
+        "model": {
+          "type": "string"
+        },
+        "firmware": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "hardware": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "profile": {
+      "type": "object"
+    },
+    "transport": {
+      "type": "object"
+    },
+    "live_voice_status": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "last_install": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "hardware_evidence_candidate": {
+      "type": "boolean"
+    },
+    "privacy": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true
+}
