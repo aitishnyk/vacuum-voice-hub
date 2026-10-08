@@ -1,6 +1,6 @@
-# Model compatibility matrix — v0.8
+# Model compatibility matrix — v0.10
 
-Vacuum Voice Hub currently contains **109 model profiles** across **4 target adapters**. Only Xiaomi X10 is hardware-verified by VVH; every other install claim remains evidence-scoped.
+Vacuum Voice Hub currently contains **154 model profiles** across **4 target adapters**. Only Xiaomi X10 is hardware-verified by VVH; every other install claim remains evidence-scoped.
 
 | Model | Model ID | Adapter | Package | Events profile | Install policy | Product / plugin |
 |---|---|---|---|---|---|---|
@@ -126,3 +126,58 @@ Vacuum Voice Hub currently contains **109 model profiles** across **4 target ada
 “Added” means the model is in the catalog and can participate in model-aware compatibility/build/preview. It does **not** mean VVH has physically installed a custom pack on that model.
 
 Hardware verification requires a privacy-safe device report showing an exact model match, robot download confirmation where applicable, and a successful final voice-install state. Similar model families are never promoted automatically.
+
+
+## Additional v0.10 discovery profiles (45)
+
+These model IDs come from the [Dreame Vacuum supported-device registry](https://dv.tasshack.com/ru/guide/more/supported-devices), **not** VVH custom-audio installation tests. The original 109 rows above remain preserved. Vendor pack formats are unverified for new models; all entries below remain build/preview/research-only and deny direct install even with the experimental flag.
+
+| Model name | Model ID | Research adapter | Output | Install status |
+|---|---|---|---|---|
+| Dreame D9 Max | `dreame.vacuum.p2259` | `dreame_numeric` | `tar.gz` | Blocked / build-only |
+| Dreame D9 Pro | `dreame.vacuum.p2187` | `dreame_numeric` | `tar.gz` | Blocked / build-only |
+| Mijia Vacuum-Mop (p2150o) | `dreame.vacuum.p2150o` | `dreame_numeric` | `tar.gz` | Blocked / build-only |
+| Mi Robot Vacuum-Mop 2 Ultra | `dreame.vacuum.p2150a` | `dreame_numeric` | `tar.gz` | Blocked / build-only |
+| Mi Robot Vacuum-Mop 2 Ultra Set | `dreame.vacuum.p2150b` | `dreame_numeric` | `tar.gz` | Blocked / build-only |
+| Mijia Self-Cleaning Vacuum-Mop | `dreame.vacuum.p2114o` | `dreame_numeric` | `tar.gz` | Blocked / build-only |
+| Trouver LDS Finder | `dreame.vacuum.p2036` | `dreame_numeric` | `tar.gz` | Blocked / build-only |
+| Mi Robot Vacuum-Mop 1T | `dreame.vacuum.p2041` | `dreame_numeric` | `tar.gz` | Blocked / build-only |
+| Mi Robot Vacuum-Mop 2 Pro+ | `dreame.vacuum.p2041o` | `dreame_numeric` | `tar.gz` | Blocked / build-only |
+| Mi Robot Vacuum-Mop 2 (O) | `dreame.vacuum.p2140o` | `dreame_numeric` | `tar.gz` | Blocked / build-only |
+| Mi Robot Vacuum-Mop 2 (P) | `dreame.vacuum.p2140p` | `dreame_numeric` | `tar.gz` | Blocked / build-only |
+| Mijia Ultra Slim Vacuum Mop | `dreame.vacuum.p2148o` | `dreame_numeric` | `tar.gz` | Blocked / build-only |
+| MOVA L600 | `dreame.vacuum.p2157` | `dreame_numeric` | `tar.gz` | Blocked / build-only |
+| MOVA Z500 | `dreame.vacuum.p2156o` | `dreame_numeric` | `tar.gz` | Blocked / build-only |
+| Dreame L10s Pro (regional) | `dreame.vacuum.r2215o` | `dreame_numeric` | `tar.gz` | Blocked / build-only |
+| Dreame S10+ | `dreame.vacuum.r2211o` | `dreame_numeric` | `tar.gz` | Blocked / build-only |
+| Dreame L10 Prime | `dreame.vacuum.r2251a` | `dreame_numeric` | `tar.gz` | Blocked / build-only |
+| Dreame L10 Ultra | `dreame.vacuum.r2257o` | `dreame_numeric` | `tar.gz` | Blocked / build-only |
+| Dreame L10s Prime | `dreame.vacuum.r2232b` | `dreame_numeric` | `tar.gz` | Blocked / build-only |
+| Dreame L10s Plus | `dreame.vacuum.r2363` | `semantic_bundle` | `zip` | Blocked / build-only |
+| Dreame L10s Plus (regional) | `dreame.vacuum.r2363a` | `semantic_bundle` | `zip` | Blocked / build-only |
+| Dreame L10s Pro Gen 2 | `dreame.vacuum.r2364` | `semantic_bundle` | `zip` | Blocked / build-only |
+| Dreame L10s Pro Gen 2 (regional) | `dreame.vacuum.r2364a` | `semantic_bundle` | `zip` | Blocked / build-only |
+| Dreame L10s Pro Ultra Heat | `dreame.vacuum.r2338a` | `semantic_bundle` | `zip` | Blocked / build-only |
+| Dreame L10s Pro Ultra Heat (variant) | `dreame.vacuum.r2377` | `semantic_bundle` | `zip` | Blocked / build-only |
+| Dreame L20 Ultra (R2394) | `dreame.vacuum.r2394a` | `semantic_bundle` | `zip` | Blocked / build-only |
+| Dreame L20 Ultra (regional) | `dreame.vacuum.r2394f` | `semantic_bundle` | `zip` | Blocked / build-only |
+| Dreame L20 Ultra (R2253) | `dreame.vacuum.r2253b` | `semantic_bundle` | `zip` | Blocked / build-only |
+| Dreame L20 Ultra (variant) | `dreame.vacuum.r2253m` | `semantic_bundle` | `zip` | Blocked / build-only |
+| Dreame L20 Ultra Complete | `dreame.vacuum.r2253c` | `semantic_bundle` | `zip` | Blocked / build-only |
+| Dreame L10s Ultra Gen 2 | `dreame.vacuum.r2469a` | `semantic_bundle` | `zip` | Blocked / build-only |
+| Dreame L10s Ultra Gen 2 (regional) | `dreame.vacuum.r2469x` | `semantic_bundle` | `zip` | Blocked / build-only |
+| Dreame L10s Ultra Heat | `dreame.vacuum.r2367` | `semantic_bundle` | `zip` | Blocked / build-only |
+| Dreame L30 Ultra | `dreame.vacuum.r2361a` | `semantic_bundle` | `zip` | Blocked / build-only |
+| Dreame L40 Ultra AE | `dreame.vacuum.r2579a` | `semantic_bundle` | `zip` | Blocked / build-only |
+| Dreame L40 Ultra AE (regional) | `dreame.vacuum.r500za` | `semantic_bundle` | `zip` | Blocked / build-only |
+| Dreame L40 Ultra AE (variant) | `dreame.vacuum.r2579h` | `semantic_bundle` | `zip` | Blocked / build-only |
+| Dreame L40s Ultra | `dreame.vacuum.r2551a` | `semantic_bundle` | `zip` | Blocked / build-only |
+| Dreame L40s Pro Ultra | `dreame.vacuum.r9419a` | `semantic_bundle` | `zip` | Blocked / build-only |
+| Dreame L40s Pro Ultra (regional) | `dreame.vacuum.r9419e` | `semantic_bundle` | `zip` | Blocked / build-only |
+| Dreame L40 Ultra Gen 2 | `dreame.vacuum.r501t` | `semantic_bundle` | `zip` | Blocked / build-only |
+| Dreame L10s Ultra Gen 2 (revision) | `dreame.vacuum.r5020a` | `semantic_bundle` | `zip` | Blocked / build-only |
+| Dreame L10s Ultra Gen 3 | `dreame.vacuum.r5023a` | `semantic_bundle` | `zip` | Blocked / build-only |
+| Dreame L20 Ultra (regional T) | `dreame.vacuum.r2253t` | `semantic_bundle` | `zip` | Blocked / build-only |
+| Dreame L20 Ultra (regional W) | `dreame.vacuum.r2253w` | `semantic_bundle` | `zip` | Blocked / build-only |
+
+Historical regional aliases such as `dreame.vacuum.r2492b` and `dreame.vacuum.r2492j` remain aliases of `dreame.vacuum.r2492a` and were **not** duplicated as canonical device IDs.
