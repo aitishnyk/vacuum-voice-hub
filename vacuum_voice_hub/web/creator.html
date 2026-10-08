@@ -213,7 +213,7 @@ $('previewScript').onclick=async()=>{
     currentScript=payload.script;
     $('scriptOutput').textContent=currentScript.entries.map(row=>
       row.semantic+' ['+(row.target_event_ids.join(',')||'unmapped')+'] '+row.text
-    ).join('\\n');
+    ).join('\n');
     setStatus({locale:currentScript.locale,model_id:currentScript.model_id,
       mapped:currentScript.mapped_count,scripted:currentScript.scripted_count,
       notice:'Text only; not installable and no audio created'});
