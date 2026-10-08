@@ -32,6 +32,8 @@ def _stats():
         "target_combinations":len(vv)*len(mm),
         "adapters":sorted({m.get("adapter") for m in mm}),
         "creator_schema":"vvh.voicepack.v1",
+        "script_pack_schema":"vvh.script-pack.v1",
+        "script_template_locales":18,
     }
 
 def _fallback_categories_from_query(q):
@@ -83,6 +85,17 @@ class H(BaseHTTPRequestHandler):
         if parsed.path=="/":return self._html(HTML)
         if parsed.path=="/creator":return self._html(CREATOR_HTML)
         if parsed.path=="/api/session":return self._json({"creator_session":CREATOR_SESSION})
+        if parsed.path=="/api/script-locales":
+            from .script_packs import list_locales
+            return self._json({"ok":True,"status":"text-only-not-audio-pack","locales":list_locales()})
+        if parsed.path=="/api/script":
+            from .script_packs import script_for_model
+            try:
+                language=q.get("language",[None])[0]
+                mid=q.get("model_id",["dreame.vacuum.r2209"])[0]
+                return self._json({"ok":True,"script":script_for_model(language,mid)})
+            except (ValueError,KeyError) as e:
+                return self._json({"ok":False,"error":str(e)},400)
         if parsed.path=="/api/catalog":
             return self._json({"voices":voices(),"models":models(),"backlog":backlog(),"stats":_stats()})
         if parsed.path=="/api/model":
