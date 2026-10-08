@@ -4,7 +4,7 @@ from subprocess import CompletedProcess
 
 import pytest
 
-from vacuum_voice_hub.catalog import model_by_id, models, voices
+from vacuum_voice_hub.catalog import model_by_id, models, voices, event_profile_for_model
 from vacuum_voice_hub.install import _validate_transport
 from vacuum_voice_hub.script_packs import list_locales, script_for_model, synthesize_workspace
 from vacuum_voice_hub.creator import validate_workspace
@@ -36,10 +36,9 @@ def test_script_is_model_aware_and_never_authorizes_install(locale):
     assert report["model_install_authorized"] is False
     assert len(report["entries"]) == 16
     assert report["mapped_count"] > 0
-    assert all(set(row["target_event_ids"]).issubset(
-        set(model_by_id("xiaomi.vacuum.d101").get("voice_specific_ids", []) or
-            __import__("vacuum_voice_hub.catalog", fromlist=["event_profile_for_model"]).event_profile_for_model("xiaomi.vacuum.d101")["known_event_ids"])
-    ) for row in report["entries"])
+    allowed = set(event_profile_for_model("xiaomi.vacuum.d101")["known_event_ids"])
+    assert all(set(row["target_event_ids"]).issubset(allowed)
+               for row in report["entries"])
 
 
 def test_new_models_are_research_only_and_old_identity_registry_unchanged():
