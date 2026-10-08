@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vacuum Voice Hub — Creator Studio</title>
+<style>
+:root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#18181b;background:#f4f4f1}*{box-sizing:border-box}body{margin:0}.wrap{max-width:1320px;margin:auto;padding:28px 20px 72px}.hero{background:#111114;color:#fff;border-radius:28px;padding:34px}.hero h1{font-size:clamp(34px,5vw,56px);margin:0 0 8px;letter-spacing:-.04em}.hero p{color:#c7c7cc;max-width:900px;line-height:1.5}.pill{font-size:11px;padding:5px 9px;border:1px solid #ffffff2c;border-radius:99px;margin-right:5px}.row,.panel{background:#fff;border:1px solid #e5e5e2;border-radius:18px;padding:16px;margin:14px 0}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.grow{flex:1;min-width:180px}input,select,button,textarea{font:inherit;border:1px solid #d5d5d2;border-radius:11px;padding:10px 12px;background:#fff}button{background:#18181b;color:white;border:0;font-weight:650;cursor:pointer}button.secondary{background:#f1f1ef;color:#18181b;border:1px solid #ddd}button.danger{background:#991b1b}button:disabled{opacity:.45;cursor:not-allowed}.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}.grid2 label{font-size:12px;color:#52525b}.grid2 input,.grid2 select,.grid2 textarea{width:100%;display:block;margin-top:5px}.events{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:12px}.event{background:#fff;border:1px solid #e6e6e3;border-radius:16px;padding:14px}.event h3{font-size:14px;margin:0 0 6px;word-break:break-word}.meta{font-size:11px;color:#71717a;line-height:1.45}.event audio{width:100%;margin:8px 0}.event .buttons{display:flex;gap:7px;flex-wrap:wrap}.event .buttons button{font-size:11px;padding:8px 9px}.assigned{border-color:#86efac;box-shadow:inset 0 0 0 1px #bbf7d0}.toolbar{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin:14px 0}.status{white-space:pre-wrap;background:#111114;color:#d1fae5;padding:15px;border-radius:14px;min-height:60px;font:12px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace}.badge{font-size:10px;padding:4px 7px;border-radius:99px;background:#e0e7ff;color:#3730a3;display:inline-block}.ok{background:#dcfce7;color:#166534}.warn{background:#ffedd5;color:#9a3412}.toplink{color:#fff}.hidden{display:none}.progress{height:8px;background:#eee;border-radius:99px;overflow:hidden;margin:8px 0}.progress i{display:block;height:100%;background:#18181b;width:0}.notice{font-size:12px;color:#6b7280}
+</style>
+</head>
+<body><div class="wrap">
+<section class="hero">
+  <span class="pill">v0.4</span><span class="pill">vvh.voicepack.v1</span><span class="pill">local-only workspace</span>
+  <h1>Creator Studio</h1>
+  <p>Создавай одну semantic-озвучку и собирай её под разные модели. Аудио остаётся локально; GitHub не получает рабочие файлы автоматически.</p>
+  <a class="toplink" href="/">← Вернуться в каталог</a>
+</section>
+
+<div class="panel">
+  <b>1. Проект</b>
+  <div class="row" style="padding:0;border:0;margin-top:10px">
+    <select id="workspace" class="grow"></select>
+    <button id="reload" class="secondary">Обновить</button>
+  </div>
+  <details id="newDetails">
+    <summary>Создать новый voice pack</summary>
+    <div class="grid2" style="margin-top:12px">
+      <label>ID<input id="newId" placeholder="my-russian-pack"></label>
+      <label>Название<input id="newName" placeholder="My Russian Pack"></label>
+      <label>Автор<input id="newAuthor" placeholder="Your name"></label>
+      <label>Язык<input id="newLang" value="ru"></label>
+      <label>Лицензия<input id="newLicense" value="UNLICENSED"></label>
+      <label><span>Контент</span><select id="newAdult"><option value="false">Обычный</option><option value="true">18+ / explicit</option></select></label>
+      <label>Source URL<input id="newSource" placeholder="https://..."></label>
+      <label>Описание<textarea id="newDescription" rows="2"></textarea></label>
+    </div>
+    <button id="create" style="margin-top:10px">Создать workspace</button>
+  </details>
+</div>
+
+<div class="panel">
+  <b>2. Метаданные и target model</b>
+  <div class="grid2" style="margin-top:10px">
+    <label>Название<input id="name"></label>
+    <label>Автор<input id="author"></label>
+    <label>Язык<input id="language"></label>
+    <label>Лицензия<input id="license"></label>
+    <label>18+<select id="adult"><option value="false">Нет</option><option value="true">Да</option></select></label>
+    <label>Модель<select id="model"></select></label>
+    <label>Source URL<input id="sourceUrl"></label>
+    <label>Описание<textarea id="description" rows="2"></textarea></label>
+  </div>
+  <div class="toolbar">
+    <button id="saveMeta" class="secondary">Сохранить metadata</button>
+    <button id="validate" class="secondary">Validate</button>
+    <button id="coverage" class="secondary">Coverage</button>
+    <button id="build">Build model package</button>
+  </div>
+  <div class="progress"><i id="coverageBar"></i></div>
+  <div id="coverageText" class="notice"></div>
+</div>
+
+<div class="panel">
+  <b>3. Semantic events</b>
+  <div class="toolbar">
+    <input id="search" class="grow" placeholder="clean.start, bumper, charging…">
+    <select id="category"><option value="">Все категории</option></select>
+    <label class="notice"><input type="checkbox" id="onlyAssigned"> только назначенные</label>
+  </div>
+  <div id="events" class="events"></div>
+</div>
+
+<div id="status" class="status">Creator Studio готов.</div>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const workspace=$('workspace'),model=$('model'),eventsEl=$('events'),status=$('status'),search=$('search'),category=$('category'),onlyAssigned=$('onlyAssigned');
+let session='',catalog={models:[],stats:{}},snapshot=null,eventRows=[];
+
+async function api(url,opts={}){
+  opts.headers=Object.assign({},opts.headers||{},session?{'X-VVH-Session':session}:{});
+  const r=await fetch(url,opts);
+  const ct=r.headers.get('content-type')||'';
+  if(ct.includes('application/json')){
+    const j=await r.json();
+    if(!r.ok||j.ok===false)throw new Error(j.error||('HTTP '+r.status));
+    return j;
+  }
+  if(!r.ok)throw new Error('HTTP '+r.status);
+  return r;
+}
+function setStatus(x){status.textContent=typeof x==='string'?x:JSON.stringify(x,null,2)}
+async function bootstrap(){
+  session=(await api('/api/session')).creator_session;
+  catalog=await api('/api/catalog');
+  model.innerHTML=catalog.models.map(m=>`<option value="${m.id}">${m.name}</option>`).join('');
+  category.innerHTML='<option value="">Все категории</option>'+catalog.stats.categories.map(c=>`<option value="${c}">${c}</option>`).join('');
+  await loadWorkspaces();
+}
+async function loadWorkspaces(selectId){
+  const j=await api('/api/creator/workspaces');
+  const list=j.workspaces||[];
+  workspace.innerHTML=list.length?list.map(w=>`<option value="${w.id}">${w.name} · ${w.events} events${w.ok?'':' ⚠'}</option>`).join(''):'<option value="">Нет проектов</option>';
+  if(selectId&&list.some(w=>w.id===selectId))workspace.value=selectId;
+  if(workspace.value)await loadWorkspace();
+  else{snapshot=null;eventsEl.innerHTML='<div class="notice">Создай первый workspace.</div>'}
+}
+async function loadWorkspace(){
+  if(!workspace.value)return;
+  snapshot=await api(`/api/creator/workspace?id=${encodeURIComponent(workspace.value)}&model_id=${encodeURIComponent(model.value)}`);
+  const m=snapshot.validation.manifest;
+  $('name').value=m.name||'';$('author').value=m.author||'';$('language').value=m.language||'';$('license').value=m.license||'';$('adult').value=String(!!m.adult);$('sourceUrl').value=m.source_url||'';$('description').value=m.description||'';
+  renderCoverage(snapshot.coverage);
+  await loadEvents();
+  setStatus({validation:snapshot.validation.ok,errors:snapshot.validation.errors,warnings:snapshot.validation.warnings,events:Object.keys(m.events||{}).length});
+}
+function renderCoverage(c){
+  if(!c){$('coverageBar').style.width='0%';$('coverageText').textContent='';return}
+  $('coverageBar').style.width=Math.min(100,c.coverage_pct)+'%';
+  $('coverageText').textContent=`${c.model_id}: ${c.mapped_event_count}/${c.profile_events} IDs · ${c.coverage_pct}% · ${c.unmapped_semantics.length} semantic events unavailable on this model`;
+}
+async function loadEvents(){
+  const qs=new URLSearchParams({model_id:model.value});
+  if(category.value)qs.set('category',category.value);
+  const j=await api('/api/creator/events?'+qs);
+  eventRows=j.events||[];
+  renderEvents();
+}
+function renderEvents(){
+  const assigned=snapshot?.validation?.manifest?.events||{};
+  const term=search.value.toLowerCase();
+  const rows=eventRows.filter(e=>{
+    if(onlyAssigned.checked&&!assigned[e.semantic])return false;
+    return !term||(`${e.semantic} ${e.description||''} ${e.ids.join(' ')}`).toLowerCase().includes(term);
+  });
+  eventsEl.innerHTML=rows.map(e=>{
+    const rel=assigned[e.semantic];
+    const audio=rel?`<audio controls src="/api/creator/audio?id=${encodeURIComponent(workspace.value)}&semantic=${encodeURIComponent(e.semantic)}&session=${encodeURIComponent(session)}"></audio>`:'';
+    return `<article class="event ${rel?'assigned':''}">
+      <h3>${e.semantic}</h3>
+      <div class="meta"><span class="badge">${e.category}</span> IDs: ${e.ids.join(', ')}<br>${e.description||'Без описания'}<br>${rel?'<span class="badge ok">audio assigned</span> '+rel:'<span class="badge warn">no audio</span>'}</div>
+      ${audio}
+      <div class="buttons">
+        <input type="file" accept="audio/*,.wav,.mp3,.ogg,.m4a,.aac,.flac,.opus" data-file="${e.semantic}">
+        ${rel?`<button class="danger" data-remove="${e.semantic}">Удалить audio</button>`:''}
+      </div>
+    </article>`;
+  }).join('')||'<div class="notice">Нет событий по фильтру.</div>';
+  eventsEl.querySelectorAll('[data-file]').forEach(inp=>inp.onchange=async()=>{
+    const f=inp.files&&inp.files[0];if(!f)return;
+    inp.disabled=true;setStatus(`Загружаю ${f.name} → ${inp.dataset.file}…`);
+    try{
+      await api(`/api/creator/audio?id=${encodeURIComponent(workspace.value)}&semantic=${encodeURIComponent(inp.dataset.file)}&filename=${encodeURIComponent(f.name)}`,{method:'POST',headers:{'Content-Type':'application/octet-stream'},body:f});
+      await loadWorkspace();
+    }catch(e){setStatus('Upload error: '+e)}finally{inp.disabled=false}
+  });
+  eventsEl.querySelectorAll('[data-remove]').forEach(btn=>btn.onclick=async()=>{
+    try{
+      await api('/api/creator/remove',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:workspace.value,semantic:btn.dataset.remove})});
+      await loadWorkspace();
+    }catch(e){setStatus('Remove error: '+e)}
+  });
+}
+$('create').onclick=async()=>{
+  try{
+    const body={id:$('newId').value.trim(),name:$('newName').value.trim(),author:$('newAuthor').value.trim(),language:$('newLang').value.trim(),adult:$('newAdult').value==='true',license:$('newLicense').value.trim(),source_url:$('newSource').value.trim()||null,description:$('newDescription').value.trim()||null};
+    const j=await api('/api/creator/new',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+    await loadWorkspaces(body.id);$('newDetails').open=false;setStatus(j);
+  }catch(e){setStatus('Create error: '+e)}
+};
+$('saveMeta').onclick=async()=>{
+  try{
+    const updates={name:$('name').value.trim(),author:$('author').value.trim(),language:$('language').value.trim(),license:$('license').value.trim(),adult:$('adult').value==='true',source_url:$('sourceUrl').value.trim()||null,description:$('description').value.trim()||null};
+    const j=await api('/api/creator/manifest',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:workspace.value,updates})});
+    setStatus(j);await loadWorkspaces(workspace.value);
+  }catch(e){setStatus('Save error: '+e)}
+};
+$('validate').onclick=async()=>{try{await loadWorkspace();setStatus(snapshot.validation)}catch(e){setStatus('Validate error: '+e)}};
+$('coverage').onclick=async()=>{try{await loadWorkspace();renderCoverage(snapshot.coverage);setStatus(snapshot.coverage)}catch(e){setStatus('Coverage error: '+e)}};
+$('build').onclick=async()=>{
+  $('build').disabled=true;setStatus('Нормализую audio и собираю model package…');
+  try{
+    const j=await api('/api/creator/build',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:workspace.value,model_id:model.value})});
+    setStatus(j);
+  }catch(e){setStatus('Build error: '+e)}finally{$('build').disabled=false}
+};
+workspace.onchange=loadWorkspace;
+model.onchange=loadWorkspace;
+$('reload').onclick=()=>loadWorkspaces(workspace.value);
+category.onchange=loadEvents;
+search.oninput=renderEvents;
+onlyAssigned.onchange=renderEvents;
+bootstrap().catch(e=>setStatus('Startup error: '+e));
+</script>
+</body></html>
