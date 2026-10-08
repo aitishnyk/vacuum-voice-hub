@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vacuum-voice-hub"
+version = "0.1.0"
+description = "Open voice-pack library, converter and installer for robot vacuums"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Vacuum Voice Hub contributors"}]
+dependencies = [
+  "python-miio>=0.5.12",
+  "imageio-ffmpeg>=0.6.0"
+]
+
+[project.scripts]
+vvh = "vacuum_voice_hub.cli:main"
+
+[tool.setuptools.package-data]
+vacuum_voice_hub = ["web/*", "data/*.json"]
