@@ -66,6 +66,10 @@ def _preflight(records):
             raise ValueError("file/directory collision in archive")
     if any(p in regular for p, is_dir in paths if is_dir):
         raise ValueError("file/directory collision in archive")
+    for name, _ in paths:
+        if any(parent.as_posix() in regular
+               for parent in PurePosixPath(name).parents if parent.as_posix() != "."):
+            raise ValueError("file/directory collision in archive")
     return files
 
 
@@ -98,9 +102,16 @@ def extract(src: Path, dst: Path):
     if tarfile.is_tarfile(src):
         with tarfile.open(src, "r:*") as archive:
             records = []
+            declared_total = 0
             for item in archive:
                 if not item.isfile() and not item.isdir():
                     raise ValueError(f"unsafe archive member: {item.name!r}")
+                if item.isfile():
+                    if item.size < 0 or item.size > MAX_MEMBER_BYTES:
+                        raise ValueError("oversized or invalid archive member")
+                    declared_total += item.size
+                    if declared_total > MAX_UNPACKED_BYTES:
+                        raise ValueError("archive decompressed-size limit exceeded")
                 records.append((item.name, item.size, item.isdir(), item))
                 if len(records) > MAX_FILES * 2:
                     raise ValueError("archive member count exceeds limit")
