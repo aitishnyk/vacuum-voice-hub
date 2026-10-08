@@ -2,36 +2,33 @@
 
 [![CI](https://github.com/aitishnyk/vacuum-voice-hub/actions/workflows/ci.yml/badge.svg)](https://github.com/aitishnyk/vacuum-voice-hub/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/Code%20License-MIT-blue.svg)](LICENSE)
 
-**Open voice-pack library, compatibility engine, converter and installer for robot vacuums.**
+**Credits-first multi-model voice-pack library, compatibility engine, converter and installer for robot vacuums.**
 
-Vacuum Voice Hub (VVH) turns community voice packs into model-specific packages while preserving the original creator/source attribution.
+## v0.3 at a glance
 
-> Hardware-verified target: **Xiaomi Robot Vacuum X10 / `dreame.vacuum.r2209`**.
-> The architecture is multi-model by design: future Dreame, Xiaomi, Roborock, Mova and Trouver support lives in independent model adapters.
+- **55 attributed voice variants**
+- **7 robot model profiles**
+- **560+ observed semantic/numeric events**
+- per-model coverage and core-event coverage
+- category-specific fallback voices
+- explicit transport evidence levels
+- Xiaomi X10 remains the only VVH hardware-verified model
+- local Web UI + CLI
+- stock-voice restore where the model transport supports it
 
-## v0.2 — 50 Voice Wave + Compatibility Engine
+Supported model profiles:
 
-v0.2 grows VVH from a working X10 installer into a compatibility-aware catalog:
+- Xiaomi Robot Vacuum X10 — `dreame.vacuum.r2209` — hardware verified
+- Dreame D9 — `dreame.vacuum.p2009` — build/coverage only
+- Dreame D10S Plus — `dreame.vacuum.r2240` — MIoT-spec transport
+- Dreame L10S Ultra — `dreame.vacuum.r2228o` — MIoT-spec transport
+- Dreame L40 Ultra — `dreame.vacuum.r2492*` — community device research
+- Dreame X40 Ultra — `dreame.vacuum.r2416*/r2449*` — experimental transport
+- MOVA P10 Pro Ultra — `mova/dreame.vacuum.r2491*` — provisional profile / experimental transport
 
-- **55 attributed voice variants** across **7 languages**;
-- **13 explicit/18+ variants**, hidden by default in the Web UI;
-- conservative **106-event X10 hardware-verified profile**;
-- semantic event metadata and model event profiles;
-- model-specific **coverage score** and core-event coverage;
-- optional **fallback voice** to fill missing X10 events;
-- safe filtering of extra/unverified event IDs from X10 builds;
-- remote legacy Roborock **`.pkg`** sources through the historical ccrypt format;
-- **31 research/recovery records**, including 18 old packs with preserved historical URL + MD5 + size metadata;
-- clearer source verification labels: Git blob, MD5, byte size, or release metadata;
-- compatibility-aware local Web UI.
+See [Model compatibility matrix](docs/MODEL_MATRIX.md).
 
-“Convertible” means VVH understands the source format. It does **not** mean that every community pack has been physically exercised on every robot.
-
-## Why this project exists
-
-Robot-vacuum voice packs are scattered across GitHub, 4PDA, old Xiaomi/Roborock communities and personal archives. File layouts, event IDs and codecs differ by generation and model. VVH provides one credits-first catalog and a conversion pipeline without pretending that all numeric sound IDs are universal.
-
-## Install on macOS
+## Install
 
 ```bash
 python3 -m venv .venv
@@ -42,127 +39,82 @@ vvh stats
 vvh web
 ```
 
-Or use `scripts/INSTALL_MACOS.command`.
-
-## CLI examples
+## Compatibility before installation
 
 ```bash
-# Browse
-vvh stats
-vvh list --language ru
-vvh list --adult
-vvh info maxim-full
+vvh models
+vvh model-info dreame.vacuum.r2228o
+vvh coverage warcraft --model dreame.vacuum.r2228o
+```
 
-# Measure compatibility before installing
-vvh coverage l40-jarvis --model dreame.vacuum.r2209
+### Semantic fallback
 
-# Fill missing model events from another pack
-vvh coverage l40-jarvis --model dreame.vacuum.r2209 --fallback q0-russian
-vvh build l40-jarvis --model dreame.vacuum.r2209 --fallback q0-russian
+```bash
+vvh build warcraft \
+  --model dreame.vacuum.r2228o \
+  --fallback-category error=q0-russian \
+  --fallback-category dock=q0-russian \
+  --fallback uk-female-pensive
+```
 
-# Install
+Category fallback is applied before the general fallback. Only event IDs known to the target model are packaged.
+
+## Installation safety
+
+VVH refuses to infer hardware support from a similar model.
+
+- verified/spec/community transports may install according to the model policy;
+- experimental transports require `--allow-experimental-transport`;
+- unsupported transports fail closed;
+- the robot model returned by miIO must match a declared alias;
+- token is never printed;
+- the HTTP server tracks whether the robot itself actually fetched the package.
+
+Example:
+
+```bash
 vvh install maxim-full --model dreame.vacuum.r2209 --ip 192.168.1.123
-
-# Legacy Roborock .pkg from the catalog
-# Requires: brew install ccrypt
-vvh coverage phil-british-butler --model dreame.vacuum.r2209
 ```
 
-The local token is requested interactively when omitted and is never printed.
-
-## Compatibility model
-
-VVH v0.2 does **not** assume that “Dreame numeric OGG” means universal compatibility.
-
-For X10, the profile `x10-known-v1` contains **106 event IDs** derived from the event layout used by the package that was accepted by a physical X10. A source pack is measured against that profile:
-
-```text
-source archive
-  ↓ source-format adapter
-canonical numeric events
-  ↓ Compatibility Engine
-covered / missing / extra / core coverage
-  ↓ optional fallback fill
-X10 verified-safe event subset
-  ↓ package + install
-```
-
-Newer L40/X40-family packs can contain hundreds of additional IDs. VVH reports those as `extra` and does not put them into an X10 package until they are verified for that model.
-
-## Fallback
-
-A partial character pack can be combined at build time with a second pack:
+For an experimental model:
 
 ```bash
-vvh build <character-pack> --fallback <base-pack>
+vvh install glados-findus \
+  --model dreame.vacuum.r2416a \
+  --ip 192.168.1.123 \
+  --allow-experimental-transport
 ```
 
-Only missing IDs that are part of the target model's known event profile are copied. The original source archives are never modified.
+Use that flag only when you understand that VVH has not physically verified the model.
 
-## Source integrity and credits
+## Credits and third-party audio
 
-Every catalog entry includes:
+Every catalog entry stores upstream source, acknowledgement, source byte size, integrity data when available, adult marker and redistribution policy.
 
-- upstream project/source page;
-- acknowledgement text;
-- language and explicit-content marker;
-- original model/layout where known;
-- source byte size;
-- Git blob SHA and/or MD5 where available;
-- redistribution policy;
-- source verification level.
+- [Catalog](catalog/CATALOG.md)
+- [Credits](CREDITS.md)
+- [Third-party audio policy](THIRD_PARTY_AUDIO.md)
 
-See [catalog/CATALOG.md](catalog/CATALOG.md) and [CREDITS.md](CREDITS.md).
+Character audio is not mirrored merely because it is publicly downloadable. Source-only packs are fetched from the upstream project.
 
-**VVH does not mirror third-party character audio by default.** It downloads from the original/upstream location at build time. See [THIRD_PARTY_AUDIO.md](THIRD_PARTY_AUDIO.md).
+## Semantic event system
 
-## Import your own pack
+VVH maps common robot events to stable names such as `clean.start`, `error.main_brush`, `dock.return.charge` and `mapping.complete`.
 
-```bash
-# Dreame/Valetudo tar.gz, RoboVoice MP3 archive, Ijai ZIP,
-# old Roborock named audio, or historical Roborock .pkg
-vvh import-pack ~/Downloads/my_voice.pkg --model dreame.vacuum.r2209
-```
+See [SEMANTIC_EVENTS.md](docs/SEMANTIC_EVENTS.md).
 
-Legacy Roborock `.pkg` decoding requires `ccrypt` (`brew install ccrypt`). The historical community package key is used only for that old file format.
+## Physical verification
 
-## Official voices / restore
+Only Xiaomi X10 currently has a VVH physical-install log proving Set Voice acceptance, HTTP download and success/100%.
 
-```bash
-vvh stock --model dreame.vacuum.r2209
-vvh restore-stock RU --model dreame.vacuum.r2209 --ip 192.168.1.123
-```
+See [TESTED_HARDWARE.md](docs/TESTED_HARDWARE.md).
 
-VVH discovers official Dreame packages from the manufacturer's `soundpackage.json` at runtime rather than mirroring them.
+## Support
 
-## Physical X10 evidence
+Use the **Sponsor** button on GitHub to support source recovery, hardware testing and new model adapters.
 
-On a real `dreame.vacuum.r2209`, firmware `4.3.9_1321`:
+## Next
 
-- Set Voice at `siid=7 / piid=4` returned `code=0`;
-- the robot fetched the generated package over the LAN;
-- the custom voice packet ID was set;
-- state changed `downloading → success`;
-- progress reached `100`.
+v0.4 adds **Creator Studio** and the `vvh.voicepack.v1` semantic pack format. v0.5 follows with desktop packaging and privacy-safe community compatibility reports.
 
-That verifies the **transport and package path**. Individual community voices still need their own hardware reports.
-
-## Support the project
-
-If VVH saves you time or helps bring custom voices to another robot model, you can support development through the **Sponsor** button on GitHub.
-
-Sponsorship helps fund source recovery, compatibility research, hardware testing and new model adapters.
-
-## Contributing
-
-The most valuable contributions are:
-
-- a real voice archive with its original source/author;
-- a physical-device compatibility report;
-- event mappings for another robot model;
-- corrected attribution;
-- original, redistributable voice packs.
-
-See [CONTRIBUTING.md](CONTRIBUTING.md), [docs/ADDING_VOICE.md](docs/ADDING_VOICE.md) and [docs/ADDING_MODEL.md](docs/ADDING_MODEL.md).
-
-VVH is independent community software and is not affiliated with Xiaomi, Dreame, Roborock, Mova, Trouver, Valve, Disney, Warner Bros., Blizzard or other rights holders.
+VVH is independent community software and is not affiliated with Xiaomi, Dreame, Roborock, MOVA, Trouver or third-party character rights holders.

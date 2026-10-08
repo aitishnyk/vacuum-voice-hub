@@ -1,42 +1,46 @@
 # Changelog
 
+## 0.3.0 — 2026-10-08
+
+### Multi-model Hardware Wave
+- expanded model catalog from 1 to **7 profiles**;
+- added D9, D10S Plus, L10S Ultra, L40 Ultra, X40 Ultra and MOVA P10 Pro Ultra;
+- extracted/source-backed event profiles from 111 to 514 events;
+- kept Xiaomi X10 as the only hardware-verified model.
+
+### Semantic Compatibility Engine
+- expanded semantic event union to **560+ observed IDs**;
+- introduced `vvh.semantic.v1`;
+- added category-level coverage;
+- added semantic missing-core diagnostics;
+- added category-specific fallback packs;
+- extra/unverified event IDs remain filtered by each target profile.
+
+### Transport safety
+- model-level transport contracts;
+- D9 local installation is build/coverage-only;
+- X40 and MOVA transports require explicit experimental opt-in;
+- D10S Plus/L10S Ultra use MIoT-spec evidence;
+- L40 uses community device research evidence;
+- robot HTTP download confirmation is tracked separately from Set Voice acceptance.
+
+### UX / CLI
+- multi-model Web UI;
+- transport/evidence status panel;
+- model-aware coverage labels;
+- category fallback selectors;
+- `vvh model-info`;
+- `--fallback-category CATEGORY=VOICE`;
+- `--allow-experimental-transport`.
+
 ## 0.2.0 — 2026-10-08
 
-### 50 Voice Wave
-- expanded from 26 to **55 attributed voice variants**;
-- catalog now spans **7 languages** and 13 explicit/18+ variants;
-- added modern GitHub-hosted Dreame packs and legacy Roborock package sources;
-- preserved 31 source-recovery records, including historical MD5/size metadata for old Russian Dreame archives.
-
-### Compatibility Engine
-- added semantic event catalog;
-- added conservative `x10-known-v1` **106-event** hardware-verified profile;
-- added coverage/core-coverage/missing/extra reports;
-- X10 packaging now filters unverified extra event IDs;
-- added optional fallback pack filling for missing target-model events.
-
-### Tooling
-- added `vvh stats`;
-- added `vvh coverage`;
-- added `--fallback` to build/install;
-- added remote legacy Roborock `.pkg` source adapter;
-- Web UI now shows source verification/origin layout and on-demand compatibility reports;
-- 18+ packs are hidden by default in the Web UI.
-
-### Attribution
-- expanded credits and source verification metadata;
-- historical dead/uncertain hosts remain recovery metadata rather than being presented as installable sources.
+- 55 attributed voice variants across 7 languages;
+- 106-event X10 compatibility profile;
+- coverage/fallback engine;
+- remote legacy Roborock `.pkg` support;
+- source recovery and expanded CI gates.
 
 ## 0.1.0 — 2026-10-08
 
-- initial Vacuum Voice Hub product architecture;
-- Xiaomi X10 / `dreame.vacuum.r2209` model adapter;
-- 26 installable source variants with upstream attribution;
-- 17-entry source-recovery backlog;
-- RoboVoice, canonical Dreame OGG and Ijai named-MP3 source adapters;
-- local MIoT installer;
-- local Web UI and CLI;
-- preview support;
-- official Dreame stock-manifest discovery/restore commands;
-- archive safety and source integrity verification;
-- GitHub CI and contributor documentation.
+- initial X10-focused Vacuum Voice Hub foundation.
