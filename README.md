@@ -48,7 +48,7 @@ vvh list --language ru
 vvh list --adult
 vvh info maxim-full
 vvh build maxim-full --model dreame.vacuum.r2209
-vvh install maxim-full --model dreame.vacuum.r2209 --ip 192.168.0.106
+vvh install maxim-full --model dreame.vacuum.r2209 --ip 192.168.1.123
 ```
 
 The token is requested interactively when omitted and is never printed.
@@ -85,7 +85,7 @@ Old Roborock `.pkg` import requires `ccrypt` (`brew install ccrypt` on macOS). T
 
 ```bash
 vvh stock --model dreame.vacuum.r2209
-vvh restore-stock RU --model dreame.vacuum.r2209 --ip 192.168.0.106
+vvh restore-stock RU --model dreame.vacuum.r2209 --ip 192.168.1.123
 ```
 
 VVH discovers stock Dreame packages from the manufacturer's `soundpackage.json` at runtime rather than mirroring them.

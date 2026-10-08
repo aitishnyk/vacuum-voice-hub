@@ -28,6 +28,9 @@ On a real `dreame.vacuum.r2209`, firmware `4.3.9_1321`:
 
 This verifies the transport/package pipeline. Individual third-party voice sources remain marked `convertible` until separately tested on hardware.
 
-## GitHub publishing limitation in this session
+## GitHub publishing status
 
-The connected GitHub integration has admin/push access to existing repositories, but exposes no action for creating a brand-new repository container. `aitishnyk/vacuum-voice-hub` currently returns 404. The repository tree and `main` history are ready; after an empty repository exists, it can be published without restructuring.
+The repository is published at `aitishnyk/vacuum-voice-hub`.
+The complete v0.1.0 source tree is present on `main`.
+
+Repository visibility is checked separately from the source release; for an open-source launch it should be **Public**.
