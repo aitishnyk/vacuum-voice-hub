@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "vacuum-voice-hub"
-version = "0.4.0"
-description = "Credits-first multi-model voice-pack platform with semantic Creator Studio"
+version = "0.5.0"
+description = "Multi-model robot-vacuum voice platform with Creator Studio, desktop shell and community verification"
 readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"
@@ -17,11 +17,12 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-desktop = ["pywebview>=5.0"]
+desktop = ["pywebview>=5.0", "keyring>=25.0"]
 security = ["keyring>=25.0"]
 
 [project.scripts]
 vvh = "vacuum_voice_hub.cli:main"
+vvh-desktop = "vacuum_voice_hub.desktop:main"
 
 [tool.setuptools.packages.find]
 include = ["vacuum_voice_hub*"]

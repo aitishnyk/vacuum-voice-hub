@@ -62,6 +62,14 @@
   <button id="restoreStock">Вернуть официальный</button>
 </div>
 
+<div class="panel">
+  <div class="sectionTitle">Community Verification</div>
+  <div class="toolbar" style="padding:0;border:0;margin:0">
+    <button id="loadHistory" class="secondary">История установок</button>
+    <button id="makeReport" class="secondary">Создать privacy-safe report</button>
+  </div>
+  <div class="notice">Report содержит модель/firmware/transport/status и последнюю установку, но намеренно исключает token, IP и MAC. Файл сохраняется локально — отправка в GitHub не происходит автоматически.</div>
+</div>
 <div class="notice">18+ скрыты по умолчанию. UI слушает только 127.0.0.1. Token не записывается и не отображается в логах. Build/coverage доступны даже для моделей, где local install намеренно заблокирован.</div>
 <audio id="player" controls></audio>
 <div id="status" class="status">Готов.</div>
@@ -71,7 +79,7 @@
 </div>
 <script>
 const $=id=>document.getElementById(id);
-const q=$('q'),lang=$('lang'),showAdult=$('showAdult'),voice=$('voice'),model=$('model'),fallback=$('fallback'),ip=$('ip'),token=$('token'),go=$('go'),check=$('check'),grid=$('grid'),status=$('status'),player=$('player'),loadStock=$('loadStock'),stock=$('stock'),restoreStock=$('restoreStock'),modelPanel=$('modelPanel'),transportNotice=$('transportNotice'),fallbackGrid=$('fallbackGrid'),experimental=$('experimental'),experimentalWrap=$('experimentalWrap');
+const q=$('q'),lang=$('lang'),showAdult=$('showAdult'),voice=$('voice'),model=$('model'),fallback=$('fallback'),ip=$('ip'),token=$('token'),go=$('go'),check=$('check'),grid=$('grid'),status=$('status'),player=$('player'),loadStock=$('loadStock'),stock=$('stock'),restoreStock=$('restoreStock'),modelPanel=$('modelPanel'),transportNotice=$('transportNotice'),fallbackGrid=$('fallbackGrid'),experimental=$('experimental'),experimentalWrap=$('experimentalWrap'),loadHistory=$('loadHistory'),makeReport=$('makeReport');
 let data={voices:[],models:[],backlog:[],stats:{}};
 const langNames={ru:'Русский',uk:'Українська',en:'English',de:'Deutsch',hu:'Magyar',he:'עברית',zxx:'Без речи'};
 const categoryNames={error:'Ошибки',dock:'Докинг/зарядка',base:'Станция/вода/моп',cleaning:'Уборка',mapping:'Карта',network:'Сеть',system:'Система',assistant:'Ассистент',other:'Прочее'};
@@ -209,6 +217,19 @@ restoreStock.onclick=async()=>{
     const r=await fetch('/api/restore-stock',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({stock_id:stock.value,model_id:model.value,ip:ip.value,token:token.value,allow_experimental_transport:experimental.checked})});
     status.textContent=JSON.stringify(await r.json(),null,2);
   }finally{renderModel()}
+};
+loadHistory.onclick=async()=>{
+  try{
+    const j=await (await fetch('/api/history?limit=50')).json();
+    status.textContent=JSON.stringify(j,null,2);
+  }catch(e){status.textContent='History error: '+e}
+};
+makeReport.onclick=async()=>{
+  makeReport.disabled=true;status.textContent='Собираю privacy-safe live report…';
+  try{
+    const r=await fetch('/api/report',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model_id:model.value,ip:ip.value,token:token.value})});
+    status.textContent=JSON.stringify(await r.json(),null,2);
+  }catch(e){status.textContent='Report error: '+e}finally{makeReport.disabled=false}
 };
 go.onclick=async()=>{
   status.textContent='Integrity → compatibility → semantic fallback → install…';go.disabled=true;

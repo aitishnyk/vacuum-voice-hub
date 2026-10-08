@@ -1,6 +1,7 @@
 import json,urllib.request,time
 from .catalog import model_by_id
 from .models.registry import get as get_model
+from .history import append_history
 
 def manifest_url(model_id):
     model=model_by_id(model_id)
@@ -62,6 +63,16 @@ def install_stock(model_id,ip,token,item,allow_experimental_transport=False,time
         time.sleep(3)
         last=miot.voice_status(ip,token,transport)
         if last.get("state")=="success" and last.get("progress")==100:
+            append_history({
+                "ok":True,
+                "action":"restore-stock",
+                "voice_id":item["id"],
+                "model_id":model["id"],
+                "firmware":info.get("firmware"),
+                "hardware":info.get("hardware"),
+                "transport_verification":transport.get("verification"),
+                "status":{"voice_id":last.get("voice_id"),"state":last.get("state"),"progress":last.get("progress")},
+            })
             return {
                 "ok":True,
                 "device":{"model":info.get("model"),"firmware":info.get("firmware"),"hardware":info.get("hardware")},
