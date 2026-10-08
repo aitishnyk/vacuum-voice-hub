@@ -13,13 +13,13 @@ def local_ip_for(remote_ip):
 class Quiet(http.server.SimpleHTTPRequestHandler):
     def log_message(self,fmt,*args): pass
 
-def install_voice(voice_id, model_id, ip, token=None, timeout=150):
+def install_voice(voice_id, model_id, ip, token=None, timeout=150, fallback_voice_id=None):
     token=token or getpass.getpass("TOKEN (32 hex, hidden): ").strip()
     if len(token)!=32: raise ValueError("token must be 32 characters")
     model=model_by_id(model_id)
     di=miot.info(ip,token)
     if di.get("model") not in model.get("aliases",[]): raise ValueError(f"model mismatch: robot={di.get('model')} expected={model_id}")
-    built=build_voice(voice_id,model_id); path=Path(built["path"]); host=local_ip_for(ip)
+    built=build_voice(voice_id,model_id,fallback_voice_id=fallback_voice_id); path=Path(built["path"]); host=local_ip_for(ip)
     handler=lambda *a,**kw: Quiet(*a,directory=str(path.parent),**kw)
     class S(socketserver.ThreadingMixIn,http.server.HTTPServer): daemon_threads=True
     srv=S(("0.0.0.0",0),handler); port=srv.server_address[1]
@@ -34,7 +34,14 @@ def install_voice(voice_id, model_id, ip, token=None, timeout=150):
         while time.time()<deadline:
             time.sleep(3); last=miot.voice_status(ip,token)
             if last.get("state")=="success" and last.get("progress")==100:
-                return {"ok":True,"device":di,"status":last,"package":{"md5":built["md5"],"size":built["size"],"events":built["events"]}}
+                return {
+                    "ok":True,
+                    "device":di,
+                    "status":last,
+                    "compatibility":built["compatibility"],
+                    "fallback":built.get("fallback"),
+                    "package":{"md5":built["md5"],"size":built["size"],"events":built["events"]},
+                }
             if last.get("state") in {"failed","fail","error"}: raise RuntimeError(f"installation failed: {last}")
         raise TimeoutError(f"installation timeout; last={last}")
     finally: srv.shutdown(); srv.server_close()
