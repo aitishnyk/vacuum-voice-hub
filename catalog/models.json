@@ -1,5 +1,5 @@
 {
-  "schema": 1,
+  "schema": 2,
   "models": [
     {
       "id": "dreame.vacuum.r2209",
@@ -8,7 +8,7 @@
       "aliases": [
         "dreame.vacuum.r2209"
       ],
-      "adapter": "dreame_r2209",
+      "adapter": "dreame_numeric",
       "device_tested": true,
       "tested_firmware": [
         "4.3.9_1321"
@@ -21,15 +21,201 @@
         "filename": "<canonical_event_id>.ogg"
       },
       "transport": {
-        "kind": "miot-local",
+        "kind": "miot-local-property",
         "audio_service_siid": 7,
         "set_voice_piid": 4,
         "voice_id_piid": 2,
-        "state_piid": 3
+        "state_piid": 3,
+        "verification": "hardware-verified",
+        "allow_default": true
       },
       "notes": "Physical-device installation path verified: set_property code 0, LAN HTTP 200 from robot, state=success progress=100.",
       "event_profile": "x10-known-v1",
       "compatibility_note": "VVH v0.2 uses a conservative 106-event hardware-verified profile. Extra IDs are reported but omitted from X10 builds until separately verified."
+    },
+    {
+      "id": "dreame.vacuum.p2009",
+      "name": "Dreame D9",
+      "vendor": "Dreame",
+      "aliases": [
+        "dreame.vacuum.p2009"
+      ],
+      "adapter": "dreame_numeric",
+      "device_tested": false,
+      "tested_firmware": [],
+      "package": {
+        "container": "tar.gz",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<canonical_event_id>.ogg"
+      },
+      "event_profile": "d9-community-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "not-confirmed",
+        "allow_default": false
+      },
+      "notes": "Build/coverage supported. Local custom voice installation is fail-closed because D9 MIoT spec does not expose set-voice property; use a rooted/Valetudo workflow until a verified transport is contributed."
+    },
+    {
+      "id": "dreame.vacuum.r2240",
+      "name": "Dreame D10S Plus",
+      "vendor": "Dreame",
+      "aliases": [
+        "dreame.vacuum.r2240"
+      ],
+      "adapter": "dreame_numeric",
+      "device_tested": false,
+      "tested_firmware": [],
+      "package": {
+        "container": "tar.gz",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<canonical_event_id>.ogg"
+      },
+      "event_profile": "d10s-plus-community-v1",
+      "transport": {
+        "kind": "miot-local-property",
+        "audio_service_siid": 7,
+        "set_voice_piid": 4,
+        "voice_id_piid": 2,
+        "state_piid": 3,
+        "verification": "miot-spec",
+        "allow_default": true,
+        "evidence": "https://home.miot-spec.com/spec/dreame.vacuum.r2240"
+      },
+      "notes": "Audio service 7 / set-voice property 4 is documented by MIoT spec; VVH still needs a physical install report."
+    },
+    {
+      "id": "dreame.vacuum.r2228o",
+      "name": "Dreame L10S Ultra",
+      "vendor": "Dreame",
+      "aliases": [
+        "dreame.vacuum.r2228o"
+      ],
+      "adapter": "dreame_numeric",
+      "device_tested": false,
+      "tested_firmware": [],
+      "package": {
+        "container": "tar.gz",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<canonical_event_id>.ogg"
+      },
+      "event_profile": "l10s-ultra-extracted-v1",
+      "transport": {
+        "kind": "miot-local-property",
+        "audio_service_siid": 7,
+        "set_voice_piid": 4,
+        "voice_id_piid": 2,
+        "state_piid": 3,
+        "verification": "miot-spec",
+        "allow_default": true,
+        "evidence": "https://home.miot-spec.com/spec/dreame.vacuum.r2228o"
+      },
+      "notes": "MIoT set-voice property documented; upstream voice packs tested on L10S Ultra. VVH physical-device verification pending."
+    },
+    {
+      "id": "dreame.vacuum.r2492a",
+      "name": "Dreame L40 Ultra",
+      "vendor": "Dreame",
+      "aliases": [
+        "dreame.vacuum.r2492a",
+        "dreame.vacuum.r2492b",
+        "dreame.vacuum.r2492j"
+      ],
+      "adapter": "dreame_numeric",
+      "device_tested": false,
+      "tested_firmware": [],
+      "package": {
+        "container": "tar.gz",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<canonical_event_id>.ogg"
+      },
+      "event_profile": "l40-ultra-community-v1",
+      "transport": {
+        "kind": "miot-local-property",
+        "audio_service_siid": 7,
+        "set_voice_piid": 4,
+        "voice_id_piid": 2,
+        "state_piid": 3,
+        "verification": "community-device-research",
+        "allow_default": true,
+        "evidence": "https://github.com/jan-hinter-droid/dreame-l40-voicepack"
+      },
+      "notes": "Upstream L40 research documents working siid 7 / piid 4 VOICE_CHANGE. VVH physical-device verification pending."
+    },
+    {
+      "id": "dreame.vacuum.r2416a",
+      "name": "Dreame X40 Ultra",
+      "vendor": "Dreame",
+      "aliases": [
+        "dreame.vacuum.r2416a",
+        "dreame.vacuum.r2416c",
+        "dreame.vacuum.r2449a",
+        "dreame.vacuum.r2449k",
+        "dreame.vacuum.r2416"
+      ],
+      "adapter": "dreame_numeric",
+      "device_tested": false,
+      "tested_firmware": [],
+      "package": {
+        "container": "tar.gz",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<canonical_event_id>.ogg"
+      },
+      "event_profile": "x40-ultra-extracted-v1",
+      "transport": {
+        "kind": "miot-local-property",
+        "audio_service_siid": 7,
+        "set_voice_piid": 4,
+        "voice_id_piid": 2,
+        "state_piid": 3,
+        "verification": "family-inferred",
+        "allow_default": false,
+        "evidence": "https://github.com/sproft/dreame-x40-glados-voice-pack"
+      },
+      "notes": "Build/coverage supported. Local VOICE_CHANGE transport is family-inferred and requires --allow-experimental-transport until a verified X40 local install report exists."
+    },
+    {
+      "id": "mova.vacuum.r2491a",
+      "name": "MOVA P10 Pro Ultra",
+      "vendor": "MOVA / Dreame",
+      "aliases": [
+        "mova.vacuum.r2491a",
+        "mova.vacuum.r2491",
+        "dreame.vacuum.r2491a",
+        "dreame.vacuum.r2491"
+      ],
+      "adapter": "dreame_numeric",
+      "device_tested": false,
+      "tested_firmware": [],
+      "package": {
+        "container": "tar.gz",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<canonical_event_id>.ogg"
+      },
+      "event_profile": "mova-p10-pro-ultra-provisional-v1",
+      "transport": {
+        "kind": "miot-local-property",
+        "audio_service_siid": 7,
+        "set_voice_piid": 4,
+        "voice_id_piid": 2,
+        "state_piid": 3,
+        "verification": "peer-family-inferred",
+        "allow_default": false,
+        "evidence": "https://github.com/Hypfer/Valetudo/discussions/2181"
+      },
+      "notes": "Build/coverage supported using conservative L40∩X40 profile. Install transport requires --allow-experimental-transport until physical evidence is contributed."
     }
   ]
 }

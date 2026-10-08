@@ -15,17 +15,41 @@ def roborock_map(): return _load("roborock_named_to_dreame.json")["mapping"]
 
 def voice_by_id(voice_id):
     for v in voices():
-        if v["id"] == voice_id: return v
+        if v["id"]==voice_id:
+            return v
     raise KeyError(f"Unknown voice: {voice_id}")
 
 def model_by_id(model_id):
     for m in models():
-        if model_id == m["id"] or model_id in m.get("aliases",[]): return m
+        if model_id==m["id"] or model_id in m.get("aliases",[]):
+            return m
     raise KeyError(f"Unsupported model: {model_id}")
+
+def canonical_model_id(model_id):
+    return model_by_id(model_id)["id"]
 
 def event_profile_for_model(model_id):
     model=model_by_id(model_id)
     profile_id=model.get("event_profile")
     for p in event_profiles():
-        if p["id"]==profile_id: return p
+        if p["id"]==profile_id:
+            return p
     raise KeyError(f"No event profile {profile_id!r} for {model_id}")
+
+def event_by_id(event_id):
+    event_id=int(event_id)
+    for e in events():
+        if int(e["id"])==event_id:
+            return e
+    return {
+        "id":event_id,
+        "semantic":f"dreame.event.{event_id}",
+        "category":"other",
+        "description":None,
+    }
+
+def event_by_semantic(semantic):
+    return [e for e in events() if e.get("semantic")==semantic]
+
+def categories():
+    return sorted({e.get("category","other") for e in events()})
