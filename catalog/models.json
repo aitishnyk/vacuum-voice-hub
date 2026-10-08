@@ -27,7 +27,9 @@
         "voice_id_piid": 2,
         "state_piid": 3
       },
-      "notes": "Physical-device installation path verified: set_property code 0, LAN HTTP 200 from robot, state=success progress=100."
+      "notes": "Physical-device installation path verified: set_property code 0, LAN HTTP 200 from robot, state=success progress=100.",
+      "event_profile": "x10-known-v1",
+      "compatibility_note": "VVH v0.2 uses a conservative 106-event hardware-verified profile. Extra IDs are reported but omitted from X10 builds until separately verified."
     }
   ]
 }
