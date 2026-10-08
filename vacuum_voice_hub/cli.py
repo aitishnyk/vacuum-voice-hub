@@ -107,7 +107,31 @@ def main():
 
     s=sub.add_parser("list");s.add_argument("--language");s.add_argument("--adult",action="store_true")
     sub.add_parser("stats")
-    sub.add_parser("models")
+    s=sub.add_parser("models",help="List, search or filter supported research profiles")
+    s.add_argument("--search",help="Filter by model ID, name or vendor (case-insensitive)")
+    s.add_argument("--vendor",help="Filter by vendor name")
+    s.add_argument("--adapter",choices=["dreame_numeric","roborock_legacy","ijai_zip","semantic_bundle"])
+    s.add_argument("--hardware-verified",action="store_true",help="Only physically verified VVH models")
+    sub.add_parser("languages",help="List attributed prerecorded voices and text-only script locales")
+    scripts=sub.add_parser("scripts",help="Model-aware translated recording scripts and offline synthesis")
+    script_sub=scripts.add_subparsers(dest="scripts_cmd",required=True)
+    script_sub.add_parser("list",help="List text-only script locales")
+    for script_name in ("show","export"):
+        sp=script_sub.add_parser(script_name)
+        sp.add_argument("--language",required=True,help="Script locale, e.g. ru, uk, en, zh-Hans")
+        sp.add_argument("--model",default="dreame.vacuum.r2209")
+        if script_name=="export":
+            sp.add_argument("--output",required=True,help="New UTF-8 JSON file; refuses overwrite")
+    sp=script_sub.add_parser("synth",help="Opt-in offline espeak-ng WAV synthesis into Creator workspace")
+    sp.add_argument("--language",required=True)
+    sp.add_argument("--model",default="dreame.vacuum.r2209")
+    sp.add_argument("--id",required=True,dest="pack_id",help="New Creator workspace id")
+    sp.add_argument("--author",required=True)
+    sp.add_argument("--voice",required=True,help="Exact local espeak-ng voice ID; no automatic fallback")
+    sp.add_argument("--speed",type=int,default=160)
+    sp.add_argument("--pitch",type=int,default=50)
+    sp.add_argument("--output")
+    sp.add_argument("--allow-synthetic",action="store_true",help="Explicitly consent to locally generating synthetic WAVs")
     s=sub.add_parser("model-info");s.add_argument("model_id")
     s=sub.add_parser("info");s.add_argument("voice_id")
     s=sub.add_parser("coverage");_add_build_args(s)
@@ -152,6 +176,30 @@ def main():
     if a.cmd=="site":
         return _dump(build_site(a.output) if a.site_cmd=="build" else verify_site(a.path))
 
+    if a.cmd=="scripts":
+        from .script_packs import list_locales, script_for_model, synthesize_workspace
+        if a.scripts_cmd=="list":return _dump(list_locales())
+        if a.scripts_cmd in {"show","export"}:
+            result=script_for_model(a.language,a.model)
+            if a.scripts_cmd=="show":return _dump(result)
+            from pathlib import Path
+            dest=Path(a.output).expanduser().resolve()
+            dest.parent.mkdir(parents=True,exist_ok=True)
+            with dest.open("x",encoding="utf-8") as stream:
+                stream.write(json.dumps(result,ensure_ascii=False,indent=2)+"\n")
+            return _dump({"output":str(dest),"locale":a.language,
+                          "mapped_count":result["mapped_count"],"scripted_count":result["scripted_count"],
+                          "audio_files_generated":False})
+        return _dump(synthesize_workspace(a.language,a.model,a.pack_id,a.author,a.voice,
+                                         output=a.output,speed=a.speed,pitch=a.pitch,
+                                         allow_synthetic=a.allow_synthetic))
+    if a.cmd=="languages":
+        from .script_packs import list_locales
+        recorded={}
+        for v in voices():recorded[v["language"]]=recorded.get(v["language"],0)+1
+        return _dump({"recorded_variants":recorded,"recorded_language_count":len(recorded),
+                      "text_only_script_locales":list_locales(),
+                      "script_templates_are_recordings":False})
     if a.cmd=="list":
         for v in voices():
             if a.language and v["language"]!=a.language:continue
@@ -167,14 +215,22 @@ def main():
             "install_default_models":sum(bool(m.get("transport",{}).get("allow_default")) for m in mm),
             "semantic_events":len(events()),"semantic_categories":categories(),
             "target_combinations":len(vv)*len(mm),
+            "text_script_pack_schema":"vvh.script-pack.v1",
             "adapters":sorted({m.get("adapter") for m in mm}),
             "creator_schema":"vvh.voicepack.v1","compat_report_schema":"vvh.compat-report.v1","public_catalog_schema":"vvh.public-catalog.v1","release_manifest_schema":"vvh.release-manifest.v1","update_feed_schema":"vvh.update-feed.v1",
             "research_backlog":len(backlog()),
         })
     elif a.cmd=="models":
+        count=0
         for m in models():
+            if a.search and a.search.casefold() not in (" ".join((m["id"],m["name"],m.get("vendor","")))).casefold():continue
+            if a.vendor and a.vendor.casefold() not in m.get("vendor","").casefold():continue
+            if a.adapter and a.adapter!=m.get("adapter"):continue
+            if a.hardware_verified and not m.get("device_tested"):continue
             t=m.get("transport",{})
-            print(f"{m['id']:<30} {m['name']:<24} profile={m.get('event_profile','-'):<34} transport={t.get('verification','-')}")
+            print(f"{m['id']:<30} {m['name']:<32} adapter={m.get('adapter','-'):<16} transport={t.get('verification','-')}")
+            count+=1
+        if not count:print("No matching model profiles")
     elif a.cmd=="model-info":_dump(model_by_id(a.model_id))
     elif a.cmd=="info":_dump(voice_by_id(a.voice_id))
     elif a.cmd in {"coverage","build","install"}:

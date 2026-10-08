@@ -10,7 +10,7 @@
 </head>
 <body><div class="wrap">
 <section class="hero">
-  <span class="pill">v0.8</span><span class="pill">109 targets</span><span class="pill">vvh.voicepack.v1</span><span class="pill">local-only workspace</span>
+  <span class="pill">v0.10</span><span class="pill">154 target profiles</span><span class="pill">vvh.voicepack.v1</span><span class="pill">local-only workspace</span>
   <h1>Creator Studio</h1>
   <p>Создавай одну semantic-озвучку и собирай её под разные модели. Аудио остаётся локально; GitHub не получает рабочие файлы автоматически.</p>
   <a class="toplink" href="/">← Вернуться в каталог</a>
@@ -62,7 +62,18 @@
 </div>
 
 <div class="panel">
-  <b>3. Semantic events</b>
+  <b>3. Multilingual recording scripts · 18 languages</b>
+  <p class="notice">Text templates only — no recorded character voices are implied. Select a language and model to inspect mapped events. Local espeak-ng synthesis is available via CLI with explicit opt-in.</p>
+  <div class="toolbar">
+    <select id="scriptLocale" aria-label="Recording script language"></select>
+    <button id="previewScript" class="secondary">Показать фразы</button>
+    <button id="copyScript" class="secondary">Скопировать JSON</button>
+  </div>
+  <pre id="scriptOutput" class="status">Выберите язык и нажмите «Показать фразы».</pre>
+</div>
+
+<div class="panel">
+  <b>4. Semantic events</b>
   <div class="toolbar">
     <input id="search" class="grow" placeholder="clean.start, bumper, charging…">
     <select id="category"><option value="">Все категории</option></select>
@@ -77,7 +88,7 @@
 <script>
 const $=id=>document.getElementById(id);
 const workspace=$('workspace'),model=$('model'),modelQ=$('modelQ'),eventsEl=$('events'),status=$('status'),search=$('search'),category=$('category'),onlyAssigned=$('onlyAssigned');
-let session='',catalog={models:[],stats:{}},snapshot=null,eventRows=[];
+let session='',catalog={models:[],stats:{}},snapshot=null,eventRows=[],currentScript=null;
 
 async function api(url,opts={}){
   opts.headers=Object.assign({},opts.headers||{},session?{'X-VVH-Session':session}:{});
@@ -103,6 +114,15 @@ async function bootstrap(){
   session=(await api('/api/session')).creator_session;
   catalog=await api('/api/catalog');
   populateModels();
+  const langData=await api('/api/script-locales');
+  const scriptLocale=$('scriptLocale');
+  for(const entry of langData.locales){
+    const option=document.createElement('option');
+    option.value=entry.locale;
+    option.textContent=entry.name+' · '+entry.locale;
+    scriptLocale.append(option);
+  }
+  scriptLocale.value='ru';
   category.innerHTML='<option value="">Все категории</option>'+catalog.stats.categories.map(c=>`<option value="${c}">${c}</option>`).join('');
   await loadWorkspaces();
 }
@@ -186,6 +206,25 @@ $('saveMeta').onclick=async()=>{
 };
 $('validate').onclick=async()=>{try{await loadWorkspace();setStatus(snapshot.validation)}catch(e){setStatus('Validate error: '+e)}};
 $('coverage').onclick=async()=>{try{await loadWorkspace();renderCoverage(snapshot.coverage);setStatus(snapshot.coverage)}catch(e){setStatus('Coverage error: '+e)}};
+$('previewScript').onclick=async()=>{
+  try{
+    const params=new URLSearchParams({language:$('scriptLocale').value,model_id:model.value});
+    const payload=await api('/api/script?'+params);
+    currentScript=payload.script;
+    $('scriptOutput').textContent=currentScript.entries.map(row=>
+      row.semantic+' ['+(row.target_event_ids.join(',')||'unmapped')+'] '+row.text
+    ).join('\n');
+    setStatus({locale:currentScript.locale,model_id:currentScript.model_id,
+      mapped:currentScript.mapped_count,scripted:currentScript.scripted_count,
+      notice:'Text only; not installable and no audio created'});
+  }catch(e){setStatus('Script error: '+e)}
+};
+$('copyScript').onclick=async()=>{
+  if(!currentScript){setStatus('Сначала откройте языковой сценарий.');return}
+  try{await navigator.clipboard.writeText(JSON.stringify(currentScript,null,2));setStatus('Script JSON copied')}
+  catch(e){setStatus('Clipboard unavailable: '+e)}
+};
+$('scriptLocale').onchange=()=>{currentScript=null;$('scriptOutput').textContent='Нажмите «Показать фразы».'};
 $('build').onclick=async()=>{
   $('build').disabled=true;setStatus('Нормализую audio и собираю model package…');
   try{

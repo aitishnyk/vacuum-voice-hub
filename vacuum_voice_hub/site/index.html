@@ -16,7 +16,8 @@
   <div class="metrics">
     <div class="metric"><b id="voices">—</b><span>voice variants</span></div>
     <div class="metric"><b id="models">—</b><span>model profiles</span></div>
-    <div class="metric"><b id="langs">—</b><span>languages</span></div>
+    <div class="metric"><b id="langs">—</b><span>recorded languages</span></div>
+    <div class="metric"><b id="scripts">—</b><span>text script locales</span></div>
     <div class="metric"><b id="verified">—</b><span>hardware verified</span></div>
   </div>
 </section>
@@ -34,6 +35,7 @@
   <div class="toolbar"><input id="modelQ" class="grow" placeholder="Search model, ID, adapter, transport…"></div>
   <div id="modelGrid" class="grid"></div>
 </section>
+<div class="notice">Script locales are translatable text templates, not prerecorded voices or verified hardware installations.</div>
 <div class="notice">Generated from the canonical repository catalog. Machine-readable files: catalog.json, models.json, manifest.json.</div>
 </div>
 <script>
@@ -43,7 +45,8 @@ const esc=function(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c)
 async function init(){
   const responses=await Promise.all([fetch('./catalog.json').then(function(r){return r.json()}),fetch('./models.json').then(function(r){return r.json()})]);
   catalog=responses[0];models=responses[1];
-  byId('voices').textContent=catalog.stats.voices;byId('models').textContent=models.stats.models;byId('langs').textContent=catalog.stats.languages.length;byId('verified').textContent=models.stats.hardware_verified;
+  byId('voices').textContent=catalog.stats.voices;byId('models').textContent=models.stats.models;byId('scripts').textContent=catalog.stats.text_script_locales||0;
+  byId('langs').textContent=catalog.stats.languages.length;byId('verified').textContent=models.stats.hardware_verified;
   byId('lang').innerHTML='<option value="">All languages</option>'+catalog.stats.languages.map(function(x){return '<option value="'+esc(x)+'">'+esc(x)+'</option>'}).join('');
   renderVoices();renderModels();
 }

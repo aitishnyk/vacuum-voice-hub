@@ -3,6 +3,7 @@ from importlib.resources import files
 from pathlib import Path
 from . import __version__
 from .catalog import voices,models,event_profiles
+from .script_packs import list_locales
 
 SCHEMA="vvh.public-catalog.v1"
 
@@ -62,13 +63,17 @@ def build_site(output):
     profile_map={p["id"]:p for p in event_profiles()}
     vv=[_public_voice(v) for v in voices()]
     mm=[_public_model(m,profile_map) for m in models()]
+    script_locales=list_locales()
     catalog={
+        "script_locales":script_locales,
+        "script_locales_status":"text-only-not-audio-packs",
         "schema":SCHEMA,
         "version":__version__,
         "voices":vv,
         "stats":{
             "voices":len(vv),
             "languages":sorted({v["language"] for v in vv}),
+            "text_script_locales":len(script_locales),
             "adult":sum(v["adult"] for v in vv),
         },
     }
@@ -93,6 +98,7 @@ def build_site(output):
             "voices":len(vv),
             "models":len(mm),
             "languages":len(catalog["stats"]["languages"]),
+            "text_script_locales":len(script_locales),
             "hardware_verified_models":model_doc["stats"]["hardware_verified"],
         },
     }
