@@ -1,36 +1,36 @@
-# Project status — v0.1.0
+# Project status — v0.2.0 candidate
 
-- Product name: **Vacuum Voice Hub**
-- Planned GitHub slug: `vacuum-voice-hub`
-- Planned owner/repo: `aitishnyk/vacuum-voice-hub`
-- Installable source variants in catalog: **26**
-- Explicit/adult variants: **7**
-- Research/source-recovery backlog: **17**
+- Product: **Vacuum Voice Hub**
+- Repository: `aitishnyk/vacuum-voice-hub`
+- Catalog: **55 voice variants**
+- Languages: **7**
+- Explicit/adult variants: **13**
+- Research/source-recovery records: **31**
 - Physically verified model: **1** (`dreame.vacuum.r2209` / Xiaomi Robot Vacuum X10)
-- Source format adapters: **4** (Dreame canonical OGG, RoboVoice r2567r MP3, Ijai named MP3, old Roborock named audio)
-- Local legacy importer: `.pkg`, `.zip`, `.tar.gz`, directories
-- Local web UI: catalog, source credits, preview, install, official stock restore
-- CLI: list/info/build/install/preview/detect/import-pack/stock/restore-stock/web/research
-- Tests: **7/7 PASS**
-- Python compile check: PASS
-- Bash syntax check: PASS
-- Web UI JavaScript syntax check: PASS
+- X10 event profile: **106 conservative hardware-verified event IDs**
+- Source adapters: Dreame numeric OGG, RoboVoice r2567r MP3, Ijai named MP3, remote Roborock `.pkg`, local named-audio import
+- Compatibility Engine: coverage, core coverage, missing/extra IDs, grades
+- Fallback builder: enabled
+- Local Web UI: catalog, credits, preview, coverage, fallback, install, stock restore
+- CLI: list/stats/info/coverage/build/install/preview/detect/import-pack/stock/restore-stock/web/research
 
 ## Physical X10 evidence
 
 On a real `dreame.vacuum.r2209`, firmware `4.3.9_1321`:
 
 - `siid=7 / piid=4` Set Voice returned `code=0`;
-- the robot fetched the generated package from the Mac over LAN via HTTP 200;
+- the robot fetched the generated package over LAN;
 - `voice-packet-id` changed to a custom ID;
-- state transitioned `downloading` → `success`;
+- state transitioned `downloading → success`;
 - progress reached `100`.
 
-This verifies the transport/package pipeline. Individual third-party voice sources remain marked `convertible` until separately tested on hardware.
+The 106-event profile is intentionally conservative. Newer packs may contain hundreds of extra numeric IDs; v0.2 reports but omits those extras from X10 output until they are explicitly verified.
 
-## GitHub publishing status
+## Release gate
 
-The repository is published at `aitishnyk/vacuum-voice-hub`.
-The complete v0.1.0 source tree is present on `main`.
-
-Repository visibility is checked separately from the source release; for an open-source launch it should be **Public**.
+v0.2 is ready to merge only after:
+- all automated tests pass;
+- package-data mirrors are exact;
+- source metadata policy passes;
+- Web UI/CLI compile checks pass;
+- GitHub Actions is green on the release branch.

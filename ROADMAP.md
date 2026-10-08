@@ -1,31 +1,47 @@
 # Roadmap
 
-## v0.1 — X10 foundation
+## v0.1 — X10 foundation ✅
 - X10 `dreame.vacuum.r2209` adapter
-- 20+ installable source variants
 - credits-first catalog
 - CLI + local web UI
+- local MIoT install + stock restore
 
-## v0.2 — source recovery
-- recover Bender, STALKER, BB-8, Battle Droid, Mass Effect, Daleks, Witch Doctor, Witcher 18+, Revenant, Kel'Thuzad, StarCraft and more
-- add Ijai/Q0 ZIP adapter
-- add old Roborock `.pkg` importer using ccrypt-compatible decoding
+## v0.2 — 50 Voice Wave + Compatibility Engine ✅
+- 55 source-attributed voice variants
+- semantic event catalog
+- 106-event conservative X10 profile
+- coverage / core coverage / extra-event reporting
+- fallback pack filling
+- remote legacy Roborock `.pkg` adapter
+- historical source recovery metadata
+- compatibility-aware Web UI
 
-## v0.3 — more robots
-- additional Dreame/Xiaomi models
-- Roborock model family adapters
+## v0.3 — Multi-model Hardware Wave
+- add additional Dreame/Xiaomi models as explicit event profiles
+- physically verify at least 3 additional robot models
+- add Roborock model family adapters
 - Mova / Trouver adapters
-- model-specific donor/fallback packs
+- model-specific official donor/fallback workflows
+- community “Works on my robot” compatibility reports
 
-## v0.4 — creator tooling
+## v0.4 — Creator Studio
 - drag-and-drop custom pack builder
-- event preview and waveform/audio preview
-- per-event editing
-- automatic coverage report
-- publish-your-own-pack manifest generator
+- event-level audio preview
+- waveform/trim/normalize tools
+- per-event replacement
+- semantic `vvh.voicepack.v1` manifest
+- publish-your-own-pack generator
+
+## v0.5 — Desktop App
+- macOS app
+- Windows portable installer
+- device discovery wizard
+- Keychain/Credential Manager integration
+- local update channel for catalog metadata
 
 ## v1.0
-- 50+ source-attributed voices
-- 10+ verified robot models
-- restore-to-stock workflow
-- signed catalog releases and reproducible package builds
+- 100+ source-attributed voices
+- 10+ physically verified robot models
+- signed catalog releases
+- reproducible package builds
+- Creator Studio + Desktop App

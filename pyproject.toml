@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "vacuum-voice-hub"
-version = "0.1.0"
-description = "Open voice-pack library, converter and installer for robot vacuums"
+version = "0.2.0"
+description = "Credits-first voice-pack library, compatibility engine, converter and installer for robot vacuums"
 readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "MIT"}
