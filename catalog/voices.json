@@ -1,0 +1,584 @@
+{
+  "schema": 1,
+  "voices": [
+    {
+      "id": "alice-ru",
+      "title": "Алиса",
+      "language": "ru",
+      "adult": false,
+      "tags": [
+        "ru",
+        "assistant"
+      ],
+      "format": "robovoice-r2567r-mp3",
+      "source": {
+        "project": "SashaEee/vac-voice",
+        "page": "https://github.com/SashaEee/vac-voice",
+        "url": "https://raw.githubusercontent.com/SashaEee/vac-voice/main/alice_ru.tar.gz",
+        "git_blob_sha1": "5d244f5f07f81273b3d78e72a40a81c32031df2d",
+        "size": 339642
+      },
+      "credit": "RoboVoice community / SashaEee; original pack author if known upstream",
+      "redistribution": "source-only",
+      "status": "convertible"
+    },
+    {
+      "id": "super-botanik",
+      "title": "Супер ботаник",
+      "language": "ru",
+      "adult": true,
+      "tags": [
+        "ru",
+        "18+",
+        "comedy"
+      ],
+      "format": "robovoice-r2567r-mp3",
+      "source": {
+        "project": "SashaEee/vac-voice",
+        "page": "https://github.com/SashaEee/Trouver_audio_install",
+        "url": "https://raw.githubusercontent.com/SashaEee/vac-voice/main/botanik.tar.gz",
+        "git_blob_sha1": "cf8b02b979da98df9ff3a3cd56fcf8ea609c39be",
+        "size": 338718
+      },
+      "credit": "RoboVoice community / SashaEee",
+      "redistribution": "source-only",
+      "status": "convertible"
+    },
+    {
+      "id": "dobkin",
+      "title": "Добкин",
+      "language": "ru",
+      "adult": false,
+      "tags": [
+        "ru",
+        "comedy"
+      ],
+      "format": "robovoice-r2567r-mp3",
+      "source": {
+        "project": "SashaEee/vac-voice",
+        "page": "https://github.com/SashaEee/vac-voice",
+        "url": "https://raw.githubusercontent.com/SashaEee/vac-voice/main/dobkin.tar.gz",
+        "git_blob_sha1": "5cefb9d016f77c461e42368515accbd365fba192",
+        "size": 336898
+      },
+      "credit": "RoboVoice community / SashaEee",
+      "redistribution": "source-only",
+      "status": "convertible"
+    },
+    {
+      "id": "eleonora",
+      "title": "Элеонора",
+      "language": "ru",
+      "adult": false,
+      "tags": [
+        "ru"
+      ],
+      "format": "robovoice-r2567r-mp3",
+      "source": {
+        "project": "SashaEee/vac-voice",
+        "page": "https://github.com/SashaEee/vac-voice",
+        "url": "https://raw.githubusercontent.com/SashaEee/vac-voice/main/eleonora.tar.gz",
+        "git_blob_sha1": "d0594e81453789c2fa67ea422f8e58e1a5eedc67",
+        "size": 442807
+      },
+      "credit": "RoboVoice community / SashaEee",
+      "redistribution": "source-only",
+      "status": "convertible"
+    },
+    {
+      "id": "derzkaya-galya",
+      "title": "Дерзкая Галя",
+      "language": "ru",
+      "adult": true,
+      "tags": [
+        "ru",
+        "18+",
+        "comedy"
+      ],
+      "format": "robovoice-r2567r-mp3",
+      "source": {
+        "project": "SashaEee/vac-voice",
+        "page": "https://github.com/SashaEee/Trouver_audio_install",
+        "url": "https://raw.githubusercontent.com/SashaEee/vac-voice/main/galya.tar.gz",
+        "git_blob_sha1": "ea3f576fceda617298ae7fc2b1ab63ce3bab5915",
+        "size": 416310
+      },
+      "credit": "RoboVoice community / SashaEee",
+      "redistribution": "source-only",
+      "status": "convertible"
+    },
+    {
+      "id": "kuzya",
+      "title": "Домовёнок Кузя",
+      "language": "ru",
+      "adult": false,
+      "tags": [
+        "ru",
+        "cartoon"
+      ],
+      "format": "robovoice-r2567r-mp3",
+      "source": {
+        "project": "SashaEee/vac-voice",
+        "page": "https://github.com/SashaEee/vac-voice",
+        "url": "https://raw.githubusercontent.com/SashaEee/vac-voice/main/kuzya.tar.gz",
+        "git_blob_sha1": "9aa7f296439643736e92c80901da5da52d208dd4",
+        "size": 380678
+      },
+      "credit": "RoboVoice community / SashaEee",
+      "redistribution": "source-only",
+      "status": "convertible"
+    },
+    {
+      "id": "kuzya-3",
+      "title": "Домовёнок Кузя — версия 3",
+      "language": "ru",
+      "adult": false,
+      "tags": [
+        "ru",
+        "cartoon"
+      ],
+      "format": "robovoice-r2567r-mp3",
+      "source": {
+        "project": "SashaEee/vac-voice",
+        "page": "https://github.com/SashaEee/vac-voice",
+        "url": "https://raw.githubusercontent.com/SashaEee/vac-voice/main/kuzya3.tar.gz",
+        "git_blob_sha1": "e1623d9211b62124e2abc887b06dd208e315f819",
+        "size": 506135
+      },
+      "credit": "RoboVoice community / SashaEee",
+      "redistribution": "source-only",
+      "status": "convertible"
+    },
+    {
+      "id": "maxim-full",
+      "title": "Максим Full",
+      "language": "ru",
+      "adult": true,
+      "tags": [
+        "ru",
+        "18+",
+        "comedy"
+      ],
+      "format": "robovoice-r2567r-mp3",
+      "source": {
+        "project": "SashaEee/vac-voice",
+        "page": "https://github.com/SashaEee/Trouver_audio_install",
+        "url": "https://raw.githubusercontent.com/SashaEee/vac-voice/main/maxim_full.tar.gz",
+        "git_blob_sha1": "87622d42806cb63f0542b437838e0477962abe59",
+        "size": 648531
+      },
+      "credit": "RoboVoice community / SashaEee",
+      "redistribution": "source-only",
+      "status": "convertible"
+    },
+    {
+      "id": "kuzya-winnie-ostrov",
+      "title": "Кузя + Винни + Остров",
+      "language": "ru",
+      "adult": false,
+      "tags": [
+        "ru",
+        "collection"
+      ],
+      "format": "robovoice-r2567r-mp3",
+      "source": {
+        "project": "SashaEee/vac-voice",
+        "page": "https://github.com/SashaEee/vac-voice",
+        "url": "https://raw.githubusercontent.com/SashaEee/vac-voice/main/multi.tar.gz",
+        "git_blob_sha1": "4b7d329cde400f6ad4b146ab7b4b43d4608ac9e1",
+        "size": 635741
+      },
+      "credit": "RoboVoice community / SashaEee",
+      "redistribution": "source-only",
+      "status": "convertible"
+    },
+    {
+      "id": "rick-and-morty",
+      "title": "Рик и Морти",
+      "language": "ru",
+      "adult": true,
+      "tags": [
+        "ru",
+        "adult-humor",
+        "cartoon"
+      ],
+      "format": "robovoice-r2567r-mp3",
+      "source": {
+        "project": "SashaEee/vac-voice",
+        "page": "https://github.com/SashaEee/vac-voice",
+        "url": "https://raw.githubusercontent.com/SashaEee/vac-voice/main/rickmorty.tar.gz",
+        "git_blob_sha1": "02f651ac4ab0672dcb34aa6c08207cb37929dfce",
+        "size": 406795
+      },
+      "credit": "RoboVoice community / SashaEee",
+      "redistribution": "source-only",
+      "status": "convertible"
+    },
+    {
+      "id": "soviet-movies",
+      "title": "Советские фильмы",
+      "language": "ru",
+      "adult": false,
+      "tags": [
+        "ru",
+        "movies",
+        "comedy"
+      ],
+      "format": "robovoice-r2567r-mp3",
+      "source": {
+        "project": "SashaEee/vac-voice",
+        "page": "https://github.com/SashaEee/vac-voice",
+        "url": "https://raw.githubusercontent.com/SashaEee/vac-voice/main/sovet.tar.gz",
+        "git_blob_sha1": "a4be15897da760d48c2588974c23b474c9174d71",
+        "size": 577978
+      },
+      "credit": "RoboVoice community / SashaEee",
+      "redistribution": "source-only",
+      "status": "convertible"
+    },
+    {
+      "id": "r2d2",
+      "title": "R2-D2 / Star Wars",
+      "language": "zxx",
+      "adult": false,
+      "tags": [
+        "scifi",
+        "droid",
+        "star-wars"
+      ],
+      "format": "robovoice-r2567r-mp3",
+      "source": {
+        "project": "SashaEee/vac-voice",
+        "page": "https://github.com/b73tt/valetudo-r2d2",
+        "url": "https://raw.githubusercontent.com/SashaEee/vac-voice/main/starwars_r2d2.tar.gz",
+        "git_blob_sha1": "06e9c7264bb8200476234f086deeb8431835c9c5",
+        "size": 283176
+      },
+      "credit": "b73tt / Valetudo R2-D2; RoboVoice adaptation by SashaEee",
+      "redistribution": "source-only",
+      "status": "convertible"
+    },
+    {
+      "id": "warcraft",
+      "title": "Warcraft",
+      "language": "ru",
+      "adult": false,
+      "tags": [
+        "ru",
+        "game",
+        "warcraft"
+      ],
+      "format": "robovoice-r2567r-mp3",
+      "source": {
+        "project": "SashaEee/vac-voice",
+        "page": "https://github.com/SashaEee/vac-voice",
+        "url": "https://raw.githubusercontent.com/SashaEee/vac-voice/main/warcraft.tar.gz",
+        "git_blob_sha1": "3f63b4cf0f4a5b61b9c5f8e19df4ce40d610b7bb",
+        "size": 348993
+      },
+      "credit": "Community Warcraft pack; RoboVoice adaptation by SashaEee",
+      "redistribution": "source-only",
+      "status": "convertible"
+    },
+    {
+      "id": "leather-bastards",
+      "title": "Кожаные ублюдки",
+      "language": "ru",
+      "adult": true,
+      "tags": [
+        "ru",
+        "18+",
+        "comedy"
+      ],
+      "format": "robovoice-r2567r-mp3",
+      "source": {
+        "project": "SashaEee/vac-voice",
+        "page": "https://github.com/SashaEee/Trouver_audio_install/blob/main/docs/CREDITS.md",
+        "url": "https://raw.githubusercontent.com/SashaEee/vac-voice/main/leather_bastards.tar.gz",
+        "git_blob_sha1": "30ad0c36aff28e404bc4bb1570b2c3de10785c57",
+        "size": 1602373
+      },
+      "credit": "Rubler4ik (credited upstream) + community; RoboVoice adaptation by SashaEee",
+      "redistribution": "source-only",
+      "status": "convertible"
+    },
+    {
+      "id": "glados-robovoice",
+      "title": "GLaDOS — RoboVoice edition",
+      "language": "en",
+      "adult": false,
+      "tags": [
+        "en",
+        "portal",
+        "game"
+      ],
+      "format": "robovoice-r2567r-mp3",
+      "source": {
+        "project": "SashaEee/vac-voice",
+        "page": "https://github.com/SashaEee/Trouver_audio_install",
+        "url": "https://raw.githubusercontent.com/SashaEee/vac-voice/main/glados.tar.gz",
+        "git_blob_sha1": "870eb80b98a9c02d7df430eebc3c62599bf1f7eb",
+        "size": 290628
+      },
+      "credit": "Community GLaDOS pack; RoboVoice adaptation by SashaEee",
+      "redistribution": "source-only",
+      "status": "convertible"
+    },
+    {
+      "id": "glados-czaky",
+      "title": "GLaDOS — Dreame edition",
+      "language": "en",
+      "adult": false,
+      "tags": [
+        "en",
+        "portal",
+        "game"
+      ],
+      "format": "dreame-canonical-ogg",
+      "source": {
+        "project": "czaky/dreame_voice_pack",
+        "page": "https://github.com/czaky/dreame_voice_pack/tree/master/glados",
+        "url": "https://raw.githubusercontent.com/czaky/dreame_voice_pack/master/glados/voice.tar.gz",
+        "git_blob_sha1": "aece605e924d291e0fb601f9fc9f30d267060bdb",
+        "md5": "a95fb8d32343f3733bb561ccec78c5b1",
+        "size": 5509394
+      },
+      "credit": "czaky; based on Dreame/15.ai community work",
+      "redistribution": "source-only",
+      "status": "convertible"
+    },
+    {
+      "id": "tiff",
+      "title": "Tiff / Kirby",
+      "language": "en",
+      "adult": false,
+      "tags": [
+        "en",
+        "character"
+      ],
+      "format": "dreame-canonical-ogg",
+      "source": {
+        "project": "czaky/dreame_voice_pack",
+        "page": "https://github.com/czaky/dreame_voice_pack/tree/master/kirby-tiff",
+        "url": "https://raw.githubusercontent.com/czaky/dreame_voice_pack/master/kirby-tiff/voice.tar.gz",
+        "git_blob_sha1": "f08bbcec17be7ba19821ca3abdbb54d16e54fece",
+        "md5": "1d62f5fe9bb18532130bea001dfb634f",
+        "size": 5202347
+      },
+      "credit": "czaky community pack",
+      "redistribution": "source-only",
+      "status": "convertible"
+    },
+    {
+      "id": "sweetie-belle",
+      "title": "Sweetie Belle",
+      "language": "en",
+      "adult": false,
+      "tags": [
+        "en",
+        "character"
+      ],
+      "format": "dreame-canonical-ogg",
+      "source": {
+        "project": "czaky/dreame_voice_pack",
+        "page": "https://github.com/czaky/dreame_voice_pack/tree/master/sweetie-belle",
+        "url": "https://raw.githubusercontent.com/czaky/dreame_voice_pack/master/sweetie-belle/voice.tar.gz",
+        "git_blob_sha1": "880185db79996dd7859b62b254c8509cc16d88c2",
+        "md5": "4847bddbce266eef2293c497999bccd0",
+        "size": 5474634
+      },
+      "credit": "czaky community pack",
+      "redistribution": "source-only",
+      "status": "convertible"
+    },
+    {
+      "id": "fluttershy",
+      "title": "Fluttershy",
+      "language": "en",
+      "adult": false,
+      "tags": [
+        "en",
+        "character"
+      ],
+      "format": "dreame-canonical-ogg",
+      "source": {
+        "project": "czaky/dreame_voice_pack",
+        "page": "https://github.com/czaky/dreame_voice_pack/tree/master/fluttershy",
+        "url": "https://raw.githubusercontent.com/czaky/dreame_voice_pack/master/fluttershy/voice.tar.gz",
+        "git_blob_sha1": "815f5ca98e01c4bfae14daece6d69b9d07e12932",
+        "md5": "85e178f62c9661ebbdd24e0104a9f9da",
+        "size": 5510099
+      },
+      "credit": "czaky community pack",
+      "redistribution": "source-only",
+      "status": "convertible"
+    },
+    {
+      "id": "uk-female-pensive",
+      "title": "Український жіночий — Pensive",
+      "language": "uk",
+      "adult": false,
+      "tags": [
+        "uk",
+        "original"
+      ],
+      "format": "dreame-canonical-ogg",
+      "source": {
+        "project": "oleksandr-belei/dreame-vacuum-uk-voice-packs",
+        "page": "https://github.com/oleksandr-belei/dreame-vacuum-uk-voice-packs",
+        "url": "https://raw.githubusercontent.com/oleksandr-belei/dreame-vacuum-uk-voice-packs/main/voice_packs/uk_female_pensive",
+        "git_blob_sha1": "a9805c964d7c0f752933af1892ecd1499bd99860",
+        "md5": "55bfe4272ce1e77d9bbafebf9ec99330",
+        "size": 3585448
+      },
+      "credit": "Oleksandr Belei and contributors",
+      "redistribution": "allowed",
+      "license": "MIT",
+      "status": "convertible"
+    },
+    {
+      "id": "uk-glados",
+      "title": "GLaDOS українською",
+      "language": "uk",
+      "adult": false,
+      "tags": [
+        "uk",
+        "portal",
+        "game",
+        "dark-humor"
+      ],
+      "format": "dreame-canonical-ogg",
+      "source": {
+        "project": "sverdlyuk/glados_ukr",
+        "page": "https://github.com/sverdlyuk/glados_ukr",
+        "url": "https://raw.githubusercontent.com/sverdlyuk/glados_ukr/main/uk_glados_voice_pack.gz",
+        "git_blob_sha1": "1d087a0a2bd8051a02972da8f8374b12ef78dc77",
+        "md5": "3545e91c0626beccbd284469f6283a77",
+        "size": 9620968
+      },
+      "credit": "Lost Human; sverdlyuk; community supporters; mapping credit to Oleksandr Belei",
+      "redistribution": "allowed",
+      "license": "MIT (repository code/data; character IP remains third-party)",
+      "status": "convertible"
+    },
+    {
+      "id": "q0-maxim",
+      "title": "Максим 18+ — Ijai edition",
+      "language": "ru",
+      "adult": true,
+      "tags": [
+        "ru",
+        "18+",
+        "ijai",
+        "legacy"
+      ],
+      "format": "ijai-named-mp3",
+      "source": {
+        "project": "Q0/ijai.vacuum",
+        "page": "https://github.com/Q0/ijai.vacuum",
+        "url": "https://raw.githubusercontent.com/Q0/ijai.vacuum/master/audio/maxim.zip",
+        "git_blob_sha1": "64f362ef61da836908dfe6ed3115ada80d23db59",
+        "md5": "81bbb6a9ace8110841d89b10fecf80a8",
+        "size": 4375144
+      },
+      "credit": "Q0/ijai.vacuum contributors; original Maxim community pack makers",
+      "redistribution": "source-only",
+      "status": "convertible"
+    },
+    {
+      "id": "q0-maxim-spazzy",
+      "title": "Максим Spazzy",
+      "language": "ru",
+      "adult": false,
+      "tags": [
+        "ru",
+        "ijai",
+        "legacy",
+        "comedy"
+      ],
+      "format": "ijai-named-mp3",
+      "source": {
+        "project": "Q0/ijai.vacuum",
+        "page": "https://github.com/Q0/ijai.vacuum",
+        "url": "https://raw.githubusercontent.com/Q0/ijai.vacuum/master/audio/maxim_spazzy_ru.zip",
+        "git_blob_sha1": "1c9fd5be509cd0c01c2d51410f8001a26286af82",
+        "md5": "d539e6ff86b6b3f472d1a676e2aefeca",
+        "size": 5362843
+      },
+      "credit": "Q0/ijai.vacuum contributors; Maxim Spazzy community pack makers",
+      "redistribution": "source-only",
+      "status": "convertible"
+    },
+    {
+      "id": "q0-leather-bastards-loud",
+      "title": "Кожаные ублюдки Loud — Ijai edition",
+      "language": "ru",
+      "adult": true,
+      "tags": [
+        "ru",
+        "18+",
+        "ijai",
+        "legacy"
+      ],
+      "format": "ijai-named-mp3",
+      "source": {
+        "project": "Q0/ijai.vacuum",
+        "page": "https://github.com/Q0/ijai.vacuum",
+        "url": "https://raw.githubusercontent.com/Q0/ijai.vacuum/master/audio/leather_bastadrs_loud.zip",
+        "git_blob_sha1": "414cd5613fb7835829c8d9d0f6c792aff8b74f1a",
+        "md5": "f89e6f0336b1084934c2e244c2cda960",
+        "size": 3525480
+      },
+      "credit": "Q0/ijai.vacuum contributors; Leather Bastards community creators (Rubler4ik credited by RoboVoice)",
+      "redistribution": "source-only",
+      "status": "convertible"
+    },
+    {
+      "id": "q0-russian",
+      "title": "Русский штатный Ijai pack",
+      "language": "ru",
+      "adult": false,
+      "tags": [
+        "ru",
+        "ijai",
+        "stock"
+      ],
+      "format": "ijai-named-mp3",
+      "source": {
+        "project": "Q0/ijai.vacuum",
+        "page": "https://github.com/Q0/ijai.vacuum",
+        "url": "https://raw.githubusercontent.com/Q0/ijai.vacuum/master/audio/ru_RU.zip",
+        "git_blob_sha1": "2ac5bd979f0c591908143563c4ef231674906aba",
+        "md5": "39f7b734a35c5da212c3fb1f97eda53b",
+        "size": 5808255
+      },
+      "credit": "Q0/ijai.vacuum contributors; Xiaomi/Ijai source package",
+      "redistribution": "source-only",
+      "status": "convertible"
+    },
+    {
+      "id": "glados-findus",
+      "title": "GLaDOS — Findus23 / 15.ai",
+      "language": "en",
+      "adult": false,
+      "tags": [
+        "en",
+        "portal",
+        "game",
+        "15.ai"
+      ],
+      "format": "dreame-canonical-ogg",
+      "source": {
+        "project": "Findus23/voice_pack_dreame",
+        "page": "https://github.com/Findus23/voice_pack_dreame",
+        "url": "https://raw.githubusercontent.com/Findus23/voice_pack_dreame/main/voice_pack.tar.gz",
+        "git_blob_shaa1": "b9f6d64d61eb72e55f26843522a9cfa50fc486ba",
+        "md5": "8ebfabb9e23e169a5c9b867266f9d1ef",
+        "size": 4325024
+      },
+      "credit": "Findus23; generated with 15.ai; inspired by ccoors/dreame_voice_packs",
+      "redistribution": "source-only",
+      "status": "convertible"
+    }
+  ]
+}
