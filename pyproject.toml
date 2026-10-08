@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "vacuum-voice-hub"
-version = "0.6.0"
-description = "Multi-model robot-vacuum voice platform with Creator Studio, desktop shell and public catalog"
+version = "0.7.0"
+description = "Robot-vacuum voice platform with Creator Studio, desktop, public catalog and reproducible distribution"
 readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"

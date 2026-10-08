@@ -5,25 +5,25 @@
 ## v0.3 — Multi-model Hardware Wave ✅
 ## v0.4 — Creator Studio ✅
 ## v0.5 — Desktop + Community Verification ✅
+## v0.6 — Public Catalog / Website ✅
 
-## v0.6 — Public Catalog / Website
-- deterministic static catalog
-- searchable credits-first website
-- public model matrix
-- `vvh.public-catalog.v1`
-- SHA-256 manifest verification
-- Pages-ready CI artifact
+## v0.7 — Distribution Hardening
+- reproducible release bundle
+- SPDX SBOM
+- SHA256SUMS
+- `vvh.release-manifest.v1`
+- `vvh.update-feed.v1`
+- double-build reproducibility gate
+- signing/notarization claim boundaries
 
-## v0.7 — Distribution hardening
-- signed-manifest design
-- reproducible release bundle gate
-- update/feed contract
-- SBOM/checksum release artifacts
-- code-signing/notarization runbook and explicit claim boundaries
+## Post-v0.7 / v1 readiness
+Software platform contracts are now in place. v1.0 must **not** be declared solely by changing a version number.
 
-## v1.0 target
-- stable public formats and compatibility contracts;
-- additional legitimate source-attributed voices/models over time;
-- hardware verification only from actual device evidence;
-- signed/reproducible distribution path;
-- no false 100+/10-device claims before evidence exists.
+Remaining evidence-driven goals:
+- grow legitimate source-attributed catalog when recoverable and redistributable;
+- add more model profiles only with source-backed event/transport evidence;
+- promote hardware verification only from reviewed physical-device reports;
+- add real release signing/notarization only after trusted keys/certificates are provisioned;
+- optionally enable live GitHub Pages deployment for the already Pages-ready static artifact.
+
+No false `100+ voices`, `10+ verified devices`, signed, or notarized claims are permitted before those facts exist.

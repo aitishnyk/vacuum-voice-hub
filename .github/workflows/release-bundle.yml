@@ -1,0 +1,46 @@
+name: Release Bundle
+
+on:
+  pull_request:
+    paths:
+      - "vacuum_voice_hub/**"
+      - "schemas/**"
+      - "pyproject.toml"
+      - ".github/workflows/release-bundle.yml"
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+jobs:
+  bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: python -m pip install -e .
+      - name: Set reproducible epoch
+        shell: bash
+        run: echo "SOURCE_DATE_EPOCH=$(git log -1 --format=%ct)" >> "$GITHUB_ENV"
+      - name: Build release bundle
+        run: vvh release build --output release
+      - name: Verify release bundle
+        run: vvh release verify release
+      - name: Rebuild and compare
+        shell: bash
+        run: |
+          cp -R release release-first
+          rm -rf release
+          vvh release build --output release
+          diff -qr release-first release
+      - name: Upload release bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: VacuumVoiceHub-Release-Bundle
+          path: release/
+          if-no-files-found: error
