@@ -1966,60 +1966,6 @@
       "notes": "Upstream L40 research documents working siid 7 / piid 4 VOICE_CHANGE. VVH physical-device verification pending."
     },
     {
-      "id": "dreame.vacuum.r2492b",
-      "name": "Dreame L40 Ultra (regional)",
-      "vendor": "Dreame",
-      "aliases": [
-        "dreame.vacuum.r2492b"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
-      },
-      "notes": "Model ID sourced from Dreame registry. Portable semantic preview/research only; exact vendor voice format and installation path are unverified."
-    },
-    {
-      "id": "dreame.vacuum.r2492j",
-      "name": "Dreame L40 Ultra (regional J)",
-      "vendor": "Dreame",
-      "aliases": [
-        "dreame.vacuum.r2492j"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Dreame Vacuum supported-device registry — identity only",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://dv.tasshack.com/ru/guide/more/supported-devices"
-      },
-      "notes": "Model ID sourced from Dreame registry. Portable semantic preview/research only; exact vendor voice format and installation path are unverified."
-    },
-    {
       "id": "dreame.vacuum.r2551a",
       "name": "Dreame L40s Ultra",
       "vendor": "Dreame",
@@ -4643,7 +4589,7 @@
     "source": "https://gruzdev.kiev.ua/en/blog/translations-xiaomi-home-mi-home-plugins-xiaomi-smart-home",
     "policy": "New catalog IDs are research/build profiles; no new custom-install transport verified.",
     "previous_count": 109,
-    "source_backed_added": 47,
+    "source_backed_added": 45,
     "extra_registry_source": "https://dv.tasshack.com/ru/guide/more/supported-devices",
     "added_model_ids": [
       "dreame.vacuum.p2259",
@@ -4673,8 +4619,6 @@
       "dreame.vacuum.r2377",
       "dreame.vacuum.r2394a",
       "dreame.vacuum.r2394f",
-      "dreame.vacuum.r2492b",
-      "dreame.vacuum.r2492j",
       "dreame.vacuum.r2253b",
       "dreame.vacuum.r2253m",
       "dreame.vacuum.r2253c",
