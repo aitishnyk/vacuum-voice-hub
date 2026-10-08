@@ -83,18 +83,32 @@ def inspect_archive(path):
         if zipfile.is_zipfile(path):
             kind = "zip"
             with zipfile.ZipFile(path) as archive:
-                for item in archive.infolist():
-                    if item.is_dir():
-                        continue
+                items = archive.infolist()
+                if len(items) > MAX_FILES * 4:
+                    raise ArchiveInspectionError("too many ZIP members")
+                for item in items:
+                    name = item.filename[:-1] if item.is_dir() else item.filename
+                    _safe_name(name)
                     mode = (item.external_attr >> 16) & 0o170000
-                    if item.flag_bits & 1 or mode not in (0, 0o100000):
+                    if item.flag_bits & 1 or mode not in (0, 0o100000, 0o040000):
                         raise ArchiveInspectionError("encrypted or special ZIP member")
+                    if item.is_dir():
+                        if mode == 0o100000:
+                            raise ArchiveInspectionError("invalid ZIP directory type")
+                        continue
+                    if mode == 0o040000:
+                        raise ArchiveInspectionError("invalid ZIP regular member type")
                     add(item.filename, item.file_size, lambda item=item: archive.open(item))
         elif tarfile.is_tarfile(path):
             kind = "tar"
             with tarfile.open(path, mode="r:*") as archive:
+                scanned = 0
                 for item in archive:
+                    scanned += 1
+                    if scanned > MAX_FILES * 4:
+                        raise ArchiveInspectionError("too many tar members")
                     if item.isdir():
+                        _safe_name(item.name.rstrip("/"))
                         continue
                     if not item.isfile():
                         raise ArchiveInspectionError("special tar member")
