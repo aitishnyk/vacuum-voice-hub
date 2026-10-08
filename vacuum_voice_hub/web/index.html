@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Vacuum Voice Hub v0.3</title>
+<title>Vacuum Voice Hub v0.8</title>
 <style>
 :root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#18181b;background:#f4f4f1}*{box-sizing:border-box}body{margin:0}.wrap{max-width:1280px;margin:auto;padding:30px 20px 72px}.hero{background:#111114;color:#fff;border-radius:28px;padding:38px;box-shadow:0 18px 60px #0001}.hero h1{font-size:clamp(36px,6vw,62px);letter-spacing:-.045em;margin:0 0 10px}.hero p{color:#c7c7cc;max-width:900px;font-size:17px;line-height:1.5}.pill{display:inline-flex;padding:6px 10px;border:1px solid #ffffff25;border-radius:99px;font-size:12px;color:#ddd;margin:3px}.metrics{display:flex;gap:24px;flex-wrap:wrap;margin-top:22px}.metric b{font-size:27px;display:block}.metric span{font-size:11px;color:#aaa;text-transform:uppercase;letter-spacing:.09em}.panel,.toolbar,.install{background:#fff;padding:16px;border-radius:18px;border:1px solid #e6e6e3;margin:16px 0}.toolbar,.install{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.modelPanel{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}.modelStat{background:#f6f6f3;border-radius:14px;padding:12px}.modelStat b{display:block;font-size:12px;color:#71717a;margin-bottom:5px}.modelStat span{font-size:14px}.warning{background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;border-radius:14px;padding:12px;margin-top:12px}.ok{background:#ecfdf5;border-color:#a7f3d0;color:#166534}.blocked{background:#fef2f2;border-color:#fecaca;color:#991b1b}input,select,button{font:inherit;padding:11px 13px;border:1px solid #d5d5d2;border-radius:12px;background:#fff}input,select{min-height:44px}button{background:#18181b;color:#fff;border:0;cursor:pointer;font-weight:650}button.secondary{background:#f1f1ef;color:#18181b;border:1px solid #ddd}button:disabled{opacity:.45;cursor:not-allowed}.grow{flex:1;min-width:210px}.fallbackGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;width:100%}.fallbackGrid label{font-size:12px;color:#52525b}.fallbackGrid select{display:block;width:100%;margin-top:5px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}.card{background:#fff;padding:18px;border-radius:18px;border:1px solid #e7e7e4;display:flex;flex-direction:column;min-height:245px}.card h3{margin:0 0 8px;font-size:19px}.tags{margin:4px 0 10px}.tag{font-size:11px;background:#f1f1ef;border-radius:99px;padding:4px 8px;display:inline-block;margin:2px}.adult{background:#fee2e2;color:#991b1b}.verified{background:#dcfce7;color:#166534}.pinned{background:#e0e7ff;color:#3730a3}.small{font-size:12px;color:#71717a;line-height:1.5}.credit{margin-top:auto;padding-top:12px;font-size:12px;color:#52525b;line-height:1.45}.credit a{color:#18181b}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.actions button{font-size:12px}.status{white-space:pre-wrap;background:#111114;color:#cbffd7;padding:16px;border-radius:16px;min-height:64px;font:12px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace}audio{width:100%;margin:8px 0 18px}h2{margin-top:30px}.notice{font-size:12px;color:#666;margin:8px 2px}.coverage{margin:10px 0 2px}.bar{height:8px;background:#ececea;border-radius:99px;overflow:hidden}.bar>i{display:block;height:100%;background:#18181b;width:0}.coverageText{font-size:11px;color:#52525b;margin-top:5px}.categoryBars{font-size:10px;color:#71717a;margin-top:5px}.hidden{display:none}.checkline{display:flex;gap:8px;align-items:center;font-size:12px}.checkline input{min-height:auto}.sectionTitle{font-size:13px;font-weight:700;margin:2px 0 8px}.transportBadge{font-size:11px;font-weight:700;padding:4px 8px;border-radius:99px;background:#ede9fe;color:#5b21b6}
 </style>
 </head>
 <body><div class="wrap">
 <section class="hero">
-  <span class="pill">v0.3</span><span class="pill">multi-model</span><span class="pill">semantic fallback</span><span class="pill">credits-first</span>
+  <span class="pill">v0.8</span><span class="pill">109 models</span><span class="pill">4 target families</span><span class="pill">credits-first</span>
   <h1>Vacuum Voice Hub</h1>
   <p>Открытая библиотека и конвертер озвучек с модельными профилями. X10 физически проверен; остальные модели показывают точный уровень evidence и не получают ложный статус hardware verified.</p>
   <p><a href="/creator" style="color:#fff;font-weight:700">Открыть Creator Studio →</a></p>
@@ -25,6 +25,7 @@
 <div class="panel">
   <div class="sectionTitle">Модель робота</div>
   <div class="toolbar" style="padding:0;border:0;margin:0">
+    <input id="modelQ" class="grow" placeholder="Поиск модели: H40, S5, X20+, r2228…">
     <select id="model" class="grow"></select>
   </div>
   <div id="modelPanel" class="modelPanel"></div>
@@ -79,7 +80,7 @@
 </div>
 <script>
 const $=id=>document.getElementById(id);
-const q=$('q'),lang=$('lang'),showAdult=$('showAdult'),voice=$('voice'),model=$('model'),fallback=$('fallback'),ip=$('ip'),token=$('token'),go=$('go'),check=$('check'),grid=$('grid'),status=$('status'),player=$('player'),loadStock=$('loadStock'),stock=$('stock'),restoreStock=$('restoreStock'),modelPanel=$('modelPanel'),transportNotice=$('transportNotice'),fallbackGrid=$('fallbackGrid'),experimental=$('experimental'),experimentalWrap=$('experimentalWrap'),loadHistory=$('loadHistory'),makeReport=$('makeReport');
+const q=$('q'),lang=$('lang'),showAdult=$('showAdult'),voice=$('voice'),model=$('model'),modelQ=$('modelQ'),fallback=$('fallback'),ip=$('ip'),token=$('token'),go=$('go'),check=$('check'),grid=$('grid'),status=$('status'),player=$('player'),loadStock=$('loadStock'),stock=$('stock'),restoreStock=$('restoreStock'),modelPanel=$('modelPanel'),transportNotice=$('transportNotice'),fallbackGrid=$('fallbackGrid'),experimental=$('experimental'),experimentalWrap=$('experimentalWrap'),loadHistory=$('loadHistory'),makeReport=$('makeReport');
 let data={voices:[],models:[],backlog:[],stats:{}};
 const langNames={ru:'Русский',uk:'Українська',en:'English',de:'Deutsch',hu:'Magyar',he:'עברית',zxx:'Без речи'};
 const categoryNames={error:'Ошибки',dock:'Докинг/зарядка',base:'Станция/вода/моп',cleaning:'Уборка',mapping:'Карта',network:'Сеть',system:'Система',assistant:'Ассистент',other:'Прочее'};
@@ -87,9 +88,18 @@ const categoryNames={error:'Ошибки',dock:'Докинг/зарядка',bas
 function selectedModel(){return data.models.find(m=>m.id===model.value)||data.models[0]}
 function transportMode(m){
   const t=m?.transport||{};
-  if(t.kind!=='miot-local-property')return 'blocked';
+  const installKinds=new Set(['miot-local-property','roborock-miio-sound','miot-action-url-md5']);
+  if(!installKinds.has(t.kind))return 'blocked';
   if(t.allow_default)return 'allowed';
   return 'experimental';
+}
+function populateModels(filter=''){
+  const current=model.value;
+  const term=(filter||'').trim().toLowerCase();
+  const rows=data.models.filter(m=>!term||(`${m.name} ${m.id} ${m.vendor||''}`).toLowerCase().includes(term));
+  model.innerHTML=rows.map(m=>`<option value="${m.id}">${m.name} · ${m.id}${m.device_tested?' ✓':''}</option>`).join('');
+  if(rows.some(m=>m.id===current))model.value=current;
+  if(!model.value&&rows[0])model.value=rows[0].id;
 }
 function visibleVoices(){
   const search=q.value.toLowerCase(),l=lang.value;
@@ -105,7 +115,7 @@ async function init(){
   $('mHardware').textContent=data.stats.hardware_verified_models;
   $('mLanguages').textContent=data.stats.languages.length;
   lang.innerHTML='<option value="">Все языки</option>'+data.stats.languages.map(l=>`<option value="${l}">${langNames[l]||l}</option>`).join('');
-  model.innerHTML=data.models.map(m=>`<option value="${m.id}">${m.name}${m.device_tested?' ✓':''}</option>`).join('');
+  populateModels();
   refreshSelectors();renderModel();render();renderFallbackGrid();
 }
 function refreshSelectors(){
@@ -130,20 +140,25 @@ function renderModel(){
     <div class="modelStat"><b>EVENT PROFILE</b><span>${m.event_profile}</span></div>
     <div class="modelStat"><b>TRANSPORT</b><span class="transportBadge">${t.verification||t.kind||'unknown'}</span></div>
     <div class="modelStat"><b>HARDWARE</b><span>${m.device_tested?'VVH verified ✓':'verification pending'}</span></div>
+    <div class="modelStat"><b>ADAPTER</b><span>${m.adapter||'—'} · ${m.package?.container||'—'}</span></div>
+    <div class="modelStat"><b>PLUGIN META</b><span>${m.product_id||'—'} / ${m.plugin_id||'—'}</span></div>
   `;
   transportNotice.className='warning';
   experimentalWrap.classList.add('hidden');experimental.checked=false;
+  const stockSupported=m.adapter==='dreame_numeric';
+  loadStock.disabled=!stockSupported;
   if(mode==='allowed'){
     transportNotice.classList.add('ok');
     transportNotice.textContent=`Local install разрешён: ${t.verification}. ${m.notes||''}`;
-    go.disabled=false;restoreStock.disabled=false;
+    go.disabled=false;restoreStock.disabled=!stockSupported;
   }else if(mode==='experimental'){
     experimentalWrap.classList.remove('hidden');
     transportNotice.textContent=`Experimental transport: ${t.verification}. Build/coverage безопасны; установка требует явного разрешения. ${m.notes||''}`;
     go.disabled=true;restoreStock.disabled=true;
   }else{
     transportNotice.classList.add('blocked');
-    transportNotice.textContent=`Build/coverage only. Local install заблокирован fail-closed. ${m.notes||''}`;
+    const why=t.kind==='signed-official-only'?'Производитель требует подписанный официальный voice pack.':'Локальный custom-voice transport не подтверждён.';
+    transportNotice.textContent=`Build/coverage only. ${why} ${m.notes||''}`;
     go.disabled=true;restoreStock.disabled=true;
   }
 }
@@ -181,7 +196,7 @@ async function coverage(id,button){
   }catch(e){status.textContent='Coverage error: '+e}finally{button.disabled=false}
 }
 async function runCompatibility(){
-  status.textContent='Собираю пакет и считаю compatibility…';check.disabled=true;
+  status.textContent='Считаю semantic compatibility без упаковки…';check.disabled=true;
   try{
     const qs=new URLSearchParams({voice_id:voice.value,model_id:model.value});
     if(fallback.value)qs.set('fallback',fallback.value);
@@ -195,15 +210,16 @@ lang.onchange=()=>{refreshSelectors();render();renderFallbackGrid()};
 showAdult.onchange=()=>{refreshSelectors();render();renderFallbackGrid()};
 voice.onchange=()=>{refreshSelectors();renderFallbackGrid()};
 model.onchange=()=>{renderModel();render();stock.innerHTML='';status.textContent='Модель изменена. Пересчитай compatibility перед установкой.'};
+modelQ.oninput=()=>{const before=model.value;populateModels(modelQ.value);if(model.value!==before){renderModel();render();}};
 experimental.onchange=()=>{
   if(transportMode(selectedModel())==='experimental'){
     go.disabled=!experimental.checked;
-    restoreStock.disabled=!experimental.checked;
+    restoreStock.disabled=!experimental.checked||selectedModel().adapter!=='dreame_numeric';
   }
 };
 check.onclick=runCompatibility;
 loadStock.onclick=async()=>{
-  status.textContent='Читаю официальный soundpackage.json…';
+  status.textContent='Читаю официальный Dreame soundpackage.json…';
   try{
     const j=await (await fetch(`/api/stock?model_id=${encodeURIComponent(model.value)}`)).json();
     if(j.error)throw new Error(j.error);

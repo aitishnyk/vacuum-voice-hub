@@ -1,6 +1,8 @@
 import hashlib, json, tarfile
 from pathlib import Path
 
+OUTPUT_SUFFIX=".tar.gz"
+
 def package(canonical_dir: Path, out: Path, allowed_ids=None) -> dict:
     files=[]
     for p in Path(canonical_dir).glob("*.ogg"):

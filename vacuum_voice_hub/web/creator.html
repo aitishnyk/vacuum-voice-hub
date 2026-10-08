@@ -10,7 +10,7 @@
 </head>
 <body><div class="wrap">
 <section class="hero">
-  <span class="pill">v0.4</span><span class="pill">vvh.voicepack.v1</span><span class="pill">local-only workspace</span>
+  <span class="pill">v0.8</span><span class="pill">109 targets</span><span class="pill">vvh.voicepack.v1</span><span class="pill">local-only workspace</span>
   <h1>Creator Studio</h1>
   <p>Создавай одну semantic-озвучку и собирай её под разные модели. Аудио остаётся локально; GitHub не получает рабочие файлы автоматически.</p>
   <a class="toplink" href="/">← Вернуться в каталог</a>
@@ -46,6 +46,7 @@
     <label>Язык<input id="language"></label>
     <label>Лицензия<input id="license"></label>
     <label>18+<select id="adult"><option value="false">Нет</option><option value="true">Да</option></select></label>
+    <label>Поиск target model<input id="modelQ" placeholder="H40, S5, X20+, r2228…"></label>
     <label>Модель<select id="model"></select></label>
     <label>Source URL<input id="sourceUrl"></label>
     <label>Описание<textarea id="description" rows="2"></textarea></label>
@@ -75,7 +76,7 @@
 
 <script>
 const $=id=>document.getElementById(id);
-const workspace=$('workspace'),model=$('model'),eventsEl=$('events'),status=$('status'),search=$('search'),category=$('category'),onlyAssigned=$('onlyAssigned');
+const workspace=$('workspace'),model=$('model'),modelQ=$('modelQ'),eventsEl=$('events'),status=$('status'),search=$('search'),category=$('category'),onlyAssigned=$('onlyAssigned');
 let session='',catalog={models:[],stats:{}},snapshot=null,eventRows=[];
 
 async function api(url,opts={}){
@@ -91,10 +92,17 @@ async function api(url,opts={}){
   return r;
 }
 function setStatus(x){status.textContent=typeof x==='string'?x:JSON.stringify(x,null,2)}
+function populateModels(filter=''){
+  const current=model.value,term=(filter||'').trim().toLowerCase();
+  const rows=catalog.models.filter(m=>!term||(`${m.name} ${m.id} ${m.vendor||''} ${m.adapter||''}`).toLowerCase().includes(term));
+  model.innerHTML=rows.map(m=>`<option value="${m.id}">${m.name} · ${m.id}</option>`).join('');
+  if(rows.some(m=>m.id===current))model.value=current;
+  if(!model.value&&rows[0])model.value=rows[0].id;
+}
 async function bootstrap(){
   session=(await api('/api/session')).creator_session;
   catalog=await api('/api/catalog');
-  model.innerHTML=catalog.models.map(m=>`<option value="${m.id}">${m.name}</option>`).join('');
+  populateModels();
   category.innerHTML='<option value="">Все категории</option>'+catalog.stats.categories.map(c=>`<option value="${c}">${c}</option>`).join('');
   await loadWorkspaces();
 }
@@ -187,6 +195,7 @@ $('build').onclick=async()=>{
 };
 workspace.onchange=loadWorkspace;
 model.onchange=loadWorkspace;
+modelQ.oninput=async()=>{const old=model.value;populateModels(modelQ.value);if(model.value&&model.value!==old&&workspace.value)await loadWorkspace();};
 $('reload').onclick=()=>loadWorkspaces(workspace.value);
 category.onchange=loadEvents;
 search.oninput=renderEvents;

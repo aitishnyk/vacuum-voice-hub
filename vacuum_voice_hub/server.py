@@ -29,6 +29,8 @@ def _stats():
         "hardware_verified_models":sum(bool(m.get("device_tested")) for m in mm),
         "backlog":len(backlog()),
         "categories":categories(),
+        "target_combinations":len(vv)*len(mm),
+        "adapters":sorted({m.get("adapter") for m in mm}),
         "creator_schema":"vvh.voicepack.v1",
     }
 
@@ -95,7 +97,7 @@ class H(BaseHTTPRequestHandler):
         if parsed.path=="/api/compatibility":
             try:
                 vid=q["voice_id"][0];mid=q.get("model_id",["dreame.vacuum.r2209"])[0];fallback=q.get("fallback",[None])[0] or None
-                b=build_voice(vid,mid,fallback_voice_id=fallback,fallback_categories=_fallback_categories_from_query(q))
+                b=build_voice(vid,mid,fallback_voice_id=fallback,fallback_categories=_fallback_categories_from_query(q),package_output=False)
                 return self._json({"ok":True,"voice_id":vid,"model_id":b["model"],"compatibility":b["compatibility"],"original_compatibility":b["original_compatibility"],"fallbacks":b.get("fallbacks",[])})
             except Exception as e:return self._json({"ok":False,"error":str(e)},400)
         if parsed.path=="/api/stock":

@@ -25,7 +25,7 @@ def build_report(ip,token,model_id=None):
     profile=event_profile_for_model(model["id"])
     transport=model.get("transport",{})
     live=None
-    if transport.get("kind")=="miot-local-property":
+    if transport.get("kind") in {"miot-local-property","roborock-miio-sound"}:
         try:
             live=miot.voice_status(ip,token,transport)
         except Exception as e:

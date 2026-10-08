@@ -7,40 +7,33 @@ from .history import append_history
 from . import miot
 
 TOKEN_RE=re.compile(r"^[0-9a-fA-F]{32}$")
+INSTALL_KINDS={"miot-local-property","roborock-miio-sound","miot-action-url-md5"}
 
 def local_ip_for(remote_ip):
     s=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
     try:
-        s.connect((remote_ip,9))
-        return s.getsockname()[0]
-    finally:
-        s.close()
+        s.connect((remote_ip,9));return s.getsockname()[0]
+    finally:s.close()
 
 class DownloadTracker:
     def __init__(self,robot_ip,target_name):
-        self.robot_ip=robot_ip
-        self.target_name=target_name
-        self.robot_gets=0
-        self.event=threading.Event()
+        self.robot_ip=robot_ip;self.target_name=target_name;self.robot_gets=0;self.event=threading.Event()
 
 def handler_factory(directory,tracker):
     class Handler(http.server.SimpleHTTPRequestHandler):
-        def log_message(self,fmt,*args):
-            pass
+        def log_message(self,fmt,*args):pass
         def do_GET(self):
             super().do_GET()
             if self.client_address[0]==tracker.robot_ip and self.path.split("?")[0].endswith("/"+tracker.target_name):
-                tracker.robot_gets+=1
-                tracker.event.set()
+                tracker.robot_gets+=1;tracker.event.set()
     return lambda *a,**kw: Handler(*a,directory=str(directory),**kw)
 
 def _validate_transport(model,allow_experimental_transport):
     transport=model.get("transport",{})
-    if transport.get("kind")!="miot-local-property":
-        raise RuntimeError(
-            f"{model['name']} is build/coverage-only in VVH: no verified local set-voice transport. "
-            "Use a rooted/Valetudo workflow or contribute device evidence."
-        )
+    kind=transport.get("kind")
+    if kind not in INSTALL_KINDS:
+        reason="vendor-signed voice packs required" if kind=="signed-official-only" else "no verified local custom-voice transport"
+        raise RuntimeError(f"{model['name']} is build/coverage-only in VVH: {reason}.")
     if not transport.get("allow_default",False) and not allow_experimental_transport:
         raise RuntimeError(
             f"{model['name']} transport is {transport.get('verification','unverified')}. "
@@ -48,36 +41,42 @@ def _validate_transport(model,allow_experimental_transport):
         )
     return transport
 
+def _accepted(result,transport):
+    if transport.get("kind")=="miot-local-property":
+        codes=[x.get("code") for x in (result or []) if isinstance(x,dict)]
+        return 0 in codes
+    if isinstance(result,dict) and "code" in result:
+        return int(result.get("code"))==0
+    if isinstance(result,list):
+        bad=[x for x in result if isinstance(x,dict) and "code" in x and int(x["code"])!=0]
+        return not bad
+    return result is not False
+
 def _history_success(voice_id,model,di,transport,tracker,last,built):
     return append_history({
-        "ok":True,
-        "action":"install",
-        "voice_id":voice_id,
-        "model_id":model["id"],
-        "firmware":di.get("firmware"),
-        "hardware":di.get("hardware"),
+        "ok":True,"action":"install","voice_id":voice_id,"model_id":model["id"],
+        "firmware":di.get("firmware"),"hardware":di.get("hardware"),
         "transport_verification":transport.get("verification"),
-        "robot_download_confirmed":tracker.event.is_set(),
-        "robot_download_requests":tracker.robot_gets,
+        "robot_download_confirmed":tracker.event.is_set(),"robot_download_requests":tracker.robot_gets,
         "status":{"voice_id":last.get("voice_id"),"state":last.get("state"),"progress":last.get("progress")},
-        "compatibility":{
-            "profile":built["compatibility"].get("profile"),
-            "coverage_pct":built["compatibility"].get("coverage_pct"),
-            "core_coverage_pct":built["compatibility"].get("core_coverage_pct"),
-        },
-        "package":{"md5":built["md5"],"size":built["size"],"events":built["events"]},
+        "compatibility":{"profile":built["compatibility"].get("profile"),"coverage_pct":built["compatibility"].get("coverage_pct"),"core_coverage_pct":built["compatibility"].get("core_coverage_pct")},
+        "package":{"md5":built["md5"],"size":built["size"],"events":built["events"],"adapter":model.get("adapter")},
     })
 
 def _history_failure(voice_id,model,di,error):
-    append_history({
-        "ok":False,
-        "action":"install",
-        "voice_id":voice_id,
-        "model_id":model["id"],
-        "firmware":di.get("firmware") if di else None,
-        "hardware":di.get("hardware") if di else None,
-        "error_type":type(error).__name__,
-    })
+    append_history({"ok":False,"action":"install","voice_id":voice_id,"model_id":model["id"],"firmware":di.get("firmware") if di else None,"hardware":di.get("hardware") if di else None,"error_type":type(error).__name__})
+
+def _success_payload(voice_id,model,di,transport,tracker,last,built):
+    history=_history_success(voice_id,model,di,transport,tracker,last,built)
+    return {
+        "ok":True,
+        "device":{"model":di.get("model"),"firmware":di.get("firmware"),"hardware":di.get("hardware")},
+        "transport_verification":transport.get("verification"),
+        "robot_download_confirmed":tracker.event.is_set(),"robot_download_requests":tracker.robot_gets,
+        "status":last,"compatibility":built["compatibility"],"fallbacks":built.get("fallbacks",[]),
+        "package":{"md5":built["md5"],"size":built["size"],"events":built["events"],"adapter":model.get("adapter"),"path":str(built["path"])},
+        "history_recorded":bool(history),
+    }
 
 def install_voice(
     voice_id,model_id,ip,token=None,timeout=180,
@@ -85,68 +84,42 @@ def install_voice(
     allow_experimental_transport=False,
 ):
     token=token or getpass.getpass("TOKEN (32 hex, hidden): ").strip()
-    if not TOKEN_RE.fullmatch(token):
-        raise ValueError("token must be exactly 32 hexadecimal characters")
-    model=model_by_id(model_id)
-    transport=_validate_transport(model,allow_experimental_transport)
-    di=None
+    if not TOKEN_RE.fullmatch(token):raise ValueError("token must be exactly 32 hexadecimal characters")
+    model=model_by_id(model_id);transport=_validate_transport(model,allow_experimental_transport);di=None
     try:
         di=miot.info(ip,token)
         if di.get("model") not in model.get("aliases",[]):
             raise ValueError(f"model mismatch: robot={di.get('model')} expected one of {model.get('aliases',[])}")
-        built=build_voice(
-            voice_id,model["id"],
-            fallback_voice_id=fallback_voice_id,
-            fallback_categories=fallback_categories,
-        )
-        path=Path(built["path"])
-        host=local_ip_for(ip)
-        tracker=DownloadTracker(ip,path.name)
+        built=build_voice(voice_id,model["id"],fallback_voice_id=fallback_voice_id,fallback_categories=fallback_categories)
+        path=Path(built["path"]);host=local_ip_for(ip);tracker=DownloadTracker(ip,path.name)
         handler=handler_factory(path.parent,tracker)
-        class S(socketserver.ThreadingMixIn,http.server.HTTPServer):
-            daemon_threads=True
-        srv=S(("0.0.0.0",0),handler)
-        port=srv.server_address[1]
+        class S(socketserver.ThreadingMixIn,http.server.HTTPServer):daemon_threads=True
+        srv=S(("0.0.0.0",0),handler);port=srv.server_address[1]
         threading.Thread(target=srv.serve_forever,daemon=True).start()
         try:
             url=f"http://{host}:{port}/{path.name}"
             pack_id=voice_id.upper().replace("-","")[:12]
             value=get_model(model["id"]).make_voice_value(pack_id,url,built["md5"],built["size"])
             result=miot.set_voice(ip,token,value,transport)
-            codes=[x.get("code") for x in (result or []) if isinstance(x,dict)]
-            if 0 not in codes:
-                raise RuntimeError(f"robot rejected set-voice: {result}")
+            if not _accepted(result,transport):raise RuntimeError(f"robot rejected set-voice: {result}")
+            mode=transport.get("status_mode")
             deadline=time.time()+timeout
+            if mode=="download-confirmed":
+                remaining=max(0,min(timeout,60))
+                if not tracker.event.wait(remaining):
+                    raise TimeoutError("voice action accepted but robot did not fetch the package")
+                last={"voice_id":pack_id,"state":"download-confirmed","progress":100}
+                return _success_payload(voice_id,model,di,transport,tracker,last,built)
             last={}
             while time.time()<deadline:
                 time.sleep(3)
                 last=miot.voice_status(ip,token,transport)
                 if last.get("state")=="success" and last.get("progress")==100:
-                    history=_history_success(voice_id,model,di,transport,tracker,last,built)
-                    return {
-                        "ok":True,
-                        "device":{
-                            "model":di.get("model"),
-                            "firmware":di.get("firmware"),
-                            "hardware":di.get("hardware"),
-                        },
-                        "transport_verification":transport.get("verification"),
-                        "robot_download_confirmed":tracker.event.is_set(),
-                        "robot_download_requests":tracker.robot_gets,
-                        "status":last,
-                        "compatibility":built["compatibility"],
-                        "fallbacks":built.get("fallbacks",[]),
-                        "package":{"md5":built["md5"],"size":built["size"],"events":built["events"]},
-                        "history_recorded":bool(history),
-                    }
+                    return _success_payload(voice_id,model,di,transport,tracker,last,built)
                 if last.get("state") in {"failed","fail","error"}:
                     raise RuntimeError(f"installation failed: {last}")
-            raise TimeoutError(
-                f"installation timeout; robot_download_confirmed={tracker.event.is_set()} last={last}"
-            )
+            raise TimeoutError(f"installation timeout; robot_download_confirmed={tracker.event.is_set()} last={last}")
         finally:
-            srv.shutdown()
-            srv.server_close()
+            srv.shutdown();srv.server_close()
     except Exception as e:
-        _history_failure(voice_id,model,di,e)
-        raise
+        _history_failure(voice_id,model,di,e);raise

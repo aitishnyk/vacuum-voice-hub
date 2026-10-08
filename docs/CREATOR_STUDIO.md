@@ -2,9 +2,25 @@
 
 Creator Studio is a local authoring environment for model-independent robot-vacuum voices.
 
-## Format
+As of v0.8 the model selector can target **109 profiles** across Dreame numeric, Roborock, IJAI and portable semantic adapter families.
 
-A workspace contains:
+## Core idea
+
+Author semantic events once:
+
+```text
+clean.start
+clean.pause
+clean.complete
+dock.return.charge
+error.main_brush
+```
+
+VVH maps those semantics to the bounded event profile and target package adapter for the selected model.
+
+The same semantic project can therefore be exported differently for different families without manually renaming the source audio.
+
+## Workspace
 
 ```text
 my-pack/
@@ -15,79 +31,34 @@ my-pack/
     └── error.main_brush.ogg
 ```
 
-Minimal manifest:
-
-```json
-{
-  "schema": "vvh.voicepack.v1",
-  "id": "my-pack",
-  "name": "My Pack",
-  "author": "Your Name",
-  "language": "en",
-  "adult": false,
-  "license": "CC-BY-4.0",
-  "source_url": null,
-  "description": null,
-  "events": {
-    "clean.start": "audio/clean.start.wav",
-    "clean.pause": "audio/clean.pause.wav"
-  }
-}
-```
-
-The authoritative JSON Schema is [../schemas/vvh.voicepack.v1.schema.json](../schemas/vvh.voicepack.v1.schema.json).
-
-## CLI
-
-```bash
-vvh creator new --id my-pack --name "My Pack" --author "Me" --language en --license CC-BY-4.0
-vvh creator events --model dreame.vacuum.r2209 --category cleaning
-vvh creator assign ~/.local/share/vacuum-voice-hub/creator/my-pack clean.start ./start.wav
-vvh creator validate ~/.local/share/vacuum-voice-hub/creator/my-pack
-vvh creator coverage ~/.local/share/vacuum-voice-hub/creator/my-pack --model dreame.vacuum.r2209
-vvh creator build ~/.local/share/vacuum-voice-hub/creator/my-pack --model dreame.vacuum.r2209
-```
-
-On macOS, the default workspaces are under `~/Library/Application Support/VacuumVoiceHub/creator/`.
+The manifest schema remains `vvh.voicepack.v1`.
 
 ## Web Studio
-
-Start:
 
 ```bash
 vvh web
 ```
 
-Then open:
+Open `http://127.0.0.1:8787/creator`.
 
-```text
-http://127.0.0.1:8787/creator
-```
+The v0.8 UI includes target-model search.
 
-Creator Studio supports:
-- creating workspaces;
-- editing safe manifest metadata;
-- selecting a target model;
-- filtering semantic events;
-- uploading WAV/MP3/OGG/M4A/AAC/FLAC/Opus per semantic event;
-- local audio preview;
-- validation;
-- model coverage;
-- model-specific build.
+## Target output
 
-Uploads are limited to 25 MiB each and remain local.
+Depending on the selected model, Creator Studio may produce:
 
-## Security boundaries
+- Dreame numeric OGG `tar.gz`;
+- classic Roborock encrypted `.pkg` (requires external `ccrypt`);
+- IJAI named-MP3 ZIP;
+- portable semantic OGG ZIP with `installable=false`.
 
-- the server binds to `127.0.0.1`;
-- write/upload Creator APIs require an ephemeral session token;
-- preview URLs also require the session token;
-- event paths cannot be absolute or contain `..`;
-- workspace uploads never publish themselves to GitHub;
-- Creator Studio does not claim redistribution rights for user-supplied audio.
+A successful build is not automatically an installation claim. The model transport policy remains independent and fail-closed.
 
-## Semantic portability
+## Privacy
 
-A semantic event like `clean.start` can map to a different numeric ID set for each model profile. The creator writes the semantic intent once; VVH selects only IDs known to the target model.
-
-Unknown or ambiguous events are not guessed.
+- server binds to `127.0.0.1`;
+- Creator write/upload APIs require an ephemeral session;
+- preview URLs are session protected;
+- workspace paths reject traversal;
+- uploaded author audio remains local;
+- no Creator project is published to GitHub automatically.

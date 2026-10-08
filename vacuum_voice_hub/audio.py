@@ -10,7 +10,8 @@ def ffmpeg_bin():
 def normalize(src: Path, dst: Path, codec="ogg"):
     dst.parent.mkdir(parents=True,exist_ok=True)
     if codec=="ogg": args=["-c:a","libvorbis","-q:a","2"]
-    elif codec=="mp3": args=["-c:a","libmp3lame","-b:a","16k"]
+    elif codec=="mp3": args=["-c:a","libmp3lame","-b:a","24k"]
+    elif codec=="wav": args=["-c:a","pcm_s16le"]
     else: raise ValueError(codec)
     cmd=[ffmpeg_bin(),"-hide_banner","-loglevel","error","-y","-i",str(src),"-vn","-ac","1","-ar","16000",*args,str(dst)]
     p=subprocess.run(cmd,capture_output=True,text=True)
