@@ -22,7 +22,8 @@
       "redistribution": "source-only",
       "status": "convertible",
       "source_verification": "git-blob+size",
-      "content_rating": "general"
+      "content_rating": "general",
+      "origin_model": "RoboVoice / Trouver r2567r semantic layout"
     },
     {
       "id": "super-botanik",
@@ -46,7 +47,8 @@
       "redistribution": "source-only",
       "status": "convertible",
       "source_verification": "git-blob+size",
-      "content_rating": "explicit"
+      "content_rating": "explicit",
+      "origin_model": "RoboVoice / Trouver r2567r semantic layout"
     },
     {
       "id": "dobkin",
@@ -69,7 +71,8 @@
       "redistribution": "source-only",
       "status": "convertible",
       "source_verification": "git-blob+size",
-      "content_rating": "general"
+      "content_rating": "general",
+      "origin_model": "RoboVoice / Trouver r2567r semantic layout"
     },
     {
       "id": "eleonora",
@@ -91,7 +94,8 @@
       "redistribution": "source-only",
       "status": "convertible",
       "source_verification": "git-blob+size",
-      "content_rating": "general"
+      "content_rating": "general",
+      "origin_model": "RoboVoice / Trouver r2567r semantic layout"
     },
     {
       "id": "derzkaya-galya",
@@ -115,7 +119,8 @@
       "redistribution": "source-only",
       "status": "convertible",
       "source_verification": "git-blob+size",
-      "content_rating": "explicit"
+      "content_rating": "explicit",
+      "origin_model": "RoboVoice / Trouver r2567r semantic layout"
     },
     {
       "id": "kuzya",
@@ -138,7 +143,8 @@
       "redistribution": "source-only",
       "status": "convertible",
       "source_verification": "git-blob+size",
-      "content_rating": "general"
+      "content_rating": "general",
+      "origin_model": "RoboVoice / Trouver r2567r semantic layout"
     },
     {
       "id": "kuzya-3",
@@ -161,7 +167,8 @@
       "redistribution": "source-only",
       "status": "convertible",
       "source_verification": "git-blob+size",
-      "content_rating": "general"
+      "content_rating": "general",
+      "origin_model": "RoboVoice / Trouver r2567r semantic layout"
     },
     {
       "id": "maxim-full",
@@ -185,7 +192,8 @@
       "redistribution": "source-only",
       "status": "convertible",
       "source_verification": "git-blob+size",
-      "content_rating": "explicit"
+      "content_rating": "explicit",
+      "origin_model": "RoboVoice / Trouver r2567r semantic layout"
     },
     {
       "id": "kuzya-winnie-ostrov",
@@ -208,7 +216,8 @@
       "redistribution": "source-only",
       "status": "convertible",
       "source_verification": "git-blob+size",
-      "content_rating": "general"
+      "content_rating": "general",
+      "origin_model": "RoboVoice / Trouver r2567r semantic layout"
     },
     {
       "id": "rick-and-morty",
@@ -232,7 +241,8 @@
       "redistribution": "source-only",
       "status": "convertible",
       "source_verification": "git-blob+size",
-      "content_rating": "explicit"
+      "content_rating": "explicit",
+      "origin_model": "RoboVoice / Trouver r2567r semantic layout"
     },
     {
       "id": "soviet-movies",
@@ -256,7 +266,8 @@
       "redistribution": "source-only",
       "status": "convertible",
       "source_verification": "git-blob+size",
-      "content_rating": "general"
+      "content_rating": "general",
+      "origin_model": "RoboVoice / Trouver r2567r semantic layout"
     },
     {
       "id": "r2d2",
@@ -280,7 +291,8 @@
       "redistribution": "source-only",
       "status": "convertible",
       "source_verification": "git-blob+size",
-      "content_rating": "general"
+      "content_rating": "general",
+      "origin_model": "RoboVoice / Trouver r2567r semantic layout"
     },
     {
       "id": "warcraft",
@@ -304,7 +316,8 @@
       "redistribution": "source-only",
       "status": "convertible",
       "source_verification": "git-blob+size",
-      "content_rating": "general"
+      "content_rating": "general",
+      "origin_model": "RoboVoice / Trouver r2567r semantic layout"
     },
     {
       "id": "leather-bastards",
@@ -328,7 +341,8 @@
       "redistribution": "source-only",
       "status": "convertible",
       "source_verification": "git-blob+size",
-      "content_rating": "explicit"
+      "content_rating": "explicit",
+      "origin_model": "RoboVoice / Trouver r2567r semantic layout"
     },
     {
       "id": "glados-robovoice",
@@ -352,7 +366,8 @@
       "redistribution": "source-only",
       "status": "convertible",
       "source_verification": "git-blob+size",
-      "content_rating": "general"
+      "content_rating": "general",
+      "origin_model": "RoboVoice / Trouver r2567r semantic layout"
     },
     {
       "id": "glados-czaky",
@@ -377,7 +392,8 @@
       "redistribution": "source-only",
       "status": "convertible",
       "source_verification": "git-blob+size",
-      "content_rating": "general"
+      "content_rating": "general",
+      "origin_model": "Classic Dreame numeric OGG layout"
     },
     {
       "id": "tiff",
@@ -401,7 +417,8 @@
       "redistribution": "source-only",
       "status": "convertible",
       "source_verification": "git-blob+size",
-      "content_rating": "general"
+      "content_rating": "general",
+      "origin_model": "Classic Dreame numeric OGG layout"
     },
     {
       "id": "sweetie-belle",
@@ -425,7 +442,8 @@
       "redistribution": "source-only",
       "status": "convertible",
       "source_verification": "git-blob+size",
-      "content_rating": "general"
+      "content_rating": "general",
+      "origin_model": "Classic Dreame numeric OGG layout"
     },
     {
       "id": "fluttershy",
@@ -449,7 +467,8 @@
       "redistribution": "source-only",
       "status": "convertible",
       "source_verification": "git-blob+size",
-      "content_rating": "general"
+      "content_rating": "general",
+      "origin_model": "Classic Dreame numeric OGG layout"
     },
     {
       "id": "uk-female-pensive",
@@ -474,7 +493,8 @@
       "license": "MIT",
       "status": "convertible",
       "source_verification": "git-blob+size",
-      "content_rating": "general"
+      "content_rating": "general",
+      "origin_model": "Classic Dreame numeric OGG layout"
     },
     {
       "id": "uk-glados",
@@ -501,7 +521,8 @@
       "license": "MIT (repository code/data; character IP remains third-party)",
       "status": "convertible",
       "source_verification": "git-blob+size",
-      "content_rating": "general"
+      "content_rating": "general",
+      "origin_model": "Classic Dreame numeric OGG layout"
     },
     {
       "id": "q0-maxim",
@@ -527,7 +548,8 @@
       "redistribution": "source-only",
       "status": "convertible",
       "source_verification": "git-blob+size",
-      "content_rating": "explicit"
+      "content_rating": "explicit",
+      "origin_model": "Xiaomi Ijai legacy named-MP3 layout"
     },
     {
       "id": "q0-maxim-spazzy",
@@ -553,7 +575,8 @@
       "redistribution": "source-only",
       "status": "convertible",
       "source_verification": "git-blob+size",
-      "content_rating": "general"
+      "content_rating": "general",
+      "origin_model": "Xiaomi Ijai legacy named-MP3 layout"
     },
     {
       "id": "q0-leather-bastards-loud",
@@ -579,7 +602,8 @@
       "redistribution": "source-only",
       "status": "convertible",
       "source_verification": "git-blob+size",
-      "content_rating": "explicit"
+      "content_rating": "explicit",
+      "origin_model": "Xiaomi Ijai legacy named-MP3 layout"
     },
     {
       "id": "q0-russian",
@@ -604,7 +628,8 @@
       "redistribution": "source-only",
       "status": "convertible",
       "source_verification": "git-blob+size",
-      "content_rating": "general"
+      "content_rating": "general",
+      "origin_model": "Xiaomi Ijai legacy named-MP3 layout"
     },
     {
       "id": "glados-findus",
@@ -630,7 +655,8 @@
       "redistribution": "source-only",
       "status": "convertible",
       "source_verification": "git-blob+size",
-      "content_rating": "general"
+      "content_rating": "general",
+      "origin_model": "Classic Dreame numeric OGG layout"
     },
     {
       "id": "queen-elizabeth-ii-yllwdg",
@@ -884,12 +910,13 @@
         "page": "https://github.com/v1k70rk4/dreame_hu_tts",
         "url": "https://raw.githubusercontent.com/v1k70rk4/dreame_hu_tts/main/dreame_voicepack_hu/jenny_dreame_hu_voice",
         "git_blob_sha1": "4ccc30e3e36db218eac081a43d23ade138e619f4",
-        "size": 13528449
+        "size": 13528449,
+        "md5": "f2855619fcf421dc08f163d29737e665"
       },
       "credit": "v1k70rk4; Hungarian Dreame TTS project",
       "redistribution": "source-only",
       "status": "convertible",
-      "source_verification": "git-blob+size"
+      "source_verification": "git-blob+md5+size"
     },
     {
       "id": "hungarian-ryan",
@@ -909,12 +936,13 @@
         "page": "https://github.com/v1k70rk4/dreame_hu_tts",
         "url": "https://raw.githubusercontent.com/v1k70rk4/dreame_hu_tts/main/dreame_voicepack_hu/ryan_dreame_hu_voice",
         "git_blob_sha1": "29cb669b6289c21d5f65607fa913455a79292e84",
-        "size": 13500677
+        "size": 13500677,
+        "md5": "f7b0b17793f4a50e9cecfd73ca9beaf3"
       },
       "credit": "v1k70rk4; Hungarian Dreame TTS project",
       "redistribution": "source-only",
       "status": "convertible",
-      "source_verification": "git-blob+size"
+      "source_verification": "git-blob+md5+size"
     },
     {
       "id": "hungarian-tamas",
@@ -934,12 +962,13 @@
         "page": "https://github.com/v1k70rk4/dreame_hu_tts",
         "url": "https://raw.githubusercontent.com/v1k70rk4/dreame_hu_tts/main/dreame_voicepack_hu/tamas_dreame_hu_voice",
         "git_blob_sha1": "92ad16f7e09f84e5ff5d4d749bd505f896d5d77b",
-        "size": 13320907
+        "size": 13320907,
+        "md5": "c11b64d9d473d7c0404836822e6f3d74"
       },
       "credit": "v1k70rk4; Hungarian Dreame TTS project",
       "redistribution": "source-only",
       "status": "convertible",
-      "source_verification": "git-blob+size"
+      "source_verification": "git-blob+md5+size"
     },
     {
       "id": "zoidberg",

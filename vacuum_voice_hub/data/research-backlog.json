@@ -1,11 +1,16 @@
 {
-  "schema": 1,
+  "schema": 2,
   "items": [
     {
       "title": "Bender / Futurama",
       "language": "ru",
-      "source_page": "https://4pda.to/forum/index.php?showtopic=881982",
-      "status": "needs-source-recovery"
+      "source_page": "https://github.com/fidlow/fidlow.github.io/blob/master/soundpackage.json",
+      "status": "manifest-discovered-needs-artifact-recovery",
+      "adult": false,
+      "artifact_url": "https://dreamef9.my1.ru/DreameF9/Robot_Bender/ru.tar.gz",
+      "md5": "216645a3357bcf14e67235046f8eca82",
+      "size": 1200728,
+      "discovered_via": "fidlow/fidlow.github.io soundpackage.json; cross-checked with Maxmudjon/Get_MiHome_devices_token"
     },
     {
       "title": "S.T.A.L.K.E.R. — бандиты",
@@ -69,22 +74,37 @@
       "status": "needs-source-recovery"
     },
     {
-      "title": "StarCraft",
+      "title": "StarCraft 2",
       "language": "ru",
-      "source_page": "https://4pda.to/forum/index.php?showtopic=1012688",
-      "status": "needs-source-recovery"
+      "source_page": "https://github.com/fidlow/fidlow.github.io/blob/master/soundpackage.json",
+      "status": "manifest-discovered-needs-artifact-recovery",
+      "adult": false,
+      "artifact_url": "https://dreamef9.my1.ru/DreameF9/Starcraft_2/ru.tar.gz",
+      "md5": "26b360e737295e3eaa09c764c0ed5c91",
+      "size": 1894466,
+      "discovered_via": "fidlow/fidlow.github.io soundpackage.json; cross-checked with Maxmudjon/Get_MiHome_devices_token"
     },
     {
       "title": "Сварливая жена",
       "language": "ru",
-      "source_page": "https://4pda.to/forum/index.php?showtopic=1012688",
-      "status": "needs-source-recovery"
+      "source_page": "https://github.com/fidlow/fidlow.github.io/blob/master/soundpackage.json",
+      "status": "manifest-discovered-needs-artifact-recovery",
+      "adult": false,
+      "artifact_url": "https://dreamef9.my1.ru/DreameF9/svr_zhena/svr_jn.tar.gz",
+      "md5": "157522215fd4c8143fb430cc1dd88b66",
+      "size": 1514557,
+      "discovered_via": "fidlow/fidlow.github.io soundpackage.json; cross-checked with Maxmudjon/Get_MiHome_devices_token"
     },
     {
       "title": "Ельцин",
       "language": "ru",
-      "source_page": "https://4pda.to/forum/index.php?showtopic=1012688",
-      "status": "needs-source-recovery"
+      "source_page": "https://github.com/fidlow/fidlow.github.io/blob/master/soundpackage.json",
+      "status": "manifest-discovered-needs-artifact-recovery",
+      "adult": false,
+      "artifact_url": "https://dreamef9.my1.ru/DreameF9/eltsin/ru.tar.gz",
+      "md5": "59d4f49a466a060f94764a3654a675f2",
+      "size": 6365813,
+      "discovered_via": "fidlow/fidlow.github.io soundpackage.json; cross-checked with Maxmudjon/Get_MiHome_devices_token"
     },
     {
       "title": "Максим — New Year",
@@ -105,6 +125,160 @@
       "language": "zxx",
       "source_page": "https://github.com/Makers-Im-Zigerschlitz/voicepacks_dreame",
       "status": "adapter-needed"
+    },
+    {
+      "title": "Винни Пух — Dreame F9 archive",
+      "language": "ru",
+      "adult": false,
+      "source_page": "https://github.com/fidlow/fidlow.github.io/blob/master/soundpackage.json",
+      "artifact_url": "https://dreamef9.my1.ru/DreameF9/Vinni_Puh/ru.tar.gz",
+      "md5": "9037b58b9f401a9f57285d0299865393",
+      "size": 1536064,
+      "discovered_via": "fidlow/fidlow.github.io soundpackage.json; cross-checked with Maxmudjon/Get_MiHome_devices_token",
+      "status": "manifest-discovered-needs-artifact-recovery"
+    },
+    {
+      "title": "Домовёнок Кузя + Алиса — Dreame F9 archive",
+      "language": "ru",
+      "adult": false,
+      "source_page": "https://github.com/fidlow/fidlow.github.io/blob/master/soundpackage.json",
+      "artifact_url": "https://dreamef9.my1.ru/DreameF9/domovenok/ru.tar.gz",
+      "md5": "9756cc5723491e64535f7ce3a9207043",
+      "size": 1415074,
+      "discovered_via": "fidlow/fidlow.github.io soundpackage.json; cross-checked with Maxmudjon/Get_MiHome_devices_token",
+      "status": "manifest-discovered-needs-artifact-recovery"
+    },
+    {
+      "title": "Алиса — Dreame F9 archive",
+      "language": "ru",
+      "adult": false,
+      "source_page": "https://github.com/fidlow/fidlow.github.io/blob/master/soundpackage.json",
+      "artifact_url": "https://dreamef9.my1.ru/DreameF9/Alice/ru.tar.gz",
+      "md5": "409cd8721ad5b8659872167044ee3298",
+      "size": 5108752,
+      "discovered_via": "fidlow/fidlow.github.io soundpackage.json; cross-checked with Maxmudjon/Get_MiHome_devices_token",
+      "status": "manifest-discovered-needs-artifact-recovery"
+    },
+    {
+      "title": "WarCraft II — Dreame F9 archive",
+      "language": "ru",
+      "adult": false,
+      "source_page": "https://github.com/fidlow/fidlow.github.io/blob/master/soundpackage.json",
+      "artifact_url": "https://dreamef9.my1.ru/DreameF9/WarCraft_II/ru.tar.gz",
+      "md5": "9f30a9a9d06d86a9cc2c047875b579df",
+      "size": 2105579,
+      "discovered_via": "fidlow/fidlow.github.io soundpackage.json; cross-checked with Maxmudjon/Get_MiHome_devices_token",
+      "status": "manifest-discovered-needs-artifact-recovery"
+    },
+    {
+      "title": "Максим 3 — Dreame F9 archive",
+      "language": "ru",
+      "adult": true,
+      "source_page": "https://github.com/fidlow/fidlow.github.io/blob/master/soundpackage.json",
+      "artifact_url": "https://dreamef9.my1.ru/DreameF9/Maksim_3/ru.tar.gz",
+      "md5": "06d8234f57f6f162aadaa966d19c1ecc",
+      "size": 4929222,
+      "discovered_via": "fidlow/fidlow.github.io soundpackage.json; cross-checked with Maxmudjon/Get_MiHome_devices_token",
+      "status": "manifest-discovered-needs-artifact-recovery"
+    },
+    {
+      "title": "Женский голос — Dreame F9 archive",
+      "language": "ru",
+      "adult": false,
+      "source_page": "https://github.com/fidlow/fidlow.github.io/blob/master/soundpackage.json",
+      "artifact_url": "https://dreamef9.my1.ru/DreameF9/Ghenckij/ru.tar.gz",
+      "md5": "e353250025f6e76bedd400ba5a0bbac7",
+      "size": 2524065,
+      "discovered_via": "fidlow/fidlow.github.io soundpackage.json; cross-checked with Maxmudjon/Get_MiHome_devices_token",
+      "status": "manifest-discovered-needs-artifact-recovery"
+    },
+    {
+      "title": "Татьяна",
+      "language": "ru",
+      "adult": false,
+      "source_page": "https://github.com/fidlow/fidlow.github.io/blob/master/soundpackage.json",
+      "artifact_url": "https://dreamef9.my1.ru/DreameF9/Tatyana/ru.tar.gz",
+      "md5": "e25632b784e7f40abcf249518ef9572f",
+      "size": 2409232,
+      "discovered_via": "fidlow/fidlow.github.io soundpackage.json; cross-checked with Maxmudjon/Get_MiHome_devices_token",
+      "status": "manifest-discovered-needs-artifact-recovery"
+    },
+    {
+      "title": "Максим мат 3 — Dreame F9 archive",
+      "language": "ru",
+      "adult": true,
+      "source_page": "https://github.com/fidlow/fidlow.github.io/blob/master/soundpackage.json",
+      "artifact_url": "https://dreamef9.my1.ru/DreameF9/Maksim_Mat_3/ru.tar.gz",
+      "md5": "48fbd1a6ff1c033d2139cb92ee6982bc",
+      "size": 4836238,
+      "discovered_via": "fidlow/fidlow.github.io soundpackage.json; cross-checked with Maxmudjon/Get_MiHome_devices_token",
+      "status": "manifest-discovered-needs-artifact-recovery"
+    },
+    {
+      "title": "Филипп",
+      "language": "ru",
+      "adult": false,
+      "source_page": "https://github.com/fidlow/fidlow.github.io/blob/master/soundpackage.json",
+      "artifact_url": "https://dreamef9.my1.ru/DreameF9/filip/ru.tar.gz",
+      "md5": "8cdca3d7ac656b2cba2b4f50197b2505",
+      "size": 2318266,
+      "discovered_via": "fidlow/fidlow.github.io soundpackage.json; cross-checked with Maxmudjon/Get_MiHome_devices_token",
+      "status": "manifest-discovered-needs-artifact-recovery"
+    },
+    {
+      "title": "Кожаные ублюдки — Dreame F9 archive",
+      "language": "ru",
+      "adult": true,
+      "source_page": "https://github.com/fidlow/fidlow.github.io/blob/master/soundpackage.json",
+      "artifact_url": "https://dreamef9.my1.ru/DreameF9/ubludki/ru.tar.gz",
+      "md5": "6602a37381709e7ff24898295ec7ebe1",
+      "size": 2019199,
+      "discovered_via": "fidlow/fidlow.github.io soundpackage.json; cross-checked with Maxmudjon/Get_MiHome_devices_token",
+      "status": "manifest-discovered-needs-artifact-recovery"
+    },
+    {
+      "title": "Кузя + Захар",
+      "language": "ru",
+      "adult": false,
+      "source_page": "https://github.com/fidlow/fidlow.github.io/blob/master/soundpackage.json",
+      "artifact_url": "https://dreamef9.my1.ru/DreameF9/kuzyaz/ku1.tar.gz",
+      "md5": "2a3b917c188819abd3ccf3fca051cbf5",
+      "size": 1703155,
+      "discovered_via": "fidlow/fidlow.github.io soundpackage.json; cross-checked with Maxmudjon/Get_MiHome_devices_token",
+      "status": "manifest-discovered-needs-artifact-recovery"
+    },
+    {
+      "title": "Советские фильмы — Dreame F9 archive",
+      "language": "ru",
+      "adult": false,
+      "source_page": "https://github.com/fidlow/fidlow.github.io/blob/master/soundpackage.json",
+      "artifact_url": "https://dreamef9.my1.ru/DreameF9/Sovet_film/soviet_movies.tar.gz",
+      "md5": "6e39b171679bb77c22a32cc77204e5eb",
+      "size": 2197228,
+      "discovered_via": "fidlow/fidlow.github.io soundpackage.json; cross-checked with Maxmudjon/Get_MiHome_devices_token",
+      "status": "manifest-discovered-needs-artifact-recovery"
+    },
+    {
+      "title": "Робо",
+      "language": "ru",
+      "adult": false,
+      "source_page": "https://github.com/fidlow/fidlow.github.io/blob/master/soundpackage.json",
+      "artifact_url": "https://dreamef9.my1.ru/DreameF9/ROBO/robo_voice.tar.gz",
+      "md5": "3dbbc810642c17c502c53f721933da34",
+      "size": 2215936,
+      "discovered_via": "fidlow/fidlow.github.io soundpackage.json; cross-checked with Maxmudjon/Get_MiHome_devices_token",
+      "status": "manifest-discovered-needs-artifact-recovery"
+    },
+    {
+      "title": "Rick and Morty — Dreame F9 archive",
+      "language": "ru",
+      "adult": true,
+      "source_page": "https://github.com/fidlow/fidlow.github.io/blob/master/soundpackage.json",
+      "artifact_url": "https://dreamef9.my1.ru/DreameF9/rick_and_morty/rick_and_morty.tar.gz",
+      "md5": "5e89e7f8db737a40afc8716ebe3dd9fc",
+      "size": 4763566,
+      "discovered_via": "fidlow/fidlow.github.io soundpackage.json; cross-checked with Maxmudjon/Get_MiHome_devices_token",
+      "status": "manifest-discovered-needs-artifact-recovery"
     }
   ]
 }

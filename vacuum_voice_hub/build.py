@@ -8,6 +8,7 @@ from .paths import cache_dir
 from .compatibility import report_dir, merge_fallback
 
 def _adapt(voice, work: Path):
+    work.mkdir(parents=True,exist_ok=True)
     source=fetch(voice)
     return get_format(voice["format"])(source,work)
 
