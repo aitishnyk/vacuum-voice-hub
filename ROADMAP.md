@@ -9,26 +9,32 @@
 - v0.5 — Desktop + Community Verification ✅
 - v0.6 — Public Catalog ✅
 - v0.7 — Distribution Hardening ✅
-- v0.8 — 109-model Mass Expansion
+- v0.8 — 109-model Mass Expansion ✅
+- v0.9 — Offline Research Infrastructure (schemas, inspect, evidence cross-check, CLI, regressions) ✅ software scope
 
-## v0.9 — Transport & Package Research Wave
+## v0.9 — Offline Research Infrastructure
 
-Primary goal: convert the highest-value build-only profiles into evidence-backed target adapters without weakening fail-closed safety.
+Implemented in source:
+- offline evidence intake with strict SHA-256, size, source and exact-model checking;
+- bounded ZIP/TAR audio package inventory and opaque proprietary package fingerprinting;
+- filename-based layout heuristics and event-profile comparison;
+- versioned JSON schemas, CLI and negative security tests;
+- explicit *never authorize installation from research evidence* boundaries.
 
-Priority:
-- ROIDMI EVA / EVE package and set-voice payload;
-- Xiaomi H40 / M30 / M40 families;
-- Xiaomi X20+;
-- Mijia 5/6 families with global voice-pack references;
-- Viomi Alpha/V3 families;
-- additional IJAI action models;
-- exact event extraction for modern Dreame S10/X10/W10 lines.
+Hardware/package-adapter work formerly listed under v0.9 is **not** marked complete. The offline research stage enables the subsequent exact-device work without guessing vendor protocols.
 
-Also:
-- pure-Python or bundled legacy Roborock ccrypt-compatible packaging if legally/technically practical;
-- community report review tooling;
-- adapter evidence fixtures;
-- per-model official voice discovery where vendor endpoints are known.
+## v1.0 — Verified Transport & Real-Device Acceptance (external evidence required)
+
+Pending evidence-backed tasks:
+- ROIDMI EVA / EVE package format and set-voice payload;
+- Xiaomi H40 / M30 / M40 / X20+ exact voice package and transport;
+- Mijia 5/6 models with lawful, source-attributed stock pack references;
+- Viomi Alpha/V3 and newer Dreame S10/X10/W10 event mappings;
+- additional IJAI exact-device MIoT action verification;
+- hardware-backed acceptance reports, repeatability and firmware regressions;
+- optional legacy Roborock ccrypt packaging replacement only after interoperability and legal review.
+
+Do not claim any of these finished by publishing the research tooling. No new hardware proof is created by running automated tests.
 
 ## v1.0 readiness
 
