@@ -1,0 +1,23 @@
+name: Add a voice pack
+description: Propose a new community/original pack
+title: "[voice] "
+labels: [voice-pack]
+body:
+  - type: input
+    id: name
+    attributes: {label: Voice name}
+    validations: {required: true}
+  - type: input
+    id: source
+    attributes: {label: Original source URL}
+    validations: {required: true}
+  - type: input
+    id: author
+    attributes: {label: Creator / uploader to credit}
+  - type: dropdown
+    id: adult
+    attributes: {label: Contains explicit/adult language?, options: [No, Yes, Unknown]}
+    validations: {required: true}
+  - type: textarea
+    id: format
+    attributes: {label: Archive/file format and known robot models}

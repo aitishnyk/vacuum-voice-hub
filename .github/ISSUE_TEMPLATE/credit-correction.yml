@@ -1,0 +1,16 @@
+name: Credit / source correction
+description: Fix author attribution, source URL, license or removal request
+title: "[credit] "
+labels: [credits]
+body:
+  - type: input
+    id: voice
+    attributes: {label: Voice pack, description: Which catalog entry?}
+    validations: {required: true}
+  - type: textarea
+    id: correction
+    attributes: {label: Correct attribution/source, description: Please include supporting links.}
+    validations: {required: true}
+  - type: textarea
+    id: ownership
+    attributes: {label: Rights/ownership context, description: If requesting removal, explain your relationship to the material.}

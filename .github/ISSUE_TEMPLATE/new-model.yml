@@ -1,0 +1,18 @@
+name: Add robot model
+description: Request or contribute support for another robot vacuum
+title: "[model] "
+labels: [model]
+body:
+  - type: input
+    id: model
+    attributes: {label: Exact model ID, description: Example dreame.vacuum.r2209}
+    validations: {required: true}
+  - type: input
+    id: product
+    attributes: {label: Retail/product name}
+  - type: input
+    id: firmware
+    attributes: {label: Firmware version}
+  - type: textarea
+    id: evidence
+    attributes: {label: Voice format / MIoT spec / logs / source links}
