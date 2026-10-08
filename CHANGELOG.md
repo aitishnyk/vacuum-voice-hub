@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.10.0 — 2026-10-09 (model and language software expansion)
+
+- 45 new source-backed Dreame/Xiaomi/MOVA IDs; catalog grows 109 → 154 and software matrix 5,995 → 8,470;
+- conservative build/preview-only profiles for new variants, no false custom-install verification;
+- preserved every historical model ID/alias and all 55 credited audio voice records; duplicate regional canonical IDs avoided;
+- text-only 18-language script templates, 16 translated core events each; exact model-event mapping;
+- CLI model filters, script preview/export, local opt-in espeak-ng WAV generation into Creator Studio;
+- local read-only script APIs and Creator Studio script preview; public catalog distinguishes prerecorded languages from text templates;
+- v0.10 schema, regression tests, audit and release manifest integration; hardware acceptance and binary signing remain separate.
+
 ## 0.9.1 — 2026-10-09 (source security release)
 
 - replaced legacy `tar.extractall` / `zip.extractall` with bounded streaming extraction for local voice pack imports on Python 3.10+;
