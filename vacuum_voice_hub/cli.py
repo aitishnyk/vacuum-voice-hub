@@ -186,7 +186,7 @@ def main():
             dest=Path(a.output).expanduser().resolve()
             dest.parent.mkdir(parents=True,exist_ok=True)
             with dest.open("x",encoding="utf-8") as stream:
-                stream.write(json.dumps(result,ensure_ascii=False,indent=2)+"\\n")
+                stream.write(json.dumps(result,ensure_ascii=False,indent=2)+"\n")
             return _dump({"output":str(dest),"locale":a.language,
                           "mapped_count":result["mapped_count"],"scripted_count":result["scripted_count"],
                           "audio_files_generated":False})
