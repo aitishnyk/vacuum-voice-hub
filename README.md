@@ -4,7 +4,10 @@
 
 **Credits-first multi-model voice platform for robot vacuums.**
 
-## v0.9
+## v0.9.1
+
+The v0.9.1 security update replaces legacy archive extraction with bounded, symlink-safe ZIP/TAR streaming on Python 3.10+; unsafe archive names, special members, collisions and excessive sizes fail closed.
+
 
 Vacuum Voice Hub v0.9 retains **109 model profiles** and **55 attributed voice variants** — a **5,995 target-combination** software matrix.
 

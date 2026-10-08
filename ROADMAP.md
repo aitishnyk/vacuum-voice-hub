@@ -11,6 +11,7 @@
 - v0.7 — Distribution Hardening ✅
 - v0.8 — 109-model Mass Expansion ✅
 - v0.9 — Offline Research Infrastructure (schemas, inspect, evidence cross-check, CLI, regressions) ✅ software scope
+- v0.9.1 — Safe local archive extraction on Python 3.10+ ✅ source scope
 
 ## v0.9 — Offline Research Infrastructure
 

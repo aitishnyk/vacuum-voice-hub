@@ -1,45 +1,38 @@
-# Project status — v0.8.0 (source merged)
+# Project status — v0.9.1 (software release candidate)
 
 - Product: **Vacuum Voice Hub**
 - Repository: `aitishnyk/vacuum-voice-hub`
-- Source version: **v0.8.0**
-- Main commit: `25d4720b844ccf343a56ffdfd25f76a7ff1f4d79`
-- Functional release PR: **#8 — 109-Model Mass Expansion**
-- Model profiles: **109** (103 inventory rows, 102 newly added IDs plus 7 existing profiles)
-- Source-attributed voice variants: **55**
-- Software target matrix: **5,995 voice × model combinations**
-- Families: **32 Dreame numeric, 33 Roborock, 8 IJAI, 36 portable/build-only**
-- Physically verified target: **Xiaomi Robot Vacuum X10 (`dreame.vacuum.r2209`) only**
-- The remaining targets are **not** claimed hardware-verified; per-target install policy applies.
+- Source version: **0.9.1** (security update after v0.9.0)
+- Verified v0.9.0 merge on `main`: `11f5220d3ed3009fc3643767a4c53aac28ec6a94` (PR #12)
+- Model profiles: **109**; source-attributed voice variants: **55**.
+- Software compatibility matrix: **5,995 voice × model combinations**, not 5,995 verified physical installations.
+- Target adapters: 32 Dreame numeric, 33 classic Roborock, 8 IJAI, 36 semantic/build-only.
+- Physically verified VVH target: **Xiaomi X10 (`dreame.vacuum.r2209`) only**.
+- Community audio variants are source-attributed/conversion-ready, not automatically hardware-certified.
 
-## Current capabilities
+## Software capabilities
 
-- Semantic voice events, per-target safe filtering and fallback coverage.
-- Dreame numeric OGG / `tar.gz` builder.
-- Classic Roborock named WAV / `.pkg` builder (external `ccrypt` required).
-- IJAI named MP3 / ZIP builder.
-- Portable semantic bundles for unverified vendor package formats; `installable=false`.
-- Model-aware Creator Studio, local Web UI, CLI, desktop shell, public searchable catalog.
-- Privacy-safe community reports and local install history.
-- Reproducible source distribution, SPDX SBOM, SHA-256 verification.
+- Model-aware compatibility, fallback, semantic event filtering and audio preview.
+- Model-specific output: Dreame OGG/TAR.GZ, legacy Roborock WAV/PKG, IJAI named MP3/ZIP, portable research-only bundles.
+- Creator Studio, CLI, desktop shells, local Web UI and searchable public catalog.
+- Privacy-safe history and `vvh.compat-report.v1`.
+- Reproducible public-site/release bundle, SPDX SBOM and SHA256SUMS.
+- v0.9: local `vvh research inspect` and `vvh research validate-evidence`, bounded metadata inventory, source-report SHA-256 and exact-model verification, numerical event-profile cross-check, three published JSON schemas.
+- v0.9.1: bounded ZIP/TAR import extraction, pre-write path and duplicate checks, special-file/link rejection and resource limits on Python 3.10+.
 
-## Hardware and install claim boundaries
+## Installation and acceptance boundaries
 
-- X10: local voice transport/package acceptance verified on device; **individual community voices are not universally hardware-certified**.
-- Legacy Roborock and documented IJAI transports: experimental; require explicit user opt-in.
-- Newer vendor-signed Roborock generations: arbitrary custom installation blocked.
-- Unverified Xiaomi/Mijia/Viomi/ROIDMI/Smartmi families: build/preview/coverage only.
-- Model names, Mi Home plugin IDs, official voice availability and semantic coverage do **not** prove custom voice install capability.
-- Platform binaries must not be described as signed or notarized without actual signing evidence.
+- X10: previously hardware-verified local transport, individual catalog packs require their own device validation.
+- Classic Roborock local and known IJAI pathways: explicit experimental opt-in only.
+- Vendor-signed new Roborock: arbitrary custom packs blocked.
+- Other unknown Xiaomi/Mijia/Viomi/ROIDMI/Smartmi transport: build, preview, compatibility and research only.
+- Research evidence and `hardware-review-required` reports can never authorize installation or mutate the model registry.
+- Binaries are not considered signed/notarized without actual signing evidence.
 
-## Validation record
+## Verification gates
 
-The v0.8.0 PR description records: unit tests PASS, Model Matrix Audit PASS, Python compile PASS, CLI smoke PASS, both Web UI JavaScript syntax checks PASS. These are **branch-reported results**, not a fresh test run performed by this documentation change.
+Merged PR #12 `v0.9.0` passed GitHub CI, Release Bundle, Public Site and desktop packaging checks. This v0.9.1 archive-extraction security update must pass its **own** exact-head tests before merge. No physical acceptance test on a new robot is claimed by CI.
 
-Prior historical v0.2.0 post-merge CI/CodeQL evidence belongs to that earlier release; do not treat it as a v0.8.0 run.
+## Open v1.0 hardware tasks
 
-## Next roadmap target
-
-**v0.9 — Transport & Package Research Wave** (see [ROADMAP.md](ROADMAP.md)).
-
-Prioritize exact package structure, event extraction and transport evidence for ROIDMI EVA/EVE, Xiaomi H40/M30/M40/X20+, Mijia 5/6, Viomi Alpha/V3, additional IJAI actions and modern Dreame. Do not promote build-only targets to installable without source-backed proof and exact-device verification.
+Obtain exact-device, consented package and transport evidence for ROIDMI EVA/EVE, Xiaomi H40/M30/M40/X20+, Mijia 5/6, Viomi Alpha/V3 and modern Dreame. Add exact adapter and real-device tests only after proof. These remain **not completed** by v0.9.1 software delivery; see [ROADMAP.md](ROADMAP.md).
