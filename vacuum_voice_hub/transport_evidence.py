@@ -87,6 +87,8 @@ def validate_evidence(record, expected_model=None):
         "install_authorized": False,
         "registry_mutated": False,
         "package_sha256": digest,
+        "package_size_bytes": package["size_bytes"],
+        "package_format": package["format"],
         "observations": sorted(stages),
     }
 
