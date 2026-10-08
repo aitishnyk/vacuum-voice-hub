@@ -1,0 +1,110 @@
+{
+  "schema": 1,
+  "items": [
+    {
+      "title": "Bender / Futurama",
+      "language": "ru",
+      "source_page": "https://4pda.to/forum/index.php?showtopic=881982",
+      "status": "needs-source-recovery"
+    },
+    {
+      "title": "S.T.A.L.K.E.R. — бандиты",
+      "language": "ru",
+      "source_page": "https://4pda.to/forum/index.php?showtopic=881982",
+      "status": "needs-source-recovery"
+    },
+    {
+      "title": "BB-8",
+      "language": "zxx",
+      "source_page": "https://4pda.to/forum/index.php?showtopic=881982",
+      "status": "needs-source-recovery"
+    },
+    {
+      "title": "B1 Battle Droid",
+      "language": "en",
+      "source_page": "https://4pda.to/forum/index.php?showtopic=881982",
+      "status": "needs-source-recovery"
+    },
+    {
+      "title": "Mass Effect — Collectors",
+      "language": "ru",
+      "source_page": "https://4pda.to/forum/index.php?showtopic=881982",
+      "status": "needs-source-recovery"
+    },
+    {
+      "title": "Doctor Who — Daleks",
+      "language": "en",
+      "source_page": "https://4pda.to/forum/index.php?showtopic=881982",
+      "status": "needs-source-recovery"
+    },
+    {
+      "title": "Guardians of the Galaxy",
+      "language": "ru",
+      "source_page": "https://4pda.to/forum/index.php?showtopic=881982",
+      "status": "needs-source-recovery"
+    },
+    {
+      "title": "Witch Doctor / Dota 2",
+      "language": "ru",
+      "source_page": "https://4pda.to/forum/index.php?showtopic=1024479",
+      "status": "needs-source-recovery"
+    },
+    {
+      "title": "Ведьмак 18+",
+      "language": "ru",
+      "adult": true,
+      "source_page": "https://4pda.to/forum/index.php?showtopic=1024479",
+      "status": "needs-source-recovery"
+    },
+    {
+      "title": "Revenant / Apex Legends",
+      "language": "ru",
+      "source_page": "https://4pda.to/forum/index.php?showtopic=1024479",
+      "status": "needs-source-recovery"
+    },
+    {
+      "title": "Kel'Thuzad / Warcraft",
+      "language": "ru",
+      "source_page": "https://4pda.to/forum/index.php?showtopic=1024479",
+      "status": "needs-source-recovery"
+    },
+    {
+      "title": "StarCraft",
+      "language": "ru",
+      "source_page": "https://4pda.to/forum/index.php?showtopic=1012688",
+      "status": "needs-source-recovery"
+    },
+    {
+      "title": "Сварливая жена",
+      "language": "ru",
+      "source_page": "https://4pda.to/forum/index.php?showtopic=1012688",
+      "status": "needs-source-recovery"
+    },
+    {
+      "title": "Ельцин",
+      "language": "ru",
+      "source_page": "https://4pda.to/forum/index.php?showtopic=1012688",
+      "status": "needs-source-recovery"
+    },
+    {
+      "title": "Максим — New Year",
+      "language": "ru",
+      "adult": true,
+      "source_page": "https://4pda.to/forum/index.php?showtopic=881982",
+      "status": "needs-source-recovery"
+    },
+    {
+      "title": "Максим — MussoTV Edition",
+      "language": "ru",
+      "adult": true,
+      "source_page": "https://4pda.to/forum/index.php?showtopic=881982&st=14320",
+      "status": "needs-source-recovery"
+    },
+    {
+      "title": "Dreame Memes",
+      "language": "zxx",
+      "source_page": "https://github.com/Makers-Im-Zigerschlitz/voicepacks_dreame",
+      "status": "adapter-needed"
+    }
+  ]
+}
