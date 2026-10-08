@@ -12,6 +12,7 @@ from .creator import (
 )
 from .history import load_history
 from .report import build_report,write_report,validate_report
+from .sitegen import build_site,verify_site
 from . import credentials,miot,__version__
 
 def _dump(x):
@@ -123,12 +124,18 @@ def main():
     s=sub.add_parser("history");s.add_argument("--limit",type=int,default=50)
     s=sub.add_parser("report");s.add_argument("--ip",required=True);_add_auth_args(s);s.add_argument("--model");s.add_argument("--output")
     s=sub.add_parser("validate-report");s.add_argument("path")
+    site=sub.add_parser("site",help="Build or verify the static public catalog")
+    ss=site.add_subparsers(dest="site_cmd",required=True)
+    s=ss.add_parser("build");s.add_argument("--output",default="public")
+    s=ss.add_parser("verify");s.add_argument("path",nargs="?",default="public")
     _creator_parser(sub)
     _credential_parser(sub)
 
     a=p.parse_args()
     if a.cmd=="creator":return _creator_main(a)
     if a.cmd=="credential":return _credential_main(a)
+    if a.cmd=="site":
+        return _dump(build_site(a.output) if a.site_cmd=="build" else verify_site(a.path))
 
     if a.cmd=="list":
         for v in voices():
@@ -144,7 +151,7 @@ def main():
             "hardware_verified_models":sum(bool(m.get("device_tested")) for m in mm),
             "install_default_models":sum(bool(m.get("transport",{}).get("allow_default")) for m in mm),
             "semantic_events":len(events()),"semantic_categories":categories(),
-            "creator_schema":"vvh.voicepack.v1","compat_report_schema":"vvh.compat-report.v1",
+            "creator_schema":"vvh.voicepack.v1","compat_report_schema":"vvh.compat-report.v1","public_catalog_schema":"vvh.public-catalog.v1",
             "research_backlog":len(backlog()),
         })
     elif a.cmd=="models":
@@ -193,4 +200,4 @@ def main():
         print("ffmpeg:",shutil.which("ffmpeg") or "bundled via imageio-ffmpeg after install")
         print("ccrypt:",shutil.which("ccrypt") or "optional; required only for legacy Roborock .pkg")
         print("voices:",len(voices()));print("models:",len(models()));print("events:",len(events()))
-        print("creator: vvh.voicepack.v1");print("reports: vvh.compat-report.v1");print("OK")
+        print("creator: vvh.voicepack.v1");print("reports: vvh.compat-report.v1");print("public catalog: vvh.public-catalog.v1");print("OK")

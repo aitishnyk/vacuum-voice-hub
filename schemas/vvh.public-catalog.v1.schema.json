@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/aitishnyk/vacuum-voice-hub/schemas/vvh.public-catalog.v1.schema.json",
+  "title": "Vacuum Voice Hub public catalog manifest",
+  "type": "object",
+  "required": [
+    "schema",
+    "version",
+    "files",
+    "counts"
+  ],
+  "properties": {
+    "schema": {
+      "const": "vvh.public-catalog.v1"
+    },
+    "version": {
+      "type": "string"
+    },
+    "files": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "sha256"
+        ],
+        "properties": {
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        }
+      }
+    },
+    "counts": {
+      "type": "object",
+      "required": [
+        "voices",
+        "models",
+        "languages",
+        "hardware_verified_models"
+      ]
+    }
+  }
+}
