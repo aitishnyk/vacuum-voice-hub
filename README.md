@@ -4,26 +4,21 @@
 
 **Credits-first multi-model voice-pack platform for robot vacuums.**
 
-Vacuum Voice Hub combines a source-attributed voice catalog, semantic compatibility engine, model adapters, Creator Studio, desktop shell and privacy-safe community verification.
+## v0.6 platform
 
-## v0.5
-
-- **55 attributed community voice variants**
-- **7 model profiles**
+- **55 attributed voice variants**
+- **7 robot model profiles**
 - **560+ observed event IDs**
-- semantic namespace `vvh.semantic.v1`
-- semantic authoring format `vvh.voicepack.v1`
-- community report format `vvh.compat-report.v1`
-- Creator Studio
-- native desktop shell via pywebview
-- macOS / Windows / Linux packaging workflow
-- local install history with secret/network redaction
-- optional OS Keychain / Secret Service token storage
-- fail-closed transport evidence policy
+- `vvh.semantic.v1` compatibility layer
+- `vvh.voicepack.v1` Creator Studio format
+- `vvh.compat-report.v1` privacy-safe device evidence
+- `vvh.public-catalog.v1` static public catalog
+- desktop shell and macOS/Windows/Linux build matrix
+- OS Keychain/Secret Service support
+- local install history without token/IP/MAC
+- fail-closed hardware evidence policy
 
-## Start
-
-CLI + browser UI:
+## Run locally
 
 ```bash
 python3 -m venv .venv
@@ -40,7 +35,16 @@ pip install -e ".[desktop]"
 vvh-desktop
 ```
 
-Creator Studio is available at `/creator` in both browser and desktop modes.
+## Public website/catalog
+
+```bash
+vvh site build --output public
+vvh site verify public
+```
+
+The static output contains searchable voices, source credits, model compatibility plus machine-readable JSON and SHA-256 manifest.
+
+Read [PUBLIC_CATALOG.md](docs/PUBLIC_CATALOG.md).
 
 ## Model profiles
 
@@ -50,98 +54,55 @@ Creator Studio is available at `/creator` in both browser and desktop modes.
 - Dreame L10S Ultra `r2228o` — MIoT-spec transport
 - Dreame L40 Ultra `r2492*` — community device research
 - Dreame X40 Ultra `r2416*/r2449*` — experimental transport
-- MOVA P10 Pro Ultra `r2491*` — provisional profile / experimental transport
+- MOVA P10 Pro Ultra `r2491*` — provisional / experimental
 
 See [MODEL_MATRIX.md](docs/MODEL_MATRIX.md).
-
-## Semantic fallback
-
-```bash
-vvh build warcraft \
-  --model dreame.vacuum.r2228o \
-  --fallback-category error=q0-russian \
-  --fallback-category dock=q0-russian
-```
-
-Only event IDs known to the selected model profile are packaged.
 
 ## Creator Studio
 
 ```bash
 vvh creator new --id my-pack --name "My Pack" --author "Me" --language en --license CC-BY-4.0
 vvh creator events --model dreame.vacuum.r2209 --category cleaning
-vvh creator validate ~/path/to/my-pack
 vvh creator build ~/path/to/my-pack --model dreame.vacuum.r2209
 ```
 
 Read [CREATOR_STUDIO.md](docs/CREATOR_STUDIO.md).
 
-## Keychain / Secret Service
-
-Install optional support:
+## Credentials and install
 
 ```bash
 pip install -e ".[security]"
 vvh credential save home-x10
-vvh credential status home-x10
+vvh install maxim-full --model dreame.vacuum.r2209 --ip 192.168.1.123 --credential home-x10
 ```
 
-Use it without exposing a token in the shell command:
-
-```bash
-vvh install maxim-full \
-  --model dreame.vacuum.r2209 \
-  --ip 192.168.1.123 \
-  --credential home-x10
-```
-
-The status command never prints the token.
-
-## Install history
-
-```bash
-vvh history --limit 20
-```
-
-History is local and intentionally strips token, IP, MAC and local URLs. Successful install history records download confirmation and final state, which can later support a community verification report.
+Unsupported transports fail closed; experimental transports require explicit opt-in.
 
 ## Community verification
 
 ```bash
-vvh report \
-  --ip 192.168.1.123 \
-  --model dreame.vacuum.r2209 \
-  --credential home-x10
+vvh history --limit 20
+vvh report --ip 192.168.1.123 --model dreame.vacuum.r2209 --credential home-x10
 ```
 
-The generated `vvh.compat-report.v1` file contains model/firmware/profile/transport/current voice state and sanitized latest-install evidence. It excludes token, IP and MAC, and is **not uploaded automatically**.
+Reports intentionally exclude token, IP and MAC and are never uploaded automatically.
 
 Read [COMMUNITY_VERIFICATION.md](docs/COMMUNITY_VERIFICATION.md).
 
-## Desktop packages
+## Credits
 
-`.github/workflows/desktop.yml` builds PyInstaller artifacts for macOS, Windows and Linux. Binary build success does not imply code signing/notarization.
-
-Read [DESKTOP.md](docs/DESKTOP.md).
-
-## Credits and third-party audio
-
-Every catalog entry retains upstream source/credit metadata. Character audio is source-linked rather than mirrored unless redistribution rights are clear.
+Every catalog entry retains source/credit metadata. Third-party character audio is source-linked rather than mirrored unless redistribution rights are clear.
 
 - [Catalog](catalog/CATALOG.md)
 - [Credits](CREDITS.md)
 - [Third-party audio policy](THIRD_PARTY_AUDIO.md)
 
-## Safety / evidence policy
-
-VVH does not mark hardware support from model similarity. Unsupported transports fail closed and experimental transports require explicit opt-in. Only real device evidence may promote a profile to hardware verified.
-
 ## Support
 
-Use the **Sponsor** button on GitHub to support hardware testing, source recovery and new model adapters.
+Use the **Sponsor** button on GitHub to support source recovery, hardware testing and model adapters.
 
-## Next
+## Evidence boundary
 
-v0.6 builds the public static catalog/site and machine-readable distribution manifest. v1.0 follows only after additional legitimate voice/model coverage and real hardware verification.
+Software/profile support is not the same as physical-device verification. Only reviewed real-device evidence may promote a model to hardware verified.
 
 VVH is independent community software and is not affiliated with robot-vacuum vendors or third-party character rights holders.

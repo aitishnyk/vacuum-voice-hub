@@ -1,0 +1,47 @@
+name: Public Site
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    paths:
+      - "catalog/**"
+      - "vacuum_voice_hub/**"
+      - "scripts/**"
+      - "pyproject.toml"
+      - ".github/workflows/public-site.yml"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: python -m pip install -e .
+      - name: Build public catalog
+        run: vvh site build --output public
+      - name: Verify public catalog
+        run: vvh site verify public
+      - name: JavaScript syntax
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re,subprocess,tempfile
+          html=Path("public/index.html").read_text()
+          blocks=re.findall(r"<script(?:\s[^>]*)?>(.*?)</script>",html,flags=re.I|re.S)
+          assert blocks
+          with tempfile.TemporaryDirectory() as td:
+              for i,src in enumerate(blocks):
+                  p=Path(td)/f"site-{i}.js";p.write_text(src)
+                  subprocess.run(["node","--check",str(p)],check=True)
+          PY
+      - name: Upload public-site artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: VacuumVoiceHub-Public-Site
+          path: public/
+          if-no-files-found: error

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Vacuum Voice Hub public voice-pack and robot compatibility catalog">
+<title>Vacuum Voice Hub — Public Catalog</title>
+<style>
+:root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#171717;background:#f5f5f3}*{box-sizing:border-box}body{margin:0}.wrap{max-width:1280px;margin:auto;padding:30px 20px 72px}.hero{background:#111;color:#fff;border-radius:28px;padding:38px}.hero h1{font-size:clamp(38px,6vw,68px);letter-spacing:-.05em;margin:0 0 8px}.hero p{max-width:850px;color:#c7c7cc;line-height:1.55}.metrics{display:flex;gap:28px;flex-wrap:wrap;margin-top:22px}.metric b{font-size:28px;display:block}.metric span{font-size:10px;letter-spacing:.1em;color:#aaa;text-transform:uppercase}.toolbar{display:flex;gap:9px;flex-wrap:wrap;margin:18px 0}input,select{font:inherit;border:1px solid #d5d5d2;border-radius:12px;padding:11px 13px;background:white}.grow{flex:1;min-width:220px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:13px}.card{background:white;border:1px solid #e5e5e2;border-radius:17px;padding:17px}.card h3{margin:0 0 8px}.small{font-size:12px;line-height:1.5;color:#666}.tag{display:inline-block;padding:4px 7px;border-radius:99px;background:#efefed;font-size:10px;margin:2px}.adult{background:#fee2e2;color:#991b1b}.verified{background:#dcfce7;color:#166534}.experimental{background:#ffedd5;color:#9a3412}.credit{margin-top:12px;font-size:12px;line-height:1.45}.credit a{color:#111}.tabs{display:flex;gap:8px;margin:26px 0 12px}.tabs button{border:0;border-radius:99px;padding:9px 13px;cursor:pointer}.tabs button.active{background:#111;color:white}.hidden{display:none}.notice{font-size:12px;color:#666;margin:10px 0}
+</style>
+</head>
+<body><div class="wrap">
+<section class="hero">
+  <h1>Vacuum Voice Hub</h1>
+  <p>Public, credits-first catalog of robot-vacuum voice packs and compatibility profiles. Hardware verification is only shown when physical-device evidence exists.</p>
+  <div class="metrics">
+    <div class="metric"><b id="voices">—</b><span>voice variants</span></div>
+    <div class="metric"><b id="models">—</b><span>model profiles</span></div>
+    <div class="metric"><b id="langs">—</b><span>languages</span></div>
+    <div class="metric"><b id="verified">—</b><span>hardware verified</span></div>
+  </div>
+</section>
+<div class="tabs"><button id="tabVoices" class="active">Voice catalog</button><button id="tabModels">Robot models</button></div>
+<section id="voiceSection">
+  <div class="toolbar">
+    <input id="q" class="grow" placeholder="Search voices, tags, credits…">
+    <select id="lang"><option value="">All languages</option></select>
+    <label><input type="checkbox" id="adult"> show 18+</label>
+  </div>
+  <div id="voiceGrid" class="grid"></div>
+</section>
+<section id="modelSection" class="hidden">
+  <div class="notice">Hardware verified means a physical robot produced accepted/downloaded/success evidence. Similar hardware alone is not enough.</div>
+  <div id="modelGrid" class="grid"></div>
+</section>
+<div class="notice">Generated from the canonical repository catalog. Machine-readable files: catalog.json, models.json, manifest.json.</div>
+</div>
+<script>
+const byId=function(id){return document.getElementById(id)};
+let catalog={voices:[],stats:{}},models={models:[],stats:{}};
+const esc=function(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})};
+async function init(){
+  const responses=await Promise.all([fetch('./catalog.json').then(function(r){return r.json()}),fetch('./models.json').then(function(r){return r.json()})]);
+  catalog=responses[0];models=responses[1];
+  byId('voices').textContent=catalog.stats.voices;byId('models').textContent=models.stats.models;byId('langs').textContent=catalog.stats.languages.length;byId('verified').textContent=models.stats.hardware_verified;
+  byId('lang').innerHTML='<option value="">All languages</option>'+catalog.stats.languages.map(function(x){return '<option value="'+esc(x)+'">'+esc(x)+'</option>'}).join('');
+  renderVoices();renderModels();
+}
+function renderVoices(){
+  const term=byId('q').value.toLowerCase(),l=byId('lang').value,showAdult=byId('adult').checked;
+  const vv=catalog.voices.filter(function(v){const hay=(v.title+' '+v.id+' '+(v.tags||[]).join(' ')+' '+(v.credit||'')).toLowerCase();return (showAdult||!v.adult)&&(!l||v.language===l)&&(!term||hay.indexOf(term)>=0)});
+  byId('voiceGrid').innerHTML=vv.map(function(v){
+    const tags=(v.tags||[]).map(function(t){return '<span class="tag">'+esc(t)+'</span>'}).join('');
+    const adult=v.adult?'<span class="tag adult">18+</span>':'';
+    const link=v.source_page?'<a href="'+esc(v.source_page)+'" target="_blank" rel="noopener noreferrer">Upstream source ↗</a>':'';
+    return '<article class="card"><h3>'+esc(v.title)+' '+adult+'</h3><div>'+tags+'</div><div class="small">ID: '+esc(v.id)+'<br>Language: '+esc(v.language)+'<br>Origin: '+esc(v.origin_model)+'<br>Format: '+esc(v.format)+'<br>Source verification: '+esc(v.source_verification)+'</div><div class="credit"><b>Credit:</b> '+esc(v.credit)+'<br>'+link+'</div></article>';
+  }).join('');
+}
+function renderModels(){
+  byId('modelGrid').innerHTML=models.models.map(function(m){
+    const badge=m.device_tested?'<span class="tag verified">hardware verified</span>':(m.install_default?'<span class="tag">install supported</span>':'<span class="tag experimental">pending/experimental</span>');
+    return '<article class="card"><h3>'+esc(m.name)+' '+badge+'</h3><div class="small">Model ID: '+esc(m.id)+'<br>Events: '+esc(m.event_count)+'<br>Profile: '+esc(m.event_profile)+' · '+esc(m.profile_kind)+'<br>Transport: '+esc(m.transport_verification||m.transport_kind)+'<br>'+esc(m.notes||'')+'</div></article>';
+  }).join('');
+}
+byId('q').oninput=renderVoices;byId('lang').onchange=renderVoices;byId('adult').onchange=renderVoices;
+byId('tabVoices').onclick=function(){byId('voiceSection').classList.remove('hidden');byId('modelSection').classList.add('hidden');byId('tabVoices').classList.add('active');byId('tabModels').classList.remove('active')};
+byId('tabModels').onclick=function(){byId('modelSection').classList.remove('hidden');byId('voiceSection').classList.add('hidden');byId('tabModels').classList.add('active');byId('tabVoices').classList.remove('active')};
+init();
+</script>
+</body></html>
