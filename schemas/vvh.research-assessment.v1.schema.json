@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/aitishnyk/vacuum-voice-hub/schemas/vvh.research-assessment.v1.schema.json",
+  "title": "Candidate package assessment; never installation authorization",
+  "type": "object",
+  "required": [
+    "schema",
+    "model_id",
+    "candidate_sha256",
+    "candidate_size_bytes",
+    "inspection",
+    "inventory",
+    "findings",
+    "evidence_matched",
+    "hardware_verified_by_assessment",
+    "install_authorized",
+    "registry_mutated"
+  ],
+  "properties": {
+    "schema": {
+      "const": "vvh.research-assessment.v1"
+    },
+    "model_id": {
+      "type": "string"
+    },
+    "model_adapter": {
+      "type": "string"
+    },
+    "model_install_policy": {
+      "type": "string"
+    },
+    "candidate_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "candidate_size_bytes": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 134217728
+    },
+    "inspection": {
+      "enum": [
+        "archive",
+        "opaque"
+      ]
+    },
+    "inventory": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "vvh.archive-inventory.v1.schema.json"
+        }
+      ]
+    },
+    "findings": {
+      "type": "object"
+    },
+    "evidence_assessment": {
+      "oneOf": [
+        {
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "evidence_matched": {
+      "type": "boolean"
+    },
+    "hardware_verified_by_assessment": {
+      "const": false
+    },
+    "install_authorized": {
+      "const": false
+    },
+    "registry_mutated": {
+      "const": false
+    }
+  }
+}
