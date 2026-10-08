@@ -2,18 +2,13 @@
 
 ## v0.1 — X10 foundation ✅
 ## v0.2 — 50 Voice Wave + Compatibility Engine ✅
-## v0.3 — Multi-model Hardware Wave
-- 7 source-backed model profiles
-- transport evidence policy
-- semantic category fallback
-- model-aware Web UI
-- hardware verification remains pending for non-X10 devices
-
+## v0.3 — Multi-model Hardware Wave ✅
 ## v0.4 — Creator Studio
 - `vvh.voicepack.v1` semantic manifest
-- create/validate/build commands
-- drag-and-drop local Creator Studio
-- event-level preview/replacement
+- local creator workspaces
+- CLI create/validate/assign/coverage/build
+- browser Creator Studio
+- event-level upload/preview
 - audio normalization and manifest QA
 
 ## v0.5 — Desktop + Community Verification
@@ -21,17 +16,18 @@
 - compatibility report workflow
 - privacy-safe diagnostics bundle
 - install history without secrets
+- optional keyring storage
 - GitHub Actions packaging matrix
 
 ## v0.6 — Public catalog / website
-- static searchable site generated from the catalog
+- static searchable site generated from catalog
 - compatibility matrix and credits
-- Pages-ready artifact workflow
-- machine-readable catalog manifest
+- Pages-ready build artifact
+- machine-readable catalog manifest and integrity metadata
 
 ## v1.0 target
 - 100+ legitimate source-attributed voice variants when recoverable;
-- 10+ model profiles;
-- 10+ **hardware verified** only after actual device evidence exists;
-- signed/reproducible catalog architecture;
+- 10+ software model profiles;
+- hardware verification only from actual device evidence;
+- signature-ready/reproducible catalog architecture;
 - Creator Studio + desktop distribution.

@@ -136,7 +136,7 @@ function renderEvents(){
   });
   eventsEl.innerHTML=rows.map(e=>{
     const rel=assigned[e.semantic];
-    const audio=rel?`<audio controls src="/api/creator/audio?id=${encodeURIComponent(workspace.value)}&semantic=${encodeURIComponent(e.semantic)}"></audio>`:'';
+    const audio=rel?`<audio controls src="/api/creator/audio?id=${encodeURIComponent(workspace.value)}&semantic=${encodeURIComponent(e.semantic)}&session=${encodeURIComponent(session)}"></audio>`:'';
     return `<article class="event ${rel?'assigned':''}">
       <h3>${e.semantic}</h3>
       <div class="meta"><span class="badge">${e.category}</span> IDs: ${e.ids.join(', ')}<br>${e.description||'Без описания'}<br>${rel?'<span class="badge ok">audio assigned</span> '+rel:'<span class="badge warn">no audio</span>'}</div>

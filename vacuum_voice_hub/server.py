@@ -114,6 +114,8 @@ class H(BaseHTTPRequestHandler):
             except Exception as e:return self._json({"ok":False,"error":str(e)},400)
         if parsed.path=="/api/creator/audio":
             try:
+                if q.get("session",[None])[0]!=CREATOR_SESSION:
+                    raise PermissionError("invalid Creator Studio session")
                 wid=q["id"][0];semantic=q["semantic"][0]
                 root,manifest=load_workspace(workspace_by_id(wid))
                 rel=manifest.get("events",{}).get(semantic)
@@ -121,6 +123,7 @@ class H(BaseHTTPRequestHandler):
                 p=(root/rel).resolve();p.relative_to(root)
                 b=p.read_bytes();ctype=mimetypes.guess_type(p.name)[0] or "application/octet-stream"
                 self.send_response(200);self.send_header("Content-Type",ctype);self.send_header("Cache-Control","no-store");self.send_header("Content-Length",str(len(b)));self.end_headers();self.wfile.write(b)
+            except PermissionError as e:self._json({"ok":False,"error":str(e)},403)
             except Exception as e:self._json({"ok":False,"error":str(e)},404)
             return
         self.send_error(404)
