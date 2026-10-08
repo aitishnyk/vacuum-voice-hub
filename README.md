@@ -4,23 +4,23 @@
 
 **Credits-first multi-model voice platform for robot vacuums.**
 
-## v0.9.1
+## v0.10.0 — Expanded Model & Language Studio
 
 The v0.9.1 security update replaces legacy archive extraction with bounded, symlink-safe ZIP/TAR streaming on Python 3.10+; unsafe archive names, special members, collisions and excessive sizes fail closed.
 
 
-Vacuum Voice Hub v0.9 retains **109 model profiles** and **55 attributed voice variants** — a **5,995 target-combination** software matrix.
+Vacuum Voice Hub v0.10 provides **154 model profiles** and retains **55 source-attributed recorded voice variants** — an **8,470 software model × voice target** matrix. It additionally provides **18 text-only script locales** (16 common event prompts each) and optional local espeak-ng WAV synthesis into Creator Studio.
 
 Target families:
 
-- **32 Dreame numeric** targets;
+- **51 Dreame numeric** targets;
 - **33 Roborock** targets;
 - **8 IJAI** targets;
-- **36 portable semantic/build-only** targets.
+- **62 portable semantic/build-only** targets.
 
 All targets participate in model-aware compatibility, preview and Creator Studio. Installation remains evidence-scoped: Xiaomi X10 is the only VVH hardware-verified device; experimental or vendor-signed limitations are shown explicitly.
 
-Read [Mass Model Expansion](docs/MASS_MODEL_EXPANSION.md), the full [Model Matrix](docs/MODEL_MATRIX.md), and the [v0.9 Offline Research Workflow](docs/RESEARCH_WORKFLOW_V09.md).
+Read [v0.10 Expansion & Language Studio](docs/MODEL_LANGUAGE_EXPANSION_V010.md), [Mass Model Expansion](docs/MASS_MODEL_EXPANSION.md), the full [Model Matrix](docs/MODEL_MATRIX.md), and the [v0.9 Offline Research Workflow](docs/RESEARCH_WORKFLOW_V09.md).
 
 ### New in v0.9 — offline package research
 
@@ -38,6 +38,27 @@ vvh research inspect ./candidate.zip --model xiaomi.vacuum.d101 --evidence ./evi
 ```
 
 **v0.9 does not certify new custom-install transports.** Filename similarities and community reports do not constitute robot hardware tests. Build-only/official-signed-only restrictions remain in force.
+
+## New commands in v0.10
+
+```bash
+vvh models --search "Dreame"
+vvh models --adapter semantic_bundle
+vvh models --hardware-verified
+vvh languages
+vvh scripts list
+vvh scripts show --language ru --model xiaomi.vacuum.d101
+vvh scripts export --language uk --model dreame.vacuum.r2209 --output ./uk-script.json
+```
+
+**Optional local synthetic audio** (no cloud TTS; requires `espeak-ng` installed):
+
+```bash
+vvh scripts synth --language ru --model dreame.vacuum.r2209 \
+  --id custom-russian --author "Local author" --voice ru --allow-synthetic
+```
+
+This produces a private Creator workspace with generated WAV files; it does **not** automatically install audio on any robot. Text-only scripts are not counted as available prerecorded voice packs, and the quality/redistribution rights of local TTS must be reviewed.
 
 ## Main capabilities
 
