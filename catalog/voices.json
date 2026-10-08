@@ -1,5 +1,5 @@
 {
-  "schema": 1,
+  "schema": 2,
   "voices": [
     {
       "id": "alice-ru",
@@ -20,7 +20,9 @@
       },
       "credit": "RoboVoice community / SashaEee; original pack author if known upstream",
       "redistribution": "source-only",
-      "status": "convertible"
+      "status": "convertible",
+      "source_verification": "git-blob+size",
+      "content_rating": "general"
     },
     {
       "id": "super-botanik",
@@ -42,7 +44,9 @@
       },
       "credit": "RoboVoice community / SashaEee",
       "redistribution": "source-only",
-      "status": "convertible"
+      "status": "convertible",
+      "source_verification": "git-blob+size",
+      "content_rating": "explicit"
     },
     {
       "id": "dobkin",
@@ -63,7 +67,9 @@
       },
       "credit": "RoboVoice community / SashaEee",
       "redistribution": "source-only",
-      "status": "convertible"
+      "status": "convertible",
+      "source_verification": "git-blob+size",
+      "content_rating": "general"
     },
     {
       "id": "eleonora",
@@ -83,7 +89,9 @@
       },
       "credit": "RoboVoice community / SashaEee",
       "redistribution": "source-only",
-      "status": "convertible"
+      "status": "convertible",
+      "source_verification": "git-blob+size",
+      "content_rating": "general"
     },
     {
       "id": "derzkaya-galya",
@@ -105,7 +113,9 @@
       },
       "credit": "RoboVoice community / SashaEee",
       "redistribution": "source-only",
-      "status": "convertible"
+      "status": "convertible",
+      "source_verification": "git-blob+size",
+      "content_rating": "explicit"
     },
     {
       "id": "kuzya",
@@ -126,7 +136,9 @@
       },
       "credit": "RoboVoice community / SashaEee",
       "redistribution": "source-only",
-      "status": "convertible"
+      "status": "convertible",
+      "source_verification": "git-blob+size",
+      "content_rating": "general"
     },
     {
       "id": "kuzya-3",
@@ -147,7 +159,9 @@
       },
       "credit": "RoboVoice community / SashaEee",
       "redistribution": "source-only",
-      "status": "convertible"
+      "status": "convertible",
+      "source_verification": "git-blob+size",
+      "content_rating": "general"
     },
     {
       "id": "maxim-full",
@@ -169,7 +183,9 @@
       },
       "credit": "RoboVoice community / SashaEee",
       "redistribution": "source-only",
-      "status": "convertible"
+      "status": "convertible",
+      "source_verification": "git-blob+size",
+      "content_rating": "explicit"
     },
     {
       "id": "kuzya-winnie-ostrov",
@@ -190,7 +206,9 @@
       },
       "credit": "RoboVoice community / SashaEee",
       "redistribution": "source-only",
-      "status": "convertible"
+      "status": "convertible",
+      "source_verification": "git-blob+size",
+      "content_rating": "general"
     },
     {
       "id": "rick-and-morty",
@@ -212,7 +230,9 @@
       },
       "credit": "RoboVoice community / SashaEee",
       "redistribution": "source-only",
-      "status": "convertible"
+      "status": "convertible",
+      "source_verification": "git-blob+size",
+      "content_rating": "explicit"
     },
     {
       "id": "soviet-movies",
@@ -234,7 +254,9 @@
       },
       "credit": "RoboVoice community / SashaEee",
       "redistribution": "source-only",
-      "status": "convertible"
+      "status": "convertible",
+      "source_verification": "git-blob+size",
+      "content_rating": "general"
     },
     {
       "id": "r2d2",
@@ -256,7 +278,9 @@
       },
       "credit": "b73tt / Valetudo R2-D2; RoboVoice adaptation by SashaEee",
       "redistribution": "source-only",
-      "status": "convertible"
+      "status": "convertible",
+      "source_verification": "git-blob+size",
+      "content_rating": "general"
     },
     {
       "id": "warcraft",
@@ -278,7 +302,9 @@
       },
       "credit": "Community Warcraft pack; RoboVoice adaptation by SashaEee",
       "redistribution": "source-only",
-      "status": "convertible"
+      "status": "convertible",
+      "source_verification": "git-blob+size",
+      "content_rating": "general"
     },
     {
       "id": "leather-bastards",
@@ -300,7 +326,9 @@
       },
       "credit": "Rubler4ik (credited upstream) + community; RoboVoice adaptation by SashaEee",
       "redistribution": "source-only",
-      "status": "convertible"
+      "status": "convertible",
+      "source_verification": "git-blob+size",
+      "content_rating": "explicit"
     },
     {
       "id": "glados-robovoice",
@@ -322,7 +350,9 @@
       },
       "credit": "Community GLaDOS pack; RoboVoice adaptation by SashaEee",
       "redistribution": "source-only",
-      "status": "convertible"
+      "status": "convertible",
+      "source_verification": "git-blob+size",
+      "content_rating": "general"
     },
     {
       "id": "glados-czaky",
@@ -345,7 +375,9 @@
       },
       "credit": "czaky; based on Dreame/15.ai community work",
       "redistribution": "source-only",
-      "status": "convertible"
+      "status": "convertible",
+      "source_verification": "git-blob+size",
+      "content_rating": "general"
     },
     {
       "id": "tiff",
@@ -367,7 +399,9 @@
       },
       "credit": "czaky community pack",
       "redistribution": "source-only",
-      "status": "convertible"
+      "status": "convertible",
+      "source_verification": "git-blob+size",
+      "content_rating": "general"
     },
     {
       "id": "sweetie-belle",
@@ -389,7 +423,9 @@
       },
       "credit": "czaky community pack",
       "redistribution": "source-only",
-      "status": "convertible"
+      "status": "convertible",
+      "source_verification": "git-blob+size",
+      "content_rating": "general"
     },
     {
       "id": "fluttershy",
@@ -411,7 +447,9 @@
       },
       "credit": "czaky community pack",
       "redistribution": "source-only",
-      "status": "convertible"
+      "status": "convertible",
+      "source_verification": "git-blob+size",
+      "content_rating": "general"
     },
     {
       "id": "uk-female-pensive",
@@ -434,7 +472,9 @@
       "credit": "Oleksandr Belei and contributors",
       "redistribution": "allowed",
       "license": "MIT",
-      "status": "convertible"
+      "status": "convertible",
+      "source_verification": "git-blob+size",
+      "content_rating": "general"
     },
     {
       "id": "uk-glados",
@@ -459,7 +499,9 @@
       "credit": "Lost Human; sverdlyuk; community supporters; mapping credit to Oleksandr Belei",
       "redistribution": "allowed",
       "license": "MIT (repository code/data; character IP remains third-party)",
-      "status": "convertible"
+      "status": "convertible",
+      "source_verification": "git-blob+size",
+      "content_rating": "general"
     },
     {
       "id": "q0-maxim",
@@ -483,7 +525,9 @@
       },
       "credit": "Q0/ijai.vacuum contributors; original Maxim community pack makers",
       "redistribution": "source-only",
-      "status": "convertible"
+      "status": "convertible",
+      "source_verification": "git-blob+size",
+      "content_rating": "explicit"
     },
     {
       "id": "q0-maxim-spazzy",
@@ -507,7 +551,9 @@
       },
       "credit": "Q0/ijai.vacuum contributors; Maxim Spazzy community pack makers",
       "redistribution": "source-only",
-      "status": "convertible"
+      "status": "convertible",
+      "source_verification": "git-blob+size",
+      "content_rating": "general"
     },
     {
       "id": "q0-leather-bastards-loud",
@@ -531,7 +577,9 @@
       },
       "credit": "Q0/ijai.vacuum contributors; Leather Bastards community creators (Rubler4ik credited by RoboVoice)",
       "redistribution": "source-only",
-      "status": "convertible"
+      "status": "convertible",
+      "source_verification": "git-blob+size",
+      "content_rating": "explicit"
     },
     {
       "id": "q0-russian",
@@ -554,7 +602,9 @@
       },
       "credit": "Q0/ijai.vacuum contributors; Xiaomi/Ijai source package",
       "redistribution": "source-only",
-      "status": "convertible"
+      "status": "convertible",
+      "source_verification": "git-blob+size",
+      "content_rating": "general"
     },
     {
       "id": "glados-findus",
@@ -572,13 +622,751 @@
         "project": "Findus23/voice_pack_dreame",
         "page": "https://github.com/Findus23/voice_pack_dreame",
         "url": "https://raw.githubusercontent.com/Findus23/voice_pack_dreame/main/voice_pack.tar.gz",
-        "git_blob_shaa1": "b9f6d64d61eb72e55f26843522a9cfa50fc486ba",
         "md5": "8ebfabb9e23e169a5c9b867266f9d1ef",
-        "size": 4325024
+        "size": 4325024,
+        "git_blob_sha1": "b9f6d64d61eb72e55f26843522a9cfa50fc486ba"
       },
       "credit": "Findus23; generated with 15.ai; inspired by ccoors/dreame_voice_packs",
       "redistribution": "source-only",
-      "status": "convertible"
+      "status": "convertible",
+      "source_verification": "git-blob+size",
+      "content_rating": "general"
+    },
+    {
+      "id": "queen-elizabeth-ii-yllwdg",
+      "title": "Queen Elizabeth II — yllwdg",
+      "language": "en",
+      "adult": false,
+      "content_rating": "general",
+      "tags": [
+        "en",
+        "character",
+        "queen"
+      ],
+      "format": "dreame-canonical-ogg",
+      "origin_model": "classic Dreame canonical",
+      "source": {
+        "project": "yllwdg/voice_pack_dreame",
+        "page": "https://github.com/yllwdg/voice_pack_dreame",
+        "url": "https://raw.githubusercontent.com/yllwdg/voice_pack_dreame/main/queenelizabethii/voice_pack.tar.gz",
+        "git_blob_sha1": "61c1b77a5e6b33820ba3c80807e9ebddb9b1b1b6",
+        "md5": "f278fe2f05d33410afb90bcbedbbd03b",
+        "size": 6651649
+      },
+      "credit": "yllwdg; inspired by ccoors/dreame_voice_packs",
+      "redistribution": "source-only",
+      "status": "convertible",
+      "source_verification": "git-blob+md5+size"
+    },
+    {
+      "id": "glados-ccoors",
+      "title": "GLaDOS — ccoors edition",
+      "language": "en",
+      "adult": false,
+      "content_rating": "general",
+      "tags": [
+        "en",
+        "portal",
+        "game"
+      ],
+      "format": "dreame-canonical-ogg",
+      "origin_model": "classic Dreame canonical",
+      "source": {
+        "project": "ccoors/dreame_voice_packs",
+        "page": "https://github.com/ccoors/dreame_voice_packs",
+        "url": "https://raw.githubusercontent.com/ccoors/dreame_voice_packs/main/glados/glados-en-16k.tar.gz",
+        "git_blob_sha1": "77dc998b5c2e556411535db0d61de3d5b4a609fb",
+        "size": 4450696
+      },
+      "credit": "ccoors and community contributors",
+      "redistribution": "source-only",
+      "status": "convertible",
+      "source_verification": "git-blob+size"
+    },
+    {
+      "id": "phil-british-butler",
+      "title": "Phil — British Butler",
+      "language": "en",
+      "adult": false,
+      "content_rating": "general",
+      "tags": [
+        "en",
+        "butler",
+        "roborock",
+        "legacy"
+      ],
+      "format": "roborock-pkg",
+      "origin_model": "Roborock S5 gen2",
+      "requirements": [
+        "ccrypt"
+      ],
+      "source": {
+        "project": "fredless/RoborockVoicePacks",
+        "page": "https://github.com/fredless/RoborockVoicePacks",
+        "url": "https://raw.githubusercontent.com/fredless/RoborockVoicePacks/master/Phil/en_phil.pkg",
+        "git_blob_sha1": "6e5794540c1d46fdb21ee3ecbe2af0f58908cb06",
+        "size": 11881630
+      },
+      "credit": "fredless; UK English Brian generated with AWS Polly; dustcloud/python-miio contributors",
+      "redistribution": "source-only",
+      "status": "convertible-requires-ccrypt",
+      "source_verification": "git-blob+size"
+    },
+    {
+      "id": "r2d2-valetudo-original",
+      "title": "R2-D2 — Valetudo original",
+      "language": "zxx",
+      "adult": false,
+      "content_rating": "general",
+      "tags": [
+        "droid",
+        "star-wars",
+        "dreame"
+      ],
+      "format": "dreame-canonical-ogg",
+      "origin_model": "Dreame D9",
+      "source": {
+        "project": "b73tt/valetudo-r2d2",
+        "page": "https://github.com/b73tt/valetudo-r2d2",
+        "url": "https://raw.githubusercontent.com/b73tt/valetudo-r2d2/main/voicepack.tar.gz",
+        "git_blob_sha1": "99ab91b251a28f362784bf392d79d593a73839e9",
+        "md5": "4cf4cc5a7b002e937166a30bfd3d21f9",
+        "size": 1963136
+      },
+      "credit": "b73tt / Valetudo R2-D2",
+      "redistribution": "source-only",
+      "status": "convertible",
+      "source_verification": "git-blob+md5+size"
+    },
+    {
+      "id": "arnold-d10s",
+      "title": "Arnold — D10S Plus edition",
+      "language": "en",
+      "adult": false,
+      "content_rating": "general",
+      "tags": [
+        "en",
+        "character",
+        "d10s"
+      ],
+      "format": "dreame-canonical-ogg",
+      "origin_model": "Dreame D10S Plus",
+      "source": {
+        "project": "spikeygg/valetudo_voice_pack_arnold_standard",
+        "page": "https://github.com/spikeygg/valetudo_voice_pack_arnold_standard",
+        "url": "https://raw.githubusercontent.com/spikeygg/valetudo_voice_pack_arnold_standard/main/arnold_voice.tar.gz",
+        "git_blob_sha1": "d47218d0b69a11e87cbf69753710baba81bf36cc",
+        "size": 2541088
+      },
+      "credit": "spikeygg; synthesized character voice pack",
+      "redistribution": "source-only",
+      "status": "convertible",
+      "source_verification": "git-blob+size"
+    },
+    {
+      "id": "marge-simpson-d10s",
+      "title": "Marge Simpson — D10S Plus edition",
+      "language": "en",
+      "adult": false,
+      "content_rating": "general",
+      "tags": [
+        "en",
+        "character",
+        "d10s"
+      ],
+      "format": "dreame-canonical-ogg",
+      "origin_model": "Dreame D10S Plus",
+      "source": {
+        "project": "spikeygg/valetudo_voice_pack_marge_simpson",
+        "page": "https://github.com/spikeygg/valetudo_voice_pack_marge_simpson",
+        "url": "https://raw.githubusercontent.com/spikeygg/valetudo_voice_pack_marge_simpson/main/marge_voice.tar.gz",
+        "git_blob_sha1": "ff532d73919f6a9412a92f10714724433feb3b25",
+        "size": 3494454
+      },
+      "credit": "spikeygg; synthesized character voice pack",
+      "redistribution": "source-only",
+      "status": "convertible",
+      "source_verification": "git-blob+size"
+    },
+    {
+      "id": "hebrew-official-backup",
+      "title": "Hebrew — Dreame official backup",
+      "language": "he",
+      "adult": false,
+      "content_rating": "general",
+      "tags": [
+        "he",
+        "official-source",
+        "dreame"
+      ],
+      "format": "dreame-canonical-ogg",
+      "origin_model": "modern Dreame family",
+      "source": {
+        "project": "meirlo/dreame-vacuum-he-voice-packs",
+        "page": "https://github.com/meirlo/dreame-vacuum-he-voice-packs",
+        "url": "https://raw.githubusercontent.com/meirlo/dreame-vacuum-he-voice-packs/main/voice_packs/hebrew_voice_pack",
+        "git_blob_sha1": "3b4988ace0644df6c74a711311519543eaf8eaaa",
+        "md5": "4a65dc27103dbb4fe71a51507b292b85",
+        "size": 8227508
+      },
+      "credit": "Dreame source voice pack; backup and documentation by meirlo; layout inspired by Oleksandr Belei",
+      "redistribution": "source-only",
+      "status": "convertible",
+      "source_verification": "git-blob+md5+size"
+    },
+    {
+      "id": "hungarian-vulgar",
+      "title": "Hungarian — Harsh / Vulgar",
+      "language": "hu",
+      "adult": true,
+      "content_rating": "explicit",
+      "tags": [
+        "hu",
+        "18+",
+        "ai-voice"
+      ],
+      "format": "dreame-canonical-ogg",
+      "origin_model": "Dreame family",
+      "source": {
+        "project": "benedek0203/dreame-vacuum-hun-voice-packs",
+        "page": "https://github.com/benedek0203/dreame-vacuum-hun-voice-packs",
+        "url": "https://raw.githubusercontent.com/benedek0203/dreame-vacuum-hun-voice-packs/main/voice_packs/voice.tar.gz",
+        "git_blob_sha1": "fb2b7126dfa27a67bec26728fba991f3bb0d8e05",
+        "md5": "bcccfef6ad2843586c80857d2983f6e8",
+        "size": 4391337
+      },
+      "credit": "benedek0203; inspired by Oleksandr Belei; AI-generated and Audacity-tuned",
+      "redistribution": "source-only",
+      "status": "convertible",
+      "source_verification": "git-blob+md5+size"
+    },
+    {
+      "id": "hungarian-noemi",
+      "title": "Hungarian — Noémi",
+      "language": "hu",
+      "adult": false,
+      "content_rating": "general",
+      "tags": [
+        "hu",
+        "tts",
+        "dreame"
+      ],
+      "format": "dreame-canonical-ogg",
+      "origin_model": "Dreame family",
+      "source": {
+        "project": "v1k70rk4/dreame_hu_tts",
+        "page": "https://github.com/v1k70rk4/dreame_hu_tts",
+        "url": "https://raw.githubusercontent.com/v1k70rk4/dreame_hu_tts/main/dreame_voicepack_hu/noemi_dreame_hu_voice",
+        "git_blob_sha1": "0047126c649e912a6835827bed73f691c63bfe7d",
+        "md5": "2f69f5bd66fd7199353169efaf05ed92",
+        "size": 15148480
+      },
+      "credit": "v1k70rk4; Hungarian Dreame TTS project",
+      "redistribution": "source-only",
+      "status": "convertible",
+      "source_verification": "git-blob+md5+size"
+    },
+    {
+      "id": "hungarian-jenny",
+      "title": "Hungarian — Jenny",
+      "language": "hu",
+      "adult": false,
+      "content_rating": "general",
+      "tags": [
+        "hu",
+        "tts",
+        "dreame"
+      ],
+      "format": "dreame-canonical-ogg",
+      "origin_model": "Dreame family",
+      "source": {
+        "project": "v1k70rk4/dreame_hu_tts",
+        "page": "https://github.com/v1k70rk4/dreame_hu_tts",
+        "url": "https://raw.githubusercontent.com/v1k70rk4/dreame_hu_tts/main/dreame_voicepack_hu/jenny_dreame_hu_voice",
+        "git_blob_sha1": "4ccc30e3e36db218eac081a43d23ade138e619f4",
+        "size": 13528449
+      },
+      "credit": "v1k70rk4; Hungarian Dreame TTS project",
+      "redistribution": "source-only",
+      "status": "convertible",
+      "source_verification": "git-blob+size"
+    },
+    {
+      "id": "hungarian-ryan",
+      "title": "Hungarian — Ryan",
+      "language": "hu",
+      "adult": false,
+      "content_rating": "general",
+      "tags": [
+        "hu",
+        "tts",
+        "dreame"
+      ],
+      "format": "dreame-canonical-ogg",
+      "origin_model": "Dreame family",
+      "source": {
+        "project": "v1k70rk4/dreame_hu_tts",
+        "page": "https://github.com/v1k70rk4/dreame_hu_tts",
+        "url": "https://raw.githubusercontent.com/v1k70rk4/dreame_hu_tts/main/dreame_voicepack_hu/ryan_dreame_hu_voice",
+        "git_blob_sha1": "29cb669b6289c21d5f65607fa913455a79292e84",
+        "size": 13500677
+      },
+      "credit": "v1k70rk4; Hungarian Dreame TTS project",
+      "redistribution": "source-only",
+      "status": "convertible",
+      "source_verification": "git-blob+size"
+    },
+    {
+      "id": "hungarian-tamas",
+      "title": "Hungarian — Tamás",
+      "language": "hu",
+      "adult": false,
+      "content_rating": "general",
+      "tags": [
+        "hu",
+        "tts",
+        "dreame"
+      ],
+      "format": "dreame-canonical-ogg",
+      "origin_model": "Dreame family",
+      "source": {
+        "project": "v1k70rk4/dreame_hu_tts",
+        "page": "https://github.com/v1k70rk4/dreame_hu_tts",
+        "url": "https://raw.githubusercontent.com/v1k70rk4/dreame_hu_tts/main/dreame_voicepack_hu/tamas_dreame_hu_voice",
+        "git_blob_sha1": "92ad16f7e09f84e5ff5d4d749bd505f896d5d77b",
+        "size": 13320907
+      },
+      "credit": "v1k70rk4; Hungarian Dreame TTS project",
+      "redistribution": "source-only",
+      "status": "convertible",
+      "source_verification": "git-blob+size"
+    },
+    {
+      "id": "zoidberg",
+      "title": "Zoidberg",
+      "language": "en",
+      "adult": false,
+      "content_rating": "general",
+      "tags": [
+        "en",
+        "character",
+        "futurama"
+      ],
+      "format": "dreame-canonical-ogg",
+      "origin_model": "L10 Pro / Z10 Pro / W10 / D9 / Dreame 1C",
+      "source": {
+        "project": "flxai/valetudo-voice-pack-zoidberg",
+        "page": "https://github.com/flxai/valetudo-voice-pack-zoidberg",
+        "url": "https://github.com/flxai/valetudo-voice-pack-zoidberg/releases/download/v1.0.9/voice-pack-zoidberg-v1.0.9.tar.gz",
+        "md5": "333edbdc4b63a9e785e372661e899d12",
+        "size": 5121511
+      },
+      "credit": "flxai; thanks upstream to Findus23, Entepotenz, Felonius445, uberduck.ai and GNU Parallel",
+      "redistribution": "source-only",
+      "status": "convertible",
+      "source_verification": "release-md5+size"
+    },
+    {
+      "id": "michael-jackson-robin",
+      "title": "Michael Jackson — L10S Ultra edition",
+      "language": "en",
+      "adult": false,
+      "content_rating": "general",
+      "tags": [
+        "en",
+        "character",
+        "l10s"
+      ],
+      "format": "dreame-canonical-ogg",
+      "origin_model": "Dreame L10S Ultra",
+      "source": {
+        "project": "RobinFrcd/valetudo-dreame-voicepack",
+        "page": "https://github.com/RobinFrcd/valetudo-dreame-voicepack",
+        "url": "https://github.com/RobinFrcd/valetudo-dreame-voicepack/releases/download/mj/mj.tar.gz",
+        "md5": "b682f2eadcc51056aff12bea6baf798a",
+        "size": 8066870
+      },
+      "credit": "RobinFrcd; AI-generated community voice pack",
+      "redistribution": "source-only",
+      "status": "convertible",
+      "source_verification": "release-md5+size"
+    },
+    {
+      "id": "queen-elizabeth-robin-v1",
+      "title": "Queen Elizabeth II — L10S Ultra v1",
+      "language": "en",
+      "adult": false,
+      "content_rating": "general",
+      "tags": [
+        "en",
+        "character",
+        "l10s",
+        "queen"
+      ],
+      "format": "dreame-canonical-ogg",
+      "origin_model": "Dreame L10S Ultra",
+      "source": {
+        "project": "RobinFrcd/valetudo-dreame-voicepack",
+        "page": "https://github.com/RobinFrcd/valetudo-dreame-voicepack",
+        "url": "https://github.com/RobinFrcd/valetudo-dreame-voicepack/releases/download/QueenElizabethII/Queen_Elizabeth.tar.gz",
+        "md5": "da81813049ec1feb68fc74e05174f0a9",
+        "size": 4705534
+      },
+      "credit": "RobinFrcd; AI-generated community voice pack",
+      "redistribution": "source-only",
+      "status": "convertible",
+      "source_verification": "release-md5+size"
+    },
+    {
+      "id": "queen-elizabeth-robin-v2",
+      "title": "Queen Elizabeth II — L10S Ultra v2",
+      "language": "en",
+      "adult": false,
+      "content_rating": "general",
+      "tags": [
+        "en",
+        "character",
+        "l10s",
+        "queen"
+      ],
+      "format": "dreame-canonical-ogg",
+      "origin_model": "Dreame L10S Ultra",
+      "source": {
+        "project": "RobinFrcd/valetudo-dreame-voicepack",
+        "page": "https://github.com/RobinFrcd/valetudo-dreame-voicepack",
+        "url": "https://github.com/RobinFrcd/valetudo-dreame-voicepack/releases/download/QueenElizabethII-v2/Queen_ElizabethII-v2.tar.gz",
+        "md5": "dbb6bf820e136b17c248453b101914d6",
+        "size": 4391946
+      },
+      "credit": "RobinFrcd; AI-generated community voice pack",
+      "redistribution": "source-only",
+      "status": "convertible",
+      "source_verification": "release-md5+size"
+    },
+    {
+      "id": "l40-bertram",
+      "title": "Bertram — sarcastic butler",
+      "language": "en",
+      "adult": false,
+      "content_rating": "general",
+      "tags": [
+        "en",
+        "l40",
+        "character"
+      ],
+      "format": "dreame-canonical-ogg",
+      "origin_model": "Dreame L40 Ultra / dreame.vacuum.r2492j",
+      "source": {
+        "project": "jan-hinter-droid/dreame-l40-voicepack",
+        "page": "https://github.com/jan-hinter-droid/dreame-l40-voicepack",
+        "url": "https://raw.githubusercontent.com/jan-hinter-droid/dreame-l40-voicepack/main/dist/bertram.tar.gz",
+        "git_blob_sha1": "04a8ea872d0d2db1195d292c2ae2f26318dc17a9",
+        "size": 6254759
+      },
+      "credit": "willemcvu character pack; jan-hinter-droid mirror and compatibility research",
+      "redistribution": "source-only",
+      "status": "convertible",
+      "source_verification": "git-blob+size"
+    },
+    {
+      "id": "l40-bob-ross",
+      "title": "Bob Ross — calm edition",
+      "language": "en",
+      "adult": false,
+      "content_rating": "general",
+      "tags": [
+        "en",
+        "l40",
+        "character"
+      ],
+      "format": "dreame-canonical-ogg",
+      "origin_model": "Dreame L40 Ultra / dreame.vacuum.r2492j",
+      "source": {
+        "project": "jan-hinter-droid/dreame-l40-voicepack",
+        "page": "https://github.com/jan-hinter-droid/dreame-l40-voicepack",
+        "url": "https://raw.githubusercontent.com/jan-hinter-droid/dreame-l40-voicepack/main/dist/bobross.tar.gz",
+        "git_blob_sha1": "d169e657b3c5efa84e6da9cce568d0f346fc42c3",
+        "size": 6353871
+      },
+      "credit": "willemcvu character pack; jan-hinter-droid mirror and compatibility research",
+      "redistribution": "source-only",
+      "status": "convertible",
+      "source_verification": "git-blob+size"
+    },
+    {
+      "id": "l40-c3po",
+      "title": "C-3PO",
+      "language": "en",
+      "adult": false,
+      "content_rating": "general",
+      "tags": [
+        "en",
+        "l40",
+        "character"
+      ],
+      "format": "dreame-canonical-ogg",
+      "origin_model": "Dreame L40 Ultra / dreame.vacuum.r2492j",
+      "source": {
+        "project": "jan-hinter-droid/dreame-l40-voicepack",
+        "page": "https://github.com/jan-hinter-droid/dreame-l40-voicepack",
+        "url": "https://raw.githubusercontent.com/jan-hinter-droid/dreame-l40-voicepack/main/dist/c3po.tar.gz",
+        "git_blob_sha1": "e265c20bc7f4682e869adbb558e35439dcfc9f12",
+        "size": 5838609
+      },
+      "credit": "willemcvu character pack; jan-hinter-droid mirror and compatibility research",
+      "redistribution": "source-only",
+      "status": "convertible",
+      "source_verification": "git-blob+size"
+    },
+    {
+      "id": "l40-dalek",
+      "title": "Dalek — EXTERMINATE",
+      "language": "en",
+      "adult": false,
+      "content_rating": "general",
+      "tags": [
+        "en",
+        "l40",
+        "character"
+      ],
+      "format": "dreame-canonical-ogg",
+      "origin_model": "Dreame L40 Ultra / dreame.vacuum.r2492j",
+      "source": {
+        "project": "jan-hinter-droid/dreame-l40-voicepack",
+        "page": "https://github.com/jan-hinter-droid/dreame-l40-voicepack",
+        "url": "https://raw.githubusercontent.com/jan-hinter-droid/dreame-l40-voicepack/main/dist/dalek.tar.gz",
+        "git_blob_sha1": "bd568d209f10a4d450097d5ae734c1ba6870bd8f",
+        "size": 6961417
+      },
+      "credit": "willemcvu character pack; jan-hinter-droid mirror and compatibility research",
+      "redistribution": "source-only",
+      "status": "convertible",
+      "source_verification": "git-blob+size"
+    },
+    {
+      "id": "l40-dj-catnip",
+      "title": "DJ Catnip",
+      "language": "en",
+      "adult": false,
+      "content_rating": "general",
+      "tags": [
+        "en",
+        "l40",
+        "character"
+      ],
+      "format": "dreame-canonical-ogg",
+      "origin_model": "Dreame L40 Ultra / dreame.vacuum.r2492j",
+      "source": {
+        "project": "jan-hinter-droid/dreame-l40-voicepack",
+        "page": "https://github.com/jan-hinter-droid/dreame-l40-voicepack",
+        "url": "https://raw.githubusercontent.com/jan-hinter-droid/dreame-l40-voicepack/main/dist/djcatnip.tar.gz",
+        "git_blob_sha1": "703c7645a4b0a8d843df588ba0af4e9480fefef6",
+        "size": 6815343
+      },
+      "credit": "willemcvu character pack; jan-hinter-droid mirror and compatibility research",
+      "redistribution": "source-only",
+      "status": "convertible",
+      "source_verification": "git-blob+size"
+    },
+    {
+      "id": "l40-gordon-ramsay",
+      "title": "Gordon Ramsay",
+      "language": "en",
+      "adult": true,
+      "content_rating": "explicit",
+      "tags": [
+        "en",
+        "l40",
+        "character"
+      ],
+      "format": "dreame-canonical-ogg",
+      "origin_model": "Dreame L40 Ultra / dreame.vacuum.r2492j",
+      "source": {
+        "project": "jan-hinter-droid/dreame-l40-voicepack",
+        "page": "https://github.com/jan-hinter-droid/dreame-l40-voicepack",
+        "url": "https://raw.githubusercontent.com/jan-hinter-droid/dreame-l40-voicepack/main/dist/gordon.tar.gz",
+        "git_blob_sha1": "6cfa8a5afbe78823e423914d220b13ffb99603e6",
+        "size": 5532769
+      },
+      "credit": "willemcvu character pack; jan-hinter-droid mirror and compatibility research",
+      "redistribution": "source-only",
+      "status": "convertible",
+      "source_verification": "git-blob+size"
+    },
+    {
+      "id": "l40-gordon-ramsay-loud",
+      "title": "Gordon Ramsay — Loud",
+      "language": "en",
+      "adult": true,
+      "content_rating": "explicit",
+      "tags": [
+        "en",
+        "l40",
+        "character"
+      ],
+      "format": "dreame-canonical-ogg",
+      "origin_model": "Dreame L40 Ultra / dreame.vacuum.r2492j",
+      "source": {
+        "project": "jan-hinter-droid/dreame-l40-voicepack",
+        "page": "https://github.com/jan-hinter-droid/dreame-l40-voicepack",
+        "url": "https://raw.githubusercontent.com/jan-hinter-droid/dreame-l40-voicepack/main/dist/gordonloud.tar.gz",
+        "git_blob_sha1": "a83d156aa6b7957b7f699efa94d0443effbbb091",
+        "size": 6102825
+      },
+      "credit": "willemcvu character pack; jan-hinter-droid mirror and compatibility research",
+      "redistribution": "source-only",
+      "status": "convertible",
+      "source_verification": "git-blob+size"
+    },
+    {
+      "id": "l40-gordon-ramsay-normal",
+      "title": "Gordon Ramsay — Normal",
+      "language": "en",
+      "adult": true,
+      "content_rating": "explicit",
+      "tags": [
+        "en",
+        "l40",
+        "character"
+      ],
+      "format": "dreame-canonical-ogg",
+      "origin_model": "Dreame L40 Ultra / dreame.vacuum.r2492j",
+      "source": {
+        "project": "jan-hinter-droid/dreame-l40-voicepack",
+        "page": "https://github.com/jan-hinter-droid/dreame-l40-voicepack",
+        "url": "https://raw.githubusercontent.com/jan-hinter-droid/dreame-l40-voicepack/main/dist/gordonnorm.tar.gz",
+        "git_blob_sha1": "98ca966c55dcbdc9f7114735984009f6f6d7de2c",
+        "size": 5681065
+      },
+      "credit": "willemcvu character pack; jan-hinter-droid mirror and compatibility research",
+      "redistribution": "source-only",
+      "status": "convertible",
+      "source_verification": "git-blob+size"
+    },
+    {
+      "id": "l40-gordon-ramsay-sass",
+      "title": "Gordon Ramsay — Sass",
+      "language": "en",
+      "adult": true,
+      "content_rating": "explicit",
+      "tags": [
+        "en",
+        "l40",
+        "character"
+      ],
+      "format": "dreame-canonical-ogg",
+      "origin_model": "Dreame L40 Ultra / dreame.vacuum.r2492j",
+      "source": {
+        "project": "jan-hinter-droid/dreame-l40-voicepack",
+        "page": "https://github.com/jan-hinter-droid/dreame-l40-voicepack",
+        "url": "https://raw.githubusercontent.com/jan-hinter-droid/dreame-l40-voicepack/main/dist/gordonsass.tar.gz",
+        "git_blob_sha1": "e08dc9eda7e10fa4d119e0cfe10a839baa8bad7f",
+        "size": 5669076
+      },
+      "credit": "willemcvu character pack; jan-hinter-droid mirror and compatibility research",
+      "redistribution": "source-only",
+      "status": "convertible",
+      "source_verification": "git-blob+size"
+    },
+    {
+      "id": "l40-jarvis",
+      "title": "JARVIS — butler edition",
+      "language": "en",
+      "adult": false,
+      "content_rating": "general",
+      "tags": [
+        "en",
+        "l40",
+        "character"
+      ],
+      "format": "dreame-canonical-ogg",
+      "origin_model": "Dreame L40 Ultra / dreame.vacuum.r2492j",
+      "source": {
+        "project": "jan-hinter-droid/dreame-l40-voicepack",
+        "page": "https://github.com/jan-hinter-droid/dreame-l40-voicepack",
+        "url": "https://raw.githubusercontent.com/jan-hinter-droid/dreame-l40-voicepack/main/dist/jarvis.tar.gz",
+        "git_blob_sha1": "fb78a18d5c365a003f0ca5f6c6b6400a6d0a1b9d",
+        "size": 5782001
+      },
+      "credit": "willemcvu character pack; jan-hinter-droid mirror and compatibility research",
+      "redistribution": "source-only",
+      "status": "convertible",
+      "source_verification": "git-blob+size"
+    },
+    {
+      "id": "l40-memes",
+      "title": "Meme Sounds",
+      "language": "en",
+      "adult": true,
+      "content_rating": "explicit",
+      "tags": [
+        "en",
+        "l40",
+        "character"
+      ],
+      "format": "dreame-canonical-ogg",
+      "origin_model": "Dreame L40 Ultra / dreame.vacuum.r2492j",
+      "source": {
+        "project": "jan-hinter-droid/dreame-l40-voicepack",
+        "page": "https://github.com/jan-hinter-droid/dreame-l40-voicepack",
+        "url": "https://raw.githubusercontent.com/jan-hinter-droid/dreame-l40-voicepack/main/dist/memes.tar.gz",
+        "git_blob_sha1": "8a839d57de5c2de80ffe61606f58695f849cbe45",
+        "size": 1907718
+      },
+      "credit": "n15c meme pack; jan-hinter-droid mirror and compatibility research",
+      "redistribution": "source-only",
+      "status": "convertible",
+      "source_verification": "git-blob+size"
+    },
+    {
+      "id": "l40-german-full",
+      "title": "Deutsch — FULLDE",
+      "language": "de",
+      "adult": false,
+      "content_rating": "general",
+      "tags": [
+        "de",
+        "l40",
+        "character"
+      ],
+      "format": "dreame-canonical-ogg",
+      "origin_model": "Dreame L40 Ultra / dreame.vacuum.r2492j",
+      "source": {
+        "project": "jan-hinter-droid/dreame-l40-voicepack",
+        "page": "https://github.com/jan-hinter-droid/dreame-l40-voicepack",
+        "url": "https://raw.githubusercontent.com/jan-hinter-droid/dreame-l40-voicepack/main/dist/fullde.tar.gz",
+        "git_blob_sha1": "d67fab7c7c43d2046ef2d76ee9b6e0c39b51d666",
+        "size": 8182192
+      },
+      "credit": "jan-hinter-droid; locally synthesized German pack",
+      "redistribution": "source-only",
+      "status": "convertible",
+      "source_verification": "git-blob+size"
+    },
+    {
+      "id": "l40-german-custom",
+      "title": "Deutsch — DECUSTOM",
+      "language": "de",
+      "adult": false,
+      "content_rating": "general",
+      "tags": [
+        "de",
+        "l40",
+        "character"
+      ],
+      "format": "dreame-canonical-ogg",
+      "origin_model": "Dreame L40 Ultra / dreame.vacuum.r2492j",
+      "source": {
+        "project": "jan-hinter-droid/dreame-l40-voicepack",
+        "page": "https://github.com/jan-hinter-droid/dreame-l40-voicepack",
+        "url": "https://raw.githubusercontent.com/jan-hinter-droid/dreame-l40-voicepack/main/dist/decustom.tar.gz",
+        "git_blob_sha1": "5fc23873e83bcfa117b35fa733bb14068dc7cfae",
+        "size": 3213752
+      },
+      "credit": "jan-hinter-droid; locally synthesized compact German pack",
+      "redistribution": "source-only",
+      "status": "convertible",
+      "source_verification": "git-blob+size"
     }
   ]
 }
