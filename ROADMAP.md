@@ -16,6 +16,7 @@
 - v0.11.0 — Offline Piper neural TTS (user-supplied model) + WAV/Creator Audio QA ✅ software scope
 - v0.12.0 — User-attributed localization overlays + scaffold + per-model script coverage ✅ software scope
 - v0.13.0 — 215-model five-brand discovery, identity preservation and research-only comparison ✅ software scope
+- v0.14.0 — Creator per-target preflight and offline 1–16-model batch output with SHA-256 ✅ software scope
 
 ## v0.9 — Offline Research Infrastructure
 
@@ -47,7 +48,11 @@ Implemented: bounded local user overlays, model-specific English reference scaff
 
 Implemented: 61 additional MIoT-listed device identities, research-only portable profiles, original 154-device preservation snapshot, and model compare with provenance. Physical install transports are not thereby verified.
 
-## v0.14 — Improved Audio & Voice-Pack Adaptation QA
+## v0.14 — Creator Voice-Pack Preflight & Batch QA
+
+Implemented: read-only per-target mapping/missing-core/collision diagnostics and independent offline 1–16-model packaged outputs with source SHA-256 and a batch manifest. Research-only hardware policies remain unchanged.
+
+## v0.15 — Deeper Audio Quality & Language Coverage QA
 
 Pending: expand licensed locale coverage with native-speaker review, verify new model IDs with per-source evidence, improve multi-engine pronunciation QA and add signed distribution acceptance.
 
