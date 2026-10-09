@@ -29,7 +29,8 @@ def create_hardware_scaffold(model_id, firmware, package, output):
     model = model_by_id(model_id)
     if model["id"] != model_id:
         raise EvidenceError("exact canonical model ID required (aliases are not evidence)")
-    if not isinstance(firmware, str) or not _FIRMWARE.fullmatch(firmware):
+    if (not isinstance(firmware, str) or firmware != firmware.strip()
+            or not _FIRMWARE.fullmatch(firmware)):
         raise EvidenceError("firmware must be 1..128 non-sensitive version characters")
     src = Path(package).expanduser().absolute()
     dst = Path(output).expanduser().absolute()
