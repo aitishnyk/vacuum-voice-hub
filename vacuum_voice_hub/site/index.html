@@ -66,7 +66,9 @@ function renderModels(){
   byId('modelGrid').innerHTML=rows.map(function(m){
     const policy=m.custom_install_policy||'build-only';
     const badge=m.device_tested?'<span class="tag verified">hardware verified</span>':(policy==='experimental'?'<span class="tag experimental">experimental install</span>':policy==='official-signed-only'?'<span class="tag experimental">official signed only</span>':'<span class="tag">build only</span>');
-    return '<article class="card"><h3>'+esc(m.name)+' '+badge+'</h3><div class="small">Model ID: '+esc(m.id)+'<br>Adapter: '+esc(m.adapter)+' · '+esc(m.package_container)+'<br>Events: '+esc(m.event_count)+'<br>Profile: '+esc(m.event_profile)+' · '+esc(m.profile_kind)+'<br>Transport: '+esc(m.transport_verification||m.transport_kind)+'<br>Mi Home product/plugin: '+esc(m.product_id||'—')+' / '+esc(m.plugin_id||'—')+'<br>'+esc(m.notes||'')+'</div></article>';
+    const source=m.identity_source_url && /^https:\/\/home\\.miot-spec\\.com\//.test(m.identity_source_url)
+      ?'<div class="credit"><a href="'+esc(m.identity_source_url)+'" target="_blank" rel="noopener noreferrer">MIoT identity source ↗</a></div>':'';
+    return '<article class="card"><h3>'+esc(m.name)+' '+badge+'</h3><div class="small">Model ID: '+esc(m.id)+'<br>Adapter: '+esc(m.adapter)+' · '+esc(m.package_container)+'<br>Events: '+esc(m.event_count)+'<br>Profile: '+esc(m.event_profile)+' · '+esc(m.profile_kind)+'<br>Transport: '+esc(m.transport_verification||m.transport_kind)+'<br>Mi Home product/plugin: '+esc(m.product_id||'—')+' / '+esc(m.plugin_id||'—')+'<br>'+esc(m.notes||'')+'</div>'+source+'</article>';
   }).join('');
 }
 byId('q').oninput=renderVoices;byId('lang').onchange=renderVoices;byId('adult').onchange=renderVoices;byId('modelQ').oninput=renderModels;
