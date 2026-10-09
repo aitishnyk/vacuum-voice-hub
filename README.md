@@ -4,6 +4,19 @@
 
 **Credits-first multi-model voice platform for robot vacuums.**
 
+## v0.15.0 — Real Compressed Audio QA & Language Coverage
+
+Optional **offline FFmpeg** inspection of MP3, OGG, FLAC, M4A, AAC and Opus, in addition to WAV; a gain-only WAV **preview** that never alters the source; and a report separating actual Creator audio assignments from the text translated for each of 18 locales. Existing model/voice inventories and installation restrictions are unchanged.
+
+```bash
+vvh creator qa /path/to/workspace --model dreame.vacuum.r2209 --decode-compressed
+vvh creator preflight /path/to/workspace --model viomi.vacuum.v60 --check-audio --decode-compressed
+vvh creator gain-preview ./voice.mp3 --gain-db -5 --output ./voice-preview.wav
+vvh creator language-coverage /path/to/workspace --language uk --model dreame.vacuum.r2209
+```
+
+Decoder outputs are bounded to a local temporary PCM file (no network, no third-party upload), and analysis stays opt-in. See [Compressed Audio QA v0.15](docs/COMPRESSED_AUDIO_QA_V015.md). Matching a voice's declared locale does not verify what language is spoken, audio rights or actual firmware custom-voice compatibility.
+
 ## v0.14.0 — Multi-Model Creator Build & Adaptation QA
 
 Creator Studio can now **preflight** audio for a particular model, show missing core prompts and conflicts, and build one approved workspace into independent offline voice packages for up to **16 target models** at once. Each file receives SHA-256 integrity metadata; source changes during the build or any target failure abort the batch without overwriting user files.
