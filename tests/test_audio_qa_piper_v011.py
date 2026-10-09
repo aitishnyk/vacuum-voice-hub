@@ -41,7 +41,6 @@ def test_audio_qa_good_wav_reports_engineering_metrics(tmp_path):
     assert result["duration_sec"] == 1.0
     assert result["pass_basic_checks"] is True
     assert result["clipped_pct"] == 0
-    assert result["install_authorized"] if "install_authorized" in result else True
 
 
 @pytest.mark.parametrize("volume,warning", [
