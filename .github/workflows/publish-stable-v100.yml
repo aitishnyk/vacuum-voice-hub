@@ -61,7 +61,7 @@ jobs:
         run: |
           python -m vacuum_voice_hub release build --output release --source-date-epoch 1700000000
           python -m vacuum_voice_hub release verify release
-      - name: Publish once: stable v1.0.0 public artifacts (no audio/firmware/binaries)
+      - name: "Publish once - stable v1.0.0 public artifacts (no audio/firmware/binaries)"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CI_SHA: ${{ github.event.workflow_run.head_sha }}
