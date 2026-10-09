@@ -399,6 +399,21 @@ def main():
         if action=="build":item.add_argument("--output",required=True)
     item=sdk_sub.add_parser("verify")
     item.add_argument("archive")
+    library=sub.add_parser("library",help="Index and search a privacy-safe local library of owned Creator packs")
+    ls=library.add_subparsers(dest="library_cmd",required=True)
+    s=ls.add_parser("index",help="Write a new attributed, audio-hashed local JSON catalog")
+    s.add_argument("--workspace",required=True,action="append",help="Repeat for up to 128 projects")
+    s.add_argument("--output",required=True)
+    s=ls.add_parser("audit",help="Verify library index self-integrity")
+    s.add_argument("path")
+    s=ls.add_parser("search",help="Filter local voice titles, authors and declared licensing")
+    s.add_argument("path")
+    s.add_argument("--language")
+    s.add_argument("--query")
+    s.add_argument("--license",dest="license_name")
+    s=ls.add_parser("reconcile",help="Detect source audio/manifest changes since indexing")
+    s.add_argument("path")
+    s.add_argument("--workspace",required=True,action="append")
     s=sub.add_parser("model-info");s.add_argument("model_id")
     s=sub.add_parser("model-compare",help="Research-only comparison of two robot voice-event profiles");s.add_argument("left_model");s.add_argument("right_model")
     s=sub.add_parser("info");s.add_argument("voice_id")
@@ -456,6 +471,14 @@ def main():
     _credential_parser(sub)
 
     a=p.parse_args()
+    if a.cmd=="library":
+        from .voice_library import create_library,audit_library,search_library,reconcile_library
+        if a.library_cmd=="index":return _dump(create_library(a.workspace,a.output))
+        if a.library_cmd=="audit":return _dump(audit_library(a.path))
+        if a.library_cmd=="search":
+            return _dump(search_library(a.path,language=a.language,query=a.query,
+                                        license_name=a.license_name))
+        return _dump(reconcile_library(a.path,a.workspace))
     if a.cmd=="adapter":
         from .adapter_interchange import adapter_preflight,build_interchange,verify_interchange
         if a.adapter_cmd=="preflight":
