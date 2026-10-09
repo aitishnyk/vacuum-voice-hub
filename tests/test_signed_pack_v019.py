@@ -89,7 +89,7 @@ def test_signature_breaks_on_audio_mutation(workspace, keys, tmp_path):
     root, review = workspace
     signed = tmp_path / "signed.json"
     sign_pack(review, keys[0], signed)
-    _tone(root / "audio" / "clean_pause.wav", 880)
+    _tone(root / "audio" / "clean.pause.wav", 880)
     with pytest.raises(ValueError, match="stale|invalid|mismatch"):
         verify_pack(signed, keys[1], review)
 
