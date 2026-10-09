@@ -242,8 +242,10 @@ def export_review_bundle(review_path, output, *, include_audio=False, overlay_pa
     export["install_authorized"] = False
     export["human_review_not_independent_verification"] = True
     dest.parent.mkdir(parents=True, exist_ok=True)
+    created = False
     try:
         with dest.open("xb") as stream:
+            created = True
             with zipfile.ZipFile(stream, "w", compression=zipfile.ZIP_DEFLATED) as z:
                 z.writestr("review.json", json.dumps(export, ensure_ascii=False, indent=2) + "\n")
                 z.writestr("audit.json", json.dumps({k: v for k, v in audit.items() if k != "workspace"},
@@ -264,11 +266,21 @@ def export_review_bundle(review_path, output, *, include_audio=False, overlay_pa
                         if total > MAX_BUNDLE_BYTES:
                             raise ValueError("review audio bundle exceeds 100 MiB")
                         z.write(src, "audio/" + item["file"])
+        if include_audio:
+            # Catch local file edits that race with the archive reader after
+            # the pre-copy source hash was checked.
+            with zipfile.ZipFile(dest) as verify:
+                for task in record["tasks"]:
+                    item = task["audio"]
+                    if item and hashlib.sha256(
+                            verify.read("audio/" + item["file"])).hexdigest() != item["sha256"]:
+                        raise ValueError("recording changed during review ZIP export")
         return {"file": str(dest), "schema": SCHEMA, "audio_included": bool(include_audio),
                 "bytes": dest.stat().st_size, "sha256": _hash(dest),
                 "install_authorized": False, "rights_verified": False}
     except BaseException:
-        dest.unlink(missing_ok=True)
+        if created:
+            dest.unlink(missing_ok=True)
         raise
 
 
