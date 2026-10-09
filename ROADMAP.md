@@ -1,5 +1,9 @@
 # Roadmap
 
+## Current v0.21 audio-production wave
+
+Implemented in source: offline master-preview directory batch processing, per-source SHA-256, collision-safe filenames, bounded max 256 files and deletion of incomplete NEW batch outputs. Before release, verify full Python CI, CodeQL, Public Site, reproducible bundle and macOS/Windows/Linux packaging. Hardware/community tests remain a separate workstream; shipping tested software never implies new physical-device approval.
+
 ## Completed
 
 - v0.1 — X10 foundation ✅
