@@ -1,3 +1,9 @@
+## v1.7.0 — Offline Adapter Interchange SDK
+
+- Third-party authored descriptor for exact canonical model and semantic IDs; real deterministic user-owned ZIP build.
+- SHA-256 binding of descriptor, Creator manifest and each bounded audio source; strict symlink, path, encoding and collision checks.
+- No executable plugin loaded; no new firmware or transport authorizations, copyright rights or native voice endorsements claimed.
+
 ## v1.6.0 — Offline Community Research Moderation
 
 - New copy-on-write research-only community evidence inbox with SHA-256 source binding and human decision trail.

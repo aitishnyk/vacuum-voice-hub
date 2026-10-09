@@ -1,5 +1,10 @@
 # Roadmap
 
+## v1.7 — Offline adapter interchange (source increment)
+
+Real user-defined adapter descriptor, deterministic byte-verified ZIP builder, CLI preflight and archive verifier. This does not produce an official signed vacuum package or authorize installation. [Guide](docs/ADAPTER_INTERCHANGE_V170.md).
+
+
 ## v1.6 — Community research moderation (local source release)
 
 A functioning local privacy-conscious inbox imports exact hardware evidence JSON, hashes and redacts submissions, logs human research decisions in new copy-on-write snapshots with SHA-linked history; it never certifies hardware. [Docs](docs/COMMUNITY_INBOX_V160.md). A hosted moderation website, a donated-device logistics portal and independent hardware acceptance are not claimed.

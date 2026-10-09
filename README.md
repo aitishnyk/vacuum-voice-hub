@@ -1,5 +1,7 @@
 # Vacuum Voice Hub
 
+**v1.7.0:** [Offline adapter interchange SDK](docs/ADAPTER_INTERCHANGE_V170.md) — safe source-audio ZIP and SHA-256 verification, no third-party execution or manufacturer install claim.
+
 **v1.6.0:** [Offline, metadata-only community research inbox](docs/COMMUNITY_INBOX_V160.md) — no online upload, automatic hardware verification or device installer authorization.
 
 **v1.5.0:** [Browser-local visual audio timeline and offline cut preview](docs/AUDIO_TIMELINE_V150.md), no source overwrites or hardware actions.

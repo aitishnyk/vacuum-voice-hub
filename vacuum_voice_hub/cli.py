@@ -390,6 +390,15 @@ def main():
     s.add_argument("--output",required=True)
     s=cs.add_parser("audit",help="Validate metadata snapshot and hash-linked review history")
     s.add_argument("inbox")
+    sdk=sub.add_parser("adapter",help="Build/verify offline third-party audio interchange archives")
+    sdk_sub=sdk.add_subparsers(dest="adapter_cmd",required=True)
+    for action in ("preflight","build"):
+        item=sdk_sub.add_parser(action)
+        item.add_argument("--workspace",required=True)
+        item.add_argument("--descriptor",required=True)
+        if action=="build":item.add_argument("--output",required=True)
+    item=sdk_sub.add_parser("verify")
+    item.add_argument("archive")
     s=sub.add_parser("model-info");s.add_argument("model_id")
     s=sub.add_parser("model-compare",help="Research-only comparison of two robot voice-event profiles");s.add_argument("left_model");s.add_argument("right_model")
     s=sub.add_parser("info");s.add_argument("voice_id")
@@ -447,6 +456,13 @@ def main():
     _credential_parser(sub)
 
     a=p.parse_args()
+    if a.cmd=="adapter":
+        from .adapter_interchange import adapter_preflight,build_interchange,verify_interchange
+        if a.adapter_cmd=="preflight":
+            return _dump(adapter_preflight(a.workspace,a.descriptor))
+        if a.adapter_cmd=="build":
+            return _dump(build_interchange(a.workspace,a.descriptor,a.output))
+        return _dump(verify_interchange(a.archive))
     if a.cmd=="community":
         from .community_inbox import init_inbox, add_report, moderate_report, audit_inbox
         if a.community_cmd=="init":return _dump(init_inbox(a.output))

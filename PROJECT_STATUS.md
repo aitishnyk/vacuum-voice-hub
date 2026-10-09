@@ -1,22 +1,22 @@
-# Project status — v1.6.0 SOFTWARE STABLE (source)
+# Project status — v1.7.0 SOFTWARE STABLE (source)
 
-This source increment adds an **offline local evidence review inbox** for
-community volunteers: create, import an existing exact-model hardware
-self-report, audit a redacted snapshot, and record a human research
-decision in a **new** hash-linked copy.
+This source increment adds the **offline, non-executable adapter
+interchange SDK**: a strict descriptor parser, exact canonical robot
+model/semantic IDs, safe user-owned archive build and deterministic
+SHA-256 verification. It does not create official vendor voice packages
+or allow any additional robot/firmware installation.
 
-The queue is not an online moderation service or remote upload endpoint.
-It stores no volunteer evidence URLs, addresses, robot credentials,
-source filenames, voice/firmware bytes or tokens. Research acceptance
-is NOT independent device or rights verification.
+Production and release acceptance are separate: successful PR CI,
+CodeQL, catalog/source audits, source bundle, public site, Windows/macOS/
+Linux desktop builds and the exact merged-main GitHub Release workflow.
 
-GitHub Release publication, exact merged-main CI, CodeQL, desktop builds,
-catalog preservation and version-specific SHA-256 publisher are separate
-mandatory acceptance gates. See
-[guide](docs/COMMUNITY_INBOX_V160.md) and
-[roadmap](https://github.com/aitishnyk/vacuum-voice-hub/issues/55).
+Protected baseline: 223 researched model identities, 55 credited
+voice variants, at least 22 text-only script locales; only
+Xiaomi X10 is independently VVH hardware tested.
+Redistribution rights, native-language fluency and manufacturer
+signature verification are not automatically established. Public
+catalog ZIP contains metadata only, not licensed prerecorded voices
+or signed desktop installers.
 
-Historical baseline: 223 researched model identities, 55 attributed
-voice variants, >=22 **text-only** locales; Xiaomi X10 is the only
-physically verified VVH custom-voice target. No device certification
-or transport install permissions are added.
+See [adapter guide](docs/ADAPTER_INTERCHANGE_V170.md)
+and [roadmap](https://github.com/aitishnyk/vacuum-voice-hub/issues/55).
