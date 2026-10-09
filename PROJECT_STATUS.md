@@ -1,7 +1,8 @@
-# Project status — v0.15.0 SOFTWARE RELEASE CANDIDATE
+# Project status — v0.15.0 SOURCE SEALED (hardware acceptance pending)
 
 - Canonical parent: v0.14.0 SOURCE SEALED, main SHA `44709991258594c8f33046f70855da00e2edf672`.
-- Source version **0.15.0**, not sealed until exact-head CI, Public Site, Release Bundle, CodeQL and macOS/Windows/Linux Desktop Packages succeed.
+- Source version **0.15.0 — SOURCE SEALED** after exact-head CI, Public Site, Release Bundle, PR CodeQL and three-OS Desktop Packages, with merged-main verification.
+- Functional merge PR #29: `bc7734034bfecff50fd2474e6e19277cecf00e9d`.
 - Existing canonical models: **215**, attributed community audio variants: **55**, built-in *text-only* script locales: **18**. Matrix: **11,825 software targets**; no new robot install authority.
 - Added bounded opt-in local FFmpeg analysis of MP3, OGG, FLAC, M4A, AAC and Opus; existing WAV QC preserved.
 - Added non-destructive gain-only preview WAV with before/after signal QA, exclusive new path and SHA-256; never edits source audio/Creator manifest.
@@ -17,10 +18,25 @@
 - No new mandatory runtime dependency: v0.15 reuses the previously bundled/runtime FFmpeg.
 - See [v0.15 audio guide](docs/COMPRESSED_AUDIO_QA_V015.md).
 
-## Source acceptance
+## Exact-source release acceptance
 
-Requires exact PR head: full Python regression, model-matrix audit, Release Bundle, Public Site, CodeQL and all three desktop package jobs. For source sealing additionally verify merged-main CI/Public Site/CodeQL and record the corresponding run IDs.
+PR #29 final head `4d581c115810e6850ad6489b89f132a23da5de69`:
+- CI run `37915047751`: **SUCCESS, 178/178 tests passed**, 2 inherited third-party deprecation warnings.
+- Parallel CI run `37915041124`: SUCCESS.
+- Model Matrix: **215 models × 55 voices = 11,825** software-only combinations, PASS.
+- Public Site `37915047689`: SUCCESS.
+- Release Bundle `37915047644`: SUCCESS.
+- Desktop Packages `37915047730`: **SUCCESS for macOS, Windows and Linux**.
+- PR CodeQL `37915041829`: SUCCESS.
+
+Exact functional merged-main commit `bc7734034bfecff50fd2474e6e19277cecf00e9d`:
+- CI `37915322086`: SUCCESS.
+- Public Site `37915321993`: SUCCESS.
+- CodeQL Python and GitHub Actions `37915321636`: SUCCESS.
+- Dependency graph `37915326228`: SUCCESS.
+
+**SOURCE SEALED** is software source/packaging acceptance, not manufacturer custom voice installation approval or native-speaker/licensing certification. Signal QC uses temporary decoded audio and never changes the original recording without an explicit separate operation.
 
 ## Next wave
 
-v0.16 Voice Production Workflow & Safety Evidence — additional local voice review and quality gates while preserving immutable original model/voice catalog identities; real hardware acceptance tracked separately in [#14](https://github.com/aitishnyk/vacuum-voice-hub/issues/14).
+v0.16 Voice Production Workflow & Safety Evidence ([Issue #30](https://github.com/aitishnyk/vacuum-voice-hub/issues/30)) — additional local voice review and quality gates while preserving immutable original model/voice catalog identities; real hardware acceptance tracked separately in [#14](https://github.com/aitishnyk/vacuum-voice-hub/issues/14).
