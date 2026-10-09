@@ -232,3 +232,29 @@ def test_zip_size_limit_cleans_only_own_output(review, tmp_path, monkeypatch):
         export_review_bundle(review, dest, include_audio=True)
     assert not dest.exists()
     assert unrelated.read_text() == "KEEP"
+
+
+def test_recording_checklist_starts_on_an_empty_new_creator_workspace(tmp_path):
+    empty = tmp_path / "brand-new"
+    new_workspace(empty, pack_id="brand-new", name="New voice",
+                  author="Creator", language="uk", license_name="UNLICENSED")
+    dest = tmp_path / "before-first-recording.json"
+    info = create_review(empty, "uk", "viomi.vacuum.v60", dest)
+    assert info["total_tasks"] >= 16
+    assert info["audio_present"] == 0
+    assert info["text_ready"] > 0
+    initial = audit_review(dest)
+    assert initial["valid"]
+    assert initial["audio_present"] == 0
+    assert initial["status_counts"]["draft"] == initial["total_tasks"]
+    with pytest.raises(ValueError, match="recording required"):
+        mark_review(dest, "clean.start", "recorded")
+    source = tmp_path / "recorded.wav"
+    _make_wav(source)
+    assign_audio(empty, "clean.start", source)
+    assert not audit_review(dest)["valid"]
+    updated = refresh_review(dest)
+    assert updated["audit"]["valid"]
+    assert updated["audit"]["audio_present"] == 1
+    assert updated["audit"]["approved_with_matching_audio"] == 0
+    assert mark_review(dest, "clean.start", "recorded")["status"] == "recorded"

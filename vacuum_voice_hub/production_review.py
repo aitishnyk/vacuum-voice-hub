@@ -58,8 +58,12 @@ def _audio_snapshot(root, rel):
 
 def _snapshot(path, locale, model_id, overlay_path=None):
     validation = validate_workspace(path)
-    if not validation["ok"]:
-        raise ValueError("invalid Creator workspace: " + "; ".join(validation["errors"]))
+    # Planning a voice production checklist must work before the first
+    # recording exists. All other Creator validation failures remain fatal.
+    fatal = [error for error in validation["errors"]
+             if error != "events must contain at least one semantic audio mapping"]
+    if fatal:
+        raise ValueError("invalid Creator workspace: " + "; ".join(fatal))
     root = Path(validation["workspace"]).resolve()
     manifest = validation["manifest"]
     target = model_by_id(model_id)

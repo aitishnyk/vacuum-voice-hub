@@ -15,7 +15,7 @@ vvh creator review init ./my-voice \
   --overlay ./uk-overrides.json --output ./review-viomi-uk.json
 ```
 
-The resulting `vvh.production-review.v1` JSON file includes **all** distinct semantics from the target's conservative known event profile (not just the 16 core localized text templates). Each task contains one or more exact numeric event IDs, the existing translation if one is available, and an explicitly labeled *English reference (not translated)* for missing phrases. A task also shows the *currently assigned* audio path, file size and SHA-256 if a recording is present.
+You can create this checklist immediately after creating an empty Creator workspace, **before assigning your first audio file**. All tasks start in `draft`; after adding recordings use `vvh creator review refresh` to update the fingerprints.\n\nThe resulting `vvh.production-review.v1` JSON file includes **all** distinct semantics from the target's conservative known event profile (not just the 16 core localized text templates). Each task contains one or more exact numeric event IDs, the existing translation if one is available, and an explicitly labeled *English reference (not translated)* for missing phrases. A task also shows the *currently assigned* audio path, file size and SHA-256 if a recording is present.
 
 New reviews are always written outside the Creator workspace and fail closed if the destination already exists.
 
