@@ -21,6 +21,7 @@
 - v0.16.0 — Recording assignments, tamper-aware human review, private-by-default ZIP export ✅ software scope
 - v0.17.0 — Safe reviewer import with no extracted ZIP files, hash history, firmware+rollback evidence ✅ software scope
 - v0.18.0 — Optional user-key Ed25519 reviewed-audio attestation, per-clip QA and evidence Studio ✅ software scope
+- v0.19.0 — Whole-pack Ed25519 source manifest and metadata-only firmware evidence bundle ✅ software scope
 
 ## v0.9 — Offline Research Infrastructure
 
@@ -72,7 +73,11 @@ Implemented: returned review JSON/ZIP checked against original workspace, safe u
 
 Implemented detached Ed25519 verification with independently provided PEM keys, current source/review validation and local bounded per-clip signal QA. Firmware evidence is only assessed, not physically accepted.
 
-## v0.19 — Hardware acceptance, signed bundle provenance and voice quality gates
+## v0.19 — Signed Voice Asset Source & Firmware Evidence
+
+Completed software scope: Ed25519 whole-pack manifest of all assigned source audio and human review states; metadata-only firmware candidate evidence ZIP with current package SHA verification and explicit non-authorizing status. Hardware proof is still separate.
+
+## v0.20 — Independent hardware acceptance and reviewer handoff QA
 
 Pending: expand licensed locale coverage with native-speaker review, verify new model IDs with per-source evidence, improve multi-engine pronunciation QA and add signed distribution acceptance.
 
