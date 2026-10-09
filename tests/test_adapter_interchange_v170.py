@@ -111,6 +111,23 @@ def test_corrupt_archive_detected_and_not_authorized(tmp_path):
         verify_interchange(damaged)
 
 
+def test_forged_manifest_cannot_claim_other_model_events(tmp_path):
+    root, descriptor, _ = fixture(tmp_path)
+    valid = tmp_path / "valid.zip"
+    forged = tmp_path / "forged.zip"
+    build_interchange(root, descriptor, valid)
+    with zipfile.ZipFile(valid) as old, zipfile.ZipFile(forged, "w") as modified:
+        for member in old.infolist():
+            content = old.read(member)
+            if member.filename == "manifest.json":
+                payload = json.loads(content)
+                payload["entries"][0]["target_event_ids"] = [999999]
+                content = json.dumps(payload).encode("utf-8")
+            modified.writestr(member, content)
+    with pytest.raises(ValueError, match="mapping"):
+        verify_interchange(forged)
+
+
 def test_cli_adapter_workflow(tmp_path):
     root, descriptor, _ = fixture(tmp_path)
     output = tmp_path / "from-cli.zip"
