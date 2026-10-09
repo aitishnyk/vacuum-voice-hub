@@ -110,6 +110,15 @@ def _creator_parser(sub):
     s.add_argument("--language-attested",action="store_true")
     s.add_argument("--rights-attested",action="store_true")
     s.add_argument("--overlay")
+    s=rs.add_parser("import",help="Safely bind a returned JSON or review ZIP to a chosen local project")
+    s.add_argument("returned_file")
+    s.add_argument("--workspace",required=True)
+    s.add_argument("--output",required=True,help="New review JSON; original review and audio remain unchanged")
+    s.add_argument("--model",help="Required model identity expected from collaborator")
+    s.add_argument("--language",help="Required locale expected from collaborator")
+    s.add_argument("--overlay",help="Exact original local translation overlay if applicable")
+    s=rs.add_parser("history",help="Audit local hash-linked reviewer decision history")
+    s.add_argument("path")
     s=rs.add_parser("bundle",help="New reviewer ZIP; audio inclusion requires explicit opt-in")
     s.add_argument("path")
     s.add_argument("--output",required=True)
@@ -155,6 +164,14 @@ def _creator_main(a):
             _dump(mark_review(a.path,a.semantic,a.status,reviewer=a.reviewer,note=a.note,
                               language_attested=a.language_attested,
                               rights_attested=a.rights_attested,overlay_path=a.overlay))
+        elif a.review_cmd=="import":
+            from .review_handoff import import_review
+            _dump(import_review(a.returned_file,a.workspace,a.output,
+                                overlay_path=a.overlay,expected_model=a.model,
+                                expected_locale=a.language))
+        elif a.review_cmd=="history":
+            from .review_history import audit_review_history
+            _dump(audit_review_history(a.path))
         elif a.review_cmd=="bundle":
             _dump(export_review_bundle(a.path,a.output,include_audio=a.include_audio,
                                        overlay_path=a.overlay))
