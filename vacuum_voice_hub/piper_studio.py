@@ -43,7 +43,7 @@ def _local_voice(model_path, locale):
 
 
 def synthesize_piper_workspace(locale, model_id, pack_id, author, voice_model, *,
-                               output=None, speaker=None, allow_synthetic=False):
+                               output=None, speaker=None, allow_synthetic=False, overlay_path=None):
     """Generate local Piper WAVs. Always requires explicit user opt-in."""
     if not allow_synthetic:
         raise PermissionError("explicit --allow-synthetic is required")
@@ -53,7 +53,7 @@ def synthesize_piper_workspace(locale, model_id, pack_id, author, voice_model, *
         raise ValueError("author required (max 128 characters)")
     if speaker is not None and (type(speaker) is not int or not 0 <= speaker <= 255):
         raise ValueError("speaker must be an integer 0..255")
-    script = script_for_model(locale, model_id)
+    script = script_for_model(locale, model_id, overlay_path)
     path, config, voice_locale, voice_sha = _local_voice(voice_model, locale)
     exe = shutil.which("piper")
     if not exe:
@@ -94,6 +94,7 @@ def synthesize_piper_workspace(locale, model_id, pack_id, author, voice_model, *
             "model_id": script["model_id"], "locale": locale, "voice_locale": voice_locale,
             "voice_model_sha256": voice_sha, "speaker": speaker,
             "events_synthesized": len(qa), "mapped_model_semantics": script["mapped_count"],
+            "overlay_count": script["overlay_count"], "translation_review_required": True,
             "qa": qa, "audio_files_generated": True,
             "redistribution_verified": False, "license_review_required": True,
             "install_authorized": False,

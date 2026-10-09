@@ -33,23 +33,31 @@ def list_locales():
     ]
 
 
-def script_for_model(locale, model_id):
+def script_for_model(locale, model_id, overlay_path=None):
     doc = _data()
     if locale not in doc["locales"]:
         raise ValueError(f"unknown script locale: {locale}")
     model = model_by_id(model_id)
     profile = event_profile_for_model(model["id"])
     allowed = set(profile["known_event_ids"])
-    translations = doc["locales"][locale]["phrases"]
+    translations = dict(doc["locales"][locale]["phrases"])
+    overlay = None
+    if overlay_path is not None:
+        from .translation_overlays import load_overlay
+        overlay = load_overlay(overlay_path, locale)
+        translations.update(overlay["translations"])
     rows = []
-    for semantic in doc["semantics"]:
+    original_semantics = doc["semantics"]
+    all_semantics = original_semantics + sorted(set(translations) - set(original_semantics))
+    for semantic in all_semantics:
         phrase = translations.get(semantic)
         if not isinstance(phrase, str) or not phrase.strip():
             raise ValueError(f"missing script phrase: {locale}/{semantic}")
         ids = sorted({int(e["id"]) for e in event_by_semantic(semantic)
                       if int(e["id"]) in allowed})
         rows.append({"semantic": semantic, "text": phrase, "target_event_ids": ids,
-                     "mapped_to_model": bool(ids)})
+                     "mapped_to_model": bool(ids),
+                     "translation_source": "user-overlay" if overlay and semantic in overlay["translations"] else "built-in-text"})
     return {
         "schema": SCHEMA, "locale": locale, "language_name": doc["locales"][locale]["name"],
         "model_id": model["id"], "event_profile": profile["id"],
@@ -58,12 +66,18 @@ def script_for_model(locale, model_id):
         "scripted_count": len(rows),
         "mapped_count": sum(bool(row["target_event_ids"]) for row in rows),
         "unmapped_semantics": [row["semantic"] for row in rows if not row["mapped_to_model"]],
+        "model_event_count": len(allowed),
+        "mapped_event_count": len({event_id for row in rows for event_id in row["target_event_ids"]}),
+        "model_event_coverage_pct": round(len({event_id for row in rows for event_id in row["target_event_ids"]}) / len(allowed)*100, 1) if allowed else 0,
+        "overlay_count": len(overlay["translations"]) if overlay else 0,
+        "overlay_attribution": {"author":overlay["author"],"license":overlay["license"],
+                               "source_url":overlay["source_url"],"reviewed":False} if overlay else None,
         "entries": rows,
     }
 
 
 def synthesize_workspace(locale, model_id, pack_id, author, voice, *,
-                         output=None, speed=160, pitch=50, allow_synthetic=False):
+                         output=None, speed=160, pitch=50, allow_synthetic=False, overlay_path=None):
     """Generate actual WAV files using local espeak-ng; never build/install automatically."""
     if not allow_synthetic:
         raise PermissionError("explicit --allow-synthetic is required")
@@ -79,7 +93,7 @@ def synthesize_workspace(locale, model_id, pack_id, author, voice, *,
     if not exe:
         raise RuntimeError("espeak-ng is not installed; only text scripts are available")
     from .creator import new_workspace, assign_audio, default_workspace
-    script = script_for_model(locale, model_id)
+    script = script_for_model(locale, model_id, overlay_path)
     root = Path(output).expanduser().resolve() if output else default_workspace(pack_id)
     if root.exists():
         raise FileExistsError(f"creator workspace already exists: {root}")

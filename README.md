@@ -4,6 +4,25 @@
 
 **Credits-first multi-model voice platform for robot vacuums.**
 
+## v0.12.0 — Extended Language Pack Translation Studio
+
+**New:** local author-attributed translation overlays can add further semantic events to the 16 built-in phrases, for any existing model profile, and can be used with **both** eSpeak-NG and Piper synthesis. These extra translations are user-supplied text, not new prerecorded voices or new verified device installs.
+
+```bash
+# Generate untranslated English-reference candidates for your specific model:
+vvh scripts scaffold --language uk --model dreame.vacuum.r2209 --output ./uk-scaffold.json
+
+# Fill a separate vvh.translation-overlay.v1 file with reviewed translated strings.
+vvh scripts audit --language uk --model dreame.vacuum.r2209 --overlay ./my-uk-overrides.json
+vvh scripts show --language uk --model dreame.vacuum.r2209 --overlay ./my-uk-overrides.json
+vvh scripts piper --language uk --model dreame.vacuum.r2209 \\
+  --id my-uk-full-pack --author "Local creator" \\
+  --voice-model /path/to/uk_UA-voice.onnx \\
+  --overlay ./my-uk-overrides.json --allow-synthetic
+```
+
+Overlays are bounded, must declare locale/author/license, reject unknown catalog semantic keys, and never authorize installation. See [translation overlay guide](docs/TRANSLATION_OVERLAYS_V012.md).
+
 ## v0.11.0 — Offline Piper & Audio Quality Studio
 
 **New:** opt-in Piper TTS with existing local `.onnx` + `.onnx.json` files (no model downloads), read-only WAV signal analysis, whole Creator workspace QA and a local Creator Studio Audio QA button. Source v0.11.0 retains all 154 models, 55 attributed voice variants and 18 script locales. No newly verified custom installation routes.

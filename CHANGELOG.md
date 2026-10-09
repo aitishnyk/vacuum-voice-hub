@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.12.0 — 2026-10-09 (scalable multilingual semantic voice packs)
+
+- added strictly validated local `vvh.translation-overlay.v1` files with exact language, source/license attribution, bound on file/phrase counts and known semantic event validation;
+- generated source-language reference scaffold for device-specific prompts not yet included in the 16 built-in phrases; English references are explicitly NOT claimed translated;
+- CLI `vvh scripts scaffold` and `vvh scripts audit` with model event coverage and explicit local override handling;
+- `--overlay` extends preview, export, eSpeak-NG and offline Piper to additional user-translated known events;
+- safeguarded all 154 registered device profiles, 55 real attributed variants, 18 core locales, blocked modern device installs, and the X10-only VVH physical-verification boundary.
+
 ## 0.11.0 — 2026-10-09 (offline voice quality)
 
 - optional local Piper TTS using user-supplied ONNX voice model and matching config, with exact script-language verification, explicit opt-in and offline subprocess execution;
