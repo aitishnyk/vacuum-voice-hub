@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/aitishnyk/vacuum-voice-hub/schemas/vvh.firmware-evidence-bundle.v1.schema.json",
+  "title": "Offline evidence bundle without actual firmware package",
+  "type": "object",
+  "required": [
+    "schema",
+    "created_at",
+    "model_id",
+    "firmware",
+    "candidate_package_sha256",
+    "candidate_package_size_bytes",
+    "candidate_package_included",
+    "install_authorized"
+  ],
+  "properties": {
+    "schema": {
+      "const": "vvh.firmware-evidence-bundle.v1"
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "model_id": {
+      "type": "string"
+    },
+    "firmware": {
+      "type": "string"
+    },
+    "candidate_package_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "candidate_package_size_bytes": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "candidate_package_included": {
+      "const": false
+    },
+    "observed_steps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "missing_steps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "independently_verified": {
+      "const": false
+    },
+    "install_authorized": {
+      "const": false
+    }
+  }
+}
