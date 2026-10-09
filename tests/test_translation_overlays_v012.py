@@ -114,13 +114,13 @@ def test_cli_scaffold_and_audit_without_network_or_robot(tmp_path):
     assert result["model_event_count"] >= result["mapped_event_count"]
 
 
-def test_legacy_18_text_locales_and_154_model_catalog_unchanged():
+def test_legacy_18_text_locales_and_existing_model_catalog_preserved():
     original = script_for_model("uk", MODEL)
     assert original["scripted_count"] == 16
     assert original["overlay_count"] == 0
     assert original["overlay_attribution"] is None
     from vacuum_voice_hub.catalog import models, voices
-    assert len(models()) == 154
+    assert len(models()) == 215
     assert len(voices()) == 55
 
 
