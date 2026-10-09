@@ -65,6 +65,16 @@ def _creator_parser(sub):
     s=cs.add_parser("coverage");s.add_argument("path");s.add_argument("--model",default="dreame.vacuum.r2209")
     s=cs.add_parser("qa",help="Read-only WAV quality audit; never installs");s.add_argument("path");s.add_argument("--model")
     s=cs.add_parser("build");s.add_argument("path");s.add_argument("--model",default="dreame.vacuum.r2209");s.add_argument("--output")
+    s=cs.add_parser("preflight",help="Read-only model event mapping and collision report")
+    s.add_argument("path")
+    s.add_argument("--model",default="dreame.vacuum.r2209")
+    s.add_argument("--check-audio",action="store_true",help="Validate PCM WAV signal quality")
+    s=cs.add_parser("batch",help="Build offline output packages for 1..16 chosen model IDs")
+    s.add_argument("path")
+    s.add_argument("--model",action="append",required=True,help="Repeat once per target device")
+    s.add_argument("--output-dir",required=True,help="New directory; refuses existing paths")
+    s.add_argument("--check-audio",action="store_true")
+
     s=cs.add_parser("events");s.add_argument("--model");s.add_argument("--category")
 
 def _creator_main(a):
@@ -79,6 +89,13 @@ def _creator_main(a):
         from .audio_qa import inspect_workspace
         _dump(inspect_workspace(a.path,a.model))
     elif a.creator_cmd=="build":_dump(build_workspace(a.path,a.model,a.output))
+    elif a.creator_cmd=="preflight":
+        from .creator_batch import preflight_workspace
+        _dump(preflight_workspace(a.path,a.model,check_audio=a.check_audio))
+    elif a.creator_cmd=="batch":
+        from .creator_batch import batch_build_workspace
+        _dump(batch_build_workspace(a.path,a.model,a.output_dir,check_audio=a.check_audio))
+
     elif a.creator_cmd=="events":
         allowed=set(event_profile_for_model(a.model)["known_event_ids"]) if a.model else None
         rows=[]
