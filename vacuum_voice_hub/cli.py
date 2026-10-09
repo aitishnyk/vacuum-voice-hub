@@ -211,7 +211,7 @@ def main():
             dest=Path(a.output).expanduser().resolve()
             dest.parent.mkdir(parents=True,exist_ok=True)
             with dest.open("x",encoding="utf-8") as stream:
-                stream.write(json.dumps(result,ensure_ascii=False,indent=2)+"\\n")
+                stream.write(json.dumps(result,ensure_ascii=False,indent=2)+"\n")
             return _dump({"output":str(dest),"candidate_count":result["candidate_count"],
                           "translated_entries":0,"install_authorized":False})
         if a.scripts_cmd=="audit":
