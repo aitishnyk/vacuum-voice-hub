@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.21.0 — 2026-10-09 (source candidate, batch audio production)
+
+- New offline `vvh creator master-batch` command for up to 256 audio clips per new batch output.
+- Independent WAV previews with SHA-256 provenance, deterministic manifest and atomic cleanup on any clip failure.
+- Case-insensitive output collision detection, symlink input refusal, no source overwrites and no automatic install.
+- Preserve 223 researched profiles, 55 original voice variants, 22 text locales and community-first hardware intake.
+
 ## 0.20.0 — 2026-10-09 (source candidate, community and audio production)
 
 - 223 model identities (+8 MIoT-index research-only profiles); 55 original voice variants preserved and hardware install authorization unchanged.

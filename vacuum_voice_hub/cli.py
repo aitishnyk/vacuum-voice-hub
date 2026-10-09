@@ -94,6 +94,15 @@ def _creator_parser(sub):
     s.add_argument("--padding-ms",type=float,default=80.0)
     s.add_argument("--fade-ms",type=float,default=8.0)
     s.add_argument("--no-trim-silence",action="store_true")
+    s=cs.add_parser("master-batch",help="Non-destructive offline batch mastering")
+    s.add_argument("--input-dir",required=True)
+    s.add_argument("--output-dir",required=True)
+    s.add_argument("--max-files",type=int,default=64)
+    s.add_argument("--target-peak-dbfs",type=float,default=-3.0)
+    s.add_argument("--silence-dbfs",type=float,default=-45.0)
+    s.add_argument("--padding-ms",type=float,default=80.0)
+    s.add_argument("--fade-ms",type=float,default=8.0)
+    s.add_argument("--no-trim-silence",action="store_true")
     review=cs.add_parser("review",help="Local human recording checklist and QA sign-off")
     rs=review.add_subparsers(dest="review_cmd",required=True)
     s=rs.add_parser("init",help="New recording assignment checklist; refuses overwrite")
@@ -191,6 +200,12 @@ def _creator_main(a):
         _dump(master_preview(a.audio_file,a.output,target_peak_dbfs=a.target_peak_dbfs,
                              silence_dbfs=a.silence_dbfs,padding_ms=a.padding_ms,
                              fade_ms=a.fade_ms,trim_silence=not a.no_trim_silence))
+    elif a.creator_cmd=="master-batch":
+        from .audio_batch import master_batch
+        _dump(master_batch(a.input_dir,a.output_dir,max_files=a.max_files,
+                           target_peak_dbfs=a.target_peak_dbfs,
+                           silence_dbfs=a.silence_dbfs,padding_ms=a.padding_ms,
+                           fade_ms=a.fade_ms,trim_silence=not a.no_trim_silence))
     elif a.creator_cmd=="review":
         from .production_review import (create_review, audit_review, mark_review,
                                         refresh_review, export_review_bundle)

@@ -4,6 +4,17 @@
 
 **Credits-first multi-model voice platform for robot vacuums.**
 
+## v0.21.0 — Safe batch audio mastering
+
+A new `vvh creator master-batch` command processes up to 256 local recordings (WAV, OGG, MP3, FLAC, M4A, AAC, Opus) into a **new preview directory** with deterministic WAV names and a per-clip hash/QA manifest. Symlinks, case-insensitive filename conflicts, failed clips and existing output directories are refused; an incomplete new batch is removed.
+
+```bash
+vvh creator master-batch --input-dir ./my-voice/audio --output-dir ./previews \
+  --target-peak-dbfs -6 --padding-ms 80 --fade-ms 8
+```
+
+[Batch production documentation](docs/AUDIO_BATCH_V021.md). Results still require separate listening, provenance review and specific hardware acceptance. Nothing is uploaded to a robot or sold through this public repository.
+
 ## v0.20.0 — 223 models, 22 text languages, non-destructive audio mastering
 
 This software release expands the source-attributed catalog by **8 research-only robot profiles** (223 total) and **4 new text-script locales** (Indonesian, Vietnamese, Arabic, Hindi; 22 total). The **55 credited voice variants are preserved**. New translated text templates still need native-speaker review; these are not pretrained engines or recorded voice packs.
