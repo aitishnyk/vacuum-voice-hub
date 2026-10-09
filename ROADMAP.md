@@ -1,5 +1,10 @@
 # Roadmap
 
+## v1.9 — Creator Recovery and Backup
+
+Deterministic local Creator project backups, full SHA-256/ZIP verification, comparison against current source and no-overwrite new-folder restoration. [Guide](docs/CREATOR_RECOVERY_V190.md). Signed/notarized desktop installers depend on external platform identities and are not claimed.
+
+
 ## v1.8 — Attributed Local Voice Library (software wave)
 
 Real local catalog indexing/search, hash-based source reconciliation, no secret paths or bundled recordings; self-declared licenses are never independently certified. See [guide](docs/VOICE_LIBRARY_V180.md). A hosted rights-cleared voice marketplace and verified manufacturer redistribution permissions remain separate future work.
