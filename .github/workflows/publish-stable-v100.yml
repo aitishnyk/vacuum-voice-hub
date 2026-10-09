@@ -1,0 +1,88 @@
+name: Publish Stable v1.0.0 Source Release
+
+on:
+  workflow_run:
+    workflows: ["CI"]
+    types: [completed]
+    branches: [main]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: vacuum-voice-hub-v1.0.0-release-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: >-
+      github.repository == 'aitishnyk/vacuum-voice-hub' &&
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.head_branch == 'main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout exact successful CI SHA
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Confirm exact current main, release status and absence of existing tag
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CI_SHA: ${{ github.event.workflow_run.head_sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          current="$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/main" --jq .object.sha)"
+          if [ "$current" != "$CI_SHA" ]; then
+            echo "CI SHA is no longer current main; refusing stale stable publication"
+            exit 1
+          fi
+          python -c "from vacuum_voice_hub import __version__; assert __version__ == '1.0.0', 'not the v1.0.0 stable source'"
+          grep -Fq 'SOFTWARE STABLE / SOURCE SEALED' PROJECT_STATUS.md
+          if gh release view v1.0.0 --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "Official v1.0.0 release already exists; refusing to modify"
+            exit 0
+          fi
+          if gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/v1.0.0" >/dev/null 2>&1; then
+            echo "v1.0.0 tag exists without verified release; refuse overwrite"
+            exit 1
+          fi
+      - name: Install stable core and verify source preservation
+        run: |
+          python -m pip install -e .
+          python scripts/stable_release_audit.py
+          python scripts/model_matrix_audit.py
+      - name: Build and verify reproducible source/public catalog release artifacts
+        run: |
+          python -m vacuum_voice_hub release build --output release --source-date-epoch 1700000000
+          python -m vacuum_voice_hub release verify release
+      - name: Publish once: stable v1.0.0 public artifacts (no audio/firmware/binaries)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CI_SHA: ${{ github.event.workflow_run.head_sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          current="$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/main" --jq .object.sha)"
+          test "$current" = "$CI_SHA"
+          if gh release view v1.0.0 --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "Another run already published v1.0.0"
+            exit 0
+          fi
+          gh release create v1.0.0 \
+            --repo "$GITHUB_REPOSITORY" \
+            --target "$CI_SHA" \
+            --title "Vacuum Voice Hub v1.0.0 — Software Stable" \
+            --notes-file docs/RELEASE_NOTES_V100.md \
+            --latest \
+            release/VacuumVoiceHub-public-1.0.0.zip \
+            release/release-manifest.json \
+            release/update-feed.json \
+            release/SHA256SUMS \
+            release/sbom.spdx.json
+          gh release view v1.0.0 --repo "$GITHUB_REPOSITORY" --json tagName,url,isDraft,isPrerelease
