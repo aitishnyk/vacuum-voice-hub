@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/aitishnyk/vacuum-voice-hub/schemas/vvh.creator-preflight.v1.schema.json",
+  "title": "Read-only Creator event mapping preflight; no device install permission",
+  "type": "object",
+  "required": [
+    "schema",
+    "ready",
+    "install_authorized"
+  ],
+  "properties": {
+    "schema": {
+      "const": "vvh.creator-preflight.v1"
+    },
+    "ready": {
+      "type": "boolean"
+    },
+    "model_id": {
+      "type": "string"
+    },
+    "model_name": {
+      "type": "string"
+    },
+    "adapter": {
+      "type": "string"
+    },
+    "mapped_event_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "missing_event_ids": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "missing_core_event_ids": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "unmapped_semantics": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "collisions": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "inputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "semantic",
+          "file",
+          "bytes",
+          "sha256"
+        ],
+        "properties": {
+          "semantic": {
+            "type": "string"
+          },
+          "file": {
+            "type": "string"
+          },
+          "bytes": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        }
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "validation_errors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "install_authorized": {
+      "const": false
+    },
+    "custom_install_verified_by_preflight": {
+      "const": false
+    }
+  }
+}
