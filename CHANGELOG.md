@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.13.0 — 2026-10-09 (source-backed multi-brand discovery)
+
+- merged 61 publicly attributed MIoT model identities: 26 Viomi, 19 Xiaomi/Mijia, 9 Roborock, 4 ROIDMI, 3 IJAI;
+- total 215 canonical profiles, preserving all 154 previous profiles and aliases and original 55 source-linked audio voice variants;
+- all 61 new profiles only expose portable semantic research/build/preview, with custom-install blocked even in experimental mode;
+- added `vvh model-compare` with event-ID overlap, adapter/container comparison, provenance and explicit no-install-certification result;
+- published v0.12 frozen model ID/alias/adapter/transport test fixture; updated matrix tests, package mirror and audit to detect model loss;
+- no invented product/plugin numbers, firmware verification, vocal recordings, transport permissions or vendor package decryption.
+
 ## 0.12.0 — 2026-10-09 (scalable multilingual semantic voice packs)
 
 - added strictly validated local `vvh.translation-overlay.v1` files with exact language, source/license attribution, bound on file/phrase counts and known semantic event validation;

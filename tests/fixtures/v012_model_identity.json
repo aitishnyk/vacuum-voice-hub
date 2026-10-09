@@ -1,0 +1,1401 @@
+{
+  "schema": "vvh.model-preservation.v0.12",
+  "count": 154,
+  "models": [
+    {
+      "id": "chuangmi.vacuum.hmi707",
+      "aliases": [
+        "chuangmi.vacuum.hmi707"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.ma1808",
+      "aliases": [
+        "dreame.vacuum.ma1808"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.mb1808",
+      "aliases": [
+        "dreame.vacuum.mb1808"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.mc1808",
+      "aliases": [
+        "dreame.vacuum.mc1808"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.p2008",
+      "aliases": [
+        "dreame.vacuum.p2008"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.p2009",
+      "aliases": [
+        "dreame.vacuum.p2009"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.p2027",
+      "aliases": [
+        "dreame.vacuum.p2027"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.p2028",
+      "aliases": [
+        "dreame.vacuum.p2028"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.p2028a",
+      "aliases": [
+        "dreame.vacuum.p2028a"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.p2029",
+      "aliases": [
+        "dreame.vacuum.p2029"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.p2036",
+      "aliases": [
+        "dreame.vacuum.p2036"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.p2041",
+      "aliases": [
+        "dreame.vacuum.p2041"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.p2041o",
+      "aliases": [
+        "dreame.vacuum.p2041o"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.p2114a",
+      "aliases": [
+        "dreame.vacuum.p2114a"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "miot-local-property",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.p2114o",
+      "aliases": [
+        "dreame.vacuum.p2114o"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.p2140",
+      "aliases": [
+        "dreame.vacuum.p2140"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.p2140a",
+      "aliases": [
+        "dreame.vacuum.p2140a"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.p2140o",
+      "aliases": [
+        "dreame.vacuum.p2140o"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.p2140p",
+      "aliases": [
+        "dreame.vacuum.p2140p"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.p2140q",
+      "aliases": [
+        "dreame.vacuum.p2140q"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.p2148o",
+      "aliases": [
+        "dreame.vacuum.p2148o"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.p2149o",
+      "aliases": [
+        "dreame.vacuum.p2149o"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.p2150a",
+      "aliases": [
+        "dreame.vacuum.p2150a"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.p2150b",
+      "aliases": [
+        "dreame.vacuum.p2150b"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.p2150o",
+      "aliases": [
+        "dreame.vacuum.p2150o"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.p2156o",
+      "aliases": [
+        "dreame.vacuum.p2156o"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.p2157",
+      "aliases": [
+        "dreame.vacuum.p2157"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.p2187",
+      "aliases": [
+        "dreame.vacuum.p2187"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.p2259",
+      "aliases": [
+        "dreame.vacuum.p2259"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r2104",
+      "aliases": [
+        "dreame.vacuum.r2104"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "miot-local-property",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r2205",
+      "aliases": [
+        "dreame.vacuum.r2205"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "miot-local-property",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r2209",
+      "aliases": [
+        "dreame.vacuum.r2209"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "miot-local-property",
+      "device_tested": true
+    },
+    {
+      "id": "dreame.vacuum.r2211o",
+      "aliases": [
+        "dreame.vacuum.r2211o"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r2215",
+      "aliases": [
+        "dreame.vacuum.r2215"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "miot-local-property",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r2215o",
+      "aliases": [
+        "dreame.vacuum.r2215o"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r2216o",
+      "aliases": [
+        "dreame.vacuum.r2216o"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "miot-local-property",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r2228",
+      "aliases": [
+        "dreame.vacuum.r2228"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "miot-local-property",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r2228o",
+      "aliases": [
+        "dreame.vacuum.r2228o"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "miot-local-property",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r2232a",
+      "aliases": [
+        "dreame.vacuum.r2232a"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "miot-local-property",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r2232b",
+      "aliases": [
+        "dreame.vacuum.r2232b"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r2233",
+      "aliases": [
+        "dreame.vacuum.r2233"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "miot-local-property",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r2235",
+      "aliases": [
+        "dreame.vacuum.r2235"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "miot-local-property",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r2240",
+      "aliases": [
+        "dreame.vacuum.r2240"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "miot-local-property",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r2246",
+      "aliases": [
+        "dreame.vacuum.r2246"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "miot-local-property",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r2247",
+      "aliases": [
+        "dreame.vacuum.r2247"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "miot-local-property",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r2251a",
+      "aliases": [
+        "dreame.vacuum.r2251a"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r2251o",
+      "aliases": [
+        "dreame.vacuum.r2251o"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "miot-local-property",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r2253b",
+      "aliases": [
+        "dreame.vacuum.r2253b"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r2253c",
+      "aliases": [
+        "dreame.vacuum.r2253c"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r2253m",
+      "aliases": [
+        "dreame.vacuum.r2253m"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r2253t",
+      "aliases": [
+        "dreame.vacuum.r2253t"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r2253w",
+      "aliases": [
+        "dreame.vacuum.r2253w"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r2254",
+      "aliases": [
+        "dreame.vacuum.r2254"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "miot-local-property",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r2257o",
+      "aliases": [
+        "dreame.vacuum.r2257o"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r2338a",
+      "aliases": [
+        "dreame.vacuum.r2338a"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r2361a",
+      "aliases": [
+        "dreame.vacuum.r2361a"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r2363",
+      "aliases": [
+        "dreame.vacuum.r2363"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r2363a",
+      "aliases": [
+        "dreame.vacuum.r2363a"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r2364",
+      "aliases": [
+        "dreame.vacuum.r2364"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r2364a",
+      "aliases": [
+        "dreame.vacuum.r2364a"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r2367",
+      "aliases": [
+        "dreame.vacuum.r2367"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r2377",
+      "aliases": [
+        "dreame.vacuum.r2377"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r2394a",
+      "aliases": [
+        "dreame.vacuum.r2394a"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r2394f",
+      "aliases": [
+        "dreame.vacuum.r2394f"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r2416a",
+      "aliases": [
+        "dreame.vacuum.r2416a",
+        "dreame.vacuum.r2416c",
+        "dreame.vacuum.r2449a",
+        "dreame.vacuum.r2449k",
+        "dreame.vacuum.r2416"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "miot-local-property",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r2469a",
+      "aliases": [
+        "dreame.vacuum.r2469a"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r2469x",
+      "aliases": [
+        "dreame.vacuum.r2469x"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r2492a",
+      "aliases": [
+        "dreame.vacuum.r2492a",
+        "dreame.vacuum.r2492b",
+        "dreame.vacuum.r2492j"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "miot-local-property",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r2551a",
+      "aliases": [
+        "dreame.vacuum.r2551a"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r2579a",
+      "aliases": [
+        "dreame.vacuum.r2579a"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r2579h",
+      "aliases": [
+        "dreame.vacuum.r2579h"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r500za",
+      "aliases": [
+        "dreame.vacuum.r500za"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r501t",
+      "aliases": [
+        "dreame.vacuum.r501t"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r5020a",
+      "aliases": [
+        "dreame.vacuum.r5020a"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r5023a",
+      "aliases": [
+        "dreame.vacuum.r5023a"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r9419a",
+      "aliases": [
+        "dreame.vacuum.r9419a"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "dreame.vacuum.r9419e",
+      "aliases": [
+        "dreame.vacuum.r9419e"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "ijai.vacuum.v1",
+      "aliases": [
+        "ijai.vacuum.v1"
+      ],
+      "adapter": "ijai_zip",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "ijai.vacuum.v10",
+      "aliases": [
+        "ijai.vacuum.v10"
+      ],
+      "adapter": "ijai_zip",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "ijai.vacuum.v13",
+      "aliases": [
+        "ijai.vacuum.v13"
+      ],
+      "adapter": "ijai_zip",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "ijai.vacuum.v14",
+      "aliases": [
+        "ijai.vacuum.v14"
+      ],
+      "adapter": "ijai_zip",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "ijai.vacuum.v18",
+      "aliases": [
+        "ijai.vacuum.v18"
+      ],
+      "adapter": "ijai_zip",
+      "transport": "miot-action-url-md5",
+      "device_tested": false
+    },
+    {
+      "id": "ijai.vacuum.v19",
+      "aliases": [
+        "ijai.vacuum.v19"
+      ],
+      "adapter": "ijai_zip",
+      "transport": "miot-action-url-md5",
+      "device_tested": false
+    },
+    {
+      "id": "ijai.vacuum.v2",
+      "aliases": [
+        "ijai.vacuum.v2"
+      ],
+      "adapter": "ijai_zip",
+      "transport": "miot-action-url-md5",
+      "device_tested": false
+    },
+    {
+      "id": "ijai.vacuum.v3",
+      "aliases": [
+        "ijai.vacuum.v3"
+      ],
+      "adapter": "ijai_zip",
+      "transport": "miot-action-url-md5",
+      "device_tested": false
+    },
+    {
+      "id": "mijia.vacuum.b108zb",
+      "aliases": [
+        "mijia.vacuum.b108zb"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "mijia.vacuum.v1",
+      "aliases": [
+        "mijia.vacuum.v1"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "mijia.vacuum.v2",
+      "aliases": [
+        "mijia.vacuum.v2"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "mova.vacuum.r2491a",
+      "aliases": [
+        "mova.vacuum.r2491a",
+        "mova.vacuum.r2491",
+        "dreame.vacuum.r2491a",
+        "dreame.vacuum.r2491"
+      ],
+      "adapter": "dreame_numeric",
+      "transport": "miot-local-property",
+      "device_tested": false
+    },
+    {
+      "id": "roborock.vacuum.a01",
+      "aliases": [
+        "roborock.vacuum.a01"
+      ],
+      "adapter": "roborock_legacy",
+      "transport": "signed-official-only",
+      "device_tested": false
+    },
+    {
+      "id": "roborock.vacuum.a08",
+      "aliases": [
+        "roborock.vacuum.a08"
+      ],
+      "adapter": "roborock_legacy",
+      "transport": "roborock-miio-sound",
+      "device_tested": false
+    },
+    {
+      "id": "roborock.vacuum.a09",
+      "aliases": [
+        "roborock.vacuum.a09"
+      ],
+      "adapter": "roborock_legacy",
+      "transport": "signed-official-only",
+      "device_tested": false
+    },
+    {
+      "id": "roborock.vacuum.a10",
+      "aliases": [
+        "roborock.vacuum.a10"
+      ],
+      "adapter": "roborock_legacy",
+      "transport": "roborock-miio-sound",
+      "device_tested": false
+    },
+    {
+      "id": "roborock.vacuum.a11",
+      "aliases": [
+        "roborock.vacuum.a11"
+      ],
+      "adapter": "roborock_legacy",
+      "transport": "signed-official-only",
+      "device_tested": false
+    },
+    {
+      "id": "roborock.vacuum.a14",
+      "aliases": [
+        "roborock.vacuum.a14"
+      ],
+      "adapter": "roborock_legacy",
+      "transport": "signed-official-only",
+      "device_tested": false
+    },
+    {
+      "id": "roborock.vacuum.a15",
+      "aliases": [
+        "roborock.vacuum.a15"
+      ],
+      "adapter": "roborock_legacy",
+      "transport": "signed-official-only",
+      "device_tested": false
+    },
+    {
+      "id": "roborock.vacuum.a19",
+      "aliases": [
+        "roborock.vacuum.a19"
+      ],
+      "adapter": "roborock_legacy",
+      "transport": "signed-official-only",
+      "device_tested": false
+    },
+    {
+      "id": "roborock.vacuum.a23",
+      "aliases": [
+        "roborock.vacuum.a23"
+      ],
+      "adapter": "roborock_legacy",
+      "transport": "signed-official-only",
+      "device_tested": false
+    },
+    {
+      "id": "roborock.vacuum.a26",
+      "aliases": [
+        "roborock.vacuum.a26"
+      ],
+      "adapter": "roborock_legacy",
+      "transport": "signed-official-only",
+      "device_tested": false
+    },
+    {
+      "id": "roborock.vacuum.a27",
+      "aliases": [
+        "roborock.vacuum.a27"
+      ],
+      "adapter": "roborock_legacy",
+      "transport": "signed-official-only",
+      "device_tested": false
+    },
+    {
+      "id": "roborock.vacuum.a29",
+      "aliases": [
+        "roborock.vacuum.a29"
+      ],
+      "adapter": "roborock_legacy",
+      "transport": "signed-official-only",
+      "device_tested": false
+    },
+    {
+      "id": "roborock.vacuum.a38",
+      "aliases": [
+        "roborock.vacuum.a38"
+      ],
+      "adapter": "roborock_legacy",
+      "transport": "signed-official-only",
+      "device_tested": false
+    },
+    {
+      "id": "roborock.vacuum.a40",
+      "aliases": [
+        "roborock.vacuum.a40"
+      ],
+      "adapter": "roborock_legacy",
+      "transport": "signed-official-only",
+      "device_tested": false
+    },
+    {
+      "id": "roborock.vacuum.a46",
+      "aliases": [
+        "roborock.vacuum.a46"
+      ],
+      "adapter": "roborock_legacy",
+      "transport": "signed-official-only",
+      "device_tested": false
+    },
+    {
+      "id": "roborock.vacuum.a51",
+      "aliases": [
+        "roborock.vacuum.a51"
+      ],
+      "adapter": "roborock_legacy",
+      "transport": "signed-official-only",
+      "device_tested": false
+    },
+    {
+      "id": "roborock.vacuum.a52",
+      "aliases": [
+        "roborock.vacuum.a52"
+      ],
+      "adapter": "roborock_legacy",
+      "transport": "signed-official-only",
+      "device_tested": false
+    },
+    {
+      "id": "roborock.vacuum.a62",
+      "aliases": [
+        "roborock.vacuum.a62"
+      ],
+      "adapter": "roborock_legacy",
+      "transport": "signed-official-only",
+      "device_tested": false
+    },
+    {
+      "id": "roborock.vacuum.a65",
+      "aliases": [
+        "roborock.vacuum.a65"
+      ],
+      "adapter": "roborock_legacy",
+      "transport": "signed-official-only",
+      "device_tested": false
+    },
+    {
+      "id": "roborock.vacuum.a66",
+      "aliases": [
+        "roborock.vacuum.a66"
+      ],
+      "adapter": "roborock_legacy",
+      "transport": "signed-official-only",
+      "device_tested": false
+    },
+    {
+      "id": "roborock.vacuum.a69",
+      "aliases": [
+        "roborock.vacuum.a69"
+      ],
+      "adapter": "roborock_legacy",
+      "transport": "signed-official-only",
+      "device_tested": false
+    },
+    {
+      "id": "roborock.vacuum.a70",
+      "aliases": [
+        "roborock.vacuum.a70"
+      ],
+      "adapter": "roborock_legacy",
+      "transport": "signed-official-only",
+      "device_tested": false
+    },
+    {
+      "id": "roborock.vacuum.c1",
+      "aliases": [
+        "roborock.vacuum.c1"
+      ],
+      "adapter": "roborock_legacy",
+      "transport": "signed-official-only",
+      "device_tested": false
+    },
+    {
+      "id": "roborock.vacuum.e2",
+      "aliases": [
+        "roborock.vacuum.e2"
+      ],
+      "adapter": "roborock_legacy",
+      "transport": "signed-official-only",
+      "device_tested": false
+    },
+    {
+      "id": "roborock.vacuum.m1s",
+      "aliases": [
+        "roborock.vacuum.m1s"
+      ],
+      "adapter": "roborock_legacy",
+      "transport": "roborock-miio-sound",
+      "device_tested": false
+    },
+    {
+      "id": "roborock.vacuum.p5",
+      "aliases": [
+        "roborock.vacuum.p5"
+      ],
+      "adapter": "roborock_legacy",
+      "transport": "signed-official-only",
+      "device_tested": false
+    },
+    {
+      "id": "roborock.vacuum.s4",
+      "aliases": [
+        "roborock.vacuum.s4"
+      ],
+      "adapter": "roborock_legacy",
+      "transport": "roborock-miio-sound",
+      "device_tested": false
+    },
+    {
+      "id": "roborock.vacuum.s5",
+      "aliases": [
+        "roborock.vacuum.s5"
+      ],
+      "adapter": "roborock_legacy",
+      "transport": "roborock-miio-sound",
+      "device_tested": false
+    },
+    {
+      "id": "roborock.vacuum.s5e",
+      "aliases": [
+        "roborock.vacuum.s5e"
+      ],
+      "adapter": "roborock_legacy",
+      "transport": "roborock-miio-sound",
+      "device_tested": false
+    },
+    {
+      "id": "roborock.vacuum.s6",
+      "aliases": [
+        "roborock.vacuum.s6"
+      ],
+      "adapter": "roborock_legacy",
+      "transport": "roborock-miio-sound",
+      "device_tested": false
+    },
+    {
+      "id": "roborock.vacuum.t4",
+      "aliases": [
+        "roborock.vacuum.t4"
+      ],
+      "adapter": "roborock_legacy",
+      "transport": "roborock-miio-sound",
+      "device_tested": false
+    },
+    {
+      "id": "roborock.vacuum.t6",
+      "aliases": [
+        "roborock.vacuum.t6"
+      ],
+      "adapter": "roborock_legacy",
+      "transport": "roborock-miio-sound",
+      "device_tested": false
+    },
+    {
+      "id": "rockrobo.vacuum.v1",
+      "aliases": [
+        "rockrobo.vacuum.v1"
+      ],
+      "adapter": "roborock_legacy",
+      "transport": "roborock-miio-sound",
+      "device_tested": false
+    },
+    {
+      "id": "roidmi.vacuum.v1",
+      "aliases": [
+        "roidmi.vacuum.v1"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "roidmi.vacuum.v60",
+      "aliases": [
+        "roidmi.vacuum.v60"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "roidmi.vacuum.v66",
+      "aliases": [
+        "roidmi.vacuum.v66"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "szkj.mop.mjhvc1",
+      "aliases": [
+        "szkj.mop.mjhvc1"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "viomi.vacuum.v15",
+      "aliases": [
+        "viomi.vacuum.v15"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "viomi.vacuum.v23",
+      "aliases": [
+        "viomi.vacuum.v23"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "viomi.vacuum.v45",
+      "aliases": [
+        "viomi.vacuum.v45"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "viomi.vacuum.v49",
+      "aliases": [
+        "viomi.vacuum.v49"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "viomi.vacuum.v7",
+      "aliases": [
+        "viomi.vacuum.v7"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "viomi.vacuum.v8",
+      "aliases": [
+        "viomi.vacuum.v8"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "xiaomi.cleaner.wx3",
+      "aliases": [
+        "xiaomi.cleaner.wx3"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "xiaomi.mop.wx4m",
+      "aliases": [
+        "xiaomi.mop.wx4m"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "xiaomi.mop.wx5m",
+      "aliases": [
+        "xiaomi.mop.wx5m"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "xiaomi.vacuum.c101",
+      "aliases": [
+        "xiaomi.vacuum.c101"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "xiaomi.vacuum.c102cn",
+      "aliases": [
+        "xiaomi.vacuum.c102cn"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "xiaomi.vacuum.c102gl",
+      "aliases": [
+        "xiaomi.vacuum.c102gl"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "xiaomi.vacuum.c103",
+      "aliases": [
+        "xiaomi.vacuum.c103"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "xiaomi.vacuum.c104",
+      "aliases": [
+        "xiaomi.vacuum.c104"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "xiaomi.vacuum.c107",
+      "aliases": [
+        "xiaomi.vacuum.c107"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "xiaomi.vacuum.d101",
+      "aliases": [
+        "xiaomi.vacuum.d101"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "xiaomi.vacuum.d102ev",
+      "aliases": [
+        "xiaomi.vacuum.d102ev"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "xiaomi.vacuum.d103cn",
+      "aliases": [
+        "xiaomi.vacuum.d103cn"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "xiaomi.vacuum.d110ch",
+      "aliases": [
+        "xiaomi.vacuum.d110ch"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "xiaomi.vacuum.ov21cn",
+      "aliases": [
+        "xiaomi.vacuum.ov21cn"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "xiaomi.vacuum.ov31cn",
+      "aliases": [
+        "xiaomi.vacuum.ov31cn"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "xiaomi.vacuum.ov42cn",
+      "aliases": [
+        "xiaomi.vacuum.ov42cn"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "xiaomi.vacuum.pv11cn",
+      "aliases": [
+        "xiaomi.vacuum.pv11cn"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "xiaomi.vacuum.pv21cn",
+      "aliases": [
+        "xiaomi.vacuum.pv21cn"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "xiaomi.vacuum.pv31cn",
+      "aliases": [
+        "xiaomi.vacuum.pv31cn"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "xiaomi.vacuum.pv32cn",
+      "aliases": [
+        "xiaomi.vacuum.pv32cn"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "zhimi.vacuum.w2",
+      "aliases": [
+        "zhimi.vacuum.w2"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    },
+    {
+      "id": "zhimi.vacuum.wa1",
+      "aliases": [
+        "zhimi.vacuum.wa1"
+      ],
+      "adapter": "semantic_bundle",
+      "transport": "unsupported-local",
+      "device_tested": false
+    }
+  ]
+}

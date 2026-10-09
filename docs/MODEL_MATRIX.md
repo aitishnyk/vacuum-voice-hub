@@ -1,6 +1,6 @@
-# Model compatibility matrix — v0.10
+# Model compatibility matrix — v0.13
 
-Vacuum Voice Hub currently contains **154 model profiles** across **4 target adapters**. Only Xiaomi X10 is hardware-verified by VVH; every other install claim remains evidence-scoped.
+Vacuum Voice Hub currently contains **215 model profiles** across **4 target adapters**. Only Xiaomi X10 is hardware-verified by VVH; every other install claim remains evidence-scoped.
 
 | Model | Model ID | Adapter | Package | Events profile | Install policy | Product / plugin |
 |---|---|---|---|---|---|---|
@@ -181,3 +181,72 @@ These model IDs come from the [Dreame Vacuum supported-device registry](https://
 | Dreame L20 Ultra (regional W) | `dreame.vacuum.r2253w` | `semantic_bundle` | `zip` | Blocked / build-only |
 
 Historical regional aliases such as `dreame.vacuum.r2492b` and `dreame.vacuum.r2492j` remain aliases of `dreame.vacuum.r2492a` and were **not** duplicated as canonical device IDs.
+
+
+## Additional v0.13 public MIoT identity profiles (61)
+
+All entries are **portable semantic research/build-only**; manufacturer voice package acceptance and signed install are unverified. The original 109 + v0.10 45 profiles remain untouched. See [v0.13 multibrand research and source evidence](MULTIBRAND_DISCOVERY_V013.md).
+
+| Model | Exact ID | Policy |
+|---|---|---|
+| Viomi Master 10 Max | `viomi.vacuum.v60` | Build/preview only |
+| Viomi V3 Absolut | `viomi.vacuum.v56` | Build/preview only |
+| Viomi Alpha 2 Lite | `viomi.vacuum.v53` | Build/preview only |
+| Viomi V5 | `viomi.vacuum.v36` | Build/preview only |
+| Viomi V5 Pro | `viomi.vacuum.v38` | Build/preview only |
+| Viomi Alpha 2 Max | `viomi.vacuum.v41` | Build/preview only |
+| Viomi Alpha 2 Pro (WH) | `viomi.vacuum.v40` | Build/preview only |
+| Viomi V2 Max | `viomi.vacuum.v35` | Build/preview only |
+| Viomi Alpha 2 Pro | `viomi.vacuum.v22` | Build/preview only |
+| Viomi Alpha Lite | `viomi.vacuum.v37` | Build/preview only |
+| Viomi 5G IoT Lingli 2 | `viomi.vacuum.v24` | Build/preview only |
+| Viomi Alpha 2 Plus | `viomi.vacuum.v27` | Build/preview only |
+| Viomi X3 | `viomi.vacuum.v25` | Build/preview only |
+| Viomi Eagle | `viomi.vacuum.v29` | Build/preview only |
+| Viomi Lingli UV | `viomi.vacuum.v20` | Build/preview only |
+| Viomi Alpha UV | `viomi.vacuum.v21` | Build/preview only |
+| Viomi S9 | `viomi.vacuum.v18` | Build/preview only |
+| Mi Robot Vacuum-Mop P (Taiwan) | `viomi.vacuum.v9` | Build/preview only |
+| Mi Robot Vacuum-Mop P (India) | `viomi.vacuum.v10` | Build/preview only |
+| Viomi SE | `viomi.vacuum.v19` | Build/preview only |
+| Viomi Dust-Collection Robot Vacuum | `viomi.vacuum.v17` | Build/preview only |
+| Viomi V3 | `viomi.vacuum.v13` | Build/preview only |
+| Viomi X2 (LDS) | `viomi.vacuum.v12` | Build/preview only |
+| Viomi Vision Robot Vacuum | `viomi.vacuum.v11` | Build/preview only |
+| Viomi Robot Vacuum Pro | `viomi.vacuum.v3` | Build/preview only |
+| Viomi V2 Pro (export) | `viomi.vacuum.v6` | Build/preview only |
+| Mijia Robot Vacuum 4 (China) | `xiaomi.vacuum.ov81cn` | Build/preview only |
+| Xiaomi Robot Vacuum H50 Pro | `xiaomi.vacuum.ov42gl` | Build/preview only |
+| Xiaomi Robot Vacuum H50 | `xiaomi.vacuum.ov43gb` | Build/preview only |
+| Xiaomi Robot Vacuum 5 Pro | `xiaomi.vacuum.ov21gl` | Build/preview only |
+| Xiaomi Robot Vacuum 5 | `xiaomi.vacuum.ov31gl` | Build/preview only |
+| Xiaomi Robot Vacuum S40 Pro | `xiaomi.vacuum.ov71gl` | Build/preview only |
+| Xiaomi Robot Vacuum S40 | `xiaomi.vacuum.ov81gl` | Build/preview only |
+| Xiaomi Robot Vacuum S40C | `xiaomi.vacuum.e101gb` | Build/preview only |
+| Xiaomi Robot Vacuum H40 (Global) | `xiaomi.vacuum.ov51gl` | Build/preview only |
+| Xiaomi Robot Vacuum X20 Max | `xiaomi.vacuum.d109gl` | Build/preview only |
+| Xiaomi Robot Vacuum X20 Pro | `xiaomi.vacuum.d102gl` | Build/preview only |
+| Xiaomi Robot Vacuum S20+ | `xiaomi.vacuum.b108gl` | Build/preview only |
+| Xiaomi Robot Vacuum S20 | `xiaomi.vacuum.d106gl` | Build/preview only |
+| Xiaomi Robot Vacuum E5 | `xiaomi.vacuum.c108` | Build/preview only |
+| Xiaomi Robot Vacuum X20 | `xiaomi.vacuum.c101eu` | Build/preview only |
+| Xiaomi Robot Vacuum S12 | `xiaomi.vacuum.b106eu` | Build/preview only |
+| Xiaomi Robot Vacuum E12 | `xiaomi.vacuum.b112gl` | Build/preview only |
+| Xiaomi Robot Vacuum E10C | `xiaomi.vacuum.b112bk` | Build/preview only |
+| Xiaomi Robot Vacuum E10 | `xiaomi.vacuum.b112` | Build/preview only |
+| Roborock Q5 Pro | `roborock.vacuum.a72` | Build/preview only |
+| Roborock Q8 Max | `roborock.vacuum.a73` | Build/preview only |
+| Roborock Qrevo | `roborock.vacuum.a75` | Build/preview only |
+| Roborock P10 | `roborock.vacuum.a74` | Build/preview only |
+| Roborock G10S Pure | `roborock.vacuum.a64` | Build/preview only |
+| Roborock G10S Auto | `roborock.vacuum.a76` | Build/preview only |
+| Roborock Q5 | `roborock.vacuum.a34` | Build/preview only |
+| Roborock G10 (A30) | `roborock.vacuum.a30` | Build/preview only |
+| Roborock T8 | `roborock.vacuum.a37` | Build/preview only |
+| ROIDMI EVE ROOK | `roidmi.vacuum.v63` | Build/preview only |
+| ROIDMI EVE MAX | `roidmi.vacuum.sdj60` | Build/preview only |
+| ROIDMI EVE CC | `roidmi.vacuum.v62` | Build/preview only |
+| ROIDMI EVE (R1B) | `roidmi.vacuum.r1b` | Build/preview only |
+| Xiaomi Robot Vacuum-Mop 2 Pro (India) | `ijai.vacuum.v15` | Build/preview only |
+| Xiaomi Robot Vacuum-Mop 2i | `ijai.vacuum.v16` | Build/preview only |
+| Xiaomi Robot Vacuum S10 | `ijai.vacuum.v17` | Build/preview only |

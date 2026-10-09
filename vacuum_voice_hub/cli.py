@@ -158,6 +158,7 @@ def main():
     sp.add_argument("--allow-synthetic",action="store_true")
     sp.add_argument("--overlay",help="Local translation overlay for extra voice events")
     s=sub.add_parser("model-info");s.add_argument("model_id")
+    s=sub.add_parser("model-compare",help="Research-only comparison of two robot voice-event profiles");s.add_argument("left_model");s.add_argument("right_model")
     s=sub.add_parser("info");s.add_argument("voice_id")
     s=sub.add_parser("coverage");_add_build_args(s)
     s=sub.add_parser("build");_add_build_args(s)
@@ -279,6 +280,9 @@ def main():
             print(f"{m['id']:<30} {m['name']:<32} adapter={m.get('adapter','-'):<16} transport={t.get('verification','-')}")
             count+=1
         if not count:print("No matching model profiles")
+    elif a.cmd=="model-compare":
+        from .model_discovery import compare_models
+        return _dump(compare_models(a.left_model,a.right_model))
     elif a.cmd=="model-info":_dump(model_by_id(a.model_id))
     elif a.cmd=="info":_dump(voice_by_id(a.voice_id))
     elif a.cmd in {"coverage","build","install"}:
