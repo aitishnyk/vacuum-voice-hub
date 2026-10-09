@@ -206,3 +206,29 @@ def test_catalog_preservation_and_audio_provenance():
     assert len(voices()) == 55
     assert len(list_locales()) == 18
     assert [m["id"] for m in models() if m["device_tested"]] == ["dreame.vacuum.r2209"]
+
+
+def test_zip_exclusive_creation_race_never_deletes_unrelated_file(review, tmp_path, monkeypatch):
+    dest = tmp_path / "concurrent.zip"
+    real_open = Path.open
+    def create_concurrently(path, mode="r", *args, **kwargs):
+        if path == dest and mode == "xb":
+            dest.write_text("KEEP THIS EXISTING FILE")
+            raise FileExistsError("created by other process")
+        return real_open(path, mode, *args, **kwargs)
+    monkeypatch.setattr(Path, "open", create_concurrently)
+    with pytest.raises(FileExistsError):
+        export_review_bundle(review, dest)
+    assert dest.read_text() == "KEEP THIS EXISTING FILE"
+
+
+def test_zip_size_limit_cleans_only_own_output(review, tmp_path, monkeypatch):
+    import vacuum_voice_hub.production_review as prod
+    monkeypatch.setattr(prod, "MAX_BUNDLE_BYTES", 64)
+    dest = tmp_path / "too-big.zip"
+    unrelated = tmp_path / "unrelated.txt"
+    unrelated.write_text("KEEP")
+    with pytest.raises(ValueError, match="100 MiB"):
+        export_review_bundle(review, dest, include_audio=True)
+    assert not dest.exists()
+    assert unrelated.read_text() == "KEEP"
