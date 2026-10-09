@@ -123,6 +123,15 @@ class H(BaseHTTPRequestHandler):
                 return self._json({"ok":True,"history":load_history(limit)})
             except Exception as e:return self._json({"ok":False,"error":str(e)},400)
 
+        if parsed.path=="/api/creator/preflight":
+            from .creator_batch import preflight_workspace
+            try:
+                wid=q["id"][0]
+                mid=q.get("model_id",["dreame.vacuum.r2209"])[0]
+                check=q.get("check_audio",["false"])[0].lower()=="true"
+                return self._json({"ok":True,"report":preflight_workspace(workspace_by_id(wid),mid,check_audio=check)})
+            except (KeyError,ValueError,FileNotFoundError,OSError) as exc:
+                return self._json({"ok":False,"error":str(exc)},400)
         if parsed.path=="/api/creator/qa":
             from .audio_qa import inspect_workspace
             try:
@@ -188,6 +197,16 @@ class H(BaseHTTPRequestHandler):
                     result=remove_event(workspace_by_id(d["id"]),d["semantic"])
                 elif parsed.path=="/api/creator/build":
                     result=build_workspace(workspace_by_id(d["id"]),d["model_id"],d.get("output"))
+                elif parsed.path=="/api/creator/batch":
+                    from .creator_batch import batch_build_workspace
+                    from .paths import data_dir
+                    import secrets
+                    wid=d["id"]
+                    target_models=d["models"]
+                    output_dir=data_dir()/"creator-batches"/(wid+"__"+secrets.token_hex(8))
+                    result=batch_build_workspace(workspace_by_id(wid),target_models,output_dir,
+                                                 check_audio=bool(d.get("check_audio",False)))
+
                 else:return self.send_error(404)
             else:return self.send_error(404)
             self._json({"ok":True,**result} if isinstance(result,dict) and "ok" not in result else result)

@@ -4,6 +4,20 @@
 
 **Credits-first multi-model voice platform for robot vacuums.**
 
+## v0.14.0 — Multi-Model Creator Build & Adaptation QA
+
+Creator Studio can now **preflight** audio for a particular model, show missing core prompts and conflicts, and build one approved workspace into independent offline voice packages for up to **16 target models** at once. Each file receives SHA-256 integrity metadata; source changes during the build or any target failure abort the batch without overwriting user files.
+
+```bash
+vvh creator preflight /path/to/workspace --model viomi.vacuum.v60 --check-audio
+vvh creator batch /path/to/workspace \\
+  --model dreame.vacuum.r2209 \\
+  --model viomi.vacuum.v60 \\
+  --output-dir /path/to/new-batch --check-audio
+```
+
+The localhost Creator Studio adds Preflight and Build batch controls. Output is for offline review/build only; **no robot installation is triggered or certified**, and licensing/safety require human review. See [v0.14 Creator Batch guide](docs/CREATOR_BATCH_V014.md).
+
 ## v0.13.0 — Multi-Brand Robot Discovery
 
 **215 source-attributed device profiles** across Xiaomi/Mijia, Viomi, Roborock, ROIDMI, IJAI and existing Dreame/MOVA families. New in v0.13: 61 identity-verified **portable research-only profiles** and a local model-event comparison tool. The existing **55 original voice variants**, **18 text-script locales**, legacy IDs and installation policies are preserved.

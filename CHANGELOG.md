@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.14.0 — 2026-10-09 (Creator adaptation and batch-build QA)
+
+- added offline `vvh creator preflight` per-model event mapping, source SHA-256, missing core prompts, duplicate-event conflicts and optional WAV quality warnings;
+- added `vvh creator batch` to build 1–16 independent target-adapter packages from a single Creator workspace, including SHA-256 manifest;
+- output directories must be new; duplicate canonical targets and unsafe/ambiguous inputs fail closed; partial batch is cleaned without changing source project;
+- added localhost Creator Studio preflight and authenticated multi-model build endpoints/buttons;
+- unchanged 215 model identities, 55 original attributed audio variants, 18 text-script locales and X10-only physically verified VVH custom install.
+
 ## 0.13.0 — 2026-10-09 (source-backed multi-brand discovery)
 
 - merged 61 publicly attributed MIoT model identities: 26 Viomi, 19 Xiaomi/Mijia, 9 Roborock, 4 ROIDMI, 3 IJAI;
