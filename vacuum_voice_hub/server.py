@@ -183,11 +183,18 @@ class H(BaseHTTPRequestHandler):
             except (KeyError,ValueError,OSError) as e:
                 return self._json({"ok":False,"error":str(e)},400)
         if parsed.path=="/api/creator/review":
-            from .production_review import audit_review
+            from .production_review import audit_review, _load_json
             try:
                 self._creator_auth()
-                report=audit_review(_review_file(q["review_id"][0]))
-                return self._json({"ok":True,"report":report})
+                path=_review_file(q["review_id"][0])
+                report=audit_review(path)
+                doc=_load_json(path)
+                tasks=[{"semantic":task["semantic"],
+                        "status":task["review"]["status"],
+                        "audio_present":task["audio"] is not None,
+                        "text_ready":task["text"] is not None}
+                       for task in doc["tasks"]]
+                return self._json({"ok":True,"report":report,"tasks":tasks})
             except (KeyError,ValueError,FileNotFoundError,OSError) as e:
                 return self._json({"ok":False,"error":str(e)},400)
         if parsed.path=="/api/creator/workspaces":
