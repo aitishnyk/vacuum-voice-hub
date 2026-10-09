@@ -1,5 +1,7 @@
 # Vacuum Voice Hub
 
+**v1.6.0:** [Offline, metadata-only community research inbox](docs/COMMUNITY_INBOX_V160.md) — no online upload, automatic hardware verification or device installer authorization.
+
 **v1.5.0:** [Browser-local visual audio timeline and offline cut preview](docs/AUDIO_TIMELINE_V150.md), no source overwrites or hardware actions.
 
 **v1.4.0:** [Model/firmware evidence matrix](docs/FIRMWARE_MATRIX_V140.md), local and non-authorizing. Per-firmware community claims are research only.
