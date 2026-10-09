@@ -10,7 +10,7 @@
 </head>
 <body><div class="wrap">
 <section class="hero">
-  <span class="pill">v0.17</span><span class="pill">215 target profiles</span><span class="pill">vvh.voicepack.v1</span><span class="pill">local-only workspace</span>
+  <span class="pill">v0.18</span><span class="pill">215 target profiles</span><span class="pill">vvh.voicepack.v1</span><span class="pill">local-only workspace</span>
   <h1>Creator Studio</h1>
   <p>Создавай одну semantic-озвучку и собирай её под разные модели. Аудио остаётся локально; GitHub не получает рабочие файлы автоматически.</p>
   <a class="toplink" href="/">← Вернуться в каталог</a>
@@ -93,6 +93,7 @@
     <select id="reviewId" aria-label="Local review checklists"></select>
     <button id="reviewReload" class="secondary">Reload</button>
     <button id="reviewHistory" class="secondary">Audit history</button>
+    <button id="reviewSignalQA" class="secondary">Audio & Human QA</button>
     <label class="notice">Returned review JSON / metadata ZIP <input id="reviewReturnedFile" type="file" accept=".json,.zip"/></label>
     <button id="reviewImport" class="secondary">Import as untrusted claims</button>
   </div>
@@ -113,7 +114,22 @@
 </div>
 
 <div class="panel">
-  <b>5. Semantic events</b>
+  <b>5. Hardware / Firmware Evidence — research only</b>
+  <p class="notice">This evaluates your own evidence claims, never uploads a voice to any device or unlocks an installer. A complete checklist still requires independent device verification.</p>
+  <div class="grid2">
+    <label>Exact model ID<input id="hwModel" placeholder="roborock.vacuum.a75"/></label>
+    <label>Firmware version<input id="hwFirmware" placeholder="Firmware shown on robot"/></label>
+    <label>Candidate package SHA-256<input id="hwSha256" placeholder="64 hexadecimal characters"/></label>
+    <label>Candidate size (bytes)<input id="hwSize" type="number" min="1" placeholder="10240"/></label>
+  </div>
+  <div class="notice">Each claimed success requires a source URL. Do not enter robot credentials or private addresses.</div>
+  <div id="hardwareSteps" class="grid2"></div>
+  <button id="hwAssess" class="secondary">Assess research evidence</button>
+  <pre id="hardwareReport" class="status">Evidence not assessed.</pre>
+</div>
+
+<div class="panel">
+  <b>6. Semantic events</b>
   <div class="toolbar">
     <input id="search" class="grow" placeholder="clean.start, bumper, charging…">
     <select id="category"><option value="">Все категории</option></select>
@@ -343,6 +359,49 @@ async function reviewPost(path,data){
   return api(path,{method:'POST',headers:{'Content-Type':'application/json'},
     body:JSON.stringify(data)});
 }
+$('reviewSignalQA').onclick=async()=>{
+  if(!$('reviewId').value){setStatus('Select a review first.');return}
+  try{
+    const query=new URLSearchParams({review_id:$('reviewId').value,
+      max_clips:'16',decode_compressed:String($('decodeCompressed').checked)});
+    const response=await api('/api/creator/review-audio-qa?'+query);
+    setStatus(response.report);
+  }catch(e){setStatus('Audio review QC failed: '+e)}
+};
+const hardwareFields=[
+ ['package_signature_reviewed','Signature reviewed'],
+ ['device_download_observed','Device download observed'],
+ ['device_playback_heard','Audible playback heard'],
+ ['reboot_persistence_checked','Voice persisted after reboot'],
+ ['stock_rollback_tested','Stock voice rollback tested']
+];
+for(const [key,title] of hardwareFields){
+  const field=document.createElement('label');
+  field.textContent=title+' ';
+  const checked=document.createElement('input');
+  checked.type='checkbox';checked.id='hw_'+key;
+  const ref=document.createElement('input');
+  ref.type='url';ref.id='hwref_'+key;ref.placeholder='https://… evidence URL';
+  field.append(checked,ref);
+  $('hardwareSteps').append(field);
+}
+$('hwAssess').onclick=async()=>{
+  try{
+    const observations={};
+    for(const [key] of hardwareFields){
+      observations[key]={observed:$('hw_'+key).checked,
+                          reference:$('hwref_'+key).value.trim()||null};
+    }
+    const modelId=$('hwModel').value.trim();
+    const evidence={schema:'vvh.hardware-acceptance.v1',
+      model_id:modelId,firmware:$('hwFirmware').value.trim(),
+      package:{sha256:$('hwSha256').value.trim(),size_bytes:Number($('hwSize').value)},
+      observations};
+    const response=await reviewPost('/api/creator/hardware-assess',
+      {model_id:modelId,evidence});
+    $('hardwareReport').textContent=JSON.stringify(response.report,null,2);
+  }catch(e){$('hardwareReport').textContent='Evidence rejected: '+e}
+};
 $('reviewHistory').onclick=async()=>{
   if(!$('reviewId').value)return;
   try{
