@@ -9,8 +9,8 @@ Automated Python tests, catalog preservation, CodeQL, package builds and Windows
 ## How to submit an exact-device result
 
 1. Open a [community hardware test issue](../.github/ISSUE_TEMPLATE/community-hardware-test.md). Include exact canonical model ID, manufacturer, firmware version, country/region and event-format source.
-2. Inventory a legally obtained candidate **offline** with `vvh research inspect <package> --model <model-id>` and provide a metadata-only redacted evidence report with the actual SHA-256 and size.
-3. Describe transfer/download status, whether custom audio actually played, whether it persisted after a reboot, and whether **factory stock voice rollback worked**. Include reproducibility and failures, not merely one success response from an API.
+2. Inventory a legally obtained candidate **offline** with `vvh research inspect <package> --model <model-id>`. For a complete safe starting checklist, use `vvh research hardware-scaffold --model <canonical-model-id> --firmware <version> --package <local-candidate> --output ./hardware-draft.json`. This reads the local package only to calculate its streaming SHA-256/size; it never includes audio/firmware bytes, file paths or credentials in the draft.
+3. Describe transfer/download status, whether custom audio actually played, whether it persisted after a reboot, and whether **factory stock voice rollback worked**. The newly created checklist initially has **all five observations set to false**. Only change a step to `{"observed":true,"reference":"https://..."}` after witnessing it on an authorized device and publishing redacted evidence. Run `vvh research hardware-acceptance ./hardware-draft.json --model <canonical-model-id>` locally before sharing. Include reproducibility and failures, not merely one success response from an API.
 4. Link redacted evidence (screenshots or logs only after removing personal/device details). A maintainer can inspect it and request independent reproduction.
 5. A compatibility promotion requires an **explicit separate PR**, negative regression tests and maintainer review. Self-reported evidence never silently enables installation.
 

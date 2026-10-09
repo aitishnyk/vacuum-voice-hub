@@ -18,7 +18,8 @@ jobs:
     if: >-
       github.repository == 'aitishnyk/vacuum-voice-hub' &&
       github.event.workflow_run.conclusion == 'success' &&
-      github.event.workflow_run.head_branch == 'main'
+      github.event.workflow_run.head_branch == 'main' &&
+      github.event.workflow_run.head_sha == '03e8457e024a05d6c256b4b4a71c2453ac287e72'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:

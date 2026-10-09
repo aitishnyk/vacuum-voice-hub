@@ -4,6 +4,18 @@
 
 **Credits-first multi-model voice platform for robot vacuums.**
 
+## v1.1.0 — Community Hardware Test Kit
+
+The first post-stable update makes **community device validation easier**. Run one offline command to hash a legally obtained local candidate package and generate a safe hardware checklist with *all observations marked unverified*. The resulting JSON contains no audio, firmware bytes, device secrets, file paths or pre-filled claims.
+
+```bash
+vvh research hardware-scaffold --model roborock.vacuum.a75 \
+  --firmware 1.2.3 --package ./local-candidate.pkg --output ./hardware-test-draft.json
+vvh research hardware-acceptance ./hardware-test-draft.json --model roborock.vacuum.a75
+```
+
+After independently and safely testing a personally owned/authorized robot, volunteers can fill the five actual observations with redacted **public HTTPS evidence links**, then submit the report for manual review. A report never automatically enables installation. The existing stable 223 research profiles, 55 attributed variants, and 22 text script locales are retained. See [contributor instructions](docs/COMMUNITY_HARDWARE_TESTING.md).
+
 ## v1.0.0 — Software-stable core, community hardware certification
 
 **Software-stable** means tested source, model/locale preservation, non-destructive audio production, signed review provenance and cross-platform reproducible release workflows. It is **not** a claim of 223 physically installable voice transports: Xiaomi X10 (`dreame.vacuum.r2209`) is the sole VVH physically verified custom-voice install target. All 223 model profiles participate in research/preview/build with their own stricter device policies; the 22 locales are **text templates**, not 22 recorded voice libraries. The 55 existing attributed voice variants are preserved, and each candidate audio track still requires rights verification and human listening.
