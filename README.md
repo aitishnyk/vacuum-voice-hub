@@ -1,5 +1,8 @@
 # Vacuum Voice Hub
 
+**v2.0.0 Universal Voice Studio:** [integrated Creator/model/locale QA](docs/UNIVERSAL_STUDIO_V200.md), safe local research and media workflows, and [non-destructive v1→v2 migration](docs/MIGRATION_V200.md). Source-stable software does not mean universal device installation, rights clearance or signed desktop binaries.
+
+
 **v1.9.0:** [Offline Creator project backup, hash verification and safe new-folder restore](docs/CREATOR_RECOVERY_V190.md). Backup ZIPs contain private audio; no cloud transfer or overwrite.
 
 **v1.8.0:** [Offline attributed local voice library](docs/VOICE_LIBRARY_V180.md) — real hash-based Creator pack indexing and search, without remote redistribution or automatic rights verification.
