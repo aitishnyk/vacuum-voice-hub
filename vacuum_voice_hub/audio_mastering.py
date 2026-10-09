@@ -48,6 +48,7 @@ def master_preview(source, output, *, target_peak_dbfs=-3.0, silence_dbfs=-45.0,
         raise ValueError("output must be a different WAV path")
     if dest.exists() or dest.is_symlink():
         raise FileExistsError(f"output already exists: {dest}")
+    initial_sha256 = hashlib.sha256(src.read_bytes()).hexdigest()
     with tempfile.TemporaryDirectory(prefix="vvh-master-preview-") as tempdir:
         decoded = Path(tempdir) / "decoded.wav"
         candidate = Path(tempdir) / "master.wav"
@@ -69,13 +70,17 @@ def master_preview(source, output, *, target_peak_dbfs=-3.0, silence_dbfs=-45.0,
             raise ValueError("empty decoded source")
         original_samples = len(samples)
         threshold = _db_to_amplitude(silence_dbfs)
-        significant = [i for i, sample in enumerate(samples) if abs(sample) >= threshold]
-        if not significant:
+        # Find boundaries without materializing up to 2.9 million Python indices.
+        first = next((i for i, sample in enumerate(samples)
+                      if abs(sample) >= threshold), None)
+        if first is None:
             raise ValueError("no audio above the silence threshold")
+        last = next(i for i in range(len(samples) - 1, -1, -1)
+                    if abs(samples[i]) >= threshold)
         if trim_silence:
             pad_frames = round(padding_ms * 16)
-            start = max(0, significant[0] - pad_frames)
-            end = min(len(samples), significant[-1] + 1 + pad_frames)
+            start = max(0, first - pad_frames)
+            end = min(len(samples), last + 1 + pad_frames)
             samples = samples[start:end]
         else:
             start, end = 0, len(samples)
@@ -109,6 +114,9 @@ def master_preview(source, output, *, target_peak_dbfs=-3.0, silence_dbfs=-45.0,
         after = inspect_wav(candidate)
         if "clipping" in after["warnings"]:
             raise ValueError("mastered output contains clipping")
+        # The input must not silently change during decode/mastering.
+        if hashlib.sha256(src.read_bytes()).hexdigest() != initial_sha256:
+            raise ValueError("source recording changed during mastering")
         # Destination creation is exclusive, and any partial output is removed.
         dest.parent.mkdir(parents=True, exist_ok=True)
         with dest.open("xb") as file:
@@ -121,7 +129,7 @@ def master_preview(source, output, *, target_peak_dbfs=-3.0, silence_dbfs=-45.0,
                 raise
     return {
         "schema": "vvh.master-preview.v1",
-        "source_sha256": hashlib.sha256(src.read_bytes()).hexdigest(),
+        "source_sha256": initial_sha256,
         "source_format": src.suffix.lower(),
         "output": str(dest), "output_sha256": hashlib.sha256(dest.read_bytes()).hexdigest(),
         "bytes": dest.stat().st_size,

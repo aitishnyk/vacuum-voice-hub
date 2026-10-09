@@ -27,6 +27,7 @@ def _review_file(review_id):
 
 
 def _stats():
+    from .script_packs import list_locales
     vv=voices();mm=models()
     return {
         "voices":len(vv),
@@ -40,7 +41,7 @@ def _stats():
         "adapters":sorted({m.get("adapter") for m in mm}),
         "creator_schema":"vvh.voicepack.v1",
         "script_pack_schema":"vvh.script-pack.v1",
-        "script_template_locales":18,
+        "script_template_locales":len(list_locales()),
     }
 
 def _fallback_categories_from_query(q):
