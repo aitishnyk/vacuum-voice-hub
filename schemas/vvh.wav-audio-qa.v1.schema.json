@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/aitishnyk/vacuum-voice-hub/schemas/vvh.wav-audio-qa.v1.schema.json",
+  "title": "WAV signal QA (heuristic only)",
+  "type": "object",
+  "required": [
+    "schema",
+    "format",
+    "sample_rate",
+    "channels",
+    "duration_sec",
+    "frames",
+    "warnings",
+    "pass_basic_checks",
+    "note"
+  ],
+  "properties": {
+    "schema": {
+      "const": "vvh.wav-audio-qa.v1"
+    },
+    "format": {
+      "const": "pcm_s16le"
+    },
+    "sample_rate": {
+      "type": "integer",
+      "minimum": 8000,
+      "maximum": 96000
+    },
+    "channels": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 2
+    },
+    "duration_sec": {
+      "type": "number",
+      "minimum": 0
+    },
+    "frames": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "peak_dbfs": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "rms_dbfs": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "clipped_pct": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "silent_pct": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "pass_basic_checks": {
+      "type": "boolean"
+    },
+    "note": {
+      "type": "string"
+    }
+  }
+}
