@@ -194,6 +194,9 @@ def mark_review(review_path, semantic, status, *, reviewer=None, note=None,
                 language_attested=False, rights_attested=False, overlay_path=None):
     if status not in STATUSES:
         raise ValueError("status must be draft, recorded, listened or approved")
+    # Journal validation must happen before editing a previously reviewed file.
+    from .review_history import audit_review_history, append_review_history
+    audit_review_history(review_path)
     # Never write a changed/stale review manifest or accept an out-of-sequence approval.
     check = audit_review(review_path, overlay_path=overlay_path)
     if not check["valid"]:
@@ -225,9 +228,13 @@ def mark_review(review_path, semantic, status, *, reviewer=None, note=None,
         "rights_attested": status == "approved",
     }
     _write_review(path, record)
+    journal = append_review_history(path, "review-mark", {
+        "semantic": semantic, "from": previous, "to": status,
+        "reviewer": reviewer.strip() if reviewer else None,
+    })
     return {"semantic": semantic, "status": status,
             "audit": audit_review(path, overlay_path=overlay_path),
-            "install_authorized": False}
+            "journal": journal, "install_authorized": False}
 
 
 def export_review_bundle(review_path, output, *, include_audio=False, overlay_path=None):
@@ -294,6 +301,8 @@ def refresh_review(review_path, *, overlay_path=None):
     A changed recording or text always resets that task to draft. A modified
     source manifest cannot silently inherit a previous sign-off.
     """
+    from .review_history import audit_review_history, append_review_history
+    audit_review_history(review_path)
     path = Path(review_path).expanduser().resolve()
     record = _load_json(path)
     if record.get("schema") != SCHEMA:
@@ -322,9 +331,12 @@ def refresh_review(review_path, *, overlay_path=None):
         [(r["semantic"], r["event_ids"], r["text"]) for r in rows],
         ensure_ascii=False, sort_keys=True).encode()).hexdigest()
     _write_review(path, record)
+    journal = append_review_history(path, "review-refresh", {
+        "retained": retained, "reset": reset,
+    })
     result = audit_review(path, overlay_path=overlay_path)
     return {"retained": retained, "reset": reset, "audit": result,
-            "install_authorized": False}
+            "journal": journal, "install_authorized": False}
 
 
 def _write_review(path, record):

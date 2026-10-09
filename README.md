@@ -4,6 +4,19 @@
 
 **Credits-first multi-model voice platform for robot vacuums.**
 
+## v0.17.0 — Reviewer Handoff Import & Hardware Evidence
+
+Import a collaborator's returned **JSON or ZIP** review against the *exact local model, source pack, translated script and original audio SHA-256 hashes*. No ZIP entries are extracted and no existing audio is overwritten. Returned approvals are stored as **untrusted external claims**; every local review starts at `draft` and must be independently approved again. A local hash-linked `review history` records later decisions (not a digital signature).
+
+```bash
+vvh creator review import ./returned-review.zip --workspace ./my-voice \\
+  --model dreame.vacuum.r2209 --language ru --output ./returned-claims.json
+vvh creator review history ./returned-claims.json
+vvh research hardware-acceptance ./evidence.json --model roborock.vacuum.a75
+```
+
+Creator Studio accepts small metadata-only handoffs (up to 2 MiB). The new hardware evidence format tracks exact firmware, package fingerprint, claimed playback/reboot and stock rollback but **never** unlocks custom install transports. See [v0.17 secure handoff guide](docs/REVIEW_HANDOFF_V017.md).
+
 ## v0.16.0 — Voice Production Studio & Human Review
 
 Creator Studio now includes offline **per-model recording assignments** for every known semantic event, a saved human review workflow (`draft → recorded → listened → approved`), source-file **SHA-256 integrity checks**, and an explicit **review bundle** export. Changes to recordings or the Creator manifest invalidate old approvals; a `refresh` preserves unchanged review decisions and resets only changed tasks.

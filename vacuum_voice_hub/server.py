@@ -159,6 +159,14 @@ class H(BaseHTTPRequestHandler):
                 return self._json({"ok":True,"report":language_audio_coverage(workspace_by_id(wid),locale,mid)})
             except (KeyError,ValueError,FileNotFoundError,OSError) as exc:
                 return self._json({"ok":False,"error":str(exc)},400)
+        if parsed.path=="/api/creator/review-history":
+            from .review_history import audit_review_history
+            try:
+                self._creator_auth()
+                return self._json({"ok":True,"report":audit_review_history(
+                    _review_file(q["review_id"][0]))})
+            except (ValueError,KeyError,FileNotFoundError,OSError) as e:
+                return self._json({"ok":False,"error":str(e)},400)
         if parsed.path=="/api/creator/reviews":
             from .production_review import audit_review
             try:
@@ -191,6 +199,7 @@ class H(BaseHTTPRequestHandler):
                 doc=_load_json(path)
                 tasks=[{"semantic":task["semantic"],
                         "status":task["review"]["status"],
+                        "external_claim":(task.get("external_review_claim") or {}).get("status"),
                         "audio_present":task["audio"] is not None,
                         "text_ready":task["text"] is not None}
                        for task in doc["tasks"]]
@@ -234,6 +243,35 @@ class H(BaseHTTPRequestHandler):
                 data=self.rfile.read(n)
                 wid=q["id"][0];semantic=q["semantic"][0];filename=q.get("filename",["upload.wav"])[0]
                 return self._json({"ok":True,**assign_audio_bytes(workspace_by_id(wid),semantic,filename,data)})
+
+            if parsed.path=="/api/creator/review/import":
+                # Only small metadata-only reviewer handoffs are accepted via
+                # localhost browser. CLI supports larger opt-in audio ZIPs.
+                self._creator_auth()
+                import os
+                from .paths import data_dir
+                from .review_handoff import import_review
+                n=int(self.headers.get("Content-Length","0"))
+                if not 0 < n <= 2*1024*1024:
+                    raise ValueError("web review import limited to 2 MiB (metadata-only)")
+                wid=q["id"][0]
+                suffix=q.get("ext",[".json"])[0]
+                if suffix not in (".json",".zip"):
+                    raise ValueError("review import must be JSON or ZIP")
+                root=data_dir()/"production-review-imports"
+                root.mkdir(parents=True,exist_ok=True)
+                source=root/(secrets.token_hex(12)+suffix)
+                dest=data_dir()/"production-reviews"/(secrets.token_hex(10)+".json")
+                try:
+                    with source.open("xb") as input_file:
+                        input_file.write(self.rfile.read(n))
+                    result=import_review(source,workspace_by_id(wid),dest,
+                        expected_model=q.get("model_id",[None])[0],
+                        expected_locale=q.get("language",[None])[0])
+                    result["review_id"]=dest.stem
+                    return self._json({"ok":True,**result})
+                finally:
+                    source.unlink(missing_ok=True)
 
             d=self._read_json()
             if parsed.path=="/api/install":

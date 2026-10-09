@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/aitishnyk/vacuum-voice-hub/schemas/vvh.hardware-acceptance.v1.schema.json",
+  "title": "Untrusted model-firmware installation+rollback observations",
+  "type": "object",
+  "required": [
+    "schema",
+    "model_id",
+    "firmware",
+    "package",
+    "observations"
+  ],
+  "properties": {
+    "schema": {
+      "const": "vvh.hardware-acceptance.v1"
+    },
+    "model_id": {
+      "type": "string"
+    },
+    "firmware": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "package": {
+      "type": "object",
+      "required": [
+        "sha256",
+        "size_bytes"
+      ],
+      "properties": {
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "size_bytes": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "observations": {
+      "type": "object"
+    }
+  }
+}

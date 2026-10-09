@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/aitishnyk/vacuum-voice-hub/schemas/vvh.review-history.v1.schema.json",
+  "title": "Local SHA linked (not cryptographically authenticated) review journal",
+  "type": "object",
+  "required": [
+    "schema",
+    "events",
+    "last_digest",
+    "cryptographically_authenticated"
+  ],
+  "properties": {
+    "schema": {
+      "const": "vvh.review-history.v1"
+    },
+    "events": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "last_digest": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "cryptographically_authenticated": {
+      "const": false
+    }
+  }
+}

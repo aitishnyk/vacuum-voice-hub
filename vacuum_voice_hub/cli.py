@@ -110,6 +110,15 @@ def _creator_parser(sub):
     s.add_argument("--language-attested",action="store_true")
     s.add_argument("--rights-attested",action="store_true")
     s.add_argument("--overlay")
+    s=rs.add_parser("import",help="Safely bind a returned JSON or review ZIP to a chosen local project")
+    s.add_argument("returned_file")
+    s.add_argument("--workspace",required=True)
+    s.add_argument("--output",required=True,help="New review JSON; original review and audio remain unchanged")
+    s.add_argument("--model",help="Required model identity expected from collaborator")
+    s.add_argument("--language",help="Required locale expected from collaborator")
+    s.add_argument("--overlay",help="Exact original local translation overlay if applicable")
+    s=rs.add_parser("history",help="Audit local hash-linked reviewer decision history")
+    s.add_argument("path")
     s=rs.add_parser("bundle",help="New reviewer ZIP; audio inclusion requires explicit opt-in")
     s.add_argument("path")
     s.add_argument("--output",required=True)
@@ -155,6 +164,14 @@ def _creator_main(a):
             _dump(mark_review(a.path,a.semantic,a.status,reviewer=a.reviewer,note=a.note,
                               language_attested=a.language_attested,
                               rights_attested=a.rights_attested,overlay_path=a.overlay))
+        elif a.review_cmd=="import":
+            from .review_handoff import import_review
+            _dump(import_review(a.returned_file,a.workspace,a.output,
+                                overlay_path=a.overlay,expected_model=a.model,
+                                expected_locale=a.language))
+        elif a.review_cmd=="history":
+            from .review_history import audit_review_history
+            _dump(audit_review_history(a.path))
         elif a.review_cmd=="bundle":
             _dump(export_review_bundle(a.path,a.output,include_audio=a.include_audio,
                                        overlay_path=a.overlay))
@@ -256,6 +273,9 @@ def main():
     s=research_sub.add_parser("validate-evidence",help="Validate local transport evidence without installing")
     s.add_argument("path")
     s.add_argument("--model",help="Require exact model id")
+    s=research_sub.add_parser("hardware-acceptance",help="Assess model, firmware and rollback evidence only")
+    s.add_argument("path")
+    s.add_argument("--model",help="Require exact canonical model ID")
     s=sub.add_parser("preview");s.add_argument("voice_id");s.add_argument("--model",default="dreame.vacuum.r2209");s.add_argument("--play",action="store_true")
     s=sub.add_parser("stock");s.add_argument("--model",default="dreame.vacuum.r2209");s.add_argument("--manifest-url")
     s=sub.add_parser("restore-stock");s.add_argument("stock_id");s.add_argument("--model",default="dreame.vacuum.r2209");s.add_argument("--ip",required=True);_add_auth_args(s);s.add_argument("--manifest-url");s.add_argument("--allow-experimental-transport",action="store_true")
@@ -383,6 +403,9 @@ def main():
                 _dump(assess_candidate(a.path,a.model,evidence_path=a.evidence))
             except (ResearchError,ArchiveInspectionError,KeyError,ValueError,OSError) as exc:
                 raise SystemExit(f"research inspect failed: {exc}") from exc
+        elif a.research_cmd=="hardware-acceptance":
+            from .hardware_acceptance import inspect_acceptance_file
+            _dump(inspect_acceptance_file(a.path,expected_model=a.model))
         elif a.research_cmd=="validate-evidence":
             from .transport_evidence import EvidenceError,inspect_file
             try:
