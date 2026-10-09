@@ -126,7 +126,7 @@ def import_review(source, workspace, output, *, overlay_path=None,
         if not isinstance(incoming, dict) or any(
             incoming.get(k) != local[k] for k in ("semantic", "event_ids", "text", "audio")
         ):
-            raise ValueError("returned review task identity or recording digest mismatch")
+            raise ValueError("returned review task identity/text or audio recording digest mismatch")
         state = incoming.get("review")
         if not isinstance(state, dict) or state.get("status") not in STATUSES:
             raise ValueError("invalid returned review status")
