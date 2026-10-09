@@ -10,7 +10,7 @@
 </head>
 <body><div class="wrap">
 <section class="hero">
-  <span class="pill">v0.16</span><span class="pill">215 target profiles</span><span class="pill">vvh.voicepack.v1</span><span class="pill">local-only workspace</span>
+  <span class="pill">v0.17</span><span class="pill">215 target profiles</span><span class="pill">vvh.voicepack.v1</span><span class="pill">local-only workspace</span>
   <h1>Creator Studio</h1>
   <p>Создавай одну semantic-озвучку и собирай её под разные модели. Аудио остаётся локально; GitHub не получает рабочие файлы автоматически.</p>
   <a class="toplink" href="/">← Вернуться в каталог</a>
@@ -92,6 +92,9 @@
     <button id="reviewAudit" class="secondary">Audit hashes</button>
     <select id="reviewId" aria-label="Local review checklists"></select>
     <button id="reviewReload" class="secondary">Reload</button>
+    <button id="reviewHistory" class="secondary">Audit history</button>
+    <label class="notice">Returned review JSON / metadata ZIP <input id="reviewReturnedFile" type="file" accept=".json,.zip"/></label>
+    <button id="reviewImport" class="secondary">Import as untrusted claims</button>
   </div>
   <div class="grid2">
     <label>Recording event<select id="reviewSemantic"></select></label>
@@ -328,7 +331,9 @@ async function showReview(){
   for(const task of info.tasks){
     const opt=document.createElement('option');
     opt.value=task.semantic;
-    opt.textContent=task.semantic+' · '+task.status+(task.audio_present?' · audio':' · missing audio');
+    opt.textContent=task.semantic+' · '+task.status+
+      (task.external_claim?' · external: '+task.external_claim+' (untrusted)':'')+
+      (task.audio_present?' · audio':' · missing audio');
     $('reviewSemantic').append(opt);
   }
   if(info.tasks.some(x=>x.semantic===prior))$('reviewSemantic').value=prior;
@@ -338,6 +343,29 @@ async function reviewPost(path,data){
   return api(path,{method:'POST',headers:{'Content-Type':'application/json'},
     body:JSON.stringify(data)});
 }
+$('reviewHistory').onclick=async()=>{
+  if(!$('reviewId').value)return;
+  try{
+    const report=await api('/api/creator/review-history?'+
+      new URLSearchParams({review_id:$('reviewId').value}));
+    setStatus(report);
+  }catch(e){setStatus('Review history failed: '+e)}
+};
+$('reviewImport').onclick=async()=>{
+  const file=$('reviewReturnedFile').files?.[0];
+  if(!workspace.value||!model.value||!file){setStatus('Choose project, model and returned review file.');return}
+  if(file.size<=0||file.size>2*1024*1024){setStatus('Web import accepts metadata-only reviews up to 2 MiB. Use CLI for ZIPs with audio.');return}
+  const ext=file.name.toLowerCase().endsWith('.zip')?'.zip':file.name.toLowerCase().endsWith('.json')?'.json':'';
+  if(!ext){setStatus('Select a review JSON or ZIP.');return}
+  try{
+    const params=new URLSearchParams({id:workspace.value,model_id:model.value,
+                                     language:$('scriptLocale').value,ext});
+    const result=await api('/api/creator/review/import?'+params,{
+      method:'POST',headers:{'Content-Type':'application/octet-stream'},body:await file.arrayBuffer()});
+    await loadReviews(result.review_id);
+    setStatus(result);
+  }catch(e){setStatus('Returned review import refused: '+e)}
+};
 $('reviewNew').onclick=async()=>{
   if(!workspace.value||!model.value){setStatus('Select workspace and model.');return}
   try{
