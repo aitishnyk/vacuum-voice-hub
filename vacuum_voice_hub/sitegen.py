@@ -45,6 +45,7 @@ def _public_model(m,profiles):
         "transport_verification":t.get("verification"),
         "install_default":bool(t.get("allow_default")),
         "notes":m.get("notes"),
+        "identity_source_url":t.get("evidence") if (m.get("catalog_source") or "").startswith("Public MIoT") else None,
         "adapter":m.get("adapter"),
         "package_container":(m.get("package") or {}).get("container"),
         "product_id":m.get("product_id"),
