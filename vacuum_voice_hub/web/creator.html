@@ -10,7 +10,7 @@
 </head>
 <body><div class="wrap">
 <section class="hero">
-  <span class="pill">v0.13</span><span class="pill">215 target profiles</span><span class="pill">vvh.voicepack.v1</span><span class="pill">local-only workspace</span>
+  <span class="pill">v0.14</span><span class="pill">215 target profiles</span><span class="pill">vvh.voicepack.v1</span><span class="pill">local-only workspace</span>
   <h1>Creator Studio</h1>
   <p>Создавай одну semantic-озвучку и собирай её под разные модели. Аудио остаётся локально; GitHub не получает рабочие файлы автоматически.</p>
   <a class="toplink" href="/">← Вернуться в каталог</a>
@@ -55,11 +55,18 @@
     <button id="saveMeta" class="secondary">Сохранить metadata</button>
     <button id="validate" class="secondary">Validate</button>
     <button id="coverage" class="secondary">Coverage</button>
+    <button id="preflight" class="secondary">Preflight</button>
     <button id="audioQA" class="secondary">Audio QA</button>
     <button id="build">Build model package</button>
   </div>
   <div class="progress"><i id="coverageBar"></i></div>
   <div id="coverageText" class="notice"></div>
+  <div class="notice">Multi-model batch: separate selected model IDs with commas (up to 16). Each target is preflighted; outputs remain offline and are never installed.</div>
+  <div class="toolbar">
+    <input id="batchModels" class="grow" placeholder="dreame.vacuum.r2209, xiaomi.vacuum.d101" aria-label="Comma-separated model IDs for offline batch"/>
+    <label class="notice"><input type="checkbox" id="batchAudioQA"> WAV QA</label>
+    <button id="batchBuild" class="secondary">Build batch</button>
+  </div>
 </div>
 
 <div class="panel">
@@ -207,6 +214,30 @@ $('saveMeta').onclick=async()=>{
 };
 $('validate').onclick=async()=>{try{await loadWorkspace();setStatus(snapshot.validation)}catch(e){setStatus('Validate error: '+e)}};
 $('coverage').onclick=async()=>{try{await loadWorkspace();renderCoverage(snapshot.coverage);setStatus(snapshot.coverage)}catch(e){setStatus('Coverage error: '+e)}};
+$('preflight').onclick=async()=>{
+  if(!workspace.value||!model.value){setStatus('Select a workspace and model first.');return;}
+  try{
+    const query=new URLSearchParams({id:workspace.value,model_id:model.value,check_audio:'true'});
+    const data=await api('/api/creator/preflight?'+query);
+    setStatus(data.report);
+  }catch(e){setStatus('Preflight failed: '+e)}
+};
+$('batchBuild').onclick=async()=>{
+  if(!workspace.value){setStatus('Select a workspace first.');return;}
+  const models=$('batchModels').value.split(',').map(x=>x.trim()).filter(Boolean);
+  if(!models.length||models.length>16){setStatus('Choose 1..16 model IDs.');return;}
+  $('batchBuild').disabled=true;
+  setStatus('Running offline batch preflight and creating individual packages…');
+  try{
+    const response=await api('/api/creator/batch',{method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({id:workspace.value,models,
+                           check_audio:$('batchAudioQA').checked})});
+    setStatus(response);
+  }catch(e){setStatus('Batch failed: '+e)}
+  finally{$('batchBuild').disabled=false;}
+};
+
 $('previewScript').onclick=async()=>{
   try{
     const params=new URLSearchParams({language:$('scriptLocale').value,model_id:model.value});
