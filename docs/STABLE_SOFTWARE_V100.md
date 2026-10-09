@@ -74,3 +74,7 @@ v1.x work. Their absence cannot be hidden by the stable label.
 - Feature PR: [#48](https://github.com/aitishnyk/vacuum-voice-hub/pull/48), exact feature SHA `e7c31a033ed13a0314cfaba8d8fe2c789fcf3e99`; 250 Python tests PASS, model matrix and stable audit PASS, Public Site, Release Bundle, CodeQL and 3 desktop platforms all PASS.
 - Main merge SHA: `5406260ce3abb19b53fd9cb3213eef7f93ab4a8d`. Independent [CI run #37973030945](https://github.com/aitishnyk/vacuum-voice-hub/actions/runs/37973030945) SUCCESS, [Public Site run #37973031112](https://github.com/aitishnyk/vacuum-voice-hub/actions/runs/37973031112) SUCCESS, CodeQL Python+actions checks SUCCESS.
 - No independent signed/notarized desktop binary, no official GitHub Release publication, and no newly verified robot models are claimed.
+
+## v1.1.0 acceptance extension
+
+The v1.1 community testkit has source assurance evidence in [PR #52](https://github.com/aitishnyk/vacuum-voice-hub/pull/52), exact functional head `d0e6c98fdea5539eb25fe3355a282b82ab813033`: 265/265 PASS, Model Matrix, stable audit, CodeQL, Public Site, Release Bundle and all three desktop CI packages PASS. Independent merged-main SHA `111d5bd20229e2beef7ff8e1970d7a1a27867baa` passed CI (run 37978249472), Public Site and CodeQL. This proves software acceptance, **not physical compatibility**. The exact GitHub Release tag/assets for v1.1 must be verified separately after publication.

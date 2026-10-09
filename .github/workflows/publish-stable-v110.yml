@@ -1,0 +1,102 @@
+name: Publish Stable v1.1.0 Source Release
+
+on:
+  workflow_run:
+    workflows: ["CI"]
+    types: [completed]
+    branches: [main]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: vacuum-voice-hub-v1.1.0-source-release
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: >-
+      github.repository == 'aitishnyk/vacuum-voice-hub' &&
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.head_branch == 'main' &&
+      github.event.workflow_run.head_repository.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout exact successful main CI SHA
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          persist-credentials: false
+      - name: Gate current main and avoid touching an existing release
+        id: gate
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CI_SHA: ${{ github.event.workflow_run.head_sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if gh release view v1.1.0 --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "v1.1.0 already published; never modify its tag or assets."
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          current="$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/main" --jq .object.sha)"
+          if [ "$current" != "$CI_SHA" ]; then
+            echo "Refusing to publish from a stale main CI SHA"
+            exit 1
+          fi
+          python -c "from vacuum_voice_hub import __version__; assert __version__ == '1.1.0', 'wrong package version'"
+          grep -Fq 'v1.1.0 SOFTWARE STABLE / SOURCE SEALED' PROJECT_STATUS.md
+          if gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/v1.1.0" >/dev/null 2>&1; then
+            echo "Tag exists without verified release; no overwrite allowed"
+            exit 1
+          fi
+          echo "publish=true" >> "$GITHUB_OUTPUT"
+      - name: Setup Python for verified publisher
+        if: steps.gate.outputs.publish == 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Reverify stable source and model integrity
+        if: steps.gate.outputs.publish == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install -e .
+          python scripts/stable_release_audit.py
+          python scripts/model_matrix_audit.py
+      - name: Build and verify deterministic public source artifacts
+        if: steps.gate.outputs.publish == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m vacuum_voice_hub release build --output release --source-date-epoch 1700000000
+          python -m vacuum_voice_hub release verify release
+          (cd release && sha256sum --check SHA256SUMS)
+      - name: Publish v1.1.0 public catalog and metadata assets
+        if: steps.gate.outputs.publish == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CI_SHA: ${{ github.event.workflow_run.head_sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          current="$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/main" --jq .object.sha)"
+          test "$current" = "$CI_SHA"
+          if gh release view v1.1.0 --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "Another run already published v1.1.0"
+            exit 0
+          fi
+          gh release create v1.1.0 \
+            --repo "$GITHUB_REPOSITORY" \
+            --target "$CI_SHA" \
+            --title "Vacuum Voice Hub v1.1.0 - Community Hardware Test Kit" \
+            --notes-file docs/RELEASE_NOTES_V110.md \
+            --latest \
+            release/VacuumVoiceHub-public-1.1.0.zip \
+            release/release-manifest.json \
+            release/update-feed.json \
+            release/SHA256SUMS \
+            release/sbom.spdx.json
+          gh release view v1.1.0 --repo "$GITHUB_REPOSITORY" --json tagName,url,isDraft,isPrerelease

@@ -1,8 +1,8 @@
 # Roadmap
 
-## v1.1 — Community hardware intake automation (source candidate)
+## v1.1 — Community hardware intake automation (SOFTWARE STABLE / SOURCE SEALED)
 
-Generate a safe unapproved metadata-only SHA-256 hardware report using `vvh research hardware-scaffold`, collect five real observed test steps only with redacted HTTPS evidence, and have maintainers manually review each exact model+firmware before any transport policy change. Retain software CI and community-first optional donated/loaned hardware. Future: simplify translation proofreading, expand true firmware event mappings and add more DAW-like audio editing with preservation/rights checks.
+Implemented and CI-certified: generate a safe unapproved metadata-only SHA-256 hardware report using `vvh research hardware-scaffold`, collect five real observed test steps only with redacted HTTPS evidence, and have maintainers manually review each exact model+firmware before any transport policy change. Retain software CI and community-first optional donated/loaned hardware. Future: simplify translation proofreading, expand true firmware event mappings and add more DAW-like audio editing with preservation/rights checks.
 
 ## v1.0 SOFTWARE STABLE / SOURCE SEALED
 
