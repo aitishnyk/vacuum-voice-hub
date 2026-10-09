@@ -1,3 +1,9 @@
+## v1.4.0 — Per-firmware evidence matrix
+
+- Offline, read-only per-model firmware self-report reconciliation, no credentials or source references in result.
+- SHA-256 identity, exact canonical model+firmware, duplicate/symlink/secret rejection, conflict flags.
+- No new hardware install permissions or auto-certified devices.
+
 ## v1.3.0 — Local pronunciation lexicon
 
 - Attributed, bounded user-provided pronunciation replacements opt-in for existing local Piper and espeak-ng.

@@ -1,5 +1,10 @@
 # Roadmap
 
+## v1.4 — Model & Firmware Evidence Matrix (offline software wave)
+
+Strict per-model and per-firmware self-report reconciliation for up to 64 local reports, with digest validation and conflicting evidence flags. This does NOT authorize any new hardware/firmware installation. [Guide](docs/FIRMWARE_MATRIX_V140.md). Broader hardware adapter verification remains community-driven and pending.
+
+
 ## v1.3 — Pronunciation Lexicon (implemented initial wave)
 
 User-provided strict locale lexicon, one-pass spoken substitutions for Piper/eSpeak and read-only preview with SHA-256 provenance. Expanded audited multilingual semantic coverage and full independent native-speaker reviews remain pending. See [guide](docs/PRONUNCIATION_V130.md).
