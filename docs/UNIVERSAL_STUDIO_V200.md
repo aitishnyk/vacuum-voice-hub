@@ -19,6 +19,11 @@ vvh studio report --workspace ./my-creator-voice \
   --audio-qa --output ./studio-review.json
 ```
 
+The existing Creator Studio browser app also provides a **Universal Studio**
+read-only QA panel. Its local `/api/studio/inspect` route requires the current
+Creator session header and never uploads data, modifies files or controls
+a robot. CLI reporting is available without a browser.
+
 The Studio inspection combines actual catalog identity, source manifest
 and audio SHA-256, preflighted model event mapping/collisions, text-vs-audio
 language coverage, offline build readiness and human review claims.

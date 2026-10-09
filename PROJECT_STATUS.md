@@ -1,24 +1,34 @@
-# Project status — v1.9.0 SOFTWARE STABLE (source)
+# Project status — v2.0.0 SOFTWARE STABLE (source candidate)
 
-The v1.9 software increment adds a **real offline Creator backup/restore
-workflow**: deterministic ZIP of an existing project's explicitly assigned
-audio and manifest, SHA-256 checks for every member, verification,
-comparison with live source, and safe restore to a **new directory**.
-Restore never overwrites or mutates existing Creator workspaces.
+**Universal Voice Studio** is an integrated offline Creator research/QA
+product layer. The v2 source introduces a real unified CLI API and
+session-guarded local Creator UI panel aggregating catalog model identity,
+language script coverage, audio recordings and source SHA-256, mapped
+semantic events/collisions, optional translation/reviewer attestations,
+and offline adapter readiness.
 
-These private user backups **contain actual voice audio** and are
-neither encrypted nor remotely uploaded. Public GitHub release assets
-are still source/catalog metadata only. Archive checksums are not a
-copyright license, digital signature or manufacturer-endorsed install.
+Existing functional stages preserved: v1.2 language/audio QA, v1.3
+pronunciation, v1.4 firmware evidence, v1.5 local timeline editor,
+v1.6 community inbox, v1.7 offline adapter interchange, v1.8 voice
+library and v1.9 backup/recovery. All former data and CLI namespaces
+remain supported without destructive migration.
 
-Source-stable acceptance requires independent PR regression, CodeQL,
-public site and bundle, Linux/macOS/Windows packaging, historical model
-preservation audit and successful merged-main CI + version-specific
-official GitHub Release. Platform code signing/notarization are not
-claimed without external signing infrastructure.
+**This is not proof of universal hardware installation**. 223 model
+profiles are researched identities; 55 credited voice variants are
+historical assets and >=22 script locales are *text*, not automatically
+recorded audio. Xiaomi X10 remains the only model with independently
+accepted physical VVH custom-install testing. Licensing, volunteer
+claims, manufacturer signatures and desktop code signing are not
+automatically verified.
 
-Baseline: 223 researched model identities, 55 credited variants,
->=22 text-only script locales and Xiaomi X10 as VVH's sole physically
-verified custom-voice install target. No new transport authorization.
-See [guide](docs/CREATOR_RECOVERY_V190.md)
-and [roadmap](https://github.com/aitishnyk/vacuum-voice-hub/issues/55).
+Source-release gates remain independent: full Python regression,
+CI/model preservation, security/CodeQL, public bundle and site,
+Windows/macOS/Linux desktop builds, merged-main CI and immutable
+GitHub v2.0 publisher (never claimed before their success).
+The public ZIP contains source/catalog metadata, not copyrighted
+voices or private Creator backups. Separate commercial Telegram
+Stars/Bunny functionality is out of scope.
+
+See [Universal Studio](docs/UNIVERSAL_STUDIO_V200.md),
+[migration guide](docs/MIGRATION_V200.md) and
+[roadmap](https://github.com/aitishnyk/vacuum-voice-hub/issues/55).
