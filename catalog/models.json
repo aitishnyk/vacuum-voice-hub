@@ -2325,6 +2325,87 @@
       "notes": "IJAI ZIP/MP3 adaptation is supported using shared semantic names; exact local action transport is not confirmed for this model."
     },
     {
+      "id": "ijai.vacuum.v15",
+      "name": "Xiaomi Robot Vacuum-Mop 2 Pro (India)",
+      "vendor": "IJAI / Xiaomi",
+      "aliases": [
+        "ijai.vacuum.v15"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/ijai"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
+      "id": "ijai.vacuum.v16",
+      "name": "Xiaomi Robot Vacuum-Mop 2i",
+      "vendor": "IJAI / Xiaomi",
+      "aliases": [
+        "ijai.vacuum.v16"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/ijai"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
+      "id": "ijai.vacuum.v17",
+      "name": "Xiaomi Robot Vacuum S10",
+      "vendor": "IJAI / Xiaomi",
+      "aliases": [
+        "ijai.vacuum.v17"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/ijai"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
       "id": "ijai.vacuum.v18",
       "name": "Mijia Robot Vacuum-Mop 3C",
       "vendor": "IJAI / Xiaomi",
@@ -2975,6 +3056,87 @@
       "notes": "VVH can adapt/preview semantic audio, but custom package installation is blocked because newer Roborock generations use vendor-signed voice packs."
     },
     {
+      "id": "roborock.vacuum.a30",
+      "name": "Roborock G10 (A30)",
+      "vendor": "Roborock",
+      "aliases": [
+        "roborock.vacuum.a30"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/roborock.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
+      "id": "roborock.vacuum.a34",
+      "name": "Roborock Q5",
+      "vendor": "Roborock",
+      "aliases": [
+        "roborock.vacuum.a34"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/roborock.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
+      "id": "roborock.vacuum.a37",
+      "name": "Roborock T8",
+      "vendor": "Roborock",
+      "aliases": [
+        "roborock.vacuum.a37"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/roborock.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
       "id": "roborock.vacuum.a38",
       "name": "Roborock Q7 Max",
       "vendor": "Roborock / Xiaomi",
@@ -3167,6 +3329,33 @@
       "notes": "VVH can adapt/preview semantic audio, but custom package installation is blocked because newer Roborock generations use vendor-signed voice packs."
     },
     {
+      "id": "roborock.vacuum.a64",
+      "name": "Roborock G10S Pure",
+      "vendor": "Roborock",
+      "aliases": [
+        "roborock.vacuum.a64"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/roborock.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
       "id": "roborock.vacuum.a65",
       "name": "Roborock S7 Max Ultra",
       "vendor": "Roborock / Xiaomi",
@@ -3293,6 +3482,141 @@
         "evidence": "https://github.com/sverdlyuk/glados_ukr"
       },
       "notes": "VVH can adapt/preview semantic audio, but custom package installation is blocked because newer Roborock generations use vendor-signed voice packs."
+    },
+    {
+      "id": "roborock.vacuum.a72",
+      "name": "Roborock Q5 Pro",
+      "vendor": "Roborock",
+      "aliases": [
+        "roborock.vacuum.a72"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/roborock.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
+      "id": "roborock.vacuum.a73",
+      "name": "Roborock Q8 Max",
+      "vendor": "Roborock",
+      "aliases": [
+        "roborock.vacuum.a73"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/roborock.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
+      "id": "roborock.vacuum.a74",
+      "name": "Roborock P10",
+      "vendor": "Roborock",
+      "aliases": [
+        "roborock.vacuum.a74"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/roborock.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
+      "id": "roborock.vacuum.a75",
+      "name": "Roborock Qrevo",
+      "vendor": "Roborock",
+      "aliases": [
+        "roborock.vacuum.a75"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/roborock.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
+      "id": "roborock.vacuum.a76",
+      "name": "Roborock G10S Auto",
+      "vendor": "Roborock",
+      "aliases": [
+        "roborock.vacuum.a76"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/roborock.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
     },
     {
       "id": "roborock.vacuum.c1",
@@ -3655,6 +3979,60 @@
       "notes": "Classic Roborock custom .pkg adaptation is supported. Local install is experimental until VVH receives a physical report for this exact model."
     },
     {
+      "id": "roidmi.vacuum.r1b",
+      "name": "ROIDMI EVE (R1B)",
+      "vendor": "ROIDMI",
+      "aliases": [
+        "roidmi.vacuum.r1b"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/roidmi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
+      "id": "roidmi.vacuum.sdj60",
+      "name": "ROIDMI EVE MAX",
+      "vendor": "ROIDMI",
+      "aliases": [
+        "roidmi.vacuum.sdj60"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/roidmi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
       "id": "roidmi.vacuum.v1",
       "name": "ROIDMI Cordless Vacuum Cleaner",
       "vendor": "ROIDMI / Xiaomi",
@@ -3711,6 +4089,60 @@
         "evidence": "https://gruzdev.kiev.ua/en/blog/translations-xiaomi-home-mi-home-plugins-xiaomi-smart-home"
       },
       "notes": "Portable semantic build/preview supported. Exact vendor custom-voice package and local transport are not yet confirmed, so installation is fail-closed."
+    },
+    {
+      "id": "roidmi.vacuum.v62",
+      "name": "ROIDMI EVE CC",
+      "vendor": "ROIDMI",
+      "aliases": [
+        "roidmi.vacuum.v62"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/roidmi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
+      "id": "roidmi.vacuum.v63",
+      "name": "ROIDMI EVE ROOK",
+      "vendor": "ROIDMI",
+      "aliases": [
+        "roidmi.vacuum.v63"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/roidmi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
     },
     {
       "id": "roidmi.vacuum.v66",
@@ -3771,6 +4203,114 @@
       "notes": "Portable semantic build/preview supported. Exact vendor custom-voice package and local transport are not yet confirmed, so installation is fail-closed."
     },
     {
+      "id": "viomi.vacuum.v10",
+      "name": "Mi Robot Vacuum-Mop P (India)",
+      "vendor": "Viomi",
+      "aliases": [
+        "viomi.vacuum.v10"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
+      "id": "viomi.vacuum.v11",
+      "name": "Viomi Vision Robot Vacuum",
+      "vendor": "Viomi",
+      "aliases": [
+        "viomi.vacuum.v11"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
+      "id": "viomi.vacuum.v12",
+      "name": "Viomi X2 (LDS)",
+      "vendor": "Viomi",
+      "aliases": [
+        "viomi.vacuum.v12"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
+      "id": "viomi.vacuum.v13",
+      "name": "Viomi V3",
+      "vendor": "Viomi",
+      "aliases": [
+        "viomi.vacuum.v13"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
       "id": "viomi.vacuum.v15",
       "name": "VIOMI Alpha 2 Pro",
       "vendor": "Viomi / Xiaomi",
@@ -3800,6 +4340,168 @@
       "notes": "Portable semantic build/preview supported. Exact vendor custom-voice package and local transport are not yet confirmed, so installation is fail-closed."
     },
     {
+      "id": "viomi.vacuum.v17",
+      "name": "Viomi Dust-Collection Robot Vacuum",
+      "vendor": "Viomi",
+      "aliases": [
+        "viomi.vacuum.v17"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
+      "id": "viomi.vacuum.v18",
+      "name": "Viomi S9",
+      "vendor": "Viomi",
+      "aliases": [
+        "viomi.vacuum.v18"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
+      "id": "viomi.vacuum.v19",
+      "name": "Viomi SE",
+      "vendor": "Viomi",
+      "aliases": [
+        "viomi.vacuum.v19"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
+      "id": "viomi.vacuum.v20",
+      "name": "Viomi Lingli UV",
+      "vendor": "Viomi",
+      "aliases": [
+        "viomi.vacuum.v20"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
+      "id": "viomi.vacuum.v21",
+      "name": "Viomi Alpha UV",
+      "vendor": "Viomi",
+      "aliases": [
+        "viomi.vacuum.v21"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
+      "id": "viomi.vacuum.v22",
+      "name": "Viomi Alpha 2 Pro",
+      "vendor": "Viomi",
+      "aliases": [
+        "viomi.vacuum.v22"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
       "id": "viomi.vacuum.v23",
       "name": "VIOMI V3 Max",
       "vendor": "Viomi / Xiaomi",
@@ -3827,6 +4529,303 @@
         "evidence": "https://gruzdev.kiev.ua/en/blog/translations-xiaomi-home-mi-home-plugins-xiaomi-smart-home"
       },
       "notes": "Portable semantic build/preview supported. Exact vendor custom-voice package and local transport are not yet confirmed, so installation is fail-closed."
+    },
+    {
+      "id": "viomi.vacuum.v24",
+      "name": "Viomi 5G IoT Lingli 2",
+      "vendor": "Viomi",
+      "aliases": [
+        "viomi.vacuum.v24"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
+      "id": "viomi.vacuum.v25",
+      "name": "Viomi X3",
+      "vendor": "Viomi",
+      "aliases": [
+        "viomi.vacuum.v25"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
+      "id": "viomi.vacuum.v27",
+      "name": "Viomi Alpha 2 Plus",
+      "vendor": "Viomi",
+      "aliases": [
+        "viomi.vacuum.v27"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
+      "id": "viomi.vacuum.v29",
+      "name": "Viomi Eagle",
+      "vendor": "Viomi",
+      "aliases": [
+        "viomi.vacuum.v29"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
+      "id": "viomi.vacuum.v3",
+      "name": "Viomi Robot Vacuum Pro",
+      "vendor": "Viomi",
+      "aliases": [
+        "viomi.vacuum.v3"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
+      "id": "viomi.vacuum.v35",
+      "name": "Viomi V2 Max",
+      "vendor": "Viomi",
+      "aliases": [
+        "viomi.vacuum.v35"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
+      "id": "viomi.vacuum.v36",
+      "name": "Viomi V5",
+      "vendor": "Viomi",
+      "aliases": [
+        "viomi.vacuum.v36"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
+      "id": "viomi.vacuum.v37",
+      "name": "Viomi Alpha Lite",
+      "vendor": "Viomi",
+      "aliases": [
+        "viomi.vacuum.v37"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
+      "id": "viomi.vacuum.v38",
+      "name": "Viomi V5 Pro",
+      "vendor": "Viomi",
+      "aliases": [
+        "viomi.vacuum.v38"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
+      "id": "viomi.vacuum.v40",
+      "name": "Viomi Alpha 2 Pro (WH)",
+      "vendor": "Viomi",
+      "aliases": [
+        "viomi.vacuum.v40"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
+      "id": "viomi.vacuum.v41",
+      "name": "Viomi Alpha 2 Max",
+      "vendor": "Viomi",
+      "aliases": [
+        "viomi.vacuum.v41"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
     },
     {
       "id": "viomi.vacuum.v45",
@@ -3887,6 +4886,114 @@
       "notes": "Portable semantic build/preview supported. Exact vendor custom-voice package and local transport are not yet confirmed, so installation is fail-closed."
     },
     {
+      "id": "viomi.vacuum.v53",
+      "name": "Viomi Alpha 2 Lite",
+      "vendor": "Viomi",
+      "aliases": [
+        "viomi.vacuum.v53"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
+      "id": "viomi.vacuum.v56",
+      "name": "Viomi V3 Absolut",
+      "vendor": "Viomi",
+      "aliases": [
+        "viomi.vacuum.v56"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
+      "id": "viomi.vacuum.v6",
+      "name": "Viomi V2 Pro (export)",
+      "vendor": "Viomi",
+      "aliases": [
+        "viomi.vacuum.v6"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
+      "id": "viomi.vacuum.v60",
+      "name": "Viomi Master 10 Max",
+      "vendor": "Viomi",
+      "aliases": [
+        "viomi.vacuum.v60"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
       "id": "viomi.vacuum.v7",
       "name": "Mi Robot Vacuum-Mop P",
       "vendor": "Viomi / Xiaomi",
@@ -3943,6 +5050,33 @@
         "evidence": "https://gruzdev.kiev.ua/en/blog/translations-xiaomi-home-mi-home-plugins-xiaomi-smart-home"
       },
       "notes": "Portable semantic build/preview supported. Exact vendor custom-voice package and local transport are not yet confirmed, so installation is fail-closed."
+    },
+    {
+      "id": "viomi.vacuum.v9",
+      "name": "Mi Robot Vacuum-Mop P (Taiwan)",
+      "vendor": "Viomi",
+      "aliases": [
+        "viomi.vacuum.v9"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
     },
     {
       "id": "xiaomi.cleaner.wx3",
@@ -4032,6 +5166,141 @@
       "notes": "Portable semantic build/preview supported. Exact vendor custom-voice package and local transport are not yet confirmed, so installation is fail-closed."
     },
     {
+      "id": "xiaomi.vacuum.b106eu",
+      "name": "Xiaomi Robot Vacuum S12",
+      "vendor": "Xiaomi / Mijia",
+      "aliases": [
+        "xiaomi.vacuum.b106eu"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/xiaomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
+      "id": "xiaomi.vacuum.b108gl",
+      "name": "Xiaomi Robot Vacuum S20+",
+      "vendor": "Xiaomi / Mijia",
+      "aliases": [
+        "xiaomi.vacuum.b108gl"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/xiaomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
+      "id": "xiaomi.vacuum.b112",
+      "name": "Xiaomi Robot Vacuum E10",
+      "vendor": "Xiaomi / Mijia",
+      "aliases": [
+        "xiaomi.vacuum.b112"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/xiaomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
+      "id": "xiaomi.vacuum.b112bk",
+      "name": "Xiaomi Robot Vacuum E10C",
+      "vendor": "Xiaomi / Mijia",
+      "aliases": [
+        "xiaomi.vacuum.b112bk"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/xiaomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
+      "id": "xiaomi.vacuum.b112gl",
+      "name": "Xiaomi Robot Vacuum E12",
+      "vendor": "Xiaomi / Mijia",
+      "aliases": [
+        "xiaomi.vacuum.b112gl"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/xiaomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
       "id": "xiaomi.vacuum.c101",
       "name": "Mijia Self-Cleaning Robot Vacuum-Mop 2",
       "vendor": "Xiaomi / Mijia",
@@ -4059,6 +5328,33 @@
         "evidence": "https://gruzdev.kiev.ua/en/blog/translations-xiaomi-home-mi-home-plugins-xiaomi-smart-home"
       },
       "notes": "Portable semantic build/preview supported. Exact vendor custom-voice package and local transport are not yet confirmed, so installation is fail-closed."
+    },
+    {
+      "id": "xiaomi.vacuum.c101eu",
+      "name": "Xiaomi Robot Vacuum X20",
+      "vendor": "Xiaomi / Mijia",
+      "aliases": [
+        "xiaomi.vacuum.c101eu"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/xiaomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
     },
     {
       "id": "xiaomi.vacuum.c102cn",
@@ -4206,6 +5502,33 @@
       "notes": "Portable semantic build/preview supported. Exact vendor custom-voice package and local transport are not yet confirmed, so installation is fail-closed."
     },
     {
+      "id": "xiaomi.vacuum.c108",
+      "name": "Xiaomi Robot Vacuum E5",
+      "vendor": "Xiaomi / Mijia",
+      "aliases": [
+        "xiaomi.vacuum.c108"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/xiaomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
       "id": "xiaomi.vacuum.d101",
       "name": "Mijia Robot Vacuum H40",
       "vendor": "Xiaomi / Mijia",
@@ -4264,6 +5587,33 @@
       "notes": "Portable semantic build/preview supported. Exact vendor custom-voice package and local transport are not yet confirmed, so installation is fail-closed."
     },
     {
+      "id": "xiaomi.vacuum.d102gl",
+      "name": "Xiaomi Robot Vacuum X20 Pro",
+      "vendor": "Xiaomi / Mijia",
+      "aliases": [
+        "xiaomi.vacuum.d102gl"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/xiaomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
       "id": "xiaomi.vacuum.d103cn",
       "name": "Mijia Robot Vacuum M30 S",
       "vendor": "Xiaomi / Mijia",
@@ -4291,6 +5641,60 @@
         "evidence": "https://gruzdev.kiev.ua/en/blog/translations-xiaomi-home-mi-home-plugins-xiaomi-smart-home"
       },
       "notes": "Portable semantic build/preview supported. Exact vendor custom-voice package and local transport are not yet confirmed, so installation is fail-closed."
+    },
+    {
+      "id": "xiaomi.vacuum.d106gl",
+      "name": "Xiaomi Robot Vacuum S20",
+      "vendor": "Xiaomi / Mijia",
+      "aliases": [
+        "xiaomi.vacuum.d106gl"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/xiaomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
+      "id": "xiaomi.vacuum.d109gl",
+      "name": "Xiaomi Robot Vacuum X20 Max",
+      "vendor": "Xiaomi / Mijia",
+      "aliases": [
+        "xiaomi.vacuum.d109gl"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/xiaomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
     },
     {
       "id": "xiaomi.vacuum.d110ch",
@@ -4322,6 +5726,33 @@
       "notes": "Portable semantic build/preview supported. Exact vendor custom-voice package and local transport are not yet confirmed, so installation is fail-closed."
     },
     {
+      "id": "xiaomi.vacuum.e101gb",
+      "name": "Xiaomi Robot Vacuum S40C",
+      "vendor": "Xiaomi / Mijia",
+      "aliases": [
+        "xiaomi.vacuum.e101gb"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/xiaomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
       "id": "xiaomi.vacuum.ov21cn",
       "name": "Mijia Robot Vacuum 5 Pro",
       "vendor": "Xiaomi / Mijia",
@@ -4349,6 +5780,33 @@
         "evidence": "https://gruzdev.kiev.ua/en/blog/translations-xiaomi-home-mi-home-plugins-xiaomi-smart-home"
       },
       "notes": "Portable semantic build/preview supported. Exact vendor custom-voice package and local transport are not yet confirmed, so installation is fail-closed."
+    },
+    {
+      "id": "xiaomi.vacuum.ov21gl",
+      "name": "Xiaomi Robot Vacuum 5 Pro",
+      "vendor": "Xiaomi / Mijia",
+      "aliases": [
+        "xiaomi.vacuum.ov21gl"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/xiaomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
     },
     {
       "id": "xiaomi.vacuum.ov31cn",
@@ -4380,6 +5838,33 @@
       "notes": "Portable semantic build/preview supported. Exact vendor custom-voice package and local transport are not yet confirmed, so installation is fail-closed."
     },
     {
+      "id": "xiaomi.vacuum.ov31gl",
+      "name": "Xiaomi Robot Vacuum 5",
+      "vendor": "Xiaomi / Mijia",
+      "aliases": [
+        "xiaomi.vacuum.ov31gl"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/xiaomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
       "id": "xiaomi.vacuum.ov42cn",
       "name": "Mijia Robot Vacuum 5C",
       "vendor": "Xiaomi / Mijia",
@@ -4407,6 +5892,168 @@
         "evidence": "https://gruzdev.kiev.ua/en/blog/translations-xiaomi-home-mi-home-plugins-xiaomi-smart-home"
       },
       "notes": "Portable semantic build/preview supported. Exact vendor custom-voice package and local transport are not yet confirmed, so installation is fail-closed."
+    },
+    {
+      "id": "xiaomi.vacuum.ov42gl",
+      "name": "Xiaomi Robot Vacuum H50 Pro",
+      "vendor": "Xiaomi / Mijia",
+      "aliases": [
+        "xiaomi.vacuum.ov42gl"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/xiaomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
+      "id": "xiaomi.vacuum.ov43gb",
+      "name": "Xiaomi Robot Vacuum H50",
+      "vendor": "Xiaomi / Mijia",
+      "aliases": [
+        "xiaomi.vacuum.ov43gb"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/xiaomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
+      "id": "xiaomi.vacuum.ov51gl",
+      "name": "Xiaomi Robot Vacuum H40 (Global)",
+      "vendor": "Xiaomi / Mijia",
+      "aliases": [
+        "xiaomi.vacuum.ov51gl"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/xiaomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
+      "id": "xiaomi.vacuum.ov71gl",
+      "name": "Xiaomi Robot Vacuum S40 Pro",
+      "vendor": "Xiaomi / Mijia",
+      "aliases": [
+        "xiaomi.vacuum.ov71gl"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/xiaomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
+      "id": "xiaomi.vacuum.ov81cn",
+      "name": "Mijia Robot Vacuum 4 (China)",
+      "vendor": "Xiaomi / Mijia",
+      "aliases": [
+        "xiaomi.vacuum.ov81cn"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/xiaomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
+    },
+    {
+      "id": "xiaomi.vacuum.ov81gl",
+      "name": "Xiaomi Robot Vacuum S40",
+      "vendor": "Xiaomi / Mijia",
+      "aliases": [
+        "xiaomi.vacuum.ov81gl"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/xiaomi.vacuum"
+      },
+      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
     },
     {
       "id": "xiaomi.vacuum.pv11cn",
@@ -4581,1653 +6228,6 @@
         "evidence": "https://gruzdev.kiev.ua/en/blog/translations-xiaomi-home-mi-home-plugins-xiaomi-smart-home"
       },
       "notes": "Portable semantic build/preview supported. Exact vendor custom-voice package and local transport are not yet confirmed, so installation is fail-closed."
-    },
-    {
-      "id": "viomi.vacuum.v60",
-      "name": "Viomi Master 10 Max",
-      "vendor": "Viomi",
-      "aliases": [
-        "viomi.vacuum.v60"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "viomi.vacuum.v56",
-      "name": "Viomi V3 Absolut",
-      "vendor": "Viomi",
-      "aliases": [
-        "viomi.vacuum.v56"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "viomi.vacuum.v53",
-      "name": "Viomi Alpha 2 Lite",
-      "vendor": "Viomi",
-      "aliases": [
-        "viomi.vacuum.v53"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "viomi.vacuum.v36",
-      "name": "Viomi V5",
-      "vendor": "Viomi",
-      "aliases": [
-        "viomi.vacuum.v36"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "viomi.vacuum.v38",
-      "name": "Viomi V5 Pro",
-      "vendor": "Viomi",
-      "aliases": [
-        "viomi.vacuum.v38"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "viomi.vacuum.v41",
-      "name": "Viomi Alpha 2 Max",
-      "vendor": "Viomi",
-      "aliases": [
-        "viomi.vacuum.v41"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "viomi.vacuum.v40",
-      "name": "Viomi Alpha 2 Pro (WH)",
-      "vendor": "Viomi",
-      "aliases": [
-        "viomi.vacuum.v40"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "viomi.vacuum.v35",
-      "name": "Viomi V2 Max",
-      "vendor": "Viomi",
-      "aliases": [
-        "viomi.vacuum.v35"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "viomi.vacuum.v22",
-      "name": "Viomi Alpha 2 Pro",
-      "vendor": "Viomi",
-      "aliases": [
-        "viomi.vacuum.v22"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "viomi.vacuum.v37",
-      "name": "Viomi Alpha Lite",
-      "vendor": "Viomi",
-      "aliases": [
-        "viomi.vacuum.v37"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "viomi.vacuum.v24",
-      "name": "Viomi 5G IoT Lingli 2",
-      "vendor": "Viomi",
-      "aliases": [
-        "viomi.vacuum.v24"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "viomi.vacuum.v27",
-      "name": "Viomi Alpha 2 Plus",
-      "vendor": "Viomi",
-      "aliases": [
-        "viomi.vacuum.v27"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "viomi.vacuum.v25",
-      "name": "Viomi X3",
-      "vendor": "Viomi",
-      "aliases": [
-        "viomi.vacuum.v25"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "viomi.vacuum.v29",
-      "name": "Viomi Eagle",
-      "vendor": "Viomi",
-      "aliases": [
-        "viomi.vacuum.v29"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "viomi.vacuum.v20",
-      "name": "Viomi Lingli UV",
-      "vendor": "Viomi",
-      "aliases": [
-        "viomi.vacuum.v20"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "viomi.vacuum.v21",
-      "name": "Viomi Alpha UV",
-      "vendor": "Viomi",
-      "aliases": [
-        "viomi.vacuum.v21"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "viomi.vacuum.v18",
-      "name": "Viomi S9",
-      "vendor": "Viomi",
-      "aliases": [
-        "viomi.vacuum.v18"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "viomi.vacuum.v9",
-      "name": "Mi Robot Vacuum-Mop P (Taiwan)",
-      "vendor": "Viomi",
-      "aliases": [
-        "viomi.vacuum.v9"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "viomi.vacuum.v10",
-      "name": "Mi Robot Vacuum-Mop P (India)",
-      "vendor": "Viomi",
-      "aliases": [
-        "viomi.vacuum.v10"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "viomi.vacuum.v19",
-      "name": "Viomi SE",
-      "vendor": "Viomi",
-      "aliases": [
-        "viomi.vacuum.v19"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "viomi.vacuum.v17",
-      "name": "Viomi Dust-Collection Robot Vacuum",
-      "vendor": "Viomi",
-      "aliases": [
-        "viomi.vacuum.v17"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "viomi.vacuum.v13",
-      "name": "Viomi V3",
-      "vendor": "Viomi",
-      "aliases": [
-        "viomi.vacuum.v13"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "viomi.vacuum.v12",
-      "name": "Viomi X2 (LDS)",
-      "vendor": "Viomi",
-      "aliases": [
-        "viomi.vacuum.v12"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "viomi.vacuum.v11",
-      "name": "Viomi Vision Robot Vacuum",
-      "vendor": "Viomi",
-      "aliases": [
-        "viomi.vacuum.v11"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "viomi.vacuum.v3",
-      "name": "Viomi Robot Vacuum Pro",
-      "vendor": "Viomi",
-      "aliases": [
-        "viomi.vacuum.v3"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "viomi.vacuum.v6",
-      "name": "Viomi V2 Pro (export)",
-      "vendor": "Viomi",
-      "aliases": [
-        "viomi.vacuum.v6"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/viomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "xiaomi.vacuum.ov81cn",
-      "name": "Mijia Robot Vacuum 4 (China)",
-      "vendor": "Xiaomi / Mijia",
-      "aliases": [
-        "xiaomi.vacuum.ov81cn"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/xiaomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "xiaomi.vacuum.ov42gl",
-      "name": "Xiaomi Robot Vacuum H50 Pro",
-      "vendor": "Xiaomi / Mijia",
-      "aliases": [
-        "xiaomi.vacuum.ov42gl"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/xiaomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "xiaomi.vacuum.ov43gb",
-      "name": "Xiaomi Robot Vacuum H50",
-      "vendor": "Xiaomi / Mijia",
-      "aliases": [
-        "xiaomi.vacuum.ov43gb"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/xiaomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "xiaomi.vacuum.ov21gl",
-      "name": "Xiaomi Robot Vacuum 5 Pro",
-      "vendor": "Xiaomi / Mijia",
-      "aliases": [
-        "xiaomi.vacuum.ov21gl"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/xiaomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "xiaomi.vacuum.ov31gl",
-      "name": "Xiaomi Robot Vacuum 5",
-      "vendor": "Xiaomi / Mijia",
-      "aliases": [
-        "xiaomi.vacuum.ov31gl"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/xiaomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "xiaomi.vacuum.ov71gl",
-      "name": "Xiaomi Robot Vacuum S40 Pro",
-      "vendor": "Xiaomi / Mijia",
-      "aliases": [
-        "xiaomi.vacuum.ov71gl"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/xiaomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "xiaomi.vacuum.ov81gl",
-      "name": "Xiaomi Robot Vacuum S40",
-      "vendor": "Xiaomi / Mijia",
-      "aliases": [
-        "xiaomi.vacuum.ov81gl"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/xiaomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "xiaomi.vacuum.e101gb",
-      "name": "Xiaomi Robot Vacuum S40C",
-      "vendor": "Xiaomi / Mijia",
-      "aliases": [
-        "xiaomi.vacuum.e101gb"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/xiaomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "xiaomi.vacuum.ov51gl",
-      "name": "Xiaomi Robot Vacuum H40 (Global)",
-      "vendor": "Xiaomi / Mijia",
-      "aliases": [
-        "xiaomi.vacuum.ov51gl"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/xiaomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "xiaomi.vacuum.d109gl",
-      "name": "Xiaomi Robot Vacuum X20 Max",
-      "vendor": "Xiaomi / Mijia",
-      "aliases": [
-        "xiaomi.vacuum.d109gl"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/xiaomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "xiaomi.vacuum.d102gl",
-      "name": "Xiaomi Robot Vacuum X20 Pro",
-      "vendor": "Xiaomi / Mijia",
-      "aliases": [
-        "xiaomi.vacuum.d102gl"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/xiaomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "xiaomi.vacuum.b108gl",
-      "name": "Xiaomi Robot Vacuum S20+",
-      "vendor": "Xiaomi / Mijia",
-      "aliases": [
-        "xiaomi.vacuum.b108gl"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/xiaomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "xiaomi.vacuum.d106gl",
-      "name": "Xiaomi Robot Vacuum S20",
-      "vendor": "Xiaomi / Mijia",
-      "aliases": [
-        "xiaomi.vacuum.d106gl"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/xiaomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "xiaomi.vacuum.c108",
-      "name": "Xiaomi Robot Vacuum E5",
-      "vendor": "Xiaomi / Mijia",
-      "aliases": [
-        "xiaomi.vacuum.c108"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/xiaomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "xiaomi.vacuum.c101eu",
-      "name": "Xiaomi Robot Vacuum X20",
-      "vendor": "Xiaomi / Mijia",
-      "aliases": [
-        "xiaomi.vacuum.c101eu"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/xiaomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "xiaomi.vacuum.b106eu",
-      "name": "Xiaomi Robot Vacuum S12",
-      "vendor": "Xiaomi / Mijia",
-      "aliases": [
-        "xiaomi.vacuum.b106eu"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/xiaomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "xiaomi.vacuum.b112gl",
-      "name": "Xiaomi Robot Vacuum E12",
-      "vendor": "Xiaomi / Mijia",
-      "aliases": [
-        "xiaomi.vacuum.b112gl"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/xiaomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "xiaomi.vacuum.b112bk",
-      "name": "Xiaomi Robot Vacuum E10C",
-      "vendor": "Xiaomi / Mijia",
-      "aliases": [
-        "xiaomi.vacuum.b112bk"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/xiaomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "xiaomi.vacuum.b112",
-      "name": "Xiaomi Robot Vacuum E10",
-      "vendor": "Xiaomi / Mijia",
-      "aliases": [
-        "xiaomi.vacuum.b112"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/xiaomi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "roborock.vacuum.a72",
-      "name": "Roborock Q5 Pro",
-      "vendor": "Roborock",
-      "aliases": [
-        "roborock.vacuum.a72"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/roborock.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "roborock.vacuum.a73",
-      "name": "Roborock Q8 Max",
-      "vendor": "Roborock",
-      "aliases": [
-        "roborock.vacuum.a73"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/roborock.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "roborock.vacuum.a75",
-      "name": "Roborock Qrevo",
-      "vendor": "Roborock",
-      "aliases": [
-        "roborock.vacuum.a75"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/roborock.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "roborock.vacuum.a74",
-      "name": "Roborock P10",
-      "vendor": "Roborock",
-      "aliases": [
-        "roborock.vacuum.a74"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/roborock.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "roborock.vacuum.a64",
-      "name": "Roborock G10S Pure",
-      "vendor": "Roborock",
-      "aliases": [
-        "roborock.vacuum.a64"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/roborock.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "roborock.vacuum.a76",
-      "name": "Roborock G10S Auto",
-      "vendor": "Roborock",
-      "aliases": [
-        "roborock.vacuum.a76"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/roborock.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "roborock.vacuum.a34",
-      "name": "Roborock Q5",
-      "vendor": "Roborock",
-      "aliases": [
-        "roborock.vacuum.a34"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/roborock.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "roborock.vacuum.a30",
-      "name": "Roborock G10 (A30)",
-      "vendor": "Roborock",
-      "aliases": [
-        "roborock.vacuum.a30"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/roborock.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "roborock.vacuum.a37",
-      "name": "Roborock T8",
-      "vendor": "Roborock",
-      "aliases": [
-        "roborock.vacuum.a37"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/roborock.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "roidmi.vacuum.v63",
-      "name": "ROIDMI EVE ROOK",
-      "vendor": "ROIDMI",
-      "aliases": [
-        "roidmi.vacuum.v63"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/roidmi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "roidmi.vacuum.sdj60",
-      "name": "ROIDMI EVE MAX",
-      "vendor": "ROIDMI",
-      "aliases": [
-        "roidmi.vacuum.sdj60"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/roidmi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "roidmi.vacuum.v62",
-      "name": "ROIDMI EVE CC",
-      "vendor": "ROIDMI",
-      "aliases": [
-        "roidmi.vacuum.v62"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/roidmi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "roidmi.vacuum.r1b",
-      "name": "ROIDMI EVE (R1B)",
-      "vendor": "ROIDMI",
-      "aliases": [
-        "roidmi.vacuum.r1b"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/roidmi.vacuum"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "ijai.vacuum.v15",
-      "name": "Xiaomi Robot Vacuum-Mop 2 Pro (India)",
-      "vendor": "IJAI / Xiaomi",
-      "aliases": [
-        "ijai.vacuum.v15"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/ijai"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "ijai.vacuum.v16",
-      "name": "Xiaomi Robot Vacuum-Mop 2i",
-      "vendor": "IJAI / Xiaomi",
-      "aliases": [
-        "ijai.vacuum.v16"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/ijai"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
-    },
-    {
-      "id": "ijai.vacuum.v17",
-      "name": "Xiaomi Robot Vacuum S10",
-      "vendor": "IJAI / Xiaomi",
-      "aliases": [
-        "ijai.vacuum.v17"
-      ],
-      "adapter": "semantic_bundle",
-      "device_tested": false,
-      "tested_firmware": [],
-      "catalog_source": "Public MIoT device identity listing; voice custom-install unverified",
-      "package": {
-        "container": "zip",
-        "audio_codec": "ogg-vorbis",
-        "sample_rate": 16000,
-        "channels": 1,
-        "filename": "<semantic_event>.ogg"
-      },
-      "event_profile": "semantic-portable-core-v1",
-      "transport": {
-        "kind": "unsupported-local",
-        "verification": "build-only",
-        "allow_default": false,
-        "evidence": "https://home.miot-spec.com/s/ijai"
-      },
-      "notes": "MIoT catalog confirms device identity, not voice installation. VVH portable semantic preview/build only; no custom install, signature bypass or region-unlock supported."
     }
   ],
   "expansion": {
