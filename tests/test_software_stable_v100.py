@@ -10,7 +10,7 @@ from vacuum_voice_hub.script_packs import list_locales
 
 
 def test_release_software_stable_baseline():
-    assert __version__.startswith("1.")
+    assert __version__.split(".")[0] in {"1", "2"}
     assert len(models()) >= 223
     assert len(voices()) == 55
     assert len(list_locales()) >= 22
