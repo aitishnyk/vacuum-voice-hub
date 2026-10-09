@@ -220,22 +220,7 @@ def mark_review(review_path, semantic, status, *, reviewer=None, note=None,
         "note": note, "language_attested": status == "approved",
         "rights_attested": status == "approved",
     }
-    payload = json.dumps(record, ensure_ascii=False, indent=2) + "\n"
-    if len(payload.encode()) > MAX_REVIEW_BYTES:
-        raise ValueError("review manifest exceeds 512 KiB")
-    # No truncation of existing file until the fully validated next state exists.
-    import os
-    import tempfile
-    with tempfile.NamedTemporaryFile("w", encoding="utf-8", dir=path.parent,
-                                     prefix=".vvh-review-", delete=False) as tmp:
-        name = Path(tmp.name)
-        tmp.write(payload)
-        tmp.flush()
-        os.fsync(tmp.fileno())
-    try:
-        os.replace(name, path)
-    finally:
-        name.unlink(missing_ok=True)
+    _write_review(path, record)
     return {"semantic": semantic, "status": status,
             "audit": audit_review(path, overlay_path=overlay_path),
             "install_authorized": False}
@@ -285,3 +270,62 @@ def export_review_bundle(review_path, output, *, include_audio=False, overlay_pa
     except BaseException:
         dest.unlink(missing_ok=True)
         raise
+
+
+def refresh_review(review_path, *, overlay_path=None):
+    """Refresh recording assignments; preserve approvals only for identical audio/text.
+
+    A changed recording or text always resets that task to draft. A modified
+    source manifest cannot silently inherit a previous sign-off.
+    """
+    path = Path(review_path).expanduser().resolve()
+    record = _load_json(path)
+    if record.get("schema") != SCHEMA:
+        raise ValueError("unsupported review schema")
+    root, manifest, target, script, rows = _snapshot(
+        record["workspace"], record["locale"], record["model_id"], overlay_path)
+    if record.get("pack_id") != manifest["id"]:
+        raise ValueError("workspace identity changed")
+    if record.get("overlay_required_for_audit") and overlay_path is None:
+        raise ValueError("original translation overlay required for refresh")
+    old = {r["semantic"]: r for r in record["tasks"]}
+    retained = 0
+    reset = 0
+    for row in rows:
+        prev = old.get(row["semantic"])
+        if (prev and prev.get("event_ids") == row["event_ids"]
+                and prev.get("text") == row["text"]
+                and prev.get("audio") == row["audio"]):
+            row["review"] = prev["review"]
+            retained += 1
+        else:
+            reset += 1
+    record["tasks"] = rows
+    record["workspace_manifest_sha256"] = _hash(root / "manifest.json")
+    record["text_script_digest"] = hashlib.sha256(json.dumps(
+        [(r["semantic"], r["event_ids"], r["text"]) for r in rows],
+        ensure_ascii=False, sort_keys=True).encode()).hexdigest()
+    _write_review(path, record)
+    result = audit_review(path, overlay_path=overlay_path)
+    return {"retained": retained, "reset": reset, "audit": result,
+            "install_authorized": False}
+
+
+def _write_review(path, record):
+    """Exclusive temporary write and atomic replace after bounded validation."""
+    payload = json.dumps(record, ensure_ascii=False, indent=2) + "\n"
+    if len(payload.encode("utf-8")) > MAX_REVIEW_BYTES:
+        raise ValueError("review manifest exceeds 512 KiB")
+    import os
+    import tempfile
+    path = Path(path)
+    with tempfile.NamedTemporaryFile("w", encoding="utf-8", dir=path.parent,
+                                     prefix=".vvh-review-", delete=False) as tmp:
+        name = Path(tmp.name)
+        tmp.write(payload)
+        tmp.flush()
+        os.fsync(tmp.fileno())
+    try:
+        os.replace(name, path)
+    finally:
+        name.unlink(missing_ok=True)
