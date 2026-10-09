@@ -30,6 +30,8 @@ def _local_voice(model_path, locale):
         data = json.loads(config.read_text(encoding="utf-8"))
     except (json.JSONDecodeError, UnicodeDecodeError) as exc:
         raise ValueError("invalid Piper configuration JSON") from exc
+    if not isinstance(data, dict) or not isinstance(data.get("language"), dict):
+        raise ValueError("Piper configuration must contain a language object")
     lang = (data.get("language") or {}).get("code")
     if not isinstance(lang, str) or lang.split("_")[0].split("-")[0].lower() != locale.split("-")[0].lower():
         raise ValueError("Piper voice config language does not match script locale")
