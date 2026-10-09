@@ -109,6 +109,8 @@ def build_release(output,source_date_epoch=None):
             "vvh.archive-inventory.v1",
             "vvh.research-assessment.v1",
             "vvh.script-pack.v1",
+            "vvh.wav-audio-qa.v1",
+            "vvh.workspace-audio-qa.v1",
             "vvh.public-catalog.v1",
             RELEASE_SCHEMA,
             FEED_SCHEMA,
