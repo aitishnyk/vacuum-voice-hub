@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/aitishnyk/vacuum-voice-hub/schemas/vvh.master-preview.v1.schema.json",
+  "title": "Non-destructive single-clip offline mastering preview",
+  "type": "object",
+  "required": [
+    "schema",
+    "source_sha256",
+    "output",
+    "output_sha256",
+    "before",
+    "after",
+    "creator_manifest_changed",
+    "human_review_required",
+    "install_authorized",
+    "redistribution_verified"
+  ],
+  "properties": {
+    "schema": {
+      "const": "vvh.master-preview.v1"
+    },
+    "source_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "output": {
+      "type": "string"
+    },
+    "output_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "bytes": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "target_peak_dbfs": {
+      "type": "number",
+      "minimum": -18,
+      "maximum": -1
+    },
+    "silence_dbfs": {
+      "type": "number",
+      "minimum": -70,
+      "maximum": -20
+    },
+    "removed_leading_frames": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "removed_trailing_frames": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "before": {
+      "type": "object"
+    },
+    "after": {
+      "type": "object"
+    },
+    "human_review_required": {
+      "const": true
+    },
+    "creator_manifest_changed": {
+      "const": false
+    },
+    "install_authorized": {
+      "const": false
+    },
+    "redistribution_verified": {
+      "const": false
+    }
+  }
+}

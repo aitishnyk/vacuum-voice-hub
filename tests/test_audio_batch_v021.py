@@ -95,3 +95,19 @@ def test_cli_exposes_batch_command():
     assert "--input-dir" in result.stdout
     assert "--output-dir" in result.stdout
     assert "--max-files" in result.stdout
+
+
+def test_mastering_json_schemas_publish_non_authorizing_contracts():
+    from pathlib import Path
+    root = Path(__file__).resolve().parents[1] / "schemas"
+    a = json.loads((root / "vvh.master-preview.v1.schema.json").read_text("utf-8"))
+    b = json.loads((root / "vvh.master-batch.v1.schema.json").read_text("utf-8"))
+    assert a["properties"]["schema"]["const"] == "vvh.master-preview.v1"
+    assert b["properties"]["schema"]["const"] == "vvh.master-batch.v1"
+    assert b["properties"]["input_count"]["maximum"] == 256
+    for contract in (a, b):
+        for key, value in [("install_authorized", False),
+                           ("redistribution_verified", False),
+                           ("human_review_required", True),
+                           ("creator_manifest_changed", False)]:
+            assert contract["properties"][key]["const"] is value
