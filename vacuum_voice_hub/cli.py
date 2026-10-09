@@ -135,6 +135,17 @@ def _creator_parser(sub):
     s.add_argument("--max-clips",type=int,default=16)
     s.add_argument("--decode-compressed",action="store_true")
     s.add_argument("--overlay")
+    s=rs.add_parser("sign-pack",help="Sign all Creator review audio assignments with user Ed25519 key")
+    s.add_argument("path")
+    s.add_argument("--private-key",required=True)
+    s.add_argument("--output",required=True)
+    s.add_argument("--require-approved",action="store_true")
+    s.add_argument("--overlay")
+    s=rs.add_parser("verify-pack",help="Verify whole-pack Ed25519 and every current local audio hash")
+    s.add_argument("signed_file")
+    s.add_argument("--public-key",required=True)
+    s.add_argument("--review",required=True)
+    s.add_argument("--overlay")
     s=rs.add_parser("bundle",help="New reviewer ZIP; audio inclusion requires explicit opt-in")
     s.add_argument("path")
     s.add_argument("--output",required=True)
@@ -200,6 +211,13 @@ def _creator_main(a):
             _dump(inspect_review_audio(a.path,max_clips=a.max_clips,
                                        decode_compressed=a.decode_compressed,
                                        overlay_path=a.overlay))
+        elif a.review_cmd=="sign-pack":
+            from .signed_pack import sign_pack
+            _dump(sign_pack(a.path,a.private_key,a.output,
+                            require_approved=a.require_approved,overlay_path=a.overlay))
+        elif a.review_cmd=="verify-pack":
+            from .signed_pack import verify_pack
+            _dump(verify_pack(a.signed_file,a.public_key,a.review,overlay_path=a.overlay))
         elif a.review_cmd=="bundle":
             _dump(export_review_bundle(a.path,a.output,include_audio=a.include_audio,
                                        overlay_path=a.overlay))
@@ -301,6 +319,14 @@ def main():
     s=research_sub.add_parser("validate-evidence",help="Validate local transport evidence without installing")
     s.add_argument("path")
     s.add_argument("--model",help="Require exact model id")
+    s=research_sub.add_parser("evidence-bundle",help="Make metadata-only firmware evidence ZIP")
+    s.add_argument("report")
+    s.add_argument("--package",required=True,help="Local candidate package; not included in ZIP")
+    s.add_argument("--output",required=True)
+    s=research_sub.add_parser("verify-evidence-bundle",help="Check ZIP and actual current package SHA-256")
+    s.add_argument("path")
+    s.add_argument("--package",required=True)
+    s.add_argument("--model")
     s=research_sub.add_parser("hardware-acceptance",help="Assess model, firmware and rollback evidence only")
     s.add_argument("path")
     s.add_argument("--model",help="Require exact canonical model ID")
@@ -431,6 +457,12 @@ def main():
                 _dump(assess_candidate(a.path,a.model,evidence_path=a.evidence))
             except (ResearchError,ArchiveInspectionError,KeyError,ValueError,OSError) as exc:
                 raise SystemExit(f"research inspect failed: {exc}") from exc
+        elif a.research_cmd=="evidence-bundle":
+            from .firmware_evidence_bundle import create_evidence_bundle
+            _dump(create_evidence_bundle(a.report,a.package,a.output))
+        elif a.research_cmd=="verify-evidence-bundle":
+            from .firmware_evidence_bundle import verify_evidence_bundle
+            _dump(verify_evidence_bundle(a.path,a.package,expected_model=a.model))
         elif a.research_cmd=="hardware-acceptance":
             from .hardware_acceptance import inspect_acceptance_file
             _dump(inspect_acceptance_file(a.path,expected_model=a.model))
