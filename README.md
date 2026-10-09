@@ -4,7 +4,7 @@
 
 **Credits-first multi-model voice platform for robot vacuums.**
 
-## v1.1.0 — Community Hardware Test Kit
+## v1.1.0 — Community Hardware Test Kit (software-stable source)
 
 The first post-stable update makes **community device validation easier**. Run one offline command to hash a legally obtained local candidate package and generate a safe hardware checklist with *all observations marked unverified*. The resulting JSON contains no audio, firmware bytes, device secrets, file paths or pre-filled claims.
 
