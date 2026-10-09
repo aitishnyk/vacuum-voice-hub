@@ -106,6 +106,15 @@ def _creator_parser(sub):
     s=cs.add_parser("audio-compare",help="Read-only two-clip signal A/B QA")
     s.add_argument("first")
     s.add_argument("second")
+    s=cs.add_parser("waveform",help="Bounded local audio waveform JSON for preview")
+    s.add_argument("audio_file")
+    s.add_argument("--bins",type=int,default=256)
+    s=cs.add_parser("cut-preview",help="Export selected segment to NEW local WAV")
+    s.add_argument("audio_file")
+    s.add_argument("--start-ms",type=float,required=True)
+    s.add_argument("--end-ms",type=float,required=True)
+    s.add_argument("--fade-ms",type=float,default=8.0)
+    s.add_argument("--output",required=True)
     review=cs.add_parser("review",help="Local human recording checklist and QA sign-off")
     rs=review.add_subparsers(dest="review_cmd",required=True)
     s=rs.add_parser("init",help="New recording assignment checklist; refuses overwrite")
@@ -209,6 +218,13 @@ def _creator_main(a):
                            target_peak_dbfs=a.target_peak_dbfs,
                            silence_dbfs=a.silence_dbfs,padding_ms=a.padding_ms,
                            fade_ms=a.fade_ms,trim_silence=not a.no_trim_silence))
+    elif a.creator_cmd=="waveform":
+        from .audio_timeline import audio_timeline
+        _dump(audio_timeline(a.audio_file,bins=a.bins))
+    elif a.creator_cmd=="cut-preview":
+        from .audio_timeline import cut_preview
+        _dump(cut_preview(a.audio_file,a.output,start_ms=a.start_ms,
+                          end_ms=a.end_ms,fade_ms=a.fade_ms))
     elif a.creator_cmd=="audio-compare":
         from .audio_compare import compare_audio
         _dump(compare_audio(a.first,a.second))

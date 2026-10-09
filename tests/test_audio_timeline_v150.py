@@ -90,3 +90,15 @@ def test_cli_waveform_and_cut_preview(tmp_path):
                            "--end-ms","600","--output",str(out)],
                           capture_output=True,text=True,check=True)
     assert json.loads(result.stdout)["output_sha256"]==digest(out)
+
+
+def test_creator_gui_contains_browser_local_timeline():
+    from pathlib import Path
+    html = (Path(__file__).resolve().parents[1] /
+            "vacuum_voice_hub/web/creator.html").read_text(encoding="utf-8")
+    for key in ("timelineFile", "timelineCanvas", "timelineLoad",
+                "timelineStart", "timelineEnd", "timelineFade", "timelineExport"):
+        assert 'id="'+key+'"' in html
+    assert "new OfflineAudioContext(1,count,16000)" in html
+    assert "getChannelData(0)" in html
+    assert "audio/wav" in html
