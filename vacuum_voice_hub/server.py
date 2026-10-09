@@ -159,6 +159,17 @@ class H(BaseHTTPRequestHandler):
                 return self._json({"ok":True,"report":language_audio_coverage(workspace_by_id(wid),locale,mid)})
             except (KeyError,ValueError,FileNotFoundError,OSError) as exc:
                 return self._json({"ok":False,"error":str(exc)},400)
+        if parsed.path=="/api/creator/review-audio-qa":
+            from .review_audio_acceptance import inspect_review_audio
+            try:
+                self._creator_auth()
+                report=inspect_review_audio(
+                    _review_file(q["review_id"][0]),
+                    max_clips=int(q.get("max_clips",["16"])[0]),
+                    decode_compressed=q.get("decode_compressed",["false"])[0]=="true")
+                return self._json({"ok":True,"report":report})
+            except (KeyError,ValueError,OSError) as e:
+                return self._json({"ok":False,"error":str(e)},400)
         if parsed.path=="/api/creator/review-history":
             from .review_history import audit_review_history
             try:
@@ -308,6 +319,11 @@ class H(BaseHTTPRequestHandler):
                 elif parsed.path=="/api/creator/review/refresh":
                     from .production_review import refresh_review
                     result=refresh_review(_review_file(d["review_id"]))
+                elif parsed.path=="/api/creator/hardware-assess":
+                    from .hardware_acceptance import assess_hardware_acceptance
+                    report=assess_hardware_acceptance(d["evidence"],
+                                                       expected_model=d.get("model_id"))
+                    result={"report":report}
                 elif parsed.path=="/api/creator/review/bundle":
                     from .production_review import export_review_bundle
                     from .paths import data_dir
