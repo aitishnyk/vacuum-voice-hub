@@ -27,7 +27,7 @@ def make_wav(path, amplitude=5000):
 def test_master_preview_trims_normalizes_fades_without_source_modification(tmp_path):
     source = tmp_path / "voice.wav"
     out = tmp_path / "preview" / "master.wav"
-    make_wav(source)
+    make_wav(source, amplitude=6000)  # Within the guarded +12 dB mastering ceiling.
     checksum = hashlib.sha256(source.read_bytes()).hexdigest()
     result = master_preview(source, out, target_peak_dbfs=-4, padding_ms=50, fade_ms=10)
     assert result["schema"] == "vvh.master-preview.v1"
