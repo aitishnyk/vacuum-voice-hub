@@ -14,6 +14,7 @@
 - v0.9.1 — Safe local archive extraction on Python 3.10+ ✅ source scope
 - v0.10.0 — 154-model discovery, 18 text-script locales, opt-in offline voice synthesis ✅ software scope
 - v0.11.0 — Offline Piper neural TTS (user-supplied model) + WAV/Creator Audio QA ✅ software scope
+- v0.12.0 — User-attributed localization overlays + scaffold + per-model script coverage ✅ software scope
 
 ## v0.9 — Offline Research Infrastructure
 
@@ -37,7 +38,11 @@ Deferred improvements:
 - Creator UX for recording review, pronunciation QA and multi-locale project export;
 - hardware-verified transport updates only where exact-device acceptance evidence exists.
 
-## v0.12 — More model evidence & broad localization
+## v0.12 — Local Translation Overlay Studio
+
+Implemented: bounded local user overlays, model-specific English reference scaffold, audited locale coverage, and optional use of the translated events in both local TTS engines. Human review and distribution rights are still required.
+
+## v0.13 — More model evidence & broad localization
 
 Pending: expand licensed locale coverage with native-speaker review, verify new model IDs with per-source evidence, improve multi-engine pronunciation QA and add signed distribution acceptance.
 
