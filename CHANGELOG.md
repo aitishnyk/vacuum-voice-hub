@@ -1,3 +1,9 @@
+## v1.2.0 — Offline language review and audio A/B
+
+- New immutable, attributable per-phrase language approval workflow with SHA-256 source snapshots; stale overlays invalidate decisions, no review is generated automatically.
+- New read-only bounded two-clip QA comparing SHA-256, duration, peak/RMS, clipping and silence; no LUFS or voice identity claims.
+- Baseline 223 researched models, 55 credited variants and 22 text-only locales preserved. Xiaomi X10 remains sole VVH hardware-verified target.
+
 # Changelog
 
 ## 1.1.0 — 2026-10-09 (SOFTWARE STABLE / SOURCE SEALED; GitHub Release publication pending)

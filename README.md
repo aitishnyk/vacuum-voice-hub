@@ -1,5 +1,7 @@
 # Vacuum Voice Hub
 
+**v1.2.0 offline review:** [attributed translation review and audio A/B QA](docs/AUDIO_LANGUAGE_REVIEW_V120.md). v1.2 retains software-only stability and does not certify additional devices.
+
 [![CI](https://github.com/aitishnyk/vacuum-voice-hub/actions/workflows/ci.yml/badge.svg)](https://github.com/aitishnyk/vacuum-voice-hub/actions/workflows/ci.yml)
 
 **Credits-first multi-model voice platform for robot vacuums.**

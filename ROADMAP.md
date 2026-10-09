@@ -1,5 +1,21 @@
 # Roadmap
 
+## v1.2 — Language Review & Audio A/B (software scope)
+
+Implemented offline attributed translation review (stale-script detection, copy-on-write approvals) and read-only local audio A/B metrics. Future v1.2.x work: GUI waveform editor, professional LUFS/true-peak mastering, noise-floor analysis and multi-locale native proofreading, with independent QA per feature. See [documentation](docs/AUDIO_LANGUAGE_REVIEW_V120.md).
+
+## Planned v1.3 → v2.0 (NOT implemented)
+
+- v1.3: native-speaker-supported multilingual TTS expansion, semantic event coverage and pronunciation references.
+- v1.4: stronger source-attributed model+firmware capability index; no automatic hardware transport promotion.
+- v1.5: visual, non-destructive Creator timeline, QA and export UX.
+- v1.6: moderated community evidence workflow and optional donated device acceptance.
+- v1.7: safe format/event adapter SDK with per-model tests and explicit evidence requirements.
+- v1.8: rights-aware licensed voice library, credit/license provenance and signed distributions.
+- v1.9: desktop release polish, recovery, signing/notarization where actually available, security hardening.
+- v2.0: integrated stable Universal Voice Studio, release migration and platform API certification. Research support does not imply universal installation.
+
+
 ## v1.1 — Community hardware intake automation (SOFTWARE STABLE / SOURCE SEALED)
 
 Implemented and CI-certified: generate a safe unapproved metadata-only SHA-256 hardware report using `vvh research hardware-scaffold`, collect five real observed test steps only with redacted HTTPS evidence, and have maintainers manually review each exact model+firmware before any transport policy change. Retain software CI and community-first optional donated/loaned hardware. Future: simplify translation proofreading, expand true firmware event mappings and add more DAW-like audio editing with preservation/rights checks.
