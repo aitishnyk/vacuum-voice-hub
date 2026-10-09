@@ -63,6 +63,7 @@ def _creator_parser(sub):
     s=cs.add_parser("assign");s.add_argument("path");s.add_argument("semantic");s.add_argument("audio_file")
     s=cs.add_parser("remove");s.add_argument("path");s.add_argument("semantic")
     s=cs.add_parser("coverage");s.add_argument("path");s.add_argument("--model",default="dreame.vacuum.r2209")
+    s=cs.add_parser("qa",help="Read-only WAV quality audit; never installs");s.add_argument("path");s.add_argument("--model")
     s=cs.add_parser("build");s.add_argument("path");s.add_argument("--model",default="dreame.vacuum.r2209");s.add_argument("--output")
     s=cs.add_parser("events");s.add_argument("--model");s.add_argument("--category")
 
@@ -74,6 +75,9 @@ def _creator_main(a):
     elif a.creator_cmd=="assign":_dump(assign_audio(a.path,a.semantic,a.audio_file))
     elif a.creator_cmd=="remove":_dump(remove_event(a.path,a.semantic))
     elif a.creator_cmd=="coverage":_dump(workspace_model_coverage(a.path,a.model))
+    elif a.creator_cmd=="qa":
+        from .audio_qa import inspect_workspace
+        _dump(inspect_workspace(a.path,a.model))
     elif a.creator_cmd=="build":_dump(build_workspace(a.path,a.model,a.output))
     elif a.creator_cmd=="events":
         allowed=set(event_profile_for_model(a.model)["known_event_ids"]) if a.model else None
@@ -132,6 +136,15 @@ def main():
     sp.add_argument("--pitch",type=int,default=50)
     sp.add_argument("--output")
     sp.add_argument("--allow-synthetic",action="store_true",help="Explicitly consent to locally generating synthetic WAVs")
+    sp=script_sub.add_parser("piper",help="Generate local WAVs from a user-supplied Piper .onnx voice (no download)")
+    sp.add_argument("--language",required=True)
+    sp.add_argument("--model",default="dreame.vacuum.r2209")
+    sp.add_argument("--id",required=True,dest="pack_id")
+    sp.add_argument("--author",required=True)
+    sp.add_argument("--voice-model",required=True,help="Existing local .onnx path, with matching .onnx.json")
+    sp.add_argument("--output")
+    sp.add_argument("--speaker",type=int)
+    sp.add_argument("--allow-synthetic",action="store_true")
     s=sub.add_parser("model-info");s.add_argument("model_id")
     s=sub.add_parser("info");s.add_argument("voice_id")
     s=sub.add_parser("coverage");_add_build_args(s)
@@ -190,6 +203,12 @@ def main():
             return _dump({"output":str(dest),"locale":a.language,
                           "mapped_count":result["mapped_count"],"scripted_count":result["scripted_count"],
                           "audio_files_generated":False})
+        if a.scripts_cmd=="piper":
+            from .piper_studio import synthesize_piper_workspace
+            return _dump(synthesize_piper_workspace(a.language,a.model,a.pack_id,a.author,
+                                                     a.voice_model,output=a.output,
+                                                     speaker=a.speaker,
+                                                     allow_synthetic=a.allow_synthetic))
         return _dump(synthesize_workspace(a.language,a.model,a.pack_id,a.author,a.voice,
                                          output=a.output,speed=a.speed,pitch=a.pitch,
                                          allow_synthetic=a.allow_synthetic))

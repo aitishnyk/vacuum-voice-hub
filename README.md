@@ -4,6 +4,21 @@
 
 **Credits-first multi-model voice platform for robot vacuums.**
 
+## v0.11.0 — Offline Piper & Audio Quality Studio
+
+**New:** opt-in Piper TTS with existing local `.onnx` + `.onnx.json` files (no model downloads), read-only WAV signal analysis, whole Creator workspace QA and a local Creator Studio Audio QA button. Source v0.11.0 retains all 154 models, 55 attributed voice variants and 18 script locales. No newly verified custom installation routes.
+
+### Neural TTS with a local licensed Piper voice
+
+```bash
+vvh scripts piper --language ru --model dreame.vacuum.r2209 \\
+  --id my-ru-piper --author "Local creator" \\
+  --voice-model /path/to/ru_RU-voice.onnx --allow-synthetic
+vvh creator qa /path/to/creator/workspace --model dreame.vacuum.r2209
+```
+
+The Piper voice model and its matching `.onnx.json` config must already exist on disk; the config language must match the chosen script locale. The generated WAVs are local, may need correction by a native speaker and remain **UNLICENSED** pending explicit license review. Signal QA reports loudness, clipping, duration and silence heuristics; it does not claim intelligibility or device compatibility.
+
 ## v0.10.0 — Expanded Model & Language Studio
 
 The v0.9.1 security update replaces legacy archive extraction with bounded, symlink-safe ZIP/TAR streaming on Python 3.10+; unsafe archive names, special members, collisions and excessive sizes fail closed.

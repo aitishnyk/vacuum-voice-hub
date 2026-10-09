@@ -13,6 +13,7 @@
 - v0.9 — Offline Research Infrastructure (schemas, inspect, evidence cross-check, CLI, regressions) ✅ software scope
 - v0.9.1 — Safe local archive extraction on Python 3.10+ ✅ source scope
 - v0.10.0 — 154-model discovery, 18 text-script locales, opt-in offline voice synthesis ✅ software scope
+- v0.11.0 — Offline Piper neural TTS (user-supplied model) + WAV/Creator Audio QA ✅ software scope
 
 ## v0.9 — Offline Research Infrastructure
 
@@ -25,14 +26,20 @@ Implemented in source:
 
 Hardware/package-adapter work formerly listed under v0.9 is **not** marked complete. The offline research stage enables the subsequent exact-device work without guessing vendor protocols.
 
-## v0.11 — Voice Pack Localization & Model Evidence Wave
+## v0.11 — Offline Piper and Audio QA
 
-Pending software extensions:
+Implemented: local Piper synthesis via an existing voice ONNX/config, opt-in Creator workspace generation; read-only WAV signal QA and a Creator interface button. No automatic voice-model download or install.
+
+Deferred improvements:
 - richer localized script coverage beyond the 16 essential prompts, reviewed per language;
 - more source-backed model IDs from public integrations, preserving aliases;
 - archive/event-layout fingerprints and per-model source fixture attribution;
 - Creator UX for recording review, pronunciation QA and multi-locale project export;
 - hardware-verified transport updates only where exact-device acceptance evidence exists.
+
+## v0.12 — More model evidence & broad localization
+
+Pending: expand licensed locale coverage with native-speaker review, verify new model IDs with per-source evidence, improve multi-engine pronunciation QA and add signed distribution acceptance.
 
 ## v1.0 — Verified Transport & Real-Device Acceptance (external evidence required)
 

@@ -123,6 +123,14 @@ class H(BaseHTTPRequestHandler):
                 return self._json({"ok":True,"history":load_history(limit)})
             except Exception as e:return self._json({"ok":False,"error":str(e)},400)
 
+        if parsed.path=="/api/creator/qa":
+            from .audio_qa import inspect_workspace
+            try:
+                wid=q["id"][0]
+                mid=q.get("model_id",[None])[0]
+                return self._json({"ok":True,"report":inspect_workspace(workspace_by_id(wid),mid)})
+            except (KeyError,ValueError,FileNotFoundError,OSError) as e:
+                return self._json({"ok":False,"error":str(e)},400)
         if parsed.path=="/api/creator/workspaces":
             return self._json({"ok":True,"workspaces":list_workspaces()})
         if parsed.path=="/api/creator/events":
