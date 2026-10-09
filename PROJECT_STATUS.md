@@ -1,19 +1,19 @@
-# Project status — v1.4.0 SOFTWARE STABLE (source)
+# Project status — v1.5.0 SOFTWARE STABLE (source candidate)
 
-v1.4.0 introduces a read-only, exact-model and per-firmware evidence matrix
-for community-supplied `vvh.hardware-acceptance.v1` reports. Individual
-self-reports are validated but NEVER automatically accepted as physical
-installation support; no firmware, robot, transport, audio library, public
-source catalog or registry is mutated.
+Feature scope: Creator Studio local browser waveform timeline with
+non-destructive 16 kHz mono selected-range WAV download, and identical
+bounded offline Python CLI waveform and cut-preview engineering tools.
+Each selection remains **unapproved** until separately reviewed by humans.
+Audio files are not sent to a robot, included in public metadata archives,
+or distributed without verified rights.
 
-The feature is independently CI-tested in its GitHub PR, with main CI,
-CodeQL, three desktop builds, software preservation audit and GitHub
-Release publication as separate mandatory gates.
+Exact-head CI, CodeQL, Public Site, Release Bundle, Windows/macOS/Linux
+desktop packaging and GitHub Release publication remain separate gates.
+Existing model and locale preservation audits remain mandatory.
 
-**Preservation:** >=223 source-attributed model identities; 55 credited
-voice variants; >=22 script-only locales. **Only Xiaomi X10**
-(`dreame.vacuum.r2209`) was physically verified for VVH custom install.
-No automatically approved community devices.
+Baseline: 223 model profiles, 55 credited voice variants,
+>=22 text-only locales, and only Xiaomi X10 hardware-verified. No
+automatically approved additional firmware or manufacturer transports.
 
-See [v1.4 documentation](docs/FIRMWARE_MATRIX_V140.md)
-and [roadmap tracker](https://github.com/aitishnyk/vacuum-voice-hub/issues/55).
+See [guide](docs/AUDIO_TIMELINE_V150.md) and
+[roadmap](https://github.com/aitishnyk/vacuum-voice-hub/issues/55).

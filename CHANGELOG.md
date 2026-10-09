@@ -1,3 +1,9 @@
+## v1.5.0 — Visual local audio timeline
+
+- Browser-local Creator waveform, precise selection and separate WAV download; no network upload and no Creator source mutation.
+- Bounded source-hashed, non-overwriting local waveform and cut-preview CLI; negative regression for unsafe ranges.
+- No new hardware installation authorization, pronunciation attestation or audio rights claim.
+
 ## v1.4.0 — Per-firmware evidence matrix
 
 - Offline, read-only per-model firmware self-report reconciliation, no credentials or source references in result.
