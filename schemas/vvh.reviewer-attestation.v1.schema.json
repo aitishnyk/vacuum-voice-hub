@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/aitishnyk/vacuum-voice-hub/schemas/vvh.reviewer-attestation.v1.schema.json",
+  "title": "Detached Ed25519 reviewer attestation, identity and rights unverified",
+  "type": "object",
+  "required": [
+    "schema",
+    "algorithm",
+    "public_key_sha256",
+    "payload",
+    "signature",
+    "install_authorized"
+  ],
+  "properties": {
+    "schema": {
+      "const": "vvh.reviewer-attestation.v1"
+    },
+    "algorithm": {
+      "const": "Ed25519"
+    },
+    "public_key_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "payload": {
+      "type": "object"
+    },
+    "signature": {
+      "type": "string"
+    },
+    "identity_independently_verified": {
+      "const": false
+    },
+    "rights_independently_verified": {
+      "const": false
+    },
+    "install_authorized": {
+      "const": false
+    }
+  }
+}

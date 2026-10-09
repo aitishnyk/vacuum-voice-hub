@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.18.0 — 2026-10-09 (reviewer provenance and evidence UI)
+
+- optional locally user-supplied Ed25519 PEM signing and detached verification of explicitly approved per-event human reviews, bound to the exact recording SHA-256, model, script digest and reviewer claim;
+- verify signatures against a separate public key while recomputing present Creator audio and source review; signed claims never prove legal rights, actual language or manufacturer upload support;
+- bounded read-only per-clip Creator review signal QA reports WAV plus opt-in FFmpeg-decoded audio alongside independent human statuses;
+- Creator Studio adds a per-model evidence checklist for signature review, voice download/playback, reboot persistence and tested stock-voice rollback; assessment is always research-only;
+- signing dependency is optional for bare CLI and explicitly included in CI and three desktop build artifacts;
+- all 215 canonical model IDs, 55 original attributed voices, 18 script locales and X10-only physical hardware evidence unchanged.
+
 ## 0.17.0 — 2026-10-09 (returned reviewer handoff and evidence boundary)
 
 - added local `vvh creator review import` for returned JSON/ZIP with strict file bounds, duplicate/path/symlink checks, no filesystem ZIP extraction and exact Creator/project/model/script/audio SHA-256 reconciliation;

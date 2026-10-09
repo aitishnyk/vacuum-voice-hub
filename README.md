@@ -4,6 +4,20 @@
 
 **Credits-first multi-model voice platform for robot vacuums.**
 
+## v0.18.0 — Signed Reviewer Provenance & QA Evidence
+
+Offline, **optional Ed25519** reviewer attestation binds a current approved Creator recording SHA-256, target model, locale, event IDs, translated-text digest and specific reviewer claim to a detached JSON signature. The private PEM key is supplied **only from your local filesystem**; never auto-generated, uploaded or persisted by VVH. Verification requires a separately supplied public key and rechecks the *current* recording and review. A valid signature proves possession of a key, **not** legal ownership, native pronunciation or robot installation support.
+
+```bash
+vvh creator review attest ./review.json --semantic clean.start \\
+  --private-key ./my-ed25519-private.pem --output ./signed-review.json
+vvh creator review verify-attestation ./signed-review.json \\
+  --public-key ./reviewer-public.pem --review ./review.json
+vvh creator review audio-acceptance ./review.json --max-clips 16
+```
+
+Install the optional CLI key handler with `pip install 'vacuum-voice-hub[review-signing]'`. Packaged desktop builds include its optional cryptography dependency. A Creator Studio panel also separates human review status from WAV/opt-in compressed audio signal QA and offers **non-authorizing** model/firmware/playback/reboot/stock-rollback evidence checks. [Full v0.18 guide](docs/REVIEWER_PROVENANCE_V018.md).
+
 ## v0.17.0 — Reviewer Handoff Import & Hardware Evidence
 
 Import a collaborator's returned **JSON or ZIP** review against the *exact local model, source pack, translated script and original audio SHA-256 hashes*. No ZIP entries are extracted and no existing audio is overwritten. Returned approvals are stored as **untrusted external claims**; every local review starts at `draft` and must be independently approved again. A local hash-linked `review history` records later decisions (not a digital signature).

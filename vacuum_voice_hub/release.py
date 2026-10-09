@@ -120,6 +120,8 @@ def build_release(output,source_date_epoch=None):
             "vvh.returned-review.v1",
             "vvh.review-history.v1",
             "vvh.hardware-acceptance.v1",
+            "vvh.reviewer-attestation.v1",
+            "vvh.review-audio-acceptance.v1",
             "vvh.translation-overlay.v1",
             "vvh.public-catalog.v1",
             RELEASE_SCHEMA,

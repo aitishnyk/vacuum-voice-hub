@@ -20,6 +20,7 @@
 - v0.15.0 — Optional bounded compressed QA, gain preview and actual locale/audio coverage ✅ software scope
 - v0.16.0 — Recording assignments, tamper-aware human review, private-by-default ZIP export ✅ software scope
 - v0.17.0 — Safe reviewer import with no extracted ZIP files, hash history, firmware+rollback evidence ✅ software scope
+- v0.18.0 — Optional user-key Ed25519 reviewed-audio attestation, per-clip QA and evidence Studio ✅ software scope
 
 ## v0.9 — Offline Research Infrastructure
 
@@ -67,7 +68,11 @@ Implemented: every-event recording assignments, explicit human acknowledgement/r
 
 Implemented: returned review JSON/ZIP checked against original workspace, safe untrusted-claim import, hash-linked local history and fail-closed model+firmware acceptance intake. Device authorization requires independently proven future adapter work.
 
-## v0.18 — Reviewer workflow polish, keyed attestations & device proof
+## v0.18 — Reviewer key attestations and human/signal evidence
+
+Implemented detached Ed25519 verification with independently provided PEM keys, current source/review validation and local bounded per-clip signal QA. Firmware evidence is only assessed, not physically accepted.
+
+## v0.19 — Hardware acceptance, signed bundle provenance and voice quality gates
 
 Pending: expand licensed locale coverage with native-speaker review, verify new model IDs with per-source evidence, improve multi-engine pronunciation QA and add signed distribution acceptance.
 

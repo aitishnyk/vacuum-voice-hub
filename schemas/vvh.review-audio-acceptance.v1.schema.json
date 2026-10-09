@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/aitishnyk/vacuum-voice-hub/schemas/vvh.review-audio-acceptance.v1.schema.json",
+  "title": "Bounded source audio signal QA without automated spoken language or rights proof",
+  "type": "object",
+  "required": [
+    "schema",
+    "model_id",
+    "locale",
+    "clips",
+    "install_authorized"
+  ],
+  "properties": {
+    "schema": {
+      "const": "vvh.review-audio-acceptance.v1"
+    },
+    "model_id": {
+      "type": "string"
+    },
+    "locale": {
+      "type": "string"
+    },
+    "clips": {
+      "type": "array",
+      "maxItems": 32,
+      "items": {
+        "type": "object"
+      }
+    },
+    "total_recorded": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "signal_passed": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "speaker_language_automatically_verified": {
+      "const": false
+    },
+    "rights_independently_verified": {
+      "const": false
+    },
+    "install_authorized": {
+      "const": false
+    }
+  }
+}

@@ -31,11 +31,16 @@ jobs:
           python-version: "3.12"
       - name: Linux desktop libraries
         if: runner.os == 'Linux'
+        timeout-minutes: 6
+        env:
+          DEBIAN_FRONTEND: noninteractive
         run: |
-          sudo apt-get update
-          sudo apt-get install -y libgtk-3-dev libwebkit2gtk-4.1-dev
+          # Hosted apt mirrors may stall. Bound networking and use cached indexes
+          # only when refresh fails; installation itself must still succeed.
+          sudo timeout 150s apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=15 -o Acquire::https::Timeout=15 update || echo "apt refresh unavailable; attempting cached indexes"
+          sudo timeout 180s apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=15 -o Acquire::https::Timeout=15 install -y libgtk-3-dev libwebkit2gtk-4.1-dev
       - name: Install build dependencies
-        run: python -m pip install ".[desktop,security]" pyinstaller
+        run: python -m pip install ".[desktop,security,review-signing]" pyinstaller
       - name: Build desktop executable
         shell: bash
         run: >

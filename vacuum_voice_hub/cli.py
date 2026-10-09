@@ -119,6 +119,22 @@ def _creator_parser(sub):
     s.add_argument("--overlay",help="Exact original local translation overlay if applicable")
     s=rs.add_parser("history",help="Audit local hash-linked reviewer decision history")
     s.add_argument("path")
+    s=rs.add_parser("attest",help="Sign approved human review with external Ed25519 PEM key")
+    s.add_argument("path")
+    s.add_argument("--semantic",required=True)
+    s.add_argument("--private-key",required=True)
+    s.add_argument("--output",required=True)
+    s.add_argument("--overlay")
+    s=rs.add_parser("verify-attestation",help="Check detached signature and current source audio")
+    s.add_argument("attestation_file")
+    s.add_argument("--public-key",required=True)
+    s.add_argument("--review",required=True)
+    s.add_argument("--overlay")
+    s=rs.add_parser("audio-acceptance",help="Compare per-clip audio QA with human review")
+    s.add_argument("path")
+    s.add_argument("--max-clips",type=int,default=16)
+    s.add_argument("--decode-compressed",action="store_true")
+    s.add_argument("--overlay")
     s=rs.add_parser("bundle",help="New reviewer ZIP; audio inclusion requires explicit opt-in")
     s.add_argument("path")
     s.add_argument("--output",required=True)
@@ -172,6 +188,18 @@ def _creator_main(a):
         elif a.review_cmd=="history":
             from .review_history import audit_review_history
             _dump(audit_review_history(a.path))
+        elif a.review_cmd=="attest":
+            from .reviewer_attestation import sign_review
+            _dump(sign_review(a.path,a.semantic,a.private_key,a.output,overlay_path=a.overlay))
+        elif a.review_cmd=="verify-attestation":
+            from .reviewer_attestation import verify_attestation
+            _dump(verify_attestation(a.attestation_file,a.public_key,a.review,
+                                      overlay_path=a.overlay))
+        elif a.review_cmd=="audio-acceptance":
+            from .review_audio_acceptance import inspect_review_audio
+            _dump(inspect_review_audio(a.path,max_clips=a.max_clips,
+                                       decode_compressed=a.decode_compressed,
+                                       overlay_path=a.overlay))
         elif a.review_cmd=="bundle":
             _dump(export_review_bundle(a.path,a.output,include_audio=a.include_audio,
                                        overlay_path=a.overlay))
