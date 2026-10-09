@@ -114,7 +114,7 @@ def test_signed_payload_tamper_and_wrong_key_rejected(workspace, keys, tmp_path)
 def test_sign_pack_optional_reviewer_gate_and_no_audio(workspace, keys, tmp_path):
     root, review = workspace
     mark_review(review, "clean.pause", "draft")
-    with pytest.raises(ValueError, match="approved"):
+    with pytest.raises(ValueError, match="approval"):
         sign_pack(review, keys[0], tmp_path / "not-approved.json", require_approved=True)
     result = sign_pack(review, keys[0], tmp_path / "partial.json")
     assert result["approved_count"] == 1
