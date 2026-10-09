@@ -19,11 +19,22 @@ for model in mm:
     for alias in model.get("aliases",[]):
         owner=aliases.setdefault(alias,model["id"])
         assert owner==model["id"],("duplicate alias",alias,owner,model["id"])
-assert len(mm)==154,(len(mm),"models")
+assert len(mm)==215,(len(mm),"models")
 assert len(vv)==55,(len(vv),"voices")
 assert sum(bool(m.get("device_tested")) for m in mm)==1
+v012=json.loads((Path(__file__).resolve().parents[1]/"tests"/"fixtures"/"v012_model_identity.json").read_text())
+assert v012["count"]==154
+for row in v012["models"]:
+    m=model_by_id(row["id"])
+    assert m["id"]==row["id"],("lost v0.12 profile",row["id"])
+    assert m["adapter"]==row["adapter"],("adapter drift",row["id"])
+    assert m["transport"]["kind"]==row["transport"],("transport drift",row["id"])
+    assert bool(m["device_tested"])==row["device_tested"],("verification drift",row["id"])
+    for alias in row["aliases"]:
+        assert model_by_id(alias)["id"]==row["id"],("old alias drift",alias)
+
 counts=Counter(m["adapter"] for m in mm)
-expected={"dreame_numeric":51,"roborock_legacy":33,"ijai_zip":8,"semantic_bundle":62}
+expected={"dreame_numeric":51,"roborock_legacy":33,"ijai_zip":8,"semantic_bundle":123}
 assert dict(counts)==expected,(counts,expected)
 for m in mm:
     profile=event_profile_for_model(m["id"])
