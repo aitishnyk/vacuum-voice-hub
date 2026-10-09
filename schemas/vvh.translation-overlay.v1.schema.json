@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/aitishnyk/vacuum-voice-hub/schemas/vvh.translation-overlay.v1.schema.json",
+  "title": "Local user-supplied language text; not an audio voice pack or install authorization",
+  "type": "object",
+  "required": [
+    "schema",
+    "locale",
+    "author",
+    "license",
+    "translations"
+  ],
+  "properties": {
+    "schema": {
+      "const": "vvh.translation-overlay.v1"
+    },
+    "locale": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 15
+    },
+    "author": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "license": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "source_url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 2048
+    },
+    "translations": {
+      "type": "object",
+      "minProperties": 1,
+      "maxProperties": 512,
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^[a-z0-9_.-]+$"
+      },
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 400
+      }
+    }
+  }
+}
