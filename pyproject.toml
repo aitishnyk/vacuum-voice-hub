@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "vacuum-voice-hub"
-version = "0.17.0"
+version = "0.18.0"
 description = "Robot-vacuum voice platform with 215 model profiles, 18-language scripts, offline Piper, translation overlays, audio QA, Creator Studio batch builds, preflight QA, compressed audio QA, language coverage and human recording review, safe reviewer import and evidence audits"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -19,6 +19,7 @@ dependencies = [
 [project.optional-dependencies]
 desktop = ["pywebview>=5.0", "keyring>=25.0"]
 security = ["keyring>=25.0"]
+review-signing = ["cryptography>=42"]
 
 [project.scripts]
 vvh = "vacuum_voice_hub.cli:main"
