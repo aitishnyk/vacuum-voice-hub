@@ -10,7 +10,7 @@
 </head>
 <body><div class="wrap">
 <section class="hero">
-  <span class="pill">v0.14</span><span class="pill">215 target profiles</span><span class="pill">vvh.voicepack.v1</span><span class="pill">local-only workspace</span>
+  <span class="pill">v0.15</span><span class="pill">215 target profiles</span><span class="pill">vvh.voicepack.v1</span><span class="pill">local-only workspace</span>
   <h1>Creator Studio</h1>
   <p>Создавай одну semantic-озвучку и собирай её под разные модели. Аудио остаётся локально; GitHub не получает рабочие файлы автоматически.</p>
   <a class="toplink" href="/">← Вернуться в каталог</a>
@@ -57,6 +57,7 @@
     <button id="coverage" class="secondary">Coverage</button>
     <button id="preflight" class="secondary">Preflight</button>
     <button id="audioQA" class="secondary">Audio QA</button>
+    <label class="notice"><input type="checkbox" id="decodeCompressed"> Decode MP3/OGG/FLAC…</label>
     <button id="build">Build model package</button>
   </div>
   <div class="progress"><i id="coverageBar"></i></div>
@@ -64,7 +65,8 @@
   <div class="notice">Multi-model batch: separate selected model IDs with commas (up to 16). Each target is preflighted; outputs remain offline and are never installed.</div>
   <div class="toolbar">
     <input id="batchModels" class="grow" placeholder="dreame.vacuum.r2209, xiaomi.vacuum.d101" aria-label="Comma-separated model IDs for offline batch"/>
-    <label class="notice"><input type="checkbox" id="batchAudioQA"> WAV QA</label>
+    <label class="notice"><input type="checkbox" id="batchAudioQA"> Audio QA</label>
+    <label class="notice"><input type="checkbox" id="batchDecodeCompressed"> Decode compressed</label>
     <button id="batchBuild" class="secondary">Build batch</button>
   </div>
 </div>
@@ -76,6 +78,7 @@
     <select id="scriptLocale" aria-label="Recording script language"></select>
     <button id="previewScript" class="secondary">Показать фразы</button>
     <button id="copyScript" class="secondary">Скопировать JSON</button>
+    <button id="languageCoverage" class="secondary">Text vs Audio Coverage</button>
   </div>
   <pre id="scriptOutput" class="status">Выберите язык и нажмите «Показать фразы».</pre>
 </div>
@@ -217,7 +220,7 @@ $('coverage').onclick=async()=>{try{await loadWorkspace();renderCoverage(snapsho
 $('preflight').onclick=async()=>{
   if(!workspace.value||!model.value){setStatus('Select a workspace and model first.');return;}
   try{
-    const query=new URLSearchParams({id:workspace.value,model_id:model.value,check_audio:'true'});
+    const query=new URLSearchParams({id:workspace.value,model_id:model.value,check_audio:'true',decode_compressed:String($('decodeCompressed').checked)});
     const data=await api('/api/creator/preflight?'+query);
     setStatus(data.report);
   }catch(e){setStatus('Preflight failed: '+e)}
@@ -232,7 +235,8 @@ $('batchBuild').onclick=async()=>{
     const response=await api('/api/creator/batch',{method:'POST',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({id:workspace.value,models,
-                           check_audio:$('batchAudioQA').checked})});
+                           check_audio:$('batchAudioQA').checked,
+                           decode_compressed:$('batchDecodeCompressed').checked})});
     setStatus(response);
   }catch(e){setStatus('Batch failed: '+e)}
   finally{$('batchBuild').disabled=false;}
@@ -251,6 +255,14 @@ $('previewScript').onclick=async()=>{
       notice:'Text only; not installable and no audio created'});
   }catch(e){setStatus('Script error: '+e)}
 };
+$('languageCoverage').onclick=async()=>{
+  if(!workspace.value||!model.value){setStatus('Select workspace and target model first.');return;}
+  try{
+    const params=new URLSearchParams({id:workspace.value,model_id:model.value,language:$('scriptLocale').value});
+    const report=(await api('/api/creator/language-coverage?'+params)).report;
+    setStatus(report);
+  }catch(e){setStatus('Language coverage error: '+e)}
+};
 $('copyScript').onclick=async()=>{
   if(!currentScript){setStatus('Сначала откройте языковой сценарий.');return}
   try{await navigator.clipboard.writeText(JSON.stringify(currentScript,null,2));setStatus('Script JSON copied')}
@@ -260,7 +272,7 @@ $('scriptLocale').onchange=()=>{currentScript=null;$('scriptOutput').textContent
 $('audioQA').onclick=async()=>{
   if(!workspace.value){setStatus('Сначала создайте проект.');return;}
   try{
-    const params=new URLSearchParams({id:workspace.value,model_id:model.value});
+    const params=new URLSearchParams({id:workspace.value,model_id:model.value,decode_compressed:String($('decodeCompressed').checked)});
     const report=(await api('/api/creator/qa?'+params)).report;
     setStatus(report);
   }catch(e){setStatus('Audio QA error: '+e)}
