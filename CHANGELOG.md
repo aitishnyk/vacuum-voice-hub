@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.17.0 — 2026-10-09 (returned reviewer handoff and evidence boundary)
+
+- added local `vvh creator review import` for returned JSON/ZIP with strict file bounds, duplicate/path/symlink checks, no filesystem ZIP extraction and exact Creator/project/model/script/audio SHA-256 reconciliation;
+- returned reviewer statuses/rights declarations stay separately labeled untrusted external claims; local review decisions reset to draft instead of automatically trusting remote approval;
+- SHA-256-linked, local bounded review-event history records marking/refresh/import; detects inconsistent chains but is not cryptographically signed;
+- Creator Studio adds small metadata handoff import and history inspection through existing authenticated localhost session;
+- model+firmware+package/rollback evidence intake never modifies install policies, and even a complete self-report remains independent-review-only;
+- preserved all 215 source-backed models, 55 attributed source voices, 18 text locales, 109/154 fixtures and X10-only verified hardware.
+
 ## 0.16.0 — 2026-10-09 (voice recording workflow and human review)
 
 - exported recording assignments for every known semantic event of a selected 215-model profile, including untranslated English references and optional user overlay;
