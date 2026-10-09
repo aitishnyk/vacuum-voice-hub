@@ -10,7 +10,7 @@
 </head>
 <body><div class="wrap">
 <section class="hero">
-  <span class="pill">v0.15</span><span class="pill">215 target profiles</span><span class="pill">vvh.voicepack.v1</span><span class="pill">local-only workspace</span>
+  <span class="pill">v0.16</span><span class="pill">215 target profiles</span><span class="pill">vvh.voicepack.v1</span><span class="pill">local-only workspace</span>
   <h1>Creator Studio</h1>
   <p>Создавай одну semantic-озвучку и собирай её под разные модели. Аудио остаётся локально; GitHub не получает рабочие файлы автоматически.</p>
   <a class="toplink" href="/">← Вернуться в каталог</a>
@@ -84,7 +84,33 @@
 </div>
 
 <div class="panel">
-  <b>4. Semantic events</b>
+  <b>4. Human Review & Recording Checklist</b>
+  <p class="notice">Local reviewer states are human attestations, not automatic verification of copyright, spoken language or robot installation. All recordings remain on this computer; ZIP exports exclude audio unless explicitly enabled.</p>
+  <div class="toolbar">
+    <button id="reviewNew" class="secondary">Create review checklist</button>
+    <button id="reviewRefresh" class="secondary">Refresh changed recordings</button>
+    <button id="reviewAudit" class="secondary">Audit hashes</button>
+    <select id="reviewId" aria-label="Local review checklists"></select>
+    <button id="reviewReload" class="secondary">Reload</button>
+  </div>
+  <div class="grid2">
+    <label>Recording event<select id="reviewSemantic"></select></label>
+    <label>New status<select id="reviewStatus"><option value="recorded">Recorded</option><option value="listened">Listened</option><option value="approved">Approved</option><option value="draft">Reset to draft</option></select></label>
+    <label>Human reviewer<input id="reviewer" placeholder="Name / reviewer identity"/></label>
+    <label>Review note<input id="reviewNote" placeholder="Pronunciation, QC, provenance…"/></label>
+  </div>
+  <div class="toolbar">
+    <label class="notice"><input id="reviewLanguageAck" type="checkbox"> I listened and attest the language</label>
+    <label class="notice"><input id="reviewRightsAck" type="checkbox"> I attest I have distribution rights</label>
+    <button id="reviewMark">Update review</button>
+    <label class="notice"><input id="reviewIncludeAudio" type="checkbox"> Include source audio in local ZIP</label>
+    <button id="reviewBundle" class="secondary">Export review ZIP</button>
+  </div>
+  <pre id="reviewReport" class="status">Select a workspace and create a recording checklist.</pre>
+</div>
+
+<div class="panel">
+  <b>5. Semantic events</b>
   <div class="toolbar">
     <input id="search" class="grow" placeholder="clean.start, bumper, charging…">
     <select id="category"><option value="">Все категории</option></select>
@@ -277,6 +303,80 @@ $('audioQA').onclick=async()=>{
     setStatus(report);
   }catch(e){setStatus('Audio QA error: '+e)}
 };
+let activeReview=null;
+async function loadReviews(selected){
+  if(!workspace.value)return;
+  const info=await api('/api/creator/reviews?'+new URLSearchParams({id:workspace.value}));
+  const selectedId=selected||$('reviewId').value;
+  $('reviewId').replaceChildren();
+  for(const item of info.reviews){
+    const opt=document.createElement('option');
+    opt.value=item.review_id;
+    opt.textContent=item.locale+' · '+item.model_id+' · '+item.review_id;
+    $('reviewId').append(opt);
+  }
+  if(info.reviews.some(x=>x.review_id===selectedId))$('reviewId').value=selectedId;
+  if($('reviewId').value)await showReview();
+  else{$('reviewSemantic').replaceChildren();$('reviewReport').textContent='No review checklist yet.'}
+}
+async function showReview(){
+  if(!$('reviewId').value)return;
+  const info=await api('/api/creator/review?'+new URLSearchParams({review_id:$('reviewId').value}));
+  activeReview=info;
+  const prior=$('reviewSemantic').value;
+  $('reviewSemantic').replaceChildren();
+  for(const task of info.tasks){
+    const opt=document.createElement('option');
+    opt.value=task.semantic;
+    opt.textContent=task.semantic+' · '+task.status+(task.audio_present?' · audio':' · missing audio');
+    $('reviewSemantic').append(opt);
+  }
+  if(info.tasks.some(x=>x.semantic===prior))$('reviewSemantic').value=prior;
+  $('reviewReport').textContent=JSON.stringify(info.report,null,2);
+}
+async function reviewPost(path,data){
+  return api(path,{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(data)});
+}
+$('reviewNew').onclick=async()=>{
+  if(!workspace.value||!model.value){setStatus('Select workspace and model.');return}
+  try{
+    const value=await reviewPost('/api/creator/review/new',{
+      id:workspace.value,model_id:model.value,language:$('scriptLocale').value});
+    await loadReviews(value.review_id);
+    setStatus(value);
+  }catch(e){setStatus('Review create failed: '+e)}
+};
+$('reviewAudit').onclick=async()=>{try{await showReview()}catch(e){setStatus('Review audit failed: '+e)}};
+$('reviewReload').onclick=async()=>{try{await loadReviews()}catch(e){setStatus('Review list failed: '+e)}};
+$('reviewId').onchange=async()=>{try{await showReview()}catch(e){setStatus('Review load failed: '+e)}};
+$('reviewRefresh').onclick=async()=>{
+  if(!$('reviewId').value)return;
+  try{
+    const report=await reviewPost('/api/creator/review/refresh',{review_id:$('reviewId').value});
+    await showReview();setStatus(report);
+  }catch(e){setStatus('Review refresh failed: '+e)}
+};
+$('reviewMark').onclick=async()=>{
+  if(!$('reviewId').value||!$('reviewSemantic').value)return;
+  try{
+    const report=await reviewPost('/api/creator/review/mark',{
+      review_id:$('reviewId').value,semantic:$('reviewSemantic').value,
+      status:$('reviewStatus').value,reviewer:$('reviewer').value.trim()||null,
+      note:$('reviewNote').value.trim()||null,
+      language_attested:$('reviewLanguageAck').checked,
+      rights_attested:$('reviewRightsAck').checked});
+    await showReview();setStatus(report);
+  }catch(e){setStatus('Review update failed: '+e)}
+};
+$('reviewBundle').onclick=async()=>{
+  if(!$('reviewId').value)return;
+  try{
+    const result=await reviewPost('/api/creator/review/bundle',{
+      review_id:$('reviewId').value,include_audio:$('reviewIncludeAudio').checked});
+    setStatus(result);
+  }catch(e){setStatus('Review export failed: '+e)}
+};
 $('build').onclick=async()=>{
   $('build').disabled=true;setStatus('Нормализую audio и собираю model package…');
   try{
@@ -284,13 +384,13 @@ $('build').onclick=async()=>{
     setStatus(j);
   }catch(e){setStatus('Build error: '+e)}finally{$('build').disabled=false}
 };
-workspace.onchange=loadWorkspace;
+workspace.onchange=async()=>{await loadWorkspace();await loadReviews().catch(e=>setStatus(String(e)))};
 model.onchange=loadWorkspace;
 modelQ.oninput=async()=>{const old=model.value;populateModels(modelQ.value);if(model.value&&model.value!==old&&workspace.value)await loadWorkspace();};
 $('reload').onclick=()=>loadWorkspaces(workspace.value);
 category.onchange=loadEvents;
 search.oninput=renderEvents;
 onlyAssigned.onchange=renderEvents;
-bootstrap().catch(e=>setStatus('Startup error: '+e));
+bootstrap().then(()=>loadReviews()).catch(e=>setStatus('Startup error: '+e));
 </script>
 </body></html>
