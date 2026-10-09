@@ -4,6 +4,21 @@
 
 **Credits-first multi-model voice platform for robot vacuums.**
 
+## v0.13.0 — Multi-Brand Robot Discovery
+
+**215 source-attributed device profiles** across Xiaomi/Mijia, Viomi, Roborock, ROIDMI, IJAI and existing Dreame/MOVA families. New in v0.13: 61 identity-verified **portable research-only profiles** and a local model-event comparison tool. The existing **55 original voice variants**, **18 text-script locales**, legacy IDs and installation policies are preserved.
+
+**11,825 model × voice software combinations** are available for coverage and preview. This number must not be interpreted as verified installed voices on 215 physical robots. All newly imported models are `semantic_bundle`, `unsupported-local`, `build-only` and lack any bypass or direct voice upload.
+
+```bash
+vvh models --vendor Roborock
+vvh models --search "Viomi"
+vvh model-compare xiaomi.vacuum.d101 xiaomi.vacuum.ov51gl
+vvh model-compare roborock.vacuum.a73 viomi.vacuum.v60
+```
+
+Source traceability and the exact new-model matrix: [v0.13 Multibrand Discovery](docs/MULTIBRAND_DISCOVERY_V013.md). An exact model identity or common voice events do not prove manufacturer package signing or installation support.
+
 ## v0.12.0 — Extended Language Pack Translation Studio
 
 **New:** local author-attributed translation overlays can add further semantic events to the 16 built-in phrases, for any existing model profile, and can be used with **both** eSpeak-NG and Piper synthesis. These extra translations are user-supplied text, not new prerecorded voices or new verified device installs.
