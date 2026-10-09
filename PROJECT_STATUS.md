@@ -1,38 +1,28 @@
-# Project status — v0.12.0 SOURCE SEALED (hardware acceptance pending)
+# Project status — v0.13.0 SOFTWARE RELEASE CANDIDATE
 
-- Starting source: v0.11.0 merged `c02a0d918e27eceb33b62b2cb6cef2b520da4ed7`.
-- Source version: **0.12.0**, **SOURCE SEALED** with exact-head CI, public catalog, release bundle, all three desktop packages and merged-main CodeQL confirmed.
-- Functional release merged at `b3674acb18d15dc0c87f43a7365ae0aad32e8aee` (PR #20).
-- Models: **154**; source-attributed real audio variants: **55**; built-in text locales: **18**; target combinations: **8,470**.
-- Historical 109 model identity/alias baseline, all 154 v0.10 profiles and all 55 catalog voices preserved.
-- New: model-aware translation reference scaffolding; strict local `vvh.translation-overlay.v1`; per-model translation coverage audit and optional extension for local eSpeak-NG/Piper TTS.
-- 16 original template phrases per locale remain intact with no overlays; extra translated event prompts come from user-supplied, attribution-labelled local JSON.
-- Version `vvh.script-pack.v1` and existing local/Creator voice workflows remain compatible.
-- Native-speaker review and actual audio license grants are **NOT implied** by author/declared license strings.
-- No change to `device_tested`: X10 (`dreame.vacuum.r2209`) remains the **only physically verified VVH target**.
-- Signed-only/new modern custom install remains blocked; source-backed family profiles do not imply installed-voice acceptance.
+- Canonical starting point: v0.12.0 SOURCE SEALED, main SHA `250b834ef15a99a47a407d03725826def491e990`.
+- Source version: **0.13.0**, candidate until exact-head GitHub CI, release bundle, public site and desktop package tests succeed.
+- Canonical models: **215** = unchanged original 154 + 61 newly source-listed MIoT identities.
+- Existing source-attributed audio voice variants: **55**, unchanged; built-in text-only locale scripts: **18**, unchanged.
+- Software coverage matrix: **215 × 55 = 11,825 combinations**, not 11,825 physically working custom voice installations.
+- Additions: **26 Viomi**, **19 Xiaomi/Mijia**, **9 Roborock**, **4 ROIDMI**, **3 IJAI**.
+- All added devices are portable `semantic_bundle` research profiles with `unsupported-local` fail-closed transport; no new `device_tested` hardware flags.
+- Xiaomi X10 (`dreame.vacuum.r2209`) remains the **only** physically tested VVH installation target.
+- `model-compare` displays overlapping event IDs / package research hints, **never** authorizes custom package installation.
+- Public model catalog adds links to MIoT identity sources for new devices; no new firmware/package acceptance claims.
 
-## Verified exact-source gates
+## Preservation / acceptance
 
-Pre-merge PR #20 head `3fcc2cea0a665cccd7617f162fca182cdafd53e4`:
-- CI run `37900007033`: **SUCCESS**, 145/145 tests, 2 inherited python-miio deprecation warnings, Model Matrix **154 × 55 = 8,470** PASS;
-- second CI run `37900011195`: SUCCESS;
-- PR CodeQL `37900004207`: SUCCESS;
-- Release Bundle `37900007214`: SUCCESS;
-- Public Site `37900007199`: SUCCESS;
-- Desktop Packages `37900007065`: SUCCESS for macOS / Linux / Windows.
+- Old 109-model baseline from `tests/fixtures/v08_model_identity.json` must remain unchanged.
+- Additional previous 154-model baseline from `tests/fixtures/v012_model_identity.json` protects all canonical IDs, aliases, adapters, transports and hardware-test status.
+- Original `catalog/models.json` and packaged `vacuum_voice_hub/data/models.json` must remain byte-identical after the 61-entry cumulative merge.
+- 55 attributed voices are preserved; no unlicensed new audio assets added; translation overlays and Piper/eSpeak remain user-run local workflows.
+- CI, model matrix audit, public site, release bundle, macOS/Linux/Windows desktop packaging must all PASS before source sealing.
 
-On merged main `b3674acb18d15dc0c87f43a7365ae0aad32e8aee`:
-- CI `37900220960`: SUCCESS;
-- Public Site `37900220967`: SUCCESS;
-- CodeQL Python + Actions `37900221131`: SUCCESS;
-- dependency graph `37900228812`: SUCCESS.
+## Unverified hardware
 
-This source sign-off does **not** imply binary notarization/signing, validation of local Piper/eSpeak voices on user machines, native-speaker sign-off or physical acceptance beyond the previously verified Xiaomi X10. No new vendor voice installation transports are claimed.
+Modern Xiaomi H40/H50/X20/S40, Viomi, ROIDMI, IJAI and Roborock Qrevo installations remain unverified. Per-device+firmware custom package and transport/recovery acceptance is tracked in [Hardware Issue #14](https://github.com/aitishnyk/vacuum-voice-hub/issues/14). A MIoT device listing or model action-control support cannot certify an arbitrary custom voice pack.
 
-## Next priorities
+## Roadmap
 
-- v0.13: source-backed additional device identities, genuine licensed voice packs and review workflow without breaking the model/voice catalogs.
-- v1.0 requires genuine device/firmware confirmation per [Issue #14](https://github.com/aitishnyk/vacuum-voice-hub/issues/14).
-
-See [v0.12 Translation Overlays](docs/TRANSLATION_OVERLAYS_V012.md).
+v0.14 candidate priority: Audio & Voice Pack Adaptation QA; subsequent evidence-backed package adapters. See [multibrand device research](docs/MULTIBRAND_DISCOVERY_V013.md).
