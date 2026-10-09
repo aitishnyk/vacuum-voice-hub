@@ -77,7 +77,7 @@ def script_for_model(locale, model_id, overlay_path=None):
 
 
 def synthesize_workspace(locale, model_id, pack_id, author, voice, *,
-                         output=None, speed=160, pitch=50, allow_synthetic=False, overlay_path=None):
+                         output=None, speed=160, pitch=50, allow_synthetic=False, overlay_path=None, lexicon_path=None):
     """Generate actual WAV files using local espeak-ng; never build/install automatically."""
     if not allow_synthetic:
         raise PermissionError("explicit --allow-synthetic is required")
@@ -93,7 +93,9 @@ def synthesize_workspace(locale, model_id, pack_id, author, voice, *,
     if not exe:
         raise RuntimeError("espeak-ng is not installed; only text scripts are available")
     from .creator import new_workspace, assign_audio, default_workspace
+    from .pronunciation import load_lexicon, pronounce
     script = script_for_model(locale, model_id, overlay_path)
+    lexicon = load_lexicon(lexicon_path, locale) if lexicon_path is not None else None
     root = Path(output).expanduser().resolve() if output else default_workspace(pack_id)
     if root.exists():
         raise FileExistsError(f"creator workspace already exists: {root}")
@@ -108,7 +110,7 @@ def synthesize_workspace(locale, model_id, pack_id, author, voice, *,
             # Only mapped semantics are needed for this target, but the project remains portable.
             wav = root / "audio" / (row["semantic"].replace("/", "_") + ".wav")
             cmd = [exe, "-v", voice, "-s", str(speed), "-p", str(pitch),
-                   "-w", str(wav), row["text"]]
+                   "-w", str(wav), pronounce(row["text"], lexicon)]
             try:
                 subprocess.run(cmd, check=True, capture_output=True, timeout=30)
             except (subprocess.CalledProcessError, subprocess.TimeoutExpired) as exc:
@@ -121,6 +123,7 @@ def synthesize_workspace(locale, model_id, pack_id, author, voice, *,
             "events_synthesized": script["scripted_count"],
             "mapped_model_semantics": script["mapped_count"],
             "engine": "espeak-ng", "engine_voice": voice,
+            "pronunciation_lexicon_sha256": lexicon["sha256"] if lexicon else None,
             "audio_files_generated": True, "redistribution_verified": False,
             "install_authorized": False,
             "next_step": f"vvh creator build {root} --model {script['model_id']}"

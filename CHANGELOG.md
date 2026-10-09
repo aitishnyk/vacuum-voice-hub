@@ -1,3 +1,9 @@
+## v1.3.0 — Local pronunciation lexicon
+
+- Attributed, bounded user-provided pronunciation replacements opt-in for existing local Piper and espeak-ng.
+- One-pass literal matching with no source translation edits, SHA-256 provenance and fail-closed validation.
+- No new model firmware or hardware install certification.
+
 ## v1.2.0 — Offline language review and audio A/B
 
 - New immutable, attributable per-phrase language approval workflow with SHA-256 source snapshots; stale overlays invalidate decisions, no review is generated automatically.

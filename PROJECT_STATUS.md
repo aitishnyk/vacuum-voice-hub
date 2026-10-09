@@ -1,24 +1,16 @@
-# Project status — v1.2.0 SOFTWARE STABLE (source)
+# Project status — v1.3.0 SOFTWARE STABLE (source)
 
-The v1.2.0 functional increment was merged to main through
-[PR #54](https://github.com/aitishnyk/vacuum-voice-hub/pull/54)
-at `0f950a24e86e1626f268b9245c1d17a0c93dc3c0`. Exact PR-head CI: **275 Python tests PASS**, CodeQL, Public
-Site, Release Bundle, Windows/macOS/Linux desktop package jobs all PASS.
+The v1.3 source candidate adds optional offline pronunciation dictionaries
+used by Piper/eSpeak without modifying original translations.
+[Functional PR #57](https://github.com/aitishnyk/vacuum-voice-hub/pull/57)
+head `4e585f20a4f526a4a0686ab8d9386330f2f122cb` passed
+**287/287 Python tests**, CodeQL, Public Site, Release Bundle and
+Windows/macOS/Linux desktop build jobs. Final merged-main software
+acceptance and official GitHub Release publication remain independent gates.
 
-The source adds copy-on-write language review backed by script SHA-256
-snapshots and offline read-only audio A/B measurements.
-This does **not** independently certify language, voice rights, any new
-robot hardware/firmware install path or desktop executable signatures.
+Preservation baseline: >=223 researched models, 55 credited voice variants,
+>=22 text-only locales; Xiaomi X10 alone VVH hardware-verified.
+Device installs, legal voice rights, genuine native language review
+and commercial Telegram/Stars/Bunny are not certified or enabled by v1.3.
 
-Baseline protected: 223 model identities, 55 attributed variants,
->=22 **text-only** locales; Xiaomi X10 alone marked hardware tested.
-
-Release publication is carried out separately through GitHub Actions;
-do not infer an official release from this file alone. Follow
-[GitHub Releases](https://github.com/aitishnyk/vacuum-voice-hub/releases)
-for exact assets and immutable tags.
-
-Commercial Telegram/Stars/Bunny code remains outside this repo.
-
-Remaining v1.3-v2.0 scope is tracked in
-[issue #55](https://github.com/aitishnyk/vacuum-voice-hub/issues/55).
+Roadmap and status policy: [issue #55](https://github.com/aitishnyk/vacuum-voice-hub/issues/55).
