@@ -4,6 +4,23 @@
 
 **Credits-first multi-model voice platform for robot vacuums.**
 
+## v0.19.0 — Signed Whole-Pack Manifest & Firmware Evidence Bundles
+
+A user-supplied Ed25519 private PEM key can now sign **every assigned recording** in a single versioned whole-pack manifest that covers the model, locale, semantic events, source audio SHA-256, Creator manifest, translations and reviewer states. Verification rechecks the matching public key and all current audio. Optional `--require-approved` refuses packs with human-unapproved assigned recordings.
+
+```bash
+vvh creator review sign-pack ./review.json --private-key ./reviewer-private.pem \\
+  --require-approved --output ./signed-pack.json
+vvh creator review verify-pack ./signed-pack.json --public-key ./reviewer-public.pem \\
+  --review ./review.json
+vvh research evidence-bundle ./hardware-report.json --package ./candidate.pkg \\
+  --output ./evidence.zip
+vvh research verify-evidence-bundle ./evidence.zip --package ./candidate.pkg \\
+  --model roborock.vacuum.a75
+```
+
+The firmware evidence ZIP **does not include** the proprietary candidate package, passwords, robot token or device connections. A complete reported checklist does not grant permission to install custom voices: every new model/firmware needs independent physical playback and stock rollback proof. See [v0.19 source and hardware evidence guide](docs/SIGNED_PACK_EVIDENCE_V019.md).
+
 ## v0.18.0 — Signed Reviewer Provenance & QA Evidence
 
 Offline, **optional Ed25519** reviewer attestation binds a current approved Creator recording SHA-256, target model, locale, event IDs, translated-text digest and specific reviewer claim to a detached JSON signature. The private PEM key is supplied **only from your local filesystem**; never auto-generated, uploaded or persisted by VVH. Verification requires a separately supplied public key and rechecks the *current* recording and review. A valid signature proves possession of a key, **not** legal ownership, native pronunciation or robot installation support.
