@@ -1,5 +1,17 @@
 # Roadmap
 
+## v2.0 — Universal Voice Studio software source
+
+Implemented integrated CLI and Creator local UI QA, source SHA-256,
+translation/audio/event mapping, optional review/adapter checks, and
+v2 software release acceptance. Historic v1.2–v1.9 source workflows
+continue with no destructive migration. [Docs](docs/UNIVERSAL_STUDIO_V200.md).
+Physical device acceptance for all researched models, native-speaker
+certification for all scripts, actual redistribution licenses and
+OS code-signing are independent future acceptance work and NOT
+part of the v2.0 source-stable claim.
+
+
 ## v1.9 — Creator Recovery and Backup
 
 Deterministic local Creator project backups, full SHA-256/ZIP verification, comparison against current source and no-overwrite new-folder restoration. [Guide](docs/CREATOR_RECOVERY_V190.md). Signed/notarized desktop installers depend on external platform identities and are not claimed.
