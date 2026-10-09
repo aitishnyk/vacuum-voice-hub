@@ -10,7 +10,7 @@
 </head>
 <body><div class="wrap">
 <section class="hero">
-  <span class="pill">v1.5</span><span class="pill">223 target profiles</span><span class="pill">vvh.voicepack.v1</span><span class="pill">local-only workspace</span>
+  <span class="pill">v2.0</span><span class="pill">223 target profiles</span><span class="pill">vvh.voicepack.v1</span><span class="pill">local-only workspace</span>
   <h1>Creator Studio</h1>
   <p>Создавай одну semantic-озвучку и собирай её под разные модели. Аудио остаётся локально; GitHub не получает рабочие файлы автоматически.</p>
   <a class="toplink" href="/">← Вернуться в каталог</a>
@@ -69,6 +69,16 @@
     <label class="notice"><input type="checkbox" id="batchDecodeCompressed"> Decode compressed</label>
     <button id="batchBuild" class="secondary">Build batch</button>
   </div>
+</div>
+
+<div class="panel">
+  <b>Universal Studio · Integrated Read-only QA</b>
+  <p class="notice">Combine model event mapping, script language, local audio SHA-256 and offline-build readiness. This never grants a robot installation permission or uploads data.</p>
+  <div class="toolbar">
+    <button id="studioInspect" class="secondary">Inspect workspace and model</button>
+    <label class="notice"><input type="checkbox" id="studioAudioQA"> Include audio signal checks</label>
+  </div>
+  <pre id="studioOutput" class="status" aria-live="polite">Choose a Creator workspace and model, then inspect.</pre>
 </div>
 
 <div class="panel">
@@ -339,6 +349,26 @@ $('audioQA').onclick=async()=>{
     setStatus(report);
   }catch(e){setStatus('Audio QA error: '+e)}
 };
+$('studioInspect').onclick=async()=>{
+  if(!workspace.value||!model.value){setStatus('Select workspace and target model first.');return}
+  $('studioInspect').disabled=true;
+  try{
+    const params=new URLSearchParams({
+      id:workspace.value,model_id:model.value,
+      language:$('scriptLocale').value,
+      check_audio:String($('studioAudioQA').checked)
+    });
+    const result=(await api('/api/studio/inspect?'+params)).report;
+    $('studioOutput').textContent=JSON.stringify(result,null,2);
+    setStatus({schema:result.schema,
+      offline_pack_build_ready:result.offline_pack_build_ready,
+      hardware_install_authorized:false,source_mutated:false});
+  }catch(e){
+    $('studioOutput').textContent='Studio inspection failed: '+e;
+    setStatus('Universal Studio error: '+e);
+  }finally{$('studioInspect').disabled=false}
+};
+
 let activeReview=null;
 async function loadReviews(selected){
   if(!workspace.value)return;
