@@ -25,11 +25,11 @@ def glossary(tmp, rows=None, **options):
 
 def test_one_pass_lexicon_does_not_mutate_source_script(tmp_path):
     path = glossary(tmp_path, [
-        {"written": "прибирання", "spoken": "прибирАння"},
-        {"written": "прибирАння", "spoken": "BAD-CASCADE"}])
+        {"written": "прибирання", "spoken": "приби-рання"},
+        {"written": "приби-рання", "spoken": "BAD-CASCADE"}])
     before = script_for_model("uk", MODEL)
     doc = load_lexicon(path, "uk")
-    assert pronounce("Три прибирання.", doc) == "Три прибирАння."
+    assert pronounce("Три прибирання.", doc) == "Три приби-рання."
     assert "BAD-CASCADE" not in pronounce("Три прибирання.", doc)
     result = pronunciation_preview("uk", MODEL, path)
     assert result["modified"] >= 1
