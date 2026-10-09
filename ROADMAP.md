@@ -1,6 +1,10 @@
 # Roadmap
 
-## v1.0 stable software scope
+## v1.0 SOFTWARE STABLE / SOURCE SEALED
+
+Completed source/core software milestone: 223 preserved model identity profiles, 55 attributed voice variants, 22 text-script locales, single/batch offline mastering, safety/review/Ed25519 provenance and CI-enforced baseline audit. Exact PR-head 250/250 tests, public site, release bundle, CodeQL and Windows/macOS/Linux desktop packages PASS. Merged-main Python CI/CodeQL/Public Site also PASS. Device installation is **not** certified across 223 models; ongoing community reports and voluntary donated/loaned hardware can expand evidence per exact model and firmware.
+
+## Previous v1.0 stable software scope
 
 Goal: stable public offline editor, model/locale catalogs and signed/reviewed audio production pipeline on Windows/macOS/Linux, with independent source audit and exact-head CI/CodeQL. Physical-device verification is a separate evidence stream operated with community volunteers; manufacturers or supporters may optionally contribute devices without editorial influence. 223 models mean researched identities, not 223 verified installers. After stable source release, additional physical transports, native-speaker verified recordings, and more advanced Creator UX continue as individually verified v1.x features.
 

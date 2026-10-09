@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.0.0 — 2026-10-09 (software-stable source milestone candidate)
+## 1.0.0 — 2026-10-09 (SOFTWARE STABLE / SOURCE SEALED after exact-head and merged-main CI acceptance)
 
 - Stabilized offline software contracts and introduced a machine-readable `vvh.software-stable-audit.v1` gate in CI for all 223+ model profiles, 55 credited voice variants, 22+ text languages and preserved old model IDs/aliases.
 - Source/audio mastering and batch mastering remain opt-in, non-destructive and subject to human listening and licensing; package signatures do not certify devices or redistribution rights.

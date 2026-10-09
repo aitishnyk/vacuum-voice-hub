@@ -68,3 +68,9 @@ Native-speaker reviewed translation refinements, more true sound recordings,
 per-model physical acceptance and independently sourced event mappings, richer
 DAW-like production UI and more verified transport adapters remain continuing
 v1.x work. Their absence cannot be hidden by the stable label.
+
+## Acceptance evidence — sealed v1.0 source
+
+- Feature PR: [#48](https://github.com/aitishnyk/vacuum-voice-hub/pull/48), exact feature SHA `e7c31a033ed13a0314cfaba8d8fe2c789fcf3e99`; 250 Python tests PASS, model matrix and stable audit PASS, Public Site, Release Bundle, CodeQL and 3 desktop platforms all PASS.
+- Main merge SHA: `5406260ce3abb19b53fd9cb3213eef7f93ab4a8d`. Independent [CI run #37973030945](https://github.com/aitishnyk/vacuum-voice-hub/actions/runs/37973030945) SUCCESS, [Public Site run #37973031112](https://github.com/aitishnyk/vacuum-voice-hub/actions/runs/37973031112) SUCCESS, CodeQL Python+actions checks SUCCESS.
+- No independent signed/notarized desktop binary, no official GitHub Release publication, and no newly verified robot models are claimed.
