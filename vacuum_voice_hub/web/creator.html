@@ -10,7 +10,7 @@
 </head>
 <body><div class="wrap">
 <section class="hero">
-  <span class="pill">v1.1</span><span class="pill">223 target profiles</span><span class="pill">vvh.voicepack.v1</span><span class="pill">local-only workspace</span>
+  <span class="pill">v1.5</span><span class="pill">223 target profiles</span><span class="pill">vvh.voicepack.v1</span><span class="pill">local-only workspace</span>
   <h1>Creator Studio</h1>
   <p>Создавай одну semantic-озвучку и собирай её под разные модели. Аудио остаётся локально; GitHub не получает рабочие файлы автоматически.</p>
   <a class="toplink" href="/">← Вернуться в каталог</a>
@@ -129,7 +129,24 @@
 </div>
 
 <div class="panel">
-  <b>6. Semantic events</b>
+  <b>6. Audio Timeline — local waveform editor</b>
+  <p class="notice">Choose a local recording and inspect its waveform; select start/end and export a NEW 16 kHz mono WAV. Everything is processed inside your browser. Original audio and Creator assignments are never changed. Browser audio codec support varies; all clips still need listening and rights review.</p>
+  <div class="grid2">
+    <label>Local audio source<input id="timelineFile" type="file" accept="audio/*,.wav,.ogg,.mp3,.flac,.m4a,.aac,.opus"/></label>
+    <label>Start (ms)<input id="timelineStart" type="number" min="0" step="10" value="0"/></label>
+    <label>End (ms)<input id="timelineEnd" type="number" min="250" step="10" value="1000"/></label>
+    <label>Fade (ms)<input id="timelineFade" type="number" min="0" max="200" value="8"/></label>
+  </div>
+  <div class="toolbar">
+    <button id="timelineLoad" class="secondary">Inspect waveform</button>
+    <button id="timelineExport" disabled>Export selected WAV (new file)</button>
+  </div>
+  <canvas id="timelineCanvas" width="1024" height="150" style="width:100%;height:150px;display:block;background:#111114;border-radius:12px" role="img" aria-label="Selected local audio waveform"></canvas>
+  <div id="timelineFeedback" class="notice" role="status" aria-live="polite">No local audio selected. Nothing is uploaded.</div>
+</div>
+
+<div class="panel">
+  <b>7. Semantic events</b>
   <div class="toolbar">
     <input id="search" class="grow" placeholder="clean.start, bumper, charging…">
     <select id="category"><option value="">Все категории</option></select>
@@ -479,5 +496,111 @@ category.onchange=loadEvents;
 search.oninput=renderEvents;
 onlyAssigned.onchange=renderEvents;
 bootstrap().then(()=>loadReviews()).catch(e=>setStatus('Startup error: '+e));
+
+/* v1.5 browser-local audio editor. No network requests, source mutation or
+   automatic Creator assignment. Export requires explicit user action. */
+let localTimelineAudio=null;
+let localTimelineName='voice';
+const timelineCanvas=$('timelineCanvas'),timelineCtx=timelineCanvas.getContext('2d');
+function timelineMessage(s){$('timelineFeedback').textContent=s}
+function timelineRange(){
+  if(!localTimelineAudio)throw new Error('Choose a local file and inspect it first');
+  const start=Number($('timelineStart').value),end=Number($('timelineEnd').value);
+  const fade=Number($('timelineFade').value);
+  if(!Number.isFinite(start)||!Number.isFinite(end)||!Number.isFinite(fade)||
+     start<0||end-start<250||end>localTimelineAudio.duration*1000+1||
+     fade<0||fade>200)throw new Error('Select a 250 ms or longer segment inside the recording; fade 0–200 ms');
+  return {start,end,fade};
+}
+function drawTimeline(){
+  const width=timelineCanvas.width,height=timelineCanvas.height;
+  timelineCtx.fillStyle='#111114';timelineCtx.fillRect(0,0,width,height);
+  if(!localTimelineAudio)return;
+  const arr=localTimelineAudio.getChannelData(0);
+  const jump=Math.max(1,Math.ceil(arr.length/width));
+  timelineCtx.strokeStyle='#a7f3d0';timelineCtx.beginPath();
+  for(let x=0;x<width;x++){
+    const begin=x*jump,end=Math.min(arr.length,begin+jump);
+    let peak=0;
+    for(let i=begin;i<end;i++)peak=Math.max(peak,Math.abs(arr[i]));
+    const amplitude=Math.min(1,peak)*height*.45;
+    timelineCtx.moveTo(x,height/2-amplitude);timelineCtx.lineTo(x,height/2+amplitude);
+  }
+  timelineCtx.stroke();
+  try{
+    const range=timelineRange();
+    timelineCtx.fillStyle='rgba(147,197,253,.17)';
+    timelineCtx.fillRect(range.start/(localTimelineAudio.duration*1000)*width,0,
+      (range.end-range.start)/(localTimelineAudio.duration*1000)*width,height);
+  }catch(e){}
+}
+$('timelineLoad').onclick=async()=>{
+  $('timelineExport').disabled=true;
+  localTimelineAudio=null;drawTimeline();
+  const file=$('timelineFile').files?.[0];
+  if(!file){timelineMessage('Select an audio file first');return}
+  if(file.size<1||file.size>25*1024*1024){timelineMessage('Local file must be 1 byte–25 MiB');return}
+  const AudioEngine=window.AudioContext||window.webkitAudioContext;
+  if(!AudioEngine){timelineMessage('Web Audio API is not available in this browser');return}
+  let engine;
+  try{
+    engine=new AudioEngine();
+    const decoded=await engine.decodeAudioData(await file.arrayBuffer());
+    if(decoded.duration<.25||decoded.duration>180||decoded.numberOfChannels>2){
+      throw new Error('Recordings must be 0.25–180 seconds, mono or stereo');
+    }
+    localTimelineAudio=decoded;
+    localTimelineName=(file.name||'voice').replace(/[^a-z0-9._-]/gi,'_').slice(0,60);
+    $('timelineStart').value='0';
+    $('timelineEnd').value=String(Math.floor(decoded.duration*1000));
+    drawTimeline();
+    $('timelineExport').disabled=false;
+    timelineMessage('Local waveform ready · '+decoded.duration.toFixed(2)+'s · '+decoded.sampleRate+
+      ' Hz · '+decoded.numberOfChannels+' channel(s). Source remains unchanged.');
+  }catch(error){localTimelineAudio=null;timelineMessage('Cannot inspect this file: '+error.message)}
+  finally{if(engine)await engine.close()}
+};
+$('timelineStart').oninput=drawTimeline;
+$('timelineEnd').oninput=drawTimeline;
+$('timelineFade').oninput=drawTimeline;
+$('timelineExport').onclick=async()=>{
+  let range;
+  try{range=timelineRange()}catch(error){timelineMessage(error.message);return}
+  if(!window.OfflineAudioContext){timelineMessage('OfflineAudioContext not available');return}
+  $('timelineExport').disabled=true;
+  try{
+    const count=Math.round((range.end-range.start)*16);
+    if(count<4000||count>16000*180)throw new Error('Unsafe selection length');
+    const offline=new OfflineAudioContext(1,count,16000);
+    const source=offline.createBufferSource();
+    source.buffer=localTimelineAudio;source.connect(offline.destination);
+    source.start(0,range.start/1000,(range.end-range.start)/1000);
+    const output=await offline.startRendering();
+    const pcm=output.getChannelData(0);
+    const wav=new ArrayBuffer(44+count*2),view=new DataView(wav);
+    function label(offset,text){for(let i=0;i<text.length;i++)view.setUint8(offset+i,text.charCodeAt(i))}
+    label(0,'RIFF');view.setUint32(4,36+count*2,true);label(8,'WAVE');
+    label(12,'fmt ');view.setUint32(16,16,true);view.setUint16(20,1,true);
+    view.setUint16(22,1,true);view.setUint32(24,16000,true);
+    view.setUint32(28,32000,true);view.setUint16(32,2,true);view.setUint16(34,16,true);
+    label(36,'data');view.setUint32(40,count*2,true);
+    const fadeFrames=Math.min(Math.round(range.fade*16),Math.floor(count/2));
+    for(let i=0;i<count;i++){
+      let gain=1;
+      if(fadeFrames){if(i<fadeFrames)gain=Math.min(gain,(i+1)/fadeFrames);
+        if(i>=count-fadeFrames)gain=Math.min(gain,(count-i)/fadeFrames)}
+      const sample=Math.max(-1,Math.min(1,pcm[i]*gain));
+      view.setInt16(44+i*2,Math.max(-32768,Math.min(32767,Math.round(sample*32767))),true);
+    }
+    const blob=new Blob([wav],{type:'audio/wav'});
+    const url=URL.createObjectURL(blob);
+    const link=document.createElement('a');
+    link.href=url;link.download=localTimelineName.replace(/\.[^.]*$/,'')+'_selection.wav';
+    document.body.append(link);link.click();link.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),30000);
+    timelineMessage('New local WAV exported. Source and Creator assignments unchanged; human listening required.');
+  }catch(error){timelineMessage('Export failed: '+error.message)}
+  finally{$('timelineExport').disabled=false}
+};
 </script>
 </body></html>
