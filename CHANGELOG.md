@@ -1,3 +1,16 @@
+## v2.0.0 — Universal Voice Studio (source stable)
+
+- Unified `vvh studio capabilities/inspect/report` composes real Creator,
+  model/event preflight, text-vs-audio language coverage and source fingerprints.
+- Opt-in human review and adapter inspection integrate without granting rights
+  or manufacturer install authorization.
+- Session-protected local Creator Studio QA panel, no remote uploads.
+- Major-2 source release acceptance checks legacy ID/alias, 55 voice and
+  >=22 text locale preservation; v1 data/CLI compatibility retained.
+- v2 source publisher independently requires passing current merged-main CI,
+  semantic model audit, release package integrity and exact version-specific
+  assets. No universal device support or signed installers claimed.
+
 ## v1.9.0 — Creator Recovery and Backup
 
 - Deterministic local Creator backups with source-only assigned audio, explicit 25 MiB/clip and 256 MiB/backup limits.
