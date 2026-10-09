@@ -122,6 +122,8 @@ def build_release(output,source_date_epoch=None):
             "vvh.hardware-acceptance.v1",
             "vvh.reviewer-attestation.v1",
             "vvh.review-audio-acceptance.v1",
+            "vvh.signed-pack-manifest.v1",
+            "vvh.firmware-evidence-bundle.v1",
             "vvh.translation-overlay.v1",
             "vvh.public-catalog.v1",
             RELEASE_SCHEMA,
