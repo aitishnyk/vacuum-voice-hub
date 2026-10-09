@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/aitishnyk/vacuum-voice-hub/schemas/vvh.audio-source-qa.v1.schema.json",
+  "title": "Bounded signal-level compressed/WAV audio analysis",
+  "type": "object",
+  "required": [
+    "schema",
+    "signal",
+    "warnings",
+    "install_authorized"
+  ],
+  "properties": {
+    "schema": {
+      "const": "vvh.audio-source-qa.v1"
+    },
+    "source_format": {
+      "type": "string"
+    },
+    "signal": {
+      "type": "object"
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "pass_basic_checks": {
+      "type": "boolean"
+    },
+    "decoded_duration_capped": {
+      "type": "boolean"
+    },
+    "language_verified": {
+      "const": false
+    },
+    "install_authorized": {
+      "const": false
+    }
+  }
+}
