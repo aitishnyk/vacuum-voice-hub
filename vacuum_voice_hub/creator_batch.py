@@ -44,7 +44,7 @@ def _input_files(root, manifest):
     return rows
 
 
-def preflight_workspace(path, model_id, *, check_audio=False):
+def preflight_workspace(path, model_id, *, check_audio=False, decode_compressed=False):
     """Return exact numeric coverage, collisions and non-mutating readiness."""
     checked = validate_workspace(path)
     if not checked["ok"]:
@@ -71,14 +71,21 @@ def preflight_workspace(path, model_id, *, check_audio=False):
             unassigned.append(semantic)
         for event_id in applicable:
             producers.setdefault(event_id, []).append(semantic)
-        if check_audio and row["file"].lower().endswith(".wav"):
-            try:
-                quality = inspect_wav(root / row["file"])
-                if quality["warnings"]:
-                    audio_warnings.append({"semantic": semantic, "warnings": quality["warnings"]})
-            except ValueError as exc:
-                audio_warnings.append({"semantic": semantic, "warnings": ["invalid-wav"],
-                                       "error": str(exc)})
+        if check_audio:
+            extension = Path(row["file"]).suffix.lower()
+            if extension == ".wav" or decode_compressed:
+                try:
+                    from .audio_advanced import inspect_audio
+                    quality = inspect_audio(root / row["file"])
+                    if quality["warnings"]:
+                        audio_warnings.append({"semantic": semantic, "warnings": quality["warnings"]})
+                except ValueError as exc:
+                    audio_warnings.append({"semantic": semantic, "warnings": ["invalid-audio"],
+                                           "error": str(exc)})
+            else:
+                audio_warnings.append({"semantic": semantic, "warnings": ["not-analyzed"],
+                                       "note": "Compressed source was not decoded; use --decode-compressed"})
+
     collisions = [
         {"event_id": event_id, "semantics": sorted(names)}
         for event_id, names in sorted(producers.items()) if len(names) > 1
@@ -115,14 +122,14 @@ def preflight_workspace(path, model_id, *, check_audio=False):
         "warnings": warnings,
         "validation_errors": [],
         "ready": len(covered) >= 5 and not collisions
-                 and not any("invalid-wav" in row["warnings"] for row in audio_warnings),
+                 and not any("invalid-audio" in row["warnings"] for row in audio_warnings),
         "install_authorized": False,
         "custom_install_verified_by_preflight": False,
         "note": "Build readiness is not vendor format, firmware or installation certification.",
     }
 
 
-def batch_build_workspace(path, model_ids, output_dir, *, check_audio=False):
+def batch_build_workspace(path, model_ids, output_dir, *, check_audio=False, decode_compressed=False):
     """Build <=16 profiles, refuse existing output, and clean up on failure.
 
     The output directory is reserved via exclusive mkdir. A failure removes
@@ -133,7 +140,8 @@ def batch_build_workspace(path, model_ids, output_dir, *, check_audio=False):
         raise ValueError("models must be a list of exact catalog IDs")
     if not 1 <= len(model_ids) <= MAX_TARGETS:
         raise ValueError("batch requires 1..16 target models")
-    plans = [preflight_workspace(path, model, check_audio=check_audio) for model in model_ids]
+    plans = [preflight_workspace(path, model, check_audio=check_audio,
+                                 decode_compressed=decode_compressed) for model in model_ids]
     if not all(plan["ready"] for plan in plans):
         raise ValueError("batch preflight failed: " + "; ".join(
             f"{plan.get('model_id', 'invalid')} not ready"

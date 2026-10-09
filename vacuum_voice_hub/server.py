@@ -129,7 +129,9 @@ class H(BaseHTTPRequestHandler):
                 wid=q["id"][0]
                 mid=q.get("model_id",["dreame.vacuum.r2209"])[0]
                 check=q.get("check_audio",["false"])[0].lower()=="true"
-                return self._json({"ok":True,"report":preflight_workspace(workspace_by_id(wid),mid,check_audio=check)})
+                decode=q.get("decode_compressed",["false"])[0].lower()=="true"
+                return self._json({"ok":True,"report":preflight_workspace(workspace_by_id(wid),mid,
+                                              check_audio=check,decode_compressed=decode)})
             except (KeyError,ValueError,FileNotFoundError,OSError) as exc:
                 return self._json({"ok":False,"error":str(exc)},400)
         if parsed.path=="/api/creator/qa":
@@ -137,9 +139,19 @@ class H(BaseHTTPRequestHandler):
             try:
                 wid=q["id"][0]
                 mid=q.get("model_id",[None])[0]
-                return self._json({"ok":True,"report":inspect_workspace(workspace_by_id(wid),mid)})
+                return self._json({"ok":True,"report":inspect_workspace(workspace_by_id(wid),mid,
+                                              decode_compressed=q.get("decode_compressed",["false"])[0].lower()=="true")})
             except (KeyError,ValueError,FileNotFoundError,OSError) as e:
                 return self._json({"ok":False,"error":str(e)},400)
+        if parsed.path=="/api/creator/language-coverage":
+            from .language_audio_coverage import language_audio_coverage
+            try:
+                wid=q["id"][0]
+                mid=q.get("model_id",["dreame.vacuum.r2209"])[0]
+                locale=q["language"][0]
+                return self._json({"ok":True,"report":language_audio_coverage(workspace_by_id(wid),locale,mid)})
+            except (KeyError,ValueError,FileNotFoundError,OSError) as exc:
+                return self._json({"ok":False,"error":str(exc)},400)
         if parsed.path=="/api/creator/workspaces":
             return self._json({"ok":True,"workspaces":list_workspaces()})
         if parsed.path=="/api/creator/events":
@@ -205,7 +217,8 @@ class H(BaseHTTPRequestHandler):
                     target_models=d["models"]
                     output_dir=data_dir()/"creator-batches"/(wid+"__"+secrets.token_hex(8))
                     result=batch_build_workspace(workspace_by_id(wid),target_models,output_dir,
-                                                 check_audio=bool(d.get("check_audio",False)))
+                                                 check_audio=bool(d.get("check_audio",False)),
+                                                 decode_compressed=bool(d.get("decode_compressed",False)))
 
                 else:return self.send_error(404)
             else:return self.send_error(404)

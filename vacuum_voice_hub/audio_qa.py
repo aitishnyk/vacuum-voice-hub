@@ -80,7 +80,7 @@ def inspect_wav(path):
     }
 
 
-def inspect_workspace(path, model_id=None):
+def inspect_workspace(path, model_id=None, *, decode_compressed=False):
     """Read-only coverage and audio QA for user-supplied Creator workspaces."""
     from .creator import validate_workspace, workspace_model_coverage
     validated = validate_workspace(path)
@@ -93,13 +93,22 @@ def inspect_workspace(path, model_id=None):
     for semantic, rel in sorted(validated["manifest"]["events"].items()):
         file_path = (root / rel).resolve()
         file_path.relative_to(root)
-        if file_path.suffix.lower() != ".wav":
-            rows.append({"semantic":semantic,"status":"not-analyzed","format":file_path.suffix.lower(),
-                         "note":"WAV-only signal QA; normalize to 16-bit PCM WAV to inspect"})
+        suffix = file_path.suffix.lower()
+        if suffix != ".wav" and not decode_compressed:
+            rows.append({"semantic":semantic,"status":"not-analyzed","format":suffix,
+                         "note":"Enable --decode-compressed for bounded offline FFmpeg signal analysis"})
             continue
         try:
-            info = inspect_wav(file_path)
-            rows.append({"semantic":semantic,"status":"inspected",**info})
+            if suffix == ".wav":
+                info = inspect_wav(file_path)
+                rows.append({"semantic":semantic,"status":"inspected",**info})
+            else:
+                from .audio_advanced import inspect_audio
+                info = inspect_audio(file_path)
+                rows.append({"semantic":semantic,"status":"inspected",
+                             "source_format":suffix,"decoded_with_ffmpeg":True,
+                             **info["signal"],"warnings":info["warnings"],
+                             "pass_basic_checks":info["pass_basic_checks"]})
         except ValueError as exc:
             rows.append({"semantic":semantic,"status":"invalid","error":str(exc)})
     checked = [x for x in rows if x["status"]=="inspected"]
@@ -110,7 +119,8 @@ def inspect_workspace(path, model_id=None):
         "ok":not errors and not warnings,
         "validation_errors":[],
         "audio":rows,
-        "analyzed_wav":len(checked),
+        "analyzed_wav":sum(x.get("source_format", ".wav")==".wav" for x in checked),
+        "decoded_compressed":sum(x.get("decoded_with_ffmpeg",False) for x in checked),
         "unanalysed_formats":sum(x["status"]=="not-analyzed" for x in rows),
         "warnings_count":len(warnings),
         "errors_count":len(errors),

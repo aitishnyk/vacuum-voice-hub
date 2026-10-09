@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/aitishnyk/vacuum-voice-hub/schemas/vvh.language-audio-coverage.v1.schema.json",
+  "title": "Model-aware language text vs assigned real-audio coverage",
+  "type": "object",
+  "required": [
+    "schema",
+    "ok",
+    "install_authorized"
+  ],
+  "properties": {
+    "schema": {
+      "const": "vvh.language-audio-coverage.v1"
+    },
+    "ok": {
+      "type": "boolean"
+    },
+    "locale": {
+      "type": "string"
+    },
+    "model_id": {
+      "type": "string"
+    },
+    "workspace_language_matches_script": {
+      "type": "boolean"
+    },
+    "rows": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "speaker_language_verified": {
+      "const": false
+    },
+    "recording_license_verified": {
+      "const": false
+    },
+    "install_authorized": {
+      "const": false
+    }
+  }
+}

@@ -63,18 +63,29 @@ def _creator_parser(sub):
     s=cs.add_parser("assign");s.add_argument("path");s.add_argument("semantic");s.add_argument("audio_file")
     s=cs.add_parser("remove");s.add_argument("path");s.add_argument("semantic")
     s=cs.add_parser("coverage");s.add_argument("path");s.add_argument("--model",default="dreame.vacuum.r2209")
-    s=cs.add_parser("qa",help="Read-only WAV quality audit; never installs");s.add_argument("path");s.add_argument("--model")
+    s=cs.add_parser("qa",help="Read-only audio quality audit; never installs");s.add_argument("path");s.add_argument("--model");s.add_argument("--decode-compressed",action="store_true",help="Opt-in bounded local FFmpeg decoding")
     s=cs.add_parser("build");s.add_argument("path");s.add_argument("--model",default="dreame.vacuum.r2209");s.add_argument("--output")
     s=cs.add_parser("preflight",help="Read-only model event mapping and collision report")
     s.add_argument("path")
     s.add_argument("--model",default="dreame.vacuum.r2209")
-    s.add_argument("--check-audio",action="store_true",help="Validate PCM WAV signal quality")
+    s.add_argument("--check-audio",action="store_true",help="Check audio signal quality")
+    s.add_argument("--decode-compressed",action="store_true",help="Opt-in local FFmpeg analysis of non-WAV sources")
     s=cs.add_parser("batch",help="Build offline output packages for 1..16 chosen model IDs")
     s.add_argument("path")
     s.add_argument("--model",action="append",required=True,help="Repeat once per target device")
     s.add_argument("--output-dir",required=True,help="New directory; refuses existing paths")
     s.add_argument("--check-audio",action="store_true")
+    s.add_argument("--decode-compressed",action="store_true")
 
+    s=cs.add_parser("language-coverage",help="Compare translated text and local audio per model")
+    s.add_argument("path")
+    s.add_argument("--language",required=True)
+    s.add_argument("--model",default="dreame.vacuum.r2209")
+    s.add_argument("--overlay",help="Local text translation overlay")
+    s=cs.add_parser("gain-preview",help="Create separate gain-adjusted WAV; never overwrite")
+    s.add_argument("audio_file")
+    s.add_argument("--gain-db",type=float,required=True)
+    s.add_argument("--output",required=True)
     s=cs.add_parser("events");s.add_argument("--model");s.add_argument("--category")
 
 def _creator_main(a):
@@ -87,15 +98,21 @@ def _creator_main(a):
     elif a.creator_cmd=="coverage":_dump(workspace_model_coverage(a.path,a.model))
     elif a.creator_cmd=="qa":
         from .audio_qa import inspect_workspace
-        _dump(inspect_workspace(a.path,a.model))
+        _dump(inspect_workspace(a.path,a.model,decode_compressed=a.decode_compressed))
     elif a.creator_cmd=="build":_dump(build_workspace(a.path,a.model,a.output))
     elif a.creator_cmd=="preflight":
         from .creator_batch import preflight_workspace
-        _dump(preflight_workspace(a.path,a.model,check_audio=a.check_audio))
+        _dump(preflight_workspace(a.path,a.model,check_audio=a.check_audio,decode_compressed=a.decode_compressed))
     elif a.creator_cmd=="batch":
         from .creator_batch import batch_build_workspace
-        _dump(batch_build_workspace(a.path,a.model,a.output_dir,check_audio=a.check_audio))
+        _dump(batch_build_workspace(a.path,a.model,a.output_dir,check_audio=a.check_audio,decode_compressed=a.decode_compressed))
 
+    elif a.creator_cmd=="language-coverage":
+        from .language_audio_coverage import language_audio_coverage
+        _dump(language_audio_coverage(a.path,a.language,a.model,overlay_path=a.overlay))
+    elif a.creator_cmd=="gain-preview":
+        from .audio_advanced import preview_gain
+        _dump(preview_gain(a.audio_file,a.output,a.gain_db))
     elif a.creator_cmd=="events":
         allowed=set(event_profile_for_model(a.model)["known_event_ids"]) if a.model else None
         rows=[]
