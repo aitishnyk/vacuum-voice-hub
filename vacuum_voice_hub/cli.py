@@ -273,6 +273,9 @@ def main():
     s=research_sub.add_parser("validate-evidence",help="Validate local transport evidence without installing")
     s.add_argument("path")
     s.add_argument("--model",help="Require exact model id")
+    s=research_sub.add_parser("hardware-acceptance",help="Assess model, firmware and rollback evidence only")
+    s.add_argument("path")
+    s.add_argument("--model",help="Require exact canonical model ID")
     s=sub.add_parser("preview");s.add_argument("voice_id");s.add_argument("--model",default="dreame.vacuum.r2209");s.add_argument("--play",action="store_true")
     s=sub.add_parser("stock");s.add_argument("--model",default="dreame.vacuum.r2209");s.add_argument("--manifest-url")
     s=sub.add_parser("restore-stock");s.add_argument("stock_id");s.add_argument("--model",default="dreame.vacuum.r2209");s.add_argument("--ip",required=True);_add_auth_args(s);s.add_argument("--manifest-url");s.add_argument("--allow-experimental-transport",action="store_true")
@@ -400,6 +403,9 @@ def main():
                 _dump(assess_candidate(a.path,a.model,evidence_path=a.evidence))
             except (ResearchError,ArchiveInspectionError,KeyError,ValueError,OSError) as exc:
                 raise SystemExit(f"research inspect failed: {exc}") from exc
+        elif a.research_cmd=="hardware-acceptance":
+            from .hardware_acceptance import inspect_acceptance_file
+            _dump(inspect_acceptance_file(a.path,expected_model=a.model))
         elif a.research_cmd=="validate-evidence":
             from .transport_evidence import EvidenceError,inspect_file
             try:
