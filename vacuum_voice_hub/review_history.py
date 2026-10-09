@@ -27,7 +27,7 @@ def _digest(record):
     ).hexdigest()
 
 
-def audit_review_history(review_path):
+def audit_review_history(review_path, *, check_review=True):
     path = _history_path(review_path)
     if not path.exists():
         return {"schema": SCHEMA, "valid": True, "events": 0, "last_digest": GENESIS,
@@ -59,7 +59,7 @@ def audit_review_history(review_path):
             last_review_sha = row["review_sha256"]
     from .production_review import _hash
     review = Path(review_path).expanduser().resolve()
-    if last_review_sha and _hash(review) != last_review_sha:
+    if check_review and last_review_sha and _hash(review) != last_review_sha:
         raise ValueError("review file changed without journal event")
     return {"schema": SCHEMA, "valid": True, "events": n,
             "last_digest": previous, "file": str(path), "exists": True,
@@ -72,7 +72,7 @@ def append_review_history(review_path, action, details=None):
     details = details or {}
     if not isinstance(details, dict):
         raise ValueError("history details must be object")
-    prior = audit_review_history(review_path)
+    prior = audit_review_history(review_path, check_review=False)
     if prior["events"] >= MAX_EVENTS:
         raise ValueError("review history too long; archive explicitly")
     from .production_review import _hash
