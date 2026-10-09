@@ -143,7 +143,7 @@ def batch_build_workspace(path, model_ids, output_dir, *, check_audio=False):
     if len(set(canonicals)) != len(canonicals):
         raise ValueError("duplicate canonical model IDs in batch")
     workspace = Path(path).expanduser().resolve()
-    out = Path(output_dir).expanduser().absolute()
+    out = Path(output_dir).expanduser().resolve()
     # Refuse output inside the workspace: it could expose intermediates to
     # other Creator operations or cause a recursive cleanup of user files.
     if out == workspace or workspace in out.parents:
