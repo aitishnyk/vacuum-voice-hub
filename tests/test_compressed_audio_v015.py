@@ -61,8 +61,10 @@ def test_invalid_audio_rejected_without_network(tmp_path):
     bad.write_bytes(b"not an audio stream")
     with pytest.raises(ValueError, match="could not decode"):
         inspect_audio(bad)
+    unsupported = tmp_path / "bad.json"
+    unsupported.write_text("{}")
     with pytest.raises(ValueError, match="unsupported"):
-        inspect_audio(tmp_path / "bad.json")
+        inspect_audio(unsupported)
 
 
 def test_unsupported_or_oversized_source_fails_early(tmp_path):
