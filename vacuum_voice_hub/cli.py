@@ -103,6 +103,9 @@ def _creator_parser(sub):
     s.add_argument("--padding-ms",type=float,default=80.0)
     s.add_argument("--fade-ms",type=float,default=8.0)
     s.add_argument("--no-trim-silence",action="store_true")
+    s=cs.add_parser("audio-compare",help="Read-only two-clip signal A/B QA")
+    s.add_argument("first")
+    s.add_argument("second")
     review=cs.add_parser("review",help="Local human recording checklist and QA sign-off")
     rs=review.add_subparsers(dest="review_cmd",required=True)
     s=rs.add_parser("init",help="New recording assignment checklist; refuses overwrite")
@@ -206,6 +209,9 @@ def _creator_main(a):
                            target_peak_dbfs=a.target_peak_dbfs,
                            silence_dbfs=a.silence_dbfs,padding_ms=a.padding_ms,
                            fade_ms=a.fade_ms,trim_silence=not a.no_trim_silence))
+    elif a.creator_cmd=="audio-compare":
+        from .audio_compare import compare_audio
+        _dump(compare_audio(a.first,a.second))
     elif a.creator_cmd=="review":
         from .production_review import (create_review, audit_review, mark_review,
                                         refresh_review, export_review_bundle)
@@ -306,6 +312,23 @@ def main():
         sp.add_argument("--overlay",help="Local reviewed/unreviewed translation overlay JSON")
         if script_name=="export":
             sp.add_argument("--output",required=True,help="New UTF-8 JSON file; refuses overwrite")
+    sp=script_sub.add_parser("review-init",help="Create immutable pending language review")
+    sp.add_argument("--language",required=True)
+    sp.add_argument("--model",default="dreame.vacuum.r2209")
+    sp.add_argument("--overlay")
+    sp.add_argument("--output",required=True)
+    sp=script_sub.add_parser("review-audit",help="Validate exact-script human translation decisions")
+    sp.add_argument("path")
+    sp.add_argument("--overlay")
+    sp=script_sub.add_parser("review-mark",help="Create a new reviewed translation snapshot")
+    sp.add_argument("path")
+    sp.add_argument("--semantic",required=True)
+    sp.add_argument("--status",required=True,choices=["pending","needs-changes","approved"])
+    sp.add_argument("--reviewer")
+    sp.add_argument("--note")
+    sp.add_argument("--language-attested",action="store_true")
+    sp.add_argument("--overlay")
+    sp.add_argument("--output",required=True)
     sp=script_sub.add_parser("synth",help="Opt-in offline espeak-ng WAV synthesis into Creator workspace")
     sp.add_argument("--language",required=True)
     sp.add_argument("--model",default="dreame.vacuum.r2209")
@@ -401,6 +424,18 @@ def main():
                 stream.write(json.dumps(result,ensure_ascii=False,indent=2)+"\n")
             return _dump({"output":str(dest),"candidate_count":result["candidate_count"],
                           "translated_entries":0,"install_authorized":False})
+        if a.scripts_cmd in ("review-init","review-audit","review-mark"):
+            from .language_review import (create_language_review, audit_language_review,
+                                          mark_language_review)
+            if a.scripts_cmd=="review-init":
+                return _dump(create_language_review(a.language,a.model,a.output,
+                                                    overlay_path=a.overlay))
+            if a.scripts_cmd=="review-audit":
+                return _dump(audit_language_review(a.path,overlay_path=a.overlay))
+            return _dump(mark_language_review(a.path,a.semantic,a.status,a.output,
+                                              reviewer=a.reviewer,note=a.note,
+                                              language_attested=a.language_attested,
+                                              overlay_path=a.overlay))
         if a.scripts_cmd=="audit":
             report=script_for_model(a.language,a.model,a.overlay)
             return _dump({k:report[k] for k in ("schema","locale","model_id","scripted_count",
