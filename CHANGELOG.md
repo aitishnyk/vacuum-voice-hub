@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.19.0 — 2026-10-09 (signed pack source and firmware evidence bundle)
+
+- introduced user-key Ed25519 `vvh.signed-pack-manifest.v1` covering every assigned source clip hash, mapped semantic/event IDs, text digest, model, locale and explicit human review status; signed timestamp included;
+- whole-pack verification reloads Creator and review from disk, refuses changed audio, mappings, translations, reviewer states and signatures. `--require-approved` provides fail-closed human signoff policy;
+- metadata-only `vvh.firmware-evidence-bundle.v1` ZIP reports exact model, firmware, local candidate package SHA-256 and size plus five documented research observations; no proprietary firmware binary/robot credentials in ZIP;
+- evidence verification rejects altered local candidate packages, extra ZIP members and modified report/assessment/manifest fields without changing installer policy;
+- maintained original 215 models, 55 credited voice variants, 18 text-only locales, frozen 109/154 identity fixtures and Xiaomi X10-only physical installation acceptance.
+
 ## 0.18.0 — 2026-10-09 (reviewer provenance and evidence UI)
 
 - optional locally user-supplied Ed25519 PEM signing and detached verification of explicitly approved per-event human reviews, bound to the exact recording SHA-256, model, script digest and reviewer claim;
