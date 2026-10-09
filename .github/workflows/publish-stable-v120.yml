@@ -92,9 +92,9 @@ jobs:
             --repo "$GITHUB_REPOSITORY" \
             --target "$CI_SHA" \
             --title "Vacuum Voice Hub v1.2.0 - Offline Language Review and Audio A/B" \
-            --notes-file docs/RELEASE_NOTES_V110.md \
+            --notes-file docs/RELEASE_NOTES_V120.md \
             --latest \
-            release/VacuumVoiceHub-public-1.1.0.zip \
+            release/VacuumVoiceHub-public-1.2.0.zip \
             release/release-manifest.json \
             release/update-feed.json \
             release/SHA256SUMS \
