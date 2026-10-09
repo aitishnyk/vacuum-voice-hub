@@ -43,7 +43,7 @@ def _local_voice(model_path, locale):
 
 
 def synthesize_piper_workspace(locale, model_id, pack_id, author, voice_model, *,
-                               output=None, speaker=None, allow_synthetic=False, overlay_path=None):
+                               output=None, speaker=None, allow_synthetic=False, overlay_path=None, lexicon_path=None):
     """Generate local Piper WAVs. Always requires explicit user opt-in."""
     if not allow_synthetic:
         raise PermissionError("explicit --allow-synthetic is required")
@@ -53,7 +53,9 @@ def synthesize_piper_workspace(locale, model_id, pack_id, author, voice_model, *
         raise ValueError("author required (max 128 characters)")
     if speaker is not None and (type(speaker) is not int or not 0 <= speaker <= 255):
         raise ValueError("speaker must be an integer 0..255")
+    from .pronunciation import load_lexicon, pronounce
     script = script_for_model(locale, model_id, overlay_path)
+    lexicon = load_lexicon(lexicon_path, locale) if lexicon_path is not None else None
     path, config, voice_locale, voice_sha = _local_voice(voice_model, locale)
     exe = shutil.which("piper")
     if not exe:
@@ -76,7 +78,7 @@ def synthesize_piper_workspace(locale, model_id, pack_id, author, voice_model, *
             if speaker is not None:
                 cmd += ["--speaker", str(speaker)]
             try:
-                subprocess.run(cmd, input=row["text"]+"\n", text=True,
+                subprocess.run(cmd, input=pronounce(row["text"], lexicon)+"\n", text=True,
                                capture_output=True, check=True, timeout=40)
             except (subprocess.CalledProcessError, subprocess.TimeoutExpired) as exc:
                 raise RuntimeError(f"Piper failed for {row['semantic']}") from exc
@@ -95,6 +97,7 @@ def synthesize_piper_workspace(locale, model_id, pack_id, author, voice_model, *
             "voice_model_sha256": voice_sha, "speaker": speaker,
             "events_synthesized": len(qa), "mapped_model_semantics": script["mapped_count"],
             "overlay_count": script["overlay_count"], "translation_review_required": True,
+            "pronunciation_lexicon_sha256": lexicon["sha256"] if lexicon else None,
             "qa": qa, "audio_files_generated": True,
             "redistribution_verified": False, "license_review_required": True,
             "install_authorized": False,

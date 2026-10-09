@@ -1,5 +1,10 @@
 # Roadmap
 
+## v1.3 — Pronunciation Lexicon (implemented initial wave)
+
+User-provided strict locale lexicon, one-pass spoken substitutions for Piper/eSpeak and read-only preview with SHA-256 provenance. Expanded audited multilingual semantic coverage and full independent native-speaker reviews remain pending. See [guide](docs/PRONUNCIATION_V130.md).
+
+
 ## v1.2 — Language Review & Audio A/B (software scope)
 
 Implemented offline attributed translation review (stale-script detection, copy-on-write approvals) and read-only local audio A/B metrics. Future v1.2.x work: GUI waveform editor, professional LUFS/true-peak mastering, noise-floor analysis and multi-locale native proofreading, with independent QA per feature. See [documentation](docs/AUDIO_LANGUAGE_REVIEW_V120.md).

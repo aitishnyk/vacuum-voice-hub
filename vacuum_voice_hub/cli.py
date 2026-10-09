@@ -329,6 +329,11 @@ def main():
     sp.add_argument("--language-attested",action="store_true")
     sp.add_argument("--overlay")
     sp.add_argument("--output",required=True)
+    sp=script_sub.add_parser("pronounce",help="Preview local TTS pronunciation substitutions")
+    sp.add_argument("--language",required=True)
+    sp.add_argument("--model",default="dreame.vacuum.r2209")
+    sp.add_argument("--lexicon",required=True)
+    sp.add_argument("--overlay")
     sp=script_sub.add_parser("synth",help="Opt-in offline espeak-ng WAV synthesis into Creator workspace")
     sp.add_argument("--language",required=True)
     sp.add_argument("--model",default="dreame.vacuum.r2209")
@@ -340,6 +345,7 @@ def main():
     sp.add_argument("--output")
     sp.add_argument("--allow-synthetic",action="store_true",help="Explicitly consent to locally generating synthetic WAVs")
     sp.add_argument("--overlay",help="Local translation overlay for extra voice events")
+    sp.add_argument("--lexicon",help="Optional local pronunciation lexicon for espeak")
     sp=script_sub.add_parser("piper",help="Generate local WAVs from a user-supplied Piper .onnx voice (no download)")
     sp.add_argument("--language",required=True)
     sp.add_argument("--model",default="dreame.vacuum.r2209")
@@ -350,6 +356,7 @@ def main():
     sp.add_argument("--speaker",type=int)
     sp.add_argument("--allow-synthetic",action="store_true")
     sp.add_argument("--overlay",help="Local translation overlay for extra voice events")
+    sp.add_argument("--lexicon",help="Optional local pronunciation lexicon for Piper")
     s=sub.add_parser("model-info");s.add_argument("model_id")
     s=sub.add_parser("model-compare",help="Research-only comparison of two robot voice-event profiles");s.add_argument("left_model");s.add_argument("right_model")
     s=sub.add_parser("info");s.add_argument("voice_id")
@@ -436,6 +443,10 @@ def main():
                                               reviewer=a.reviewer,note=a.note,
                                               language_attested=a.language_attested,
                                               overlay_path=a.overlay))
+        if a.scripts_cmd=="pronounce":
+            from .pronunciation import pronunciation_preview
+            return _dump(pronunciation_preview(a.language,a.model,a.lexicon,
+                                               overlay_path=a.overlay))
         if a.scripts_cmd=="audit":
             report=script_for_model(a.language,a.model,a.overlay)
             return _dump({k:report[k] for k in ("schema","locale","model_id","scripted_count",
@@ -459,10 +470,10 @@ def main():
                                                      a.voice_model,output=a.output,
                                                      speaker=a.speaker,
                                                      allow_synthetic=a.allow_synthetic,
-                                                     overlay_path=a.overlay))
+                                                     overlay_path=a.overlay,lexicon_path=a.lexicon))
         return _dump(synthesize_workspace(a.language,a.model,a.pack_id,a.author,a.voice,
                                          output=a.output,speed=a.speed,pitch=a.pitch,
-                                         allow_synthetic=a.allow_synthetic,overlay_path=a.overlay))
+                                         allow_synthetic=a.allow_synthetic,overlay_path=a.overlay,lexicon_path=a.lexicon))
     if a.cmd=="languages":
         from .script_packs import list_locales
         recorded={}
