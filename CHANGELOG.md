@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.15.0 — 2026-10-09 (advanced audio QC and language truth)
+
+- offline bounded opt-in FFmpeg decoding of compressed OGG/MP3/FLAC/M4A/AAC/Opus to temporary 16-bit PCM with timeout, byte/duration caps and signal heuristics;
+- Creator workspace Audio QA, per-model preflight and batch-build optional compressed-source review, defaults unchanged;
+- gain-only, non-destructive WAV preview export with before/after loudness and SHA-256;
+- actual per-model `language-coverage` report separates translated text, assigned audio and declared language; never claims speaker language or licensing verified;
+- read-only localhost coverage endpoint, Creator UI checkboxes for compressed decoding and text-vs-audio comparison;
+- preserved all 215 device profiles, 55 audio variants, 18 text script locales and Xiaomi X10-only physical hardware verification.
+
 ## 0.14.0 — 2026-10-09 (Creator adaptation and batch-build QA)
 
 - added offline `vvh creator preflight` per-model event mapping, source SHA-256, missing core prompts, duplicate-event conflicts and optional WAV quality warnings;
