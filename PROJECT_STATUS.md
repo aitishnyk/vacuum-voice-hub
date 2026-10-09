@@ -1,42 +1,21 @@
-# Project status — v0.15.0 SOURCE SEALED (hardware acceptance pending)
+# Project status — v0.16.0 SOFTWARE RELEASE CANDIDATE
 
-- Canonical parent: v0.14.0 SOURCE SEALED, main SHA `44709991258594c8f33046f70855da00e2edf672`.
-- Source version **0.15.0 — SOURCE SEALED** after exact-head CI, Public Site, Release Bundle, PR CodeQL and three-OS Desktop Packages, with merged-main verification.
-- Functional merge PR #29: `bc7734034bfecff50fd2474e6e19277cecf00e9d`.
-- Existing canonical models: **215**, attributed community audio variants: **55**, built-in *text-only* script locales: **18**. Matrix: **11,825 software targets**; no new robot install authority.
-- Added bounded opt-in local FFmpeg analysis of MP3, OGG, FLAC, M4A, AAC and Opus; existing WAV QC preserved.
-- Added non-destructive gain-only preview WAV with before/after signal QA, exclusive new path and SHA-256; never edits source audio/Creator manifest.
-- Added per-model text-versus-audio localization coverage with mismatched-locale safeguards; metadata alone never proves voice speech language or license ownership.
-- Creator Studio adds compressed-source QA opt-in and Text vs Audio Coverage; CLI and local read-only API added.
-- Compressed media decoder caps local input and decoded output and enforces timeout and FFmpeg local-only allowed protocols.
+- Canonical parent: **v0.15.0 SOURCE SEALED**, main SHA `4ba6bf234c66e55ab93571fd1a19cbc7ef456c35`.
+- Source version: **0.16.0**. Release candidate until exact-head CI, Public Site, Release Bundle, CodeQL, Desktop Packages macOS/Windows/Linux and merged-main verification are green.
+- Models **215**, original credited voice variants **55**, built-in text-only locale scripts **18**. Matrix **11,825 software research combinations**, not 11,825 verified custom installs.
+- v0.16 adds `vvh.production-review.v1` local per-model recording assignments (whole conservative event profile), English reference text explicitly not translated when missing and optional translated-text overlay.
+- SHA-256 snapshots of Creator manifest plus individual assigned recordings; human recording review state machine `draft → recorded → listened → approved`, reviewer identity, time and two explicit human attestations. SHA drift invalidates a review; refresh preserves unchanged tasks and resets changed tasks to draft.
+- Metadata-only review ZIP default, optional locally included raw audio with max 100 MiB cap, SHA-256 verification, new-path-only export and source privacy safeguards.
+- Creator Studio panel and authenticated localhost endpoints for review creation/list/audit/refresh/mark/bundle; CLI exposes all workflows.
+- Automated analysis **does not independently verify** real spoken language, identity of the person typing a reviewer name, copyright permissions or legal sufficiency. Human declarations are not cryptographically signed.
+- No newly verified custom-install robot transport; Xiaomi X10 (`dreame.vacuum.r2209`) remains the only physically VVH-verified target. All other signed-only/build-only restrictions preserved.
 
-## Preservation / limitations
+## Preservation / acceptance
 
-- All historical 109-model and 154-model baselines remain intact; current 215-model catalog/aliases and all 55 voice entries unchanged.
-- Xiaomi X10 (`dreame.vacuum.r2209`) remains **the only physically verified VVH target**. No new vendor-signed bypass or custom-install claims, firmware patches or region unlocks.
-- Signal QC, TTS, model ID discovery and locale script counts do **not** prove actual installed custom voice functionality. Audio rights and native-speaker accuracy require human acceptance.
-- No new mandatory runtime dependency: v0.15 reuses the previously bundled/runtime FFmpeg.
-- See [v0.15 audio guide](docs/COMPRESSED_AUDIO_QA_V015.md).
+All 215 previous canonical model IDs, alias owners and adapters are preserved; historic 109/154 fixtures unchanged. 55 attributed community audio variants and 18 original locale scripts unchanged. Source-seal requires 100% functional regression, model matrix, CodeQL, site/release packaging and all three desktop OS build jobs. Real hardware/firmware acceptance and rollback remain separately tracked in [Issue #14](https://github.com/aitishnyk/vacuum-voice-hub/issues/14).
 
-## Exact-source release acceptance
+## Next priority
 
-PR #29 final head `4d581c115810e6850ad6489b89f132a23da5de69`:
-- CI run `37915047751`: **SUCCESS, 178/178 tests passed**, 2 inherited third-party deprecation warnings.
-- Parallel CI run `37915041124`: SUCCESS.
-- Model Matrix: **215 models × 55 voices = 11,825** software-only combinations, PASS.
-- Public Site `37915047689`: SUCCESS.
-- Release Bundle `37915047644`: SUCCESS.
-- Desktop Packages `37915047730`: **SUCCESS for macOS, Windows and Linux**.
-- PR CodeQL `37915041829`: SUCCESS.
+v0.17 — Voice QA Acceptance & Hardware Evidence, including reviewer-pack validation and device-specific verification; do not pretend the v0.16 software workflow unlocks manufacturer-signed voice transports.
 
-Exact functional merged-main commit `bc7734034bfecff50fd2474e6e19277cecf00e9d`:
-- CI `37915322086`: SUCCESS.
-- Public Site `37915321993`: SUCCESS.
-- CodeQL Python and GitHub Actions `37915321636`: SUCCESS.
-- Dependency graph `37915326228`: SUCCESS.
-
-**SOURCE SEALED** is software source/packaging acceptance, not manufacturer custom voice installation approval or native-speaker/licensing certification. Signal QC uses temporary decoded audio and never changes the original recording without an explicit separate operation.
-
-## Next wave
-
-v0.16 Voice Production Workflow & Safety Evidence ([Issue #30](https://github.com/aitishnyk/vacuum-voice-hub/issues/30)) — additional local voice review and quality gates while preserving immutable original model/voice catalog identities; real hardware acceptance tracked separately in [#14](https://github.com/aitishnyk/vacuum-voice-hub/issues/14).
+See [v0.16 Production Review guide](docs/VOICE_PRODUCTION_REVIEW_V016.md).
