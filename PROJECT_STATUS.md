@@ -1,43 +1,29 @@
-# Project status — v0.13.0 SOURCE SEALED (hardware acceptance pending)
+# Project status — v0.14.0 SOFTWARE RELEASE CANDIDATE
 
-- Canonical starting point: v0.12.0 SOURCE SEALED, main SHA `250b834ef15a99a47a407d03725826def491e990`.
-- Source version: **0.13.0**, **SOURCE SEALED** after exact-head CI, Release Bundle, Public Site, three-OS Desktop Packages and merged-main CodeQL.
-- Functional v0.13 merge SHA: `7f5f819a2a28c925375c0b13a7a8e525aac0e938` (PR #23).
-- Canonical models: **215** = unchanged original 154 + 61 newly source-listed MIoT identities.
-- Existing source-attributed audio voice variants: **55**, unchanged; built-in text-only locale scripts: **18**, unchanged.
-- Software coverage matrix: **215 × 55 = 11,825 combinations**, not 11,825 physically working custom voice installations.
-- Additions: **26 Viomi**, **19 Xiaomi/Mijia**, **9 Roborock**, **4 ROIDMI**, **3 IJAI**.
-- All added devices are portable `semantic_bundle` research profiles with `unsupported-local` fail-closed transport; no new `device_tested` hardware flags.
-- Xiaomi X10 (`dreame.vacuum.r2209`) remains the **only** physically tested VVH installation target.
-- `model-compare` displays overlapping event IDs / package research hints, **never** authorizes custom package installation.
-- Public model catalog adds links to MIoT identity sources for new devices; no new firmware/package acceptance claims.
+- Canonical parent: **v0.13.0 SOURCE SEALED**, main SHA `8f2b6b251da26fac289fb97e3ea645da0385cc70`.
+- New source version **0.14.0**; **CANDIDATE**, not source-sealed until exact-head CI / site / release / desktop checks pass.
+- Model catalog: **215 unchanged**; source-attributed existing audio variants: **55 unchanged**; built-in text-only locales: **18 unchanged**.
+- Existing model/voice software combination count remains **11,825**; this is software build/preview coverage, not hardware certification.
+- New software: `vvh.creator-preflight.v1` per-model missing/core ID and collision audit with SHA-256 input integrity, optional WAV QA; `vvh.creator-batch.v1` multi-target offline package builder (1..16 models) with independent SHA-256 packages and no overwrites.
+- Creator Studio localhost adds **Preflight** and **Build batch** UI controls, read-only report and authenticated batch API.
+- Source voice licenses, third-party recorded audio redistribution and real hardware installation are never automatically authorized.
 
-## Preservation / exact-source verification
+## Release safety and preservation
 
-- Historical 109 canonical models pinned in `tests/fixtures/v08_model_identity.json` and historical 154 canonical models in `tests/fixtures/v012_model_identity.json`. All original IDs, aliases, adapters and transport policies preserved.
-- Packaged `vacuum_voice_hub/data/models.json` remains byte-identical to `catalog/models.json`.
-- 55 attributed audio voices and 18 core text-only locales preserved; no new third-party audio or unsigned binary claimed.
+- All 215 existing canonical model IDs/aliases must remain preserved, including historical 109 + 154 baseline fixtures.
+- All 55 credited catalog voices and 18 script locales must remain unchanged.
+- New custom install transports: **0**; new hardware-verified target devices: **0**. Only **Xiaomi X10 (`dreame.vacuum.r2209`)** retains prior VVH hardware acceptance.
+- New batch outputs for unsupported/signed-only models are reviewed offline and do **not** imply install compatibility. No robot connection is made by this workflow.
+- Existing batch-output directories are refused, partial results cleaned, and changes to source audio during the build trigger failure.
+- Unreviewed signal quality and legal redistribution remain outside automatic source gates.
 
-PR #23 head `b916a6566db92647833c9640b1668a8222652a3b`:
-- Python CI run `37910777718`: **SUCCESS — 157 passed, 2 inherited python-miio deprecation warnings**.
-- Model Matrix: **215 × 55 = 11,825** software combinations PASS.
-- PR CodeQL `37910773688`: SUCCESS.
-- Public Site `37910777726`: SUCCESS.
-- Release Bundle `37910777751`: SUCCESS.
-- Desktop Packages `37910777959`: SUCCESS, macOS / Windows / Linux.
+## Acceptance required before SOURCE SEALED
 
-On exact merged-main SHA `7f5f819a2a28c925375c0b13a7a8e525aac0e938`:
-- CI run `37911043239`: SUCCESS.
-- Public Site `37911043260`: SUCCESS.
-- CodeQL Python + GitHub Actions `37911042252`: SUCCESS.
-- Dependency graph `37911050236`: SUCCESS.
+Exact-head full Python test regression, matrix audit, source preservation, Release Bundle, Public Site, CodeQL and Windows/macOS/Linux desktop package builds. Verify merged `main` CI/CodeQL independently.
 
-Source sign-off does **not** assert manufacturer custom voice installation on newly added devices, spoken-language review, trusted voice license grants, code signing or notarization of binaries.
+## Next priorities
 
-## Unverified hardware
+- v0.15.0: deeper audio normalization / quality inspection for compressed sources and per-locale audio coverage.
+- Real hardware download/apply/recovery for unverified robot families stays tracked separately in [#14](https://github.com/aitishnyk/vacuum-voice-hub/issues/14).
 
-Modern Xiaomi H40/H50/X20/S40, Viomi, ROIDMI, IJAI and Roborock Qrevo installations remain unverified. Per-device+firmware custom package and transport/recovery acceptance is tracked in [Hardware Issue #14](https://github.com/aitishnyk/vacuum-voice-hub/issues/14). A MIoT device listing or model action-control support cannot certify an arbitrary custom voice pack.
-
-## Roadmap
-
-v0.14 candidate priority: Audio & Voice Pack Adaptation QA; subsequent evidence-backed package adapters. See [multibrand device research](docs/MULTIBRAND_DISCOVERY_V013.md).
+See [v0.14 Creator Batch](docs/CREATOR_BATCH_V014.md).
