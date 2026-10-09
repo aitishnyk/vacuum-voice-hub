@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/aitishnyk/vacuum-voice-hub/schemas/vvh.gain-preview.v1.schema.json",
+  "title": "Non-destructive, local gain-adjusted WAV preview",
+  "type": "object",
+  "required": [
+    "schema",
+    "output",
+    "sha256",
+    "before",
+    "after",
+    "install_authorized"
+  ],
+  "properties": {
+    "schema": {
+      "const": "vvh.gain-preview.v1"
+    },
+    "output": {
+      "type": "string"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "bytes": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "gain_db": {
+      "type": "number",
+      "minimum": -12,
+      "maximum": 12
+    },
+    "before": {
+      "type": "object"
+    },
+    "after": {
+      "type": "object"
+    },
+    "creator_manifest_changed": {
+      "const": false
+    },
+    "install_authorized": {
+      "const": false
+    },
+    "redistribution_verified": {
+      "const": false
+    }
+  }
+}
