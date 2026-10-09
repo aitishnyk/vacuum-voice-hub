@@ -1,21 +1,24 @@
-# Project status — v1.8.0 SOFTWARE STABLE (source)
+# Project status — v1.9.0 SOFTWARE STABLE (source)
 
-v1.8 introduces a **read-only, privacy-conscious local voice library** for
-user-owned Creator projects. It builds a standalone catalog of SHA-256
-audio/manifest provenance and supports search and local source
-reconciliation without uploading or packaging any voice recordings.
-All licenses are **user declarations** and are not independent proof
-of distribution rights.
+The v1.9 software increment adds a **real offline Creator backup/restore
+workflow**: deterministic ZIP of an existing project's explicitly assigned
+audio and manifest, SHA-256 checks for every member, verification,
+comparison with live source, and safe restore to a **new directory**.
+Restore never overwrites or mutates existing Creator workspaces.
 
-Every release stage independently requires: full regression including
-negative tests, source-model preservation audit, CodeQL Python/Actions,
-public site/bundle verification, desktop packages for Windows/macOS/Linux,
-exact merged-main CI and successful immutable GitHub Release publisher.
+These private user backups **contain actual voice audio** and are
+neither encrypted nor remotely uploaded. Public GitHub release assets
+are still source/catalog metadata only. Archive checksums are not a
+copyright license, digital signature or manufacturer-endorsed install.
 
-223 researched model identities, 55 attributed voices, >=22 text-only
-recording-script locales and Xiaomi X10 as the sole VVH physical
-custom-voice verified device are protected. New manufacturer permissions,
-shipping logistics, voice ownership or universal device installation
-are not implied by library search.
-See [local library docs](docs/VOICE_LIBRARY_V180.md) and
-[roadmap issue](https://github.com/aitishnyk/vacuum-voice-hub/issues/55).
+Source-stable acceptance requires independent PR regression, CodeQL,
+public site and bundle, Linux/macOS/Windows packaging, historical model
+preservation audit and successful merged-main CI + version-specific
+official GitHub Release. Platform code signing/notarization are not
+claimed without external signing infrastructure.
+
+Baseline: 223 researched model identities, 55 credited variants,
+>=22 text-only script locales and Xiaomi X10 as VVH's sole physically
+verified custom-voice install target. No new transport authorization.
+See [guide](docs/CREATOR_RECOVERY_V190.md)
+and [roadmap](https://github.com/aitishnyk/vacuum-voice-hub/issues/55).

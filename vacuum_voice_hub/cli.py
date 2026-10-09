@@ -115,6 +115,17 @@ def _creator_parser(sub):
     s.add_argument("--end-ms",type=float,required=True)
     s.add_argument("--fade-ms",type=float,default=8.0)
     s.add_argument("--output",required=True)
+    a=cs.add_parser("backup",help="Create deterministic new local Creator recovery ZIP")
+    a.add_argument("workspace")
+    a.add_argument("--output",required=True)
+    a=cs.add_parser("backup-verify",help="Audit embedded audio and manifest SHA-256")
+    a.add_argument("archive")
+    a=cs.add_parser("backup-restore",help="Restore into new-only verified Creator directory")
+    a.add_argument("archive")
+    a.add_argument("--output-dir",required=True)
+    a=cs.add_parser("backup-compare",help="Compare current Creator source to archived snapshot")
+    a.add_argument("archive")
+    a.add_argument("--workspace",required=True)
     review=cs.add_parser("review",help="Local human recording checklist and QA sign-off")
     rs=review.add_subparsers(dest="review_cmd",required=True)
     s=rs.add_parser("init",help="New recording assignment checklist; refuses overwrite")
@@ -228,6 +239,16 @@ def _creator_main(a):
     elif a.creator_cmd=="audio-compare":
         from .audio_compare import compare_audio
         _dump(compare_audio(a.first,a.second))
+    elif a.creator_cmd in {"backup","backup-verify","backup-restore","backup-compare"}:
+        from .creator_recovery import create_backup,verify_backup,restore_backup,compare_backup
+        if a.creator_cmd=="backup":
+            _dump(create_backup(a.workspace,a.output))
+        elif a.creator_cmd=="backup-verify":
+            _dump(verify_backup(a.archive))
+        elif a.creator_cmd=="backup-restore":
+            _dump(restore_backup(a.archive,a.output_dir))
+        else:
+            _dump(compare_backup(a.archive,a.workspace))
     elif a.creator_cmd=="review":
         from .production_review import (create_review, audit_review, mark_review,
                                         refresh_review, export_review_bundle)

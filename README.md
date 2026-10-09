@@ -1,5 +1,7 @@
 # Vacuum Voice Hub
 
+**v1.9.0:** [Offline Creator project backup, hash verification and safe new-folder restore](docs/CREATOR_RECOVERY_V190.md). Backup ZIPs contain private audio; no cloud transfer or overwrite.
+
 **v1.8.0:** [Offline attributed local voice library](docs/VOICE_LIBRARY_V180.md) — real hash-based Creator pack indexing and search, without remote redistribution or automatic rights verification.
 
 **v1.7.0:** [Offline adapter interchange SDK](docs/ADAPTER_INTERCHANGE_V170.md) — safe source-audio ZIP and SHA-256 verification, no third-party execution or manufacturer install claim.

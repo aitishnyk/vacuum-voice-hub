@@ -1,3 +1,9 @@
+## v1.9.0 — Creator Recovery and Backup
+
+- Deterministic local Creator backups with source-only assigned audio, explicit 25 MiB/clip and 256 MiB/backup limits.
+- Full manifest/audio SHA-256 verification, tamper and malicious path rejection, new-folder-only restore with rollback.
+- No source-file overwrite, device install permission, upload, encryption or code-signing claims.
+
 ## v1.8.0 — Attributed Local Voice Library
 
 - Offline catalog of actual Creator packs with SHA-256 manifest and audio-content fingerprints; never copies audio to the index.
