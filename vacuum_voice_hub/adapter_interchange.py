@@ -199,8 +199,20 @@ def verify_interchange(path):
                              object_pairs_hook=_no_duplicate_keys)
         except (UnicodeDecodeError, json.JSONDecodeError) as exc:
             raise ValueError("invalid adapter manifest") from exc
-        if not isinstance(doc, dict) or doc.get("schema") != PACKAGE_SCHEMA:
-            raise ValueError("incorrect interchange schema")
+        if not isinstance(doc, dict) or set(doc) != {
+            "schema", "adapter_id", "model_id", "author", "license",
+            "descriptor_sha256", "workspace_manifest_sha256", "entries",
+            "total_audio_bytes", "third_party_code_executed",
+            "official_vendor_package", "hardware_verified", "install_authorized",
+            "redistribution_rights_verified",
+        } or doc.get("schema") != PACKAGE_SCHEMA:
+            raise ValueError("incorrect interchange schema or unexpected fields")
+        if (not isinstance(doc["workspace_manifest_sha256"], str) or
+                not SHA.fullmatch(doc["workspace_manifest_sha256"])):
+            raise ValueError("invalid workspace provenance checksum")
+        for key in ("author", "license"):
+            if not isinstance(doc[key], str) or not 1 <= len(doc[key].strip()) <= 128:
+                raise ValueError("invalid adapter author or license")
         if any(doc.get(k) is not False for k in (
                 "official_vendor_package", "hardware_verified", "install_authorized",
                 "redistribution_rights_verified", "third_party_code_executed")):
@@ -215,6 +227,9 @@ def verify_interchange(path):
             raise ValueError("noncanonical adapter model")
         wanted = []
         total = 0
+        known_ids = set(event_profile_for_model(model["id"])["known_event_ids"])
+        used_event_ids = set()
+        used_semantics = set()
         for row in rows:
             if not isinstance(row, dict) or set(row) != {
                 "semantic", "archive_name", "target_event_ids", "bytes", "sha256"
@@ -223,6 +238,17 @@ def verify_interchange(path):
             name = row["archive_name"]
             if not isinstance(name, str) or not FILENAME.fullmatch(name):
                 raise ValueError("unsafe interchange member")
+            semantic = row["semantic"]
+            if not isinstance(semantic, str) or semantic in used_semantics:
+                raise ValueError("duplicate interchange semantic")
+            event_ids = sorted({int(e["id"]) for e in event_by_semantic(semantic)
+                                if int(e["id"]) in known_ids})
+            if not event_ids or row["target_event_ids"] != event_ids:
+                raise ValueError("interchange model event mapping incorrect")
+            if any(i in used_event_ids for i in event_ids):
+                raise ValueError("interchange event mapping collision")
+            used_event_ids.update(event_ids)
+            used_semantics.add(semantic)
             if type(row["bytes"]) is not int or not 0 < row["bytes"] <= MAX_AUDIO_BYTES:
                 raise ValueError("invalid interchange audio length")
             if not isinstance(row["sha256"], str) or not SHA.fullmatch(row["sha256"]):
