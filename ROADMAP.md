@@ -19,6 +19,7 @@
 - v0.14.0 — Creator per-target preflight and offline 1–16-model batch output with SHA-256 ✅ software scope
 - v0.15.0 — Optional bounded compressed QA, gain preview and actual locale/audio coverage ✅ software scope
 - v0.16.0 — Recording assignments, tamper-aware human review, private-by-default ZIP export ✅ software scope
+- v0.17.0 — Safe reviewer import with no extracted ZIP files, hash history, firmware+rollback evidence ✅ software scope
 
 ## v0.9 — Offline Research Infrastructure
 
@@ -62,7 +63,11 @@ Implemented bounded opt-in FFmpeg decode QA, non-destructive WAV gain preview, a
 
 Implemented: every-event recording assignments, explicit human acknowledgement/rights attestation, SHA-256 checks, safe resnapshot and private-by-default metadata export. Human declarations are not independently verified credentials or legal rights.
 
-## v0.17 — Voice QA Acceptance & Hardware Evidence
+## v0.17 — Returned Reviewer Handoff & Hardware Evidence
+
+Implemented: returned review JSON/ZIP checked against original workspace, safe untrusted-claim import, hash-linked local history and fail-closed model+firmware acceptance intake. Device authorization requires independently proven future adapter work.
+
+## v0.18 — Reviewer workflow polish, keyed attestations & device proof
 
 Pending: expand licensed locale coverage with native-speaker review, verify new model IDs with per-source evidence, improve multi-engine pronunciation QA and add signed distribution acceptance.
 
