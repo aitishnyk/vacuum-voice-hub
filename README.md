@@ -1,5 +1,7 @@
 # Vacuum Voice Hub
 
+**v1.4.0:** [Model/firmware evidence matrix](docs/FIRMWARE_MATRIX_V140.md), local and non-authorizing. Per-firmware community claims are research only.
+
 **v1.3.0:** [Opt-in offline pronunciation lexicon](docs/PRONUNCIATION_V130.md) for Piper/eSpeak without changing language scripts or hardware policy.
 
 **v1.2.0 offline review:** [attributed translation review and audio A/B QA](docs/AUDIO_LANGUAGE_REVIEW_V120.md). v1.2 retains software-only stability and does not certify additional devices.
