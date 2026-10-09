@@ -13,6 +13,8 @@ jobs:
         run: pytest -q
       - name: Model matrix audit
         run: python scripts/model_matrix_audit.py
+      - name: v1.0 stable software audit (not hardware validation)
+        run: python scripts/stable_release_audit.py
       - name: Python compile
         run: python -m compileall -q vacuum_voice_hub
       - name: CLI smoke
