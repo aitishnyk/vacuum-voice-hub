@@ -131,6 +131,20 @@ class H(BaseHTTPRequestHandler):
                 return self._json({"ok":True,"history":load_history(limit)})
             except Exception as e:return self._json({"ok":False,"error":str(e)},400)
 
+        if parsed.path=="/api/studio/inspect":
+            from .universal_studio import inspect_studio
+            try:
+                self._creator_auth()
+                wid=q["id"][0]
+                mid=q["model_id"][0]
+                locale=q["language"][0]
+                check=q.get("check_audio",["false"])[0].lower()=="true"
+                return self._json({"ok":True,"report":inspect_studio(
+                    workspace_by_id(wid),mid,locale,check_audio=check)})
+            except PermissionError as exc:
+                return self._json({"ok":False,"error":str(exc)},403)
+            except (KeyError,ValueError,FileNotFoundError,OSError) as exc:
+                return self._json({"ok":False,"error":str(exc)},400)
         if parsed.path=="/api/creator/preflight":
             from .creator_batch import preflight_workspace
             try:
