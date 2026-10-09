@@ -1,5 +1,9 @@
 # Roadmap
 
+## v1.1 — Community hardware intake automation (source candidate)
+
+Generate a safe unapproved metadata-only SHA-256 hardware report using `vvh research hardware-scaffold`, collect five real observed test steps only with redacted HTTPS evidence, and have maintainers manually review each exact model+firmware before any transport policy change. Retain software CI and community-first optional donated/loaned hardware. Future: simplify translation proofreading, expand true firmware event mappings and add more DAW-like audio editing with preservation/rights checks.
+
 ## v1.0 SOFTWARE STABLE / SOURCE SEALED
 
 Completed source/core software milestone: 223 preserved model identity profiles, 55 attributed voice variants, 22 text-script locales, single/batch offline mastering, safety/review/Ed25519 provenance and CI-enforced baseline audit. Exact PR-head 250/250 tests, public site, release bundle, CodeQL and Windows/macOS/Linux desktop packages PASS. Merged-main Python CI/CodeQL/Public Site also PASS. Device installation is **not** certified across 223 models; ongoing community reports and voluntary donated/loaned hardware can expand evidence per exact model and firmware.

@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.1.0 — 2026-10-09 (Community hardware testkit source candidate)
+
+- Added `vvh research hardware-scaffold`: metadata-only JSON report with streaming SHA-256 of user-supplied candidate, exact canonical model, non-sensitive firmware string, and all five device observations explicitly false until human testing.
+- Rejects symlinked/missing/empty/overlarge candidates, existing output reports, malformed firmware and noncanonical device IDs. Never touches robots or uploads binaries.
+- Extended the v1.x source-stable audit without relaxing 223 model/55 variant/22 text locale preservation or hardware install fail-closed rules.
+- Pinned v1.0 GitHub Release publisher to its historical release SHA so it cannot erroneously republish on later main.
+- 1.1 source and official release acceptance pending independent exact-head CI/CodeQL/site/bundle/desktop gates.
+
 ## 1.0.0 — 2026-10-09 (SOFTWARE STABLE / SOURCE SEALED after exact-head and merged-main CI acceptance)
 
 - Stabilized offline software contracts and introduced a machine-readable `vvh.software-stable-audit.v1` gate in CI for all 223+ model profiles, 55 credited voice variants, 22+ text languages and preserved old model IDs/aliases.

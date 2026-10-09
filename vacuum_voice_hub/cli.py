@@ -355,6 +355,11 @@ def main():
     s.add_argument("path")
     s.add_argument("--package",required=True)
     s.add_argument("--model")
+    s=research_sub.add_parser("hardware-scaffold",help="Create unapproved metadata-only hardware-test report offline")
+    s.add_argument("--model",required=True,help="Exact canonical model ID")
+    s.add_argument("--firmware",required=True,help="Non-sensitive firmware version; never a token")
+    s.add_argument("--package",required=True,help="Local candidate; hashed, never included in report")
+    s.add_argument("--output",required=True,help="New JSON path; refuses overwrite")
     s=research_sub.add_parser("hardware-acceptance",help="Assess model, firmware and rollback evidence only")
     s.add_argument("path")
     s.add_argument("--model",help="Require exact canonical model ID")
@@ -491,6 +496,9 @@ def main():
         elif a.research_cmd=="verify-evidence-bundle":
             from .firmware_evidence_bundle import verify_evidence_bundle
             _dump(verify_evidence_bundle(a.path,a.package,expected_model=a.model))
+        elif a.research_cmd=="hardware-scaffold":
+            from .community_testkit import create_hardware_scaffold
+            _dump(create_hardware_scaffold(a.model,a.firmware,a.package,a.output))
         elif a.research_cmd=="hardware-acceptance":
             from .hardware_acceptance import inspect_acceptance_file
             _dump(inspect_acceptance_file(a.path,expected_model=a.model))
