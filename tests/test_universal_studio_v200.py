@@ -85,6 +85,31 @@ def test_report_export_new_only_and_cli_round_trip(tmp_path):
     assert data["hardware_install_authorized"] is False
 
 
+def test_optional_translation_review_and_custom_adapter_are_integrated(tmp_path):
+    from vacuum_voice_hub.language_review import create_language_review
+    root = project(tmp_path)
+    translator = tmp_path / "translator.json"
+    create_language_review("uk", "dreame.vacuum.r2209", translator)
+    adapter = tmp_path / "adapter.json"
+    adapter.write_text(json.dumps({
+        "schema": "vvh.adapter-descriptor.v1",
+        "adapter_id": "community-audio",
+        "model_id": "dreame.vacuum.r2209",
+        "author": "Contributor", "license": "UNLICENSED",
+        "entries": [{"semantic": "clean.start", "archive_name": "start.wav"}]
+    }))
+    full = inspect_studio(root, "dreame.vacuum.r2209", "uk",
+                          adapter_path=adapter, translation_review=translator)
+    assert full["adapter"]["ready_for_offline_interchange"]
+    assert full["adapter"]["mapped_events"] == 1
+    assert full["translation_review"]["claimed_human_approvals"] == 0
+    assert not full["adapter"]["hardware_install_authorized"]
+    assert not full["redistribution_rights_verified"]
+    with pytest.raises(ValueError, match="mismatch"):
+        inspect_studio(root, "dreame.vacuum.r2209", "en",
+                       translation_review=translator)
+
+
 def test_wrong_locale_and_unknown_model_do_not_authorize(tmp_path):
     root = project(tmp_path)
     with pytest.raises((KeyError, ValueError)):
