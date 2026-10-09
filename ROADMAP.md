@@ -1,5 +1,10 @@
 # Roadmap
 
+## v1.8 — Attributed Local Voice Library (software wave)
+
+Real local catalog indexing/search, hash-based source reconciliation, no secret paths or bundled recordings; self-declared licenses are never independently certified. See [guide](docs/VOICE_LIBRARY_V180.md). A hosted rights-cleared voice marketplace and verified manufacturer redistribution permissions remain separate future work.
+
+
 ## v1.7 — Offline adapter interchange (source increment)
 
 Real user-defined adapter descriptor, deterministic byte-verified ZIP builder, CLI preflight and archive verifier. This does not produce an official signed vacuum package or authorize installation. [Guide](docs/ADAPTER_INTERCHANGE_V170.md).

@@ -1,3 +1,9 @@
+## v1.8.0 — Attributed Local Voice Library
+
+- Offline catalog of actual Creator packs with SHA-256 manifest and audio-content fingerprints; never copies audio to the index.
+- Search by language, author, title and contributor-declared license; source reconciliation detects edits or missing workspaces.
+- Symlink, duplicate, malformed and oversized source rejection; attribution and license declaration are not rights verification.
+
 ## v1.7.0 — Offline Adapter Interchange SDK
 
 - Third-party authored descriptor for exact canonical model and semantic IDs; real deterministic user-owned ZIP build.

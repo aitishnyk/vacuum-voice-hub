@@ -1,22 +1,21 @@
-# Project status — v1.7.0 SOFTWARE STABLE (source)
+# Project status — v1.8.0 SOFTWARE STABLE (source)
 
-This source increment adds the **offline, non-executable adapter
-interchange SDK**: a strict descriptor parser, exact canonical robot
-model/semantic IDs, safe user-owned archive build and deterministic
-SHA-256 verification. It does not create official vendor voice packages
-or allow any additional robot/firmware installation.
+v1.8 introduces a **read-only, privacy-conscious local voice library** for
+user-owned Creator projects. It builds a standalone catalog of SHA-256
+audio/manifest provenance and supports search and local source
+reconciliation without uploading or packaging any voice recordings.
+All licenses are **user declarations** and are not independent proof
+of distribution rights.
 
-Production and release acceptance are separate: successful PR CI,
-CodeQL, catalog/source audits, source bundle, public site, Windows/macOS/
-Linux desktop builds and the exact merged-main GitHub Release workflow.
+Every release stage independently requires: full regression including
+negative tests, source-model preservation audit, CodeQL Python/Actions,
+public site/bundle verification, desktop packages for Windows/macOS/Linux,
+exact merged-main CI and successful immutable GitHub Release publisher.
 
-Protected baseline: 223 researched model identities, 55 credited
-voice variants, at least 22 text-only script locales; only
-Xiaomi X10 is independently VVH hardware tested.
-Redistribution rights, native-language fluency and manufacturer
-signature verification are not automatically established. Public
-catalog ZIP contains metadata only, not licensed prerecorded voices
-or signed desktop installers.
-
-See [adapter guide](docs/ADAPTER_INTERCHANGE_V170.md)
-and [roadmap](https://github.com/aitishnyk/vacuum-voice-hub/issues/55).
+223 researched model identities, 55 attributed voices, >=22 text-only
+recording-script locales and Xiaomi X10 as the sole VVH physical
+custom-voice verified device are protected. New manufacturer permissions,
+shipping logistics, voice ownership or universal device installation
+are not implied by library search.
+See [local library docs](docs/VOICE_LIBRARY_V180.md) and
+[roadmap issue](https://github.com/aitishnyk/vacuum-voice-hub/issues/55).
