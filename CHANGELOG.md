@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.11.0 — 2026-10-09 (offline voice quality)
+
+- optional local Piper TTS using user-supplied ONNX voice model and matching config, with exact script-language verification, explicit opt-in and offline subprocess execution;
+- local generated 16-event WAV Creator projects with SHA-256 voice-model attribution and license-review warnings; no automatic download or robot installation;
+- WAV signal QA: duration, RMS/peak, clipping, silence, malformed/oversized input checks;
+- read-only Creator workspace audio QA endpoint, CLI and UI with model-specific coverage;
+- existing 154 device profiles, 55 community variants and 18 text-only script locales retained.
+
 ## 0.10.0 — 2026-10-09 (model and language software expansion)
 
 - 45 new source-backed Dreame/Xiaomi/MOVA IDs; catalog grows 109 → 154 and software matrix 5,995 → 8,470;
