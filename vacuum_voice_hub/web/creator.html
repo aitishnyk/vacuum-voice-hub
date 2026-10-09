@@ -10,7 +10,7 @@
 </head>
 <body><div class="wrap">
 <section class="hero">
-  <span class="pill">v0.10</span><span class="pill">154 target profiles</span><span class="pill">vvh.voicepack.v1</span><span class="pill">local-only workspace</span>
+  <span class="pill">v0.11</span><span class="pill">154 target profiles</span><span class="pill">vvh.voicepack.v1</span><span class="pill">local-only workspace</span>
   <h1>Creator Studio</h1>
   <p>Создавай одну semantic-озвучку и собирай её под разные модели. Аудио остаётся локально; GitHub не получает рабочие файлы автоматически.</p>
   <a class="toplink" href="/">← Вернуться в каталог</a>
@@ -55,6 +55,7 @@
     <button id="saveMeta" class="secondary">Сохранить metadata</button>
     <button id="validate" class="secondary">Validate</button>
     <button id="coverage" class="secondary">Coverage</button>
+    <button id="audioQA" class="secondary">Audio QA</button>
     <button id="build">Build model package</button>
   </div>
   <div class="progress"><i id="coverageBar"></i></div>
@@ -225,6 +226,14 @@ $('copyScript').onclick=async()=>{
   catch(e){setStatus('Clipboard unavailable: '+e)}
 };
 $('scriptLocale').onchange=()=>{currentScript=null;$('scriptOutput').textContent='Нажмите «Показать фразы».'};
+$('audioQA').onclick=async()=>{
+  if(!workspace.value){setStatus('Сначала создайте проект.');return;}
+  try{
+    const params=new URLSearchParams({id:workspace.value,model_id:model.value});
+    const report=(await api('/api/creator/qa?'+params)).report;
+    setStatus(report);
+  }catch(e){setStatus('Audio QA error: '+e)}
+};
 $('build').onclick=async()=>{
   $('build').disabled=true;setStatus('Нормализую audio и собираю model package…');
   try{
