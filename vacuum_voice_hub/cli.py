@@ -120,10 +120,20 @@ def main():
     scripts=sub.add_parser("scripts",help="Model-aware translated recording scripts and offline synthesis")
     script_sub=scripts.add_subparsers(dest="scripts_cmd",required=True)
     script_sub.add_parser("list",help="List text-only script locales")
+    sp=script_sub.add_parser("scaffold",help="Generate a translator reference template for model events")
+    sp.add_argument("--language",required=True)
+    sp.add_argument("--model",default="dreame.vacuum.r2209")
+    sp.add_argument("--limit",type=int,default=256)
+    sp.add_argument("--output",required=True,help="New JSON file, refuses overwrite")
+    sp=script_sub.add_parser("audit",help="Review translated text coverage and provenance")
+    sp.add_argument("--language",required=True)
+    sp.add_argument("--model",default="dreame.vacuum.r2209")
+    sp.add_argument("--overlay",help="Local vvh.translation-overlay.v1 with attributed phrases")
     for script_name in ("show","export"):
         sp=script_sub.add_parser(script_name)
         sp.add_argument("--language",required=True,help="Script locale, e.g. ru, uk, en, zh-Hans")
         sp.add_argument("--model",default="dreame.vacuum.r2209")
+        sp.add_argument("--overlay",help="Local reviewed/unreviewed translation overlay JSON")
         if script_name=="export":
             sp.add_argument("--output",required=True,help="New UTF-8 JSON file; refuses overwrite")
     sp=script_sub.add_parser("synth",help="Opt-in offline espeak-ng WAV synthesis into Creator workspace")
@@ -136,6 +146,7 @@ def main():
     sp.add_argument("--pitch",type=int,default=50)
     sp.add_argument("--output")
     sp.add_argument("--allow-synthetic",action="store_true",help="Explicitly consent to locally generating synthetic WAVs")
+    sp.add_argument("--overlay",help="Local translation overlay for extra voice events")
     sp=script_sub.add_parser("piper",help="Generate local WAVs from a user-supplied Piper .onnx voice (no download)")
     sp.add_argument("--language",required=True)
     sp.add_argument("--model",default="dreame.vacuum.r2209")
@@ -145,6 +156,7 @@ def main():
     sp.add_argument("--output")
     sp.add_argument("--speaker",type=int)
     sp.add_argument("--allow-synthetic",action="store_true")
+    sp.add_argument("--overlay",help="Local translation overlay for extra voice events")
     s=sub.add_parser("model-info");s.add_argument("model_id")
     s=sub.add_parser("info");s.add_argument("voice_id")
     s=sub.add_parser("coverage");_add_build_args(s)
@@ -192,8 +204,24 @@ def main():
     if a.cmd=="scripts":
         from .script_packs import list_locales, script_for_model, synthesize_workspace
         if a.scripts_cmd=="list":return _dump(list_locales())
+        if a.scripts_cmd=="scaffold":
+            from .translation_overlays import translation_scaffold
+            from pathlib import Path
+            result=translation_scaffold(a.language,a.model,a.limit)
+            dest=Path(a.output).expanduser().resolve()
+            dest.parent.mkdir(parents=True,exist_ok=True)
+            with dest.open("x",encoding="utf-8") as stream:
+                stream.write(json.dumps(result,ensure_ascii=False,indent=2)+"\\n")
+            return _dump({"output":str(dest),"candidate_count":result["candidate_count"],
+                          "translated_entries":0,"install_authorized":False})
+        if a.scripts_cmd=="audit":
+            report=script_for_model(a.language,a.model,a.overlay)
+            return _dump({k:report[k] for k in ("schema","locale","model_id","scripted_count",
+                         "mapped_count","model_event_count","mapped_event_count",
+                         "model_event_coverage_pct","overlay_count","overlay_attribution",
+                         "unmapped_semantics","model_install_authorized")})
         if a.scripts_cmd in {"show","export"}:
-            result=script_for_model(a.language,a.model)
+            result=script_for_model(a.language,a.model,a.overlay)
             if a.scripts_cmd=="show":return _dump(result)
             from pathlib import Path
             dest=Path(a.output).expanduser().resolve()
@@ -208,10 +236,11 @@ def main():
             return _dump(synthesize_piper_workspace(a.language,a.model,a.pack_id,a.author,
                                                      a.voice_model,output=a.output,
                                                      speaker=a.speaker,
-                                                     allow_synthetic=a.allow_synthetic))
+                                                     allow_synthetic=a.allow_synthetic,
+                                                     overlay_path=a.overlay))
         return _dump(synthesize_workspace(a.language,a.model,a.pack_id,a.author,a.voice,
                                          output=a.output,speed=a.speed,pitch=a.pitch,
-                                         allow_synthetic=a.allow_synthetic))
+                                         allow_synthetic=a.allow_synthetic,overlay_path=a.overlay))
     if a.cmd=="languages":
         from .script_packs import list_locales
         recorded={}
