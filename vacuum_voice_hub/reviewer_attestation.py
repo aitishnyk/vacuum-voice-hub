@@ -79,10 +79,10 @@ def sign_review(review_path, semantic, private_key_path, output, *, overlay_path
     public_raw = private.public_key().public_bytes(
         encoding=serialization.Encoding.Raw, format=serialization.PublicFormat.Raw)
     payload = _payload(review_path, semantic, overlay_path=overlay_path)
+    payload["signed_at"] = datetime.now(timezone.utc).isoformat()
     signed = {
         "schema": SCHEMA, "algorithm": "Ed25519",
         "public_key_sha256": hashlib.sha256(public_raw).hexdigest(),
-        "signed_at": datetime.now(timezone.utc).isoformat(),
         "payload": payload,
         "signature": base64.b64encode(private.sign(_canonical(payload))).decode("ascii"),
         "identity_independently_verified": False,
@@ -106,7 +106,14 @@ def verify_attestation(attestation_path, public_key_path, review_path, *,
     path = Path(attestation_path).expanduser().resolve(strict=True)
     if not path.is_file() or not 0 < path.stat().st_size <= MAX_ATTESTATION_BYTES:
         raise ValueError("signed attestation must be 1..16384 bytes")
-    data = json.loads(path.read_text("utf-8"))
+    def reject_duplicates(pairs):
+        output = {}
+        for key, value in pairs:
+            if key in output:
+                raise ValueError("duplicate signed attestation JSON field")
+            output[key] = value
+        return output
+    data = json.loads(path.read_text("utf-8"), object_pairs_hook=reject_duplicates)
     if not isinstance(data, dict) or data.get("schema") != SCHEMA or data.get("algorithm") != "Ed25519":
         raise ValueError("unsupported reviewer attestation")
     public = serialization.load_pem_public_key(_read_key(public_key_path))
@@ -130,8 +137,11 @@ def verify_attestation(attestation_path, public_key_path, review_path, *,
         public.verify(signature, _canonical(payload))
     except InvalidSignature as exc:
         raise ValueError("Ed25519 signature verification failed") from exc
+    signed_at = payload.get("signed_at")
+    if not isinstance(signed_at, str) or len(signed_at) > 64:
+        raise ValueError("invalid signed timestamp")
     fresh = _payload(review_path, payload.get("semantic"), overlay_path=overlay_path)
-    if payload != fresh:
+    if {k: v for k, v in payload.items() if k != "signed_at"} != fresh:
         raise ValueError("signed audio, script, review or model no longer matches")
     return {
         "schema": SCHEMA, "signature_valid": True,
