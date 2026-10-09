@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "vacuum-voice-hub"
-version = "0.16.0"
-description = "Robot-vacuum voice platform with 215 model profiles, 18-language scripts, offline Piper, translation overlays, audio QA, Creator Studio batch builds, preflight QA, compressed audio QA, language coverage and human recording review"
+version = "0.17.0"
+description = "Robot-vacuum voice platform with 215 model profiles, 18-language scripts, offline Piper, translation overlays, audio QA, Creator Studio batch builds, preflight QA, compressed audio QA, language coverage and human recording review, safe reviewer import and evidence audits"
 readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"
