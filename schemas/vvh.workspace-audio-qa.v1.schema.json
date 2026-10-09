@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/aitishnyk/vacuum-voice-hub/schemas/vvh.workspace-audio-qa.v1.schema.json",
+  "title": "Read-only Creator workspace audio QA",
+  "type": "object",
+  "required": [
+    "schema",
+    "ok",
+    "validation_errors",
+    "audio",
+    "install_authorized"
+  ],
+  "properties": {
+    "schema": {
+      "const": "vvh.workspace-audio-qa.v1"
+    },
+    "ok": {
+      "type": "boolean"
+    },
+    "validation_errors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "audio": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "analyzed_wav": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "unanalysed_formats": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "warnings_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "errors_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "coverage": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "install_authorized": {
+      "const": false
+    }
+  }
+}
