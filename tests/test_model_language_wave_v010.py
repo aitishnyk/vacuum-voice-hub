@@ -44,7 +44,7 @@ def test_script_is_model_aware_and_never_authorizes_install(locale):
 def test_new_models_are_research_only_and_old_identity_registry_unchanged():
     doc = json.loads((ROOT / "catalog" / "models.json").read_text())
     old = json.loads((ROOT / "tests" / "fixtures" / "v08_model_identity.json").read_text())
-    assert len(doc["models"]) == 154
+    assert len(doc["models"]) == 215
     assert len(voices()) == 55
     assert doc["expansion"]["source_backed_added"] == 45
     for entry in old["models"]:
