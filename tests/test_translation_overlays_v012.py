@@ -120,7 +120,7 @@ def test_legacy_18_text_locales_and_existing_model_catalog_preserved():
     assert original["overlay_count"] == 0
     assert original["overlay_attribution"] is None
     from vacuum_voice_hub.catalog import models, voices
-    assert len(models()) == 215
+    assert len(models()) >= 215
     assert len(voices()) == 55
 
 

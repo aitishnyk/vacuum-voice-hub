@@ -31,6 +31,60 @@
       "notes": "Portable semantic build/preview supported. Exact vendor custom-voice package and local transport are not yet confirmed, so installation is fail-closed."
     },
     {
+      "id": "deerma.vacuum.a2509",
+      "name": "DEERMA Robot Vacuum S30 Pro",
+      "vendor": "Deerma",
+      "aliases": [
+        "deerma.vacuum.a2509"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device index identity; community confirmation of voice event layout pending",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/vacuum"
+      },
+      "notes": "Community MIoT listing identifies the device, not its voice protocol. Portable semantic demo and offline preview only. Exact recording events, installed firmware, manufacturer signatures and custom-voice installation remain unverified."
+    },
+    {
+      "id": "dji.vacuum.romo",
+      "name": "DJI ROMO",
+      "vendor": "DJI",
+      "aliases": [
+        "dji.vacuum.romo"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device index identity; community confirmation of voice event layout pending",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/vacuum"
+      },
+      "notes": "Community MIoT listing identifies the device, not its voice protocol. Portable semantic demo and offline preview only. Exact recording events, installed firmware, manufacturer signatures and custom-voice installation remain unverified."
+    },
+    {
       "id": "dreame.vacuum.ma1808",
       "name": "Mi Robot Vacuum-Mop",
       "vendor": "Dreame / Xiaomi",
@@ -2209,6 +2263,60 @@
       "notes": "Model ID sourced from Dreame registry. Portable semantic preview/research only; exact vendor voice format and installation path are unverified."
     },
     {
+      "id": "eco.vacuum.tveglj",
+      "name": "ECOVACS DEEBOT N50",
+      "vendor": "ECOVACS",
+      "aliases": [
+        "eco.vacuum.tveglj"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device index identity; community confirmation of voice event layout pending",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/vacuum"
+      },
+      "notes": "Community MIoT listing identifies the device, not its voice protocol. Portable semantic demo and offline preview only. Exact recording events, installed firmware, manufacturer signatures and custom-voice installation remain unverified."
+    },
+    {
+      "id": "homend.vacuum.1293h",
+      "name": "Homend Alex UltiClean 1293H Vacuum",
+      "vendor": "Homend",
+      "aliases": [
+        "homend.vacuum.1293h"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device index identity; community confirmation of voice event layout pending",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/vacuum"
+      },
+      "notes": "Community MIoT listing identifies the device, not its voice protocol. Portable semantic demo and offline preview only. Exact recording events, installed firmware, manufacturer signatures and custom-voice installation remain unverified."
+    },
+    {
       "id": "ijai.vacuum.v1",
       "name": "Mi Robot Vacuum-Mop Pro",
       "vendor": "IJAI / Xiaomi",
@@ -2550,6 +2658,60 @@
       "notes": "Q0 community workflow documents the IJAI URL+MD5 action family. VVH keeps local install experimental until an exact-device report is reviewed."
     },
     {
+      "id": "jdyw.vacuum.t300g",
+      "name": "Uwant Robot Vacuum T300",
+      "vendor": "Uwant",
+      "aliases": [
+        "jdyw.vacuum.t300g"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device index identity; community confirmation of voice event layout pending",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/vacuum"
+      },
+      "notes": "Community MIoT listing identifies the device, not its voice protocol. Portable semantic demo and offline preview only. Exact recording events, installed firmware, manufacturer signatures and custom-voice installation remain unverified."
+    },
+    {
+      "id": "jdyw.vacuum.u400g",
+      "name": "Uwant U400 Robot Vacuum Cleaner",
+      "vendor": "Uwant",
+      "aliases": [
+        "jdyw.vacuum.u400g"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device index identity; community confirmation of voice event layout pending",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/vacuum"
+      },
+      "notes": "Community MIoT listing identifies the device, not its voice protocol. Portable semantic demo and offline preview only. Exact recording events, installed firmware, manufacturer signatures and custom-voice installation remain unverified."
+    },
+    {
       "id": "mijia.vacuum.b108zb",
       "name": "Mijia Robot Vacuum-Mop 3S",
       "vendor": "Xiaomi / Mijia",
@@ -2668,6 +2830,33 @@
         "evidence": "https://github.com/Hypfer/Valetudo/discussions/2181"
       },
       "notes": "Build/coverage supported using conservative L40∩X40 profile. Install transport requires --allow-experimental-transport until physical evidence is contributed."
+    },
+    {
+      "id": "narwa.vacuum.ax24",
+      "name": "Narwal J6 Floor-Washing Robot",
+      "vendor": "Narwal",
+      "aliases": [
+        "narwa.vacuum.ax24"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device index identity; community confirmation of voice event layout pending",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/vacuum"
+      },
+      "notes": "Community MIoT listing identifies the device, not its voice protocol. Portable semantic demo and offline preview only. Exact recording events, installed firmware, manufacturer signatures and custom-voice installation remain unverified."
     },
     {
       "id": "roborock.vacuum.a01",
@@ -6172,6 +6361,33 @@
       "notes": "Portable semantic build/preview supported. Exact vendor custom-voice package and local transport are not yet confirmed, so installation is fail-closed."
     },
     {
+      "id": "xtl.vacuum.3512",
+      "name": "JONR X9 Pro Robot Vacuum Cleaner",
+      "vendor": "JONR",
+      "aliases": [
+        "xtl.vacuum.3512"
+      ],
+      "adapter": "semantic_bundle",
+      "device_tested": false,
+      "tested_firmware": [],
+      "catalog_source": "Public MIoT device index identity; community confirmation of voice event layout pending",
+      "package": {
+        "container": "zip",
+        "audio_codec": "ogg-vorbis",
+        "sample_rate": 16000,
+        "channels": 1,
+        "filename": "<semantic_event>.ogg"
+      },
+      "event_profile": "semantic-portable-core-v1",
+      "transport": {
+        "kind": "unsupported-local",
+        "verification": "build-only",
+        "allow_default": false,
+        "evidence": "https://home.miot-spec.com/s/vacuum"
+      },
+      "notes": "Community MIoT listing identifies the device, not its voice protocol. Portable semantic demo and offline preview only. Exact recording events, installed firmware, manufacturer signatures and custom-voice installation remain unverified."
+    },
+    {
       "id": "zhimi.vacuum.w2",
       "name": "Lydsto Self Cleaning Sweeping Robot W2",
       "vendor": "Smartmi / Xiaomi",
@@ -6356,6 +6572,19 @@
       "roidmi": "https://home.miot-spec.com/s/roidmi.vacuum",
       "ijai": "https://home.miot-spec.com/s/ijai"
     },
-    "v013_policy": "Identity evidence only; all additions portable build-only."
+    "v013_policy": "Identity evidence only; all additions portable build-only.",
+    "added_model_ids_v020": [
+      "jdyw.vacuum.u400g",
+      "jdyw.vacuum.t300g",
+      "deerma.vacuum.a2509",
+      "narwa.vacuum.ax24",
+      "eco.vacuum.tveglj",
+      "dji.vacuum.romo",
+      "homend.vacuum.1293h",
+      "xtl.vacuum.3512"
+    ],
+    "source_backed_added_v020": 8,
+    "v020_source": "https://home.miot-spec.com/s/vacuum",
+    "v020_policy": "Community MIoT identity only; research-only, no transport promotion, event mapping not verified"
   }
 }

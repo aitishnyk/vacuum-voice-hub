@@ -77,9 +77,9 @@ Implemented detached Ed25519 verification with independently provided PEM keys, 
 
 Completed software scope: Ed25519 whole-pack manifest of all assigned source audio and human review states; metadata-only firmware candidate evidence ZIP with current package SHA verification and explicit non-authorizing status. Hardware proof is still separate.
 
-## v0.20 — Independent hardware acceptance and reviewer handoff QA
+## v0.20 — Implemented community-first intake and audio/language foundation
 
-Pending: expand licensed locale coverage with native-speaker review, verify new model IDs with per-source evidence, improve multi-engine pronunciation QA and add signed distribution acceptance.
+Implemented: new model identities (not verified transports), text templates, local master-preview and GitHub issue templates for community tests/donated hardware. Continuing: licensed locale/native-speaker review, independent firmware/rollback acceptance, pronunciation QA and signed distribution review. Software stable releases may ship before all hardware has been tested, with conservative labels.
 
 ## v1.0 — Verified Transport & Real-Device Acceptance (external evidence required)
 

@@ -115,6 +115,7 @@ def build_release(output,source_date_epoch=None):
             "vvh.creator-batch.v1",
             "vvh.audio-source-qa.v1",
             "vvh.gain-preview.v1",
+            "vvh.master-preview.v1",
             "vvh.language-audio-coverage.v1",
             "vvh.production-review.v1",
             "vvh.returned-review.v1",

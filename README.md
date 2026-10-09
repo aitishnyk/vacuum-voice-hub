@@ -4,6 +4,20 @@
 
 **Credits-first multi-model voice platform for robot vacuums.**
 
+## v0.20.0 — 223 models, 22 text languages, non-destructive audio mastering
+
+This software release expands the source-attributed catalog by **8 research-only robot profiles** (223 total) and **4 new text-script locales** (Indonesian, Vietnamese, Arabic, Hindi; 22 total). The **55 credited voice variants are preserved**. New translated text templates still need native-speaker review; these are not pretrained engines or recorded voice packs.
+
+Use bounded local audio-mastering previews without modifying original recordings:
+
+```bash
+vvh creator master-preview ./voice.ogg --output ./preview.wav --target-peak-dbfs -4 --padding-ms 80 --fade-ms 8
+vvh scripts show --language vi --model dreame.vacuum.r2209
+vvh models --search DEERMA
+```
+
+We welcome [community hardware testing and voluntary device loans/donations](docs/COMMUNITY_HARDWARE_TESTING.md), but a stable **software** release does not claim installation on untested firmware. Xiaomi X10 is the only VVH physically verified custom-install target. All newly added models are build/preview-only; no region unlock, firmware signing bypass, or vendor endorsement. See [audio mastering](docs/AUDIO_MASTERING_V020.md).
+
 ## v0.19.0 — Signed Whole-Pack Manifest & Firmware Evidence Bundles
 
 A user-supplied Ed25519 private PEM key can now sign **every assigned recording** in a single versioned whole-pack manifest that covers the model, locale, semantic events, source audio SHA-256, Creator manifest, translations and reviewer states. Verification rechecks the matching public key and all current audio. Optional `--require-approved` refuses packs with human-unapproved assigned recordings.

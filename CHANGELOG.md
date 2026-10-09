@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.20.0 — 2026-10-09 (source candidate, community and audio production)
+
+- 223 model identities (+8 MIoT-index research-only profiles); 55 original voice variants preserved and hardware install authorization unchanged.
+- 22 text-script locales (+Indonesian, Vietnamese, Arabic and Hindi, 16 reference phrases each), separate from recorded/audio availability and awaiting community language review.
+- New `vvh creator master-preview`: local bounded decoding, trim/padding/fades, max +12 dB gain, exclusive WAV creation and SHA-256/QA evidence, without editing source recordings.
+- Community model/firmware/rollback evidence and manufacturer/volunteer loan or donation issue templates; no commercial Telegram, Bunny or payment code.
+- Physical support remains Xiaomi X10-only until independent evidence for another model.
+
 ## 0.19.0 — 2026-10-09 (signed pack source and firmware evidence bundle)
 
 - introduced user-key Ed25519 `vvh.signed-pack-manifest.v1` covering every assigned source clip hash, mapped semantic/event IDs, text digest, model, locale and explicit human review status; signed timestamp included;
