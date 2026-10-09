@@ -18,6 +18,7 @@
 - v0.13.0 — 215-model five-brand discovery, identity preservation and research-only comparison ✅ software scope
 - v0.14.0 — Creator per-target preflight and offline 1–16-model batch output with SHA-256 ✅ software scope
 - v0.15.0 — Optional bounded compressed QA, gain preview and actual locale/audio coverage ✅ software scope
+- v0.16.0 — Recording assignments, tamper-aware human review, private-by-default ZIP export ✅ software scope
 
 ## v0.9 — Offline Research Infrastructure
 
@@ -57,7 +58,11 @@ Implemented: read-only per-target mapping/missing-core/collision diagnostics and
 
 Implemented bounded opt-in FFmpeg decode QA, non-destructive WAV gain preview, and model-aware translated-text-versus-assigned-audio reporting. No new device format claims.
 
-## v0.16 — Voice Production Workflow & Safety Evidence
+## v0.16 — Voice Production Workflow & Human Review
+
+Implemented: every-event recording assignments, explicit human acknowledgement/rights attestation, SHA-256 checks, safe resnapshot and private-by-default metadata export. Human declarations are not independently verified credentials or legal rights.
+
+## v0.17 — Voice QA Acceptance & Hardware Evidence
 
 Pending: expand licensed locale coverage with native-speaker review, verify new model IDs with per-source evidence, improve multi-engine pronunciation QA and add signed distribution acceptance.
 

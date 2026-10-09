@@ -19,6 +19,13 @@ HTML=(files("vacuum_voice_hub")/"web"/"index.html").read_text(encoding="utf-8")
 CREATOR_HTML=(files("vacuum_voice_hub")/"web"/"creator.html").read_text(encoding="utf-8")
 CREATOR_SESSION=secrets.token_urlsafe(32)
 
+def _review_file(review_id):
+    if not isinstance(review_id,str) or len(review_id)!=20 or any(x not in "0123456789abcdef" for x in review_id):
+        raise ValueError("invalid review identity")
+    from .paths import data_dir
+    return data_dir()/"production-reviews"/(review_id+".json")
+
+
 def _stats():
     vv=voices();mm=models()
     return {
@@ -152,6 +159,44 @@ class H(BaseHTTPRequestHandler):
                 return self._json({"ok":True,"report":language_audio_coverage(workspace_by_id(wid),locale,mid)})
             except (KeyError,ValueError,FileNotFoundError,OSError) as exc:
                 return self._json({"ok":False,"error":str(exc)},400)
+        if parsed.path=="/api/creator/reviews":
+            from .production_review import audit_review
+            try:
+                self._creator_auth()
+                from .paths import data_dir
+                wid=q["id"][0]
+                root=workspace_by_id(wid).resolve()
+                reviews_dir=data_dir()/"production-reviews"
+                results=[]
+                for file in sorted(reviews_dir.glob("*.json"))[-100:] if reviews_dir.is_dir() else []:
+                    if file.stem!=file.name[:-5] or len(file.stem)!=20:
+                        continue
+                    try:
+                        doc=json.loads(file.read_text("utf-8"))
+                        if doc.get("workspace")!=str(root):
+                            continue
+                        results.append({"review_id":file.stem,"model_id":doc["model_id"],
+                                        "locale":doc["locale"],"pack_id":doc["pack_id"]})
+                    except (ValueError,KeyError,OSError):
+                        continue
+                return self._json({"ok":True,"reviews":results})
+            except (KeyError,ValueError,OSError) as e:
+                return self._json({"ok":False,"error":str(e)},400)
+        if parsed.path=="/api/creator/review":
+            from .production_review import audit_review, _load_json
+            try:
+                self._creator_auth()
+                path=_review_file(q["review_id"][0])
+                report=audit_review(path)
+                doc=_load_json(path)
+                tasks=[{"semantic":task["semantic"],
+                        "status":task["review"]["status"],
+                        "audio_present":task["audio"] is not None,
+                        "text_ready":task["text"] is not None}
+                       for task in doc["tasks"]]
+                return self._json({"ok":True,"report":report,"tasks":tasks})
+            except (KeyError,ValueError,FileNotFoundError,OSError) as e:
+                return self._json({"ok":False,"error":str(e)},400)
         if parsed.path=="/api/creator/workspaces":
             return self._json({"ok":True,"workspaces":list_workspaces()})
         if parsed.path=="/api/creator/events":
@@ -209,6 +254,31 @@ class H(BaseHTTPRequestHandler):
                     result=remove_event(workspace_by_id(d["id"]),d["semantic"])
                 elif parsed.path=="/api/creator/build":
                     result=build_workspace(workspace_by_id(d["id"]),d["model_id"],d.get("output"))
+                elif parsed.path=="/api/creator/review/new":
+                    from .production_review import create_review
+                    from .paths import data_dir
+                    review_id=secrets.token_hex(10)
+                    output=data_dir()/"production-reviews"/(review_id+".json")
+                    result=create_review(workspace_by_id(d["id"]),d["language"],d["model_id"],output)
+                    result["review_id"]=review_id
+                elif parsed.path=="/api/creator/review/mark":
+                    from .production_review import mark_review
+                    result=mark_review(_review_file(d["review_id"]),d["semantic"],d["status"],
+                                       reviewer=d.get("reviewer"),note=d.get("note"),
+                                       language_attested=d.get("language_attested") is True,
+                                       rights_attested=d.get("rights_attested") is True)
+                elif parsed.path=="/api/creator/review/refresh":
+                    from .production_review import refresh_review
+                    result=refresh_review(_review_file(d["review_id"]))
+                elif parsed.path=="/api/creator/review/bundle":
+                    from .production_review import export_review_bundle
+                    from .paths import data_dir
+                    review_id=d["review_id"]
+                    _review_file(review_id)
+                    output=data_dir()/"production-review-bundles"/(
+                        review_id+"__"+secrets.token_hex(8)+".zip")
+                    result=export_review_bundle(_review_file(review_id),output,
+                                                include_audio=d.get("include_audio") is True)
                 elif parsed.path=="/api/creator/batch":
                     from .creator_batch import batch_build_workspace
                     from .paths import data_dir

@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.16.0 — 2026-10-09 (voice recording workflow and human review)
+
+- exported recording assignments for every known semantic event of a selected 215-model profile, including untranslated English references and optional user overlay;
+- added independently tracked `draft → recorded → listened → approved` workflow with human reviewer, explicit language and redistribution-rights attestations;
+- persisted SHA-256 of each source recording and source Creator manifest; audit rejects stale files, reassigned events and modified text, while refresh resets only the changed tasks;
+- introduced metadata-only default review ZIP and explicit opt-in local audio inclusion with total-size caps and integrity checks;
+- integrated recording checklist, status, refresh, hash audit and ZIP export into localhost Creator Studio;
+- no new vendor custom-install support or audio licensing inferred; all 215 models, 55 recorded catalog voice variants, 18 text locales and Xiaomi X10-only physical evidence preserved.
+
 ## 0.15.0 — 2026-10-09 (advanced audio QC and language truth)
 
 - offline bounded opt-in FFmpeg decoding of compressed OGG/MP3/FLAC/M4A/AAC/Opus to temporary 16-bit PCM with timeout, byte/duration caps and signal heuristics;

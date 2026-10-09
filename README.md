@@ -4,6 +4,21 @@
 
 **Credits-first multi-model voice platform for robot vacuums.**
 
+## v0.16.0 — Voice Production Studio & Human Review
+
+Creator Studio now includes offline **per-model recording assignments** for every known semantic event, a saved human review workflow (`draft → recorded → listened → approved`), source-file **SHA-256 integrity checks**, and an explicit **review bundle** export. Changes to recordings or the Creator manifest invalidate old approvals; a `refresh` preserves unchanged review decisions and resets only changed tasks.
+
+```bash
+vvh creator review init ./my-voice --language ru --model dreame.vacuum.r2209 --output ./review.json
+vvh creator review audit ./review.json
+vvh creator review mark ./review.json --semantic clean.start --status recorded
+vvh creator review mark ./review.json --semantic clean.start --status listened --reviewer "Editor"
+vvh creator review mark ./review.json --semantic clean.start --status approved --reviewer "Editor" --language-attested --rights-attested
+vvh creator review bundle ./review.json --output ./reviewer.zip
+```
+
+Review ZIPs contain **metadata only by default**. Include private audio recordings only with `--include-audio`; no network upload or automatic robot installation occurs. The statements about spoken language and distribution rights are *human attestations*, not independently verified legal grants or certification. See [v0.16 production review guide](docs/VOICE_PRODUCTION_REVIEW_V016.md).
+
 ## v0.15.0 — Real Compressed Audio QA & Language Coverage
 
 Optional **offline FFmpeg** inspection of MP3, OGG, FLAC, M4A, AAC and Opus, in addition to WAV; a gain-only WAV **preview** that never alters the source; and a report separating actual Creator audio assignments from the text translated for each of 18 locales. Existing model/voice inventories and installation restrictions are unchanged.

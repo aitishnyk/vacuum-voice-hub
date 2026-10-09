@@ -116,6 +116,7 @@ def build_release(output,source_date_epoch=None):
             "vvh.audio-source-qa.v1",
             "vvh.gain-preview.v1",
             "vvh.language-audio-coverage.v1",
+            "vvh.production-review.v1",
             "vvh.translation-overlay.v1",
             "vvh.public-catalog.v1",
             RELEASE_SCHEMA,

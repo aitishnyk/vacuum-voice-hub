@@ -86,6 +86,35 @@ def _creator_parser(sub):
     s.add_argument("audio_file")
     s.add_argument("--gain-db",type=float,required=True)
     s.add_argument("--output",required=True)
+    review=cs.add_parser("review",help="Local human recording checklist and QA sign-off")
+    rs=review.add_subparsers(dest="review_cmd",required=True)
+    s=rs.add_parser("init",help="New recording assignment checklist; refuses overwrite")
+    s.add_argument("workspace")
+    s.add_argument("--language",required=True)
+    s.add_argument("--model",default="dreame.vacuum.r2209")
+    s.add_argument("--overlay")
+    s.add_argument("--output",required=True)
+    s=rs.add_parser("audit",help="Verify review and hashes against current recordings")
+    s.add_argument("path")
+    s.add_argument("--workspace")
+    s.add_argument("--overlay")
+    s=rs.add_parser("refresh",help="Refresh recordings; reset changed tasks without losing unchanged reviews")
+    s.add_argument("path")
+    s.add_argument("--overlay")
+    s=rs.add_parser("mark",help="Advance draft -> recorded -> listened -> approved")
+    s.add_argument("path")
+    s.add_argument("--semantic",required=True)
+    s.add_argument("--status",required=True,choices=["draft","recorded","listened","approved"])
+    s.add_argument("--reviewer")
+    s.add_argument("--note")
+    s.add_argument("--language-attested",action="store_true")
+    s.add_argument("--rights-attested",action="store_true")
+    s.add_argument("--overlay")
+    s=rs.add_parser("bundle",help="New reviewer ZIP; audio inclusion requires explicit opt-in")
+    s.add_argument("path")
+    s.add_argument("--output",required=True)
+    s.add_argument("--include-audio",action="store_true")
+    s.add_argument("--overlay")
     s=cs.add_parser("events");s.add_argument("--model");s.add_argument("--category")
 
 def _creator_main(a):
@@ -113,6 +142,22 @@ def _creator_main(a):
     elif a.creator_cmd=="gain-preview":
         from .audio_advanced import preview_gain
         _dump(preview_gain(a.audio_file,a.output,a.gain_db))
+    elif a.creator_cmd=="review":
+        from .production_review import (create_review, audit_review, mark_review,
+                                        refresh_review, export_review_bundle)
+        if a.review_cmd=="init":
+            _dump(create_review(a.workspace,a.language,a.model,a.output,overlay_path=a.overlay))
+        elif a.review_cmd=="audit":
+            _dump(audit_review(a.path,workspace=a.workspace,overlay_path=a.overlay))
+        elif a.review_cmd=="refresh":
+            _dump(refresh_review(a.path,overlay_path=a.overlay))
+        elif a.review_cmd=="mark":
+            _dump(mark_review(a.path,a.semantic,a.status,reviewer=a.reviewer,note=a.note,
+                              language_attested=a.language_attested,
+                              rights_attested=a.rights_attested,overlay_path=a.overlay))
+        elif a.review_cmd=="bundle":
+            _dump(export_review_bundle(a.path,a.output,include_audio=a.include_audio,
+                                       overlay_path=a.overlay))
     elif a.creator_cmd=="events":
         allowed=set(event_profile_for_model(a.model)["known_event_ids"]) if a.model else None
         rows=[]
