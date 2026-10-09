@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/aitishnyk/vacuum-voice-hub/schemas/vvh.creator-batch.v1.schema.json",
+  "title": "Offline multi-model Creator package manifest — no install authority",
+  "type": "object",
+  "required": [
+    "schema",
+    "model_count",
+    "models",
+    "packages",
+    "install_authorized",
+    "license_review_required"
+  ],
+  "properties": {
+    "schema": {
+      "const": "vvh.creator-batch.v1"
+    },
+    "source_pack_id": {
+      "type": "string"
+    },
+    "model_count": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 16
+    },
+    "models": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 16,
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "packages": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 16,
+      "items": {
+        "type": "object",
+        "required": [
+          "model_id",
+          "file",
+          "bytes",
+          "sha256",
+          "install_authorized",
+          "manufacturer_format_verified"
+        ],
+        "properties": {
+          "model_id": {
+            "type": "string"
+          },
+          "file": {
+            "type": "string"
+          },
+          "bytes": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "install_authorized": {
+            "const": false
+          },
+          "manufacturer_format_verified": {
+            "const": false
+          }
+        }
+      }
+    },
+    "license_review_required": {
+      "const": true
+    },
+    "install_authorized": {
+      "const": false
+    }
+  }
+}
