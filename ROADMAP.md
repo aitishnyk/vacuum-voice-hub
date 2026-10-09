@@ -17,6 +17,7 @@
 - v0.12.0 — User-attributed localization overlays + scaffold + per-model script coverage ✅ software scope
 - v0.13.0 — 215-model five-brand discovery, identity preservation and research-only comparison ✅ software scope
 - v0.14.0 — Creator per-target preflight and offline 1–16-model batch output with SHA-256 ✅ software scope
+- v0.15.0 — Optional bounded compressed QA, gain preview and actual locale/audio coverage ✅ software scope
 
 ## v0.9 — Offline Research Infrastructure
 
@@ -52,7 +53,11 @@ Implemented: 61 additional MIoT-listed device identities, research-only portable
 
 Implemented: read-only per-target mapping/missing-core/collision diagnostics and independent offline 1–16-model packaged outputs with source SHA-256 and a batch manifest. Research-only hardware policies remain unchanged.
 
-## v0.15 — Deeper Audio Quality & Language Coverage QA
+## v0.15 — Compressed Audio Signal QA & Language Coverage
+
+Implemented bounded opt-in FFmpeg decode QA, non-destructive WAV gain preview, and model-aware translated-text-versus-assigned-audio reporting. No new device format claims.
+
+## v0.16 — Voice Production Workflow & Safety Evidence
 
 Pending: expand licensed locale coverage with native-speaker review, verify new model IDs with per-source evidence, improve multi-engine pronunciation QA and add signed distribution acceptance.
 
