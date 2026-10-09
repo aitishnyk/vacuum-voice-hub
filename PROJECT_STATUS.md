@@ -1,11 +1,13 @@
-# Project status — v0.21.0 source candidate
+# Project status — v1.0.0 software-stable source candidate
 
-- Built upon v0.20.0 source candidate PR #46.
-- New `vvh creator master-batch`: 1–256 local input clips, collision-checked deterministic WAV previews, per-clip SHA-256/QA manifest, no partial published output on failure.
-- Original Creator recordings, source licenses and per-clip human-review records are untouched. Explicit reassign and re-review are needed.
-- Preserved 223 research models, 55 credited source voices, 22 text-only locales. Xiaomi X10 remains the sole VVH physically verified custom-voice installation target.
-- Community hardware/firmware reports, and voluntary manufacturer/customer loans or donations, are welcome but cannot replace software CI and cannot automatically change transport authorization.
-- v0.21.0 release gates (exact-head CI, source safety, CodeQL, macOS/Windows/Linux desktop, Public Site and Bundle) are not yet complete. Status: SOURCE CANDIDATE, not sealed.
-- No commercial Telegram, Stars or Bunny infrastructure in this public project.
+**Release scope:** public, offline open-source **software** stable channel. This version number does not mean universal robot-voice installation capability.
 
-See [batch mastering](docs/AUDIO_BATCH_V021.md) and [community hardware policy](docs/COMMUNITY_HARDWARE_TESTING.md).
+- Base: v0.21.0 batch audio production built on v0.20.0 merged main `0fff08f51143ebed3cde1ea6b075aaeb3f06c232`. PR #47 source acceptance is tracked separately before this v1.0 branch can be merged.
+- Includes 223 researched source-attributed model identities, 55 preserved attributed voice variants and 22 text-only locales; no new recorded voice language guarantees.
+- Individual and folder-wide non-destructive offline audio mastering, QA signals, safe ZIP/TAR inspection, signed Ed25519 whole-pack provenance and Human Review workflows; no automatic upload to unknown robots.
+- Source-revision audit `python scripts/stable_release_audit.py` must pass on **exact PR SHA**, alongside full Python suite, Model Matrix, public site/bundle, CodeQL and macOS/Windows/Linux desktop artifacts. Merged-main checks must independently pass after merge.
+- **Hardware compatibility:** only Xiaomi X10 (`dreame.vacuum.r2209`) remains VVH physically verified. Unverified models are research/build-only or explicitly experimental/signed-only. Volunteers can submit exact model/firmware/rollback evidence; manufacturers/users may offer donations or loans without guaranteed endorsement or requiring us to own every robot.
+- No commercial Telegram Stars/Bunny functionality in this public repository.
+- This candidate is **NOT yet SOURCE SEALED**: acceptance results must be recorded before official stable status.
+
+[Stable acceptance documentation](docs/STABLE_SOFTWARE_V100.md) · [Community device testing](docs/COMMUNITY_HARDWARE_TESTING.md).

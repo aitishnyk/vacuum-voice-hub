@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.0 — 2026-10-09 (software-stable source milestone candidate)
+
+- Stabilized offline software contracts and introduced a machine-readable `vvh.software-stable-audit.v1` gate in CI for all 223+ model profiles, 55 credited voice variants, 22+ text languages and preserved old model IDs/aliases.
+- Source/audio mastering and batch mastering remain opt-in, non-destructive and subject to human listening and licensing; package signatures do not certify devices or redistribution rights.
+- Community on-device hardware evidence, failures and voluntary manufacturer/user hardware loans/donations are tracked independently of software build gates.
+- Exact PR-head and merged-main GitHub Actions acceptance still required before calling this source release SEALED; no new physical device install permission or commercial fork code.
+
 ## 0.21.0 — 2026-10-09 (source candidate, batch audio production)
 
 - New offline `vvh creator master-batch` command for up to 256 audio clips per new batch output.

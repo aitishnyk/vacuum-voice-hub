@@ -1,6 +1,10 @@
 # Roadmap
 
-## Current v0.21 audio-production wave
+## v1.0 stable software scope
+
+Goal: stable public offline editor, model/locale catalogs and signed/reviewed audio production pipeline on Windows/macOS/Linux, with independent source audit and exact-head CI/CodeQL. Physical-device verification is a separate evidence stream operated with community volunteers; manufacturers or supporters may optionally contribute devices without editorial influence. 223 models mean researched identities, not 223 verified installers. After stable source release, additional physical transports, native-speaker verified recordings, and more advanced Creator UX continue as individually verified v1.x features.
+
+## Previous v0.21 audio-production wave
 
 Implemented in source: offline master-preview directory batch processing, per-source SHA-256, collision-safe filenames, bounded max 256 files and deletion of incomplete NEW batch outputs. Before release, verify full Python CI, CodeQL, Public Site, reproducible bundle and macOS/Windows/Linux packaging. Hardware/community tests remain a separate workstream; shipping tested software never implies new physical-device approval.
 

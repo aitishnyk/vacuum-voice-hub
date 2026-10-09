@@ -4,6 +4,20 @@
 
 **Credits-first multi-model voice platform for robot vacuums.**
 
+## v1.0.0 — Software-stable core, community hardware certification
+
+**Software-stable** means tested source, model/locale preservation, non-destructive audio production, signed review provenance and cross-platform reproducible release workflows. It is **not** a claim of 223 physically installable voice transports: Xiaomi X10 (`dreame.vacuum.r2209`) is the sole VVH physically verified custom-voice install target. All 223 model profiles participate in research/preview/build with their own stricter device policies; the 22 locales are **text templates**, not 22 recorded voice libraries. The 55 existing attributed voice variants are preserved, and each candidate audio track still requires rights verification and human listening.
+
+```bash
+python scripts/stable_release_audit.py
+python scripts/model_matrix_audit.py
+python -m pytest -q
+vvh creator master-preview ./voice.ogg --output ./preview.wav
+vvh creator master-batch --input-dir ./voices/audio --output-dir ./review-previews
+```
+
+[Stable software acceptance rules](docs/STABLE_SOFTWARE_V100.md) · [Community exact-device reports and optional hardware donations](docs/COMMUNITY_HARDWARE_TESTING.md). Manufacturer or community device loans/donations are welcomed but never mandatory to release stable source. No Telegram payment bot, Stars monetization or Bunny storage commerce code is included.
+
 ## v0.21.0 — Safe batch audio mastering
 
 A new `vvh creator master-batch` command processes up to 256 local recordings (WAV, OGG, MP3, FLAC, M4A, AAC, Opus) into a **new preview directory** with deterministic WAV names and a per-clip hash/QA manifest. Symlinks, case-insensitive filename conflicts, failed clips and existing output directories are refused; an incomplete new batch is removed.
