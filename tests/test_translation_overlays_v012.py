@@ -122,3 +122,32 @@ def test_legacy_18_text_locales_and_154_model_catalog_unchanged():
     from vacuum_voice_hub.catalog import models, voices
     assert len(models()) == 154
     assert len(voices()) == 55
+
+
+def test_user_translation_overlay_generates_extra_piper_audio(tmp_path, monkeypatch):
+    import wave
+    from vacuum_voice_hub.piper_studio import synthesize_piper_workspace
+    voice = tmp_path / "voice.onnx"
+    voice.write_bytes(b"LOCAL MODEL")
+    (tmp_path / "voice.onnx.json").write_text(json.dumps({"language":{"code":"uk_UA"}}))
+    overlay = _write(tmp_path)
+    monkeypatch.setattr("vacuum_voice_hub.piper_studio.shutil.which", lambda name: "/local/piper")
+    calls = []
+    def fake_piper(cmd, *, input, text, capture_output, check, timeout):
+        calls.append(input)
+        dest = Path(cmd[cmd.index("--output_file")+1])
+        with wave.open(str(dest), "wb") as out:
+            out.setnchannels(1)
+            out.setsampwidth(2)
+            out.setframerate(16000)
+            out.writeframes(b"\x00\x20" * 16000)
+        return subprocess.CompletedProcess(cmd, 0)
+    monkeypatch.setattr("vacuum_voice_hub.piper_studio.subprocess.run", fake_piper)
+    report = synthesize_piper_workspace("uk", MODEL, "extended_uk", "Translator",
+                                        voice, output=tmp_path/"extended_uk",
+                                        allow_synthetic=True, overlay_path=overlay)
+    assert report["events_synthesized"] == 17
+    assert report["overlay_count"] == 1
+    assert len(calls) == 17
+    assert (tmp_path/"extended_uk"/"audio"/"error.bumper.wav").is_file()
+    assert report["install_authorized"] is False
