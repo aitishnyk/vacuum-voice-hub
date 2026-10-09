@@ -21,67 +21,46 @@
     "clean.zone.start"
   ],
   "locales": {
-    "en": {
-      "name": "English",
+    "ar": {
+      "name": "العربية",
       "phrases": {
-        "clean.start": "Starting cleaning.",
-        "clean.pause": "Cleaning paused.",
-        "clean.complete": "Cleaning complete.",
-        "dock.return.charge": "Returning to the charging dock.",
-        "dock.charging": "Charging.",
-        "battery.low": "Battery is low.",
-        "error.main_brush": "Main brush is blocked. Please clean it.",
-        "error.side_brush": "Side brush is blocked. Please clean it.",
-        "error.robot_trapped": "The robot is stuck. Please remove the obstacle.",
-        "error.filter": "Please check and clean the filter.",
-        "error.generic": "An error occurred. Please check the robot.",
-        "locate.here": "I am here.",
-        "network.connected": "Connected to the network.",
-        "network.failed": "Network connection failed.",
-        "clean.room.start": "Starting room cleaning.",
-        "clean.zone.start": "Starting zone cleaning."
+        "clean.start": "بدء التنظيف.",
+        "clean.pause": "تم إيقاف التنظيف مؤقتًا.",
+        "clean.complete": "اكتمل التنظيف.",
+        "dock.return.charge": "العودة إلى قاعدة الشحن.",
+        "dock.charging": "جارٍ الشحن.",
+        "battery.low": "مستوى البطارية منخفض.",
+        "error.main_brush": "الفرشاة الرئيسية عالقة. يُرجى تنظيفها.",
+        "error.side_brush": "الفرشاة الجانبية عالقة. يُرجى تنظيفها.",
+        "error.robot_trapped": "الروبوت عالق. يُرجى إزالة العائق.",
+        "error.filter": "يُرجى فحص الفلتر وتنظيفه.",
+        "error.generic": "حدث خطأ. يُرجى فحص المكنسة الروبوتية.",
+        "locate.here": "أنا هنا.",
+        "network.connected": "تم الاتصال بالشبكة.",
+        "network.failed": "فشل الاتصال بالشبكة.",
+        "clean.room.start": "بدء تنظيف الغرفة.",
+        "clean.zone.start": "بدء تنظيف المنطقة المحددة."
       }
     },
-    "ru": {
-      "name": "Русский",
+    "cs": {
+      "name": "Čeština",
       "phrases": {
-        "clean.start": "Начинаю уборку.",
-        "clean.pause": "Уборка приостановлена.",
-        "clean.complete": "Уборка завершена.",
-        "dock.return.charge": "Возвращаюсь на базу для зарядки.",
-        "dock.charging": "Заряжаюсь.",
-        "battery.low": "Низкий заряд аккумулятора.",
-        "error.main_brush": "Основная щётка заблокирована. Пожалуйста, очистите её.",
-        "error.side_brush": "Боковая щётка заблокирована. Пожалуйста, очистите её.",
-        "error.robot_trapped": "Робот застрял. Уберите препятствие.",
-        "error.filter": "Проверьте и очистите фильтр.",
-        "error.generic": "Произошла ошибка. Проверьте робот-пылесос.",
-        "locate.here": "Я здесь.",
-        "network.connected": "Подключение к сети выполнено.",
-        "network.failed": "Не удалось подключиться к сети.",
-        "clean.room.start": "Начинаю уборку комнаты.",
-        "clean.zone.start": "Начинаю уборку выбранной зоны."
-      }
-    },
-    "uk": {
-      "name": "Українська",
-      "phrases": {
-        "clean.start": "Починаю прибирання.",
-        "clean.pause": "Прибирання призупинено.",
-        "clean.complete": "Прибирання завершено.",
-        "dock.return.charge": "Повертаюся на базу для заряджання.",
-        "dock.charging": "Заряджаюся.",
-        "battery.low": "Низький заряд акумулятора.",
-        "error.main_brush": "Основна щітка заблокована. Будь ласка, очистьте її.",
-        "error.side_brush": "Бічна щітка заблокована. Будь ласка, очистьте її.",
-        "error.robot_trapped": "Робот застряг. Приберіть перешкоду.",
-        "error.filter": "Перевірте й очистьте фільтр.",
-        "error.generic": "Сталася помилка. Перевірте робот-пилосос.",
-        "locate.here": "Я тут.",
-        "network.connected": "Підключення до мережі встановлено.",
-        "network.failed": "Не вдалося підключитися до мережі.",
-        "clean.room.start": "Починаю прибирання кімнати.",
-        "clean.zone.start": "Починаю прибирання вибраної зони."
+        "clean.start": "Spouštím úklid.",
+        "clean.pause": "Úklid pozastaven.",
+        "clean.complete": "Úklid dokončen.",
+        "dock.return.charge": "Vracím se do nabíjecí stanice.",
+        "dock.charging": "Probíhá nabíjení.",
+        "battery.low": "Nízký stav baterie.",
+        "error.main_brush": "Hlavní kartáč je zablokovaný. Vyčistěte jej.",
+        "error.side_brush": "Boční kartáč je zablokovaný. Vyčistěte jej.",
+        "error.robot_trapped": "Robot uvízl. Odstraňte překážku.",
+        "error.filter": "Zkontrolujte a vyčistěte filtr.",
+        "error.generic": "Došlo k chybě. Zkontrolujte robota.",
+        "locate.here": "Jsem tady.",
+        "network.connected": "Připojení k síti bylo úspěšné.",
+        "network.failed": "Připojení k síti se nezdařilo.",
+        "clean.room.start": "Spouštím úklid místnosti.",
+        "clean.zone.start": "Spouštím úklid zóny."
       }
     },
     "de": {
@@ -105,25 +84,25 @@
         "clean.zone.start": "Zonenreinigung wird gestartet."
       }
     },
-    "fr": {
-      "name": "Français",
+    "en": {
+      "name": "English",
       "phrases": {
-        "clean.start": "Démarrage du nettoyage.",
-        "clean.pause": "Nettoyage en pause.",
-        "clean.complete": "Nettoyage terminé.",
-        "dock.return.charge": "Retour à la station de charge.",
-        "dock.charging": "Batterie en charge.",
-        "battery.low": "Batterie faible.",
-        "error.main_brush": "La brosse principale est bloquée. Veuillez la nettoyer.",
-        "error.side_brush": "La brosse latérale est bloquée. Veuillez la nettoyer.",
-        "error.robot_trapped": "Le robot est coincé. Retirez l’obstacle.",
-        "error.filter": "Veuillez vérifier et nettoyer le filtre.",
-        "error.generic": "Une erreur est survenue. Vérifiez le robot.",
-        "locate.here": "Je suis ici.",
-        "network.connected": "Connexion au réseau réussie.",
-        "network.failed": "Échec de la connexion au réseau.",
-        "clean.room.start": "Démarrage du nettoyage de la pièce.",
-        "clean.zone.start": "Démarrage du nettoyage de la zone."
+        "clean.start": "Starting cleaning.",
+        "clean.pause": "Cleaning paused.",
+        "clean.complete": "Cleaning complete.",
+        "dock.return.charge": "Returning to the charging dock.",
+        "dock.charging": "Charging.",
+        "battery.low": "Battery is low.",
+        "error.main_brush": "Main brush is blocked. Please clean it.",
+        "error.side_brush": "Side brush is blocked. Please clean it.",
+        "error.robot_trapped": "The robot is stuck. Please remove the obstacle.",
+        "error.filter": "Please check and clean the filter.",
+        "error.generic": "An error occurred. Please check the robot.",
+        "locate.here": "I am here.",
+        "network.connected": "Connected to the network.",
+        "network.failed": "Network connection failed.",
+        "clean.room.start": "Starting room cleaning.",
+        "clean.zone.start": "Starting zone cleaning."
       }
     },
     "es": {
@@ -147,6 +126,90 @@
         "clean.zone.start": "Iniciando limpieza de zona."
       }
     },
+    "fr": {
+      "name": "Français",
+      "phrases": {
+        "clean.start": "Démarrage du nettoyage.",
+        "clean.pause": "Nettoyage en pause.",
+        "clean.complete": "Nettoyage terminé.",
+        "dock.return.charge": "Retour à la station de charge.",
+        "dock.charging": "Batterie en charge.",
+        "battery.low": "Batterie faible.",
+        "error.main_brush": "La brosse principale est bloquée. Veuillez la nettoyer.",
+        "error.side_brush": "La brosse latérale est bloquée. Veuillez la nettoyer.",
+        "error.robot_trapped": "Le robot est coincé. Retirez l’obstacle.",
+        "error.filter": "Veuillez vérifier et nettoyer le filtre.",
+        "error.generic": "Une erreur est survenue. Vérifiez le robot.",
+        "locate.here": "Je suis ici.",
+        "network.connected": "Connexion au réseau réussie.",
+        "network.failed": "Échec de la connexion au réseau.",
+        "clean.room.start": "Démarrage du nettoyage de la pièce.",
+        "clean.zone.start": "Démarrage du nettoyage de la zone."
+      }
+    },
+    "hi": {
+      "name": "हिन्दी",
+      "phrases": {
+        "clean.start": "सफ़ाई शुरू हो रही है।",
+        "clean.pause": "सफ़ाई रोक दी गई है।",
+        "clean.complete": "सफ़ाई पूरी हो गई है।",
+        "dock.return.charge": "चार्जिंग स्टेशन पर लौट रहा हूँ।",
+        "dock.charging": "चार्ज हो रहा है।",
+        "battery.low": "बैटरी कम है।",
+        "error.main_brush": "मुख्य ब्रश फँस गया है। कृपया इसे साफ़ करें।",
+        "error.side_brush": "साइड ब्रश फँस गया है। कृपया इसे साफ़ करें।",
+        "error.robot_trapped": "रोबोट फँस गया है। कृपया रास्ता साफ़ करें।",
+        "error.filter": "कृपया फ़िल्टर जाँचें और साफ़ करें।",
+        "error.generic": "त्रुटि हुई है। कृपया रोबोट वैक्यूम की जाँच करें।",
+        "locate.here": "मैं यहाँ हूँ।",
+        "network.connected": "नेटवर्क से जुड़ गया हूँ।",
+        "network.failed": "नेटवर्क से कनेक्शन विफल रहा।",
+        "clean.room.start": "कमरे की सफ़ाई शुरू हो रही है।",
+        "clean.zone.start": "चुने हुए क्षेत्र की सफ़ाई शुरू हो रही है।"
+      }
+    },
+    "hu": {
+      "name": "Magyar",
+      "phrases": {
+        "clean.start": "Takarítás indítása.",
+        "clean.pause": "Takarítás szüneteltetve.",
+        "clean.complete": "Takarítás befejezve.",
+        "dock.return.charge": "Visszatérek a töltőállomásra.",
+        "dock.charging": "Töltés folyamatban.",
+        "battery.low": "Alacsony akkumulátorszint.",
+        "error.main_brush": "A főkefe elakadt. Kérjük, tisztítsa meg.",
+        "error.side_brush": "Az oldalkefe elakadt. Kérjük, tisztítsa meg.",
+        "error.robot_trapped": "A robot elakadt. Távolítsa el az akadályt.",
+        "error.filter": "Ellenőrizze és tisztítsa meg a szűrőt.",
+        "error.generic": "Hiba történt. Ellenőrizze a robotot.",
+        "locate.here": "Itt vagyok.",
+        "network.connected": "Sikeres hálózati kapcsolat.",
+        "network.failed": "Nem sikerült csatlakozni a hálózathoz.",
+        "clean.room.start": "Szobatakarítás indítása.",
+        "clean.zone.start": "Zónatakarítás indítása."
+      }
+    },
+    "id": {
+      "name": "Bahasa Indonesia",
+      "phrases": {
+        "clean.start": "Mulai membersihkan.",
+        "clean.pause": "Pembersihan dijeda.",
+        "clean.complete": "Pembersihan selesai.",
+        "dock.return.charge": "Kembali ke dok pengisian daya.",
+        "dock.charging": "Sedang mengisi daya.",
+        "battery.low": "Baterai lemah.",
+        "error.main_brush": "Sikat utama tersangkut. Harap bersihkan.",
+        "error.side_brush": "Sikat samping tersangkut. Harap bersihkan.",
+        "error.robot_trapped": "Robot terjebak. Singkirkan penghalangnya.",
+        "error.filter": "Periksa dan bersihkan filter.",
+        "error.generic": "Terjadi kesalahan. Periksa robot penyedot debu.",
+        "locate.here": "Saya di sini.",
+        "network.connected": "Terhubung ke jaringan.",
+        "network.failed": "Gagal terhubung ke jaringan.",
+        "clean.room.start": "Mulai membersihkan ruangan.",
+        "clean.zone.start": "Mulai membersihkan area yang dipilih."
+      }
+    },
     "it": {
       "name": "Italiano",
       "phrases": {
@@ -168,25 +231,46 @@
         "clean.zone.start": "Avvio della pulizia della zona."
       }
     },
-    "pt": {
-      "name": "Português",
+    "ja": {
+      "name": "日本語",
       "phrases": {
-        "clean.start": "A iniciar a limpeza.",
-        "clean.pause": "Limpeza em pausa.",
-        "clean.complete": "Limpeza concluída.",
-        "dock.return.charge": "A regressar à base de carregamento.",
-        "dock.charging": "A carregar a bateria.",
-        "battery.low": "Bateria fraca.",
-        "error.main_brush": "A escova principal está bloqueada. Limpe-a.",
-        "error.side_brush": "A escova lateral está bloqueada. Limpe-a.",
-        "error.robot_trapped": "O robô está preso. Remova o obstáculo.",
-        "error.filter": "Verifique e limpe o filtro.",
-        "error.generic": "Ocorreu um erro. Verifique o robô.",
-        "locate.here": "Estou aqui.",
-        "network.connected": "Ligação à rede estabelecida.",
-        "network.failed": "Falha na ligação à rede.",
-        "clean.room.start": "A iniciar a limpeza da divisão.",
-        "clean.zone.start": "A iniciar a limpeza da zona."
+        "clean.start": "掃除を開始します。",
+        "clean.pause": "掃除を一時停止しました。",
+        "clean.complete": "掃除が完了しました。",
+        "dock.return.charge": "充電ドックに戻ります。",
+        "dock.charging": "充電中です。",
+        "battery.low": "バッテリー残量が少なくなっています。",
+        "error.main_brush": "メインブラシが詰まっています。清掃してください。",
+        "error.side_brush": "サイドブラシが詰まっています。清掃してください。",
+        "error.robot_trapped": "ロボットが動けません。障害物を取り除いてください。",
+        "error.filter": "フィルターを確認して清掃してください。",
+        "error.generic": "エラーが発生しました。ロボットを確認してください。",
+        "locate.here": "ここにいます。",
+        "network.connected": "ネットワークに接続しました。",
+        "network.failed": "ネットワークへの接続に失敗しました。",
+        "clean.room.start": "部屋の掃除を開始します。",
+        "clean.zone.start": "エリアの掃除を開始します。"
+      }
+    },
+    "ko": {
+      "name": "한국어",
+      "phrases": {
+        "clean.start": "청소를 시작합니다.",
+        "clean.pause": "청소가 일시 중지되었습니다.",
+        "clean.complete": "청소가 완료되었습니다.",
+        "dock.return.charge": "충전 도크로 돌아갑니다.",
+        "dock.charging": "충전 중입니다.",
+        "battery.low": "배터리가 부족합니다.",
+        "error.main_brush": "메인 브러시가 걸렸습니다. 청소해 주세요.",
+        "error.side_brush": "사이드 브러시가 걸렸습니다. 청소해 주세요.",
+        "error.robot_trapped": "로봇이 끼었습니다. 장애물을 치워 주세요.",
+        "error.filter": "필터를 확인하고 청소해 주세요.",
+        "error.generic": "오류가 발생했습니다. 로봇을 확인해 주세요.",
+        "locate.here": "여기 있습니다.",
+        "network.connected": "네트워크에 연결되었습니다.",
+        "network.failed": "네트워크 연결에 실패했습니다.",
+        "clean.room.start": "방 청소를 시작합니다.",
+        "clean.zone.start": "구역 청소를 시작합니다."
       }
     },
     "nl": {
@@ -231,67 +315,25 @@
         "clean.zone.start": "Rozpoczynam sprzątanie strefy."
       }
     },
-    "cs": {
-      "name": "Čeština",
+    "pt": {
+      "name": "Português",
       "phrases": {
-        "clean.start": "Spouštím úklid.",
-        "clean.pause": "Úklid pozastaven.",
-        "clean.complete": "Úklid dokončen.",
-        "dock.return.charge": "Vracím se do nabíjecí stanice.",
-        "dock.charging": "Probíhá nabíjení.",
-        "battery.low": "Nízký stav baterie.",
-        "error.main_brush": "Hlavní kartáč je zablokovaný. Vyčistěte jej.",
-        "error.side_brush": "Boční kartáč je zablokovaný. Vyčistěte jej.",
-        "error.robot_trapped": "Robot uvízl. Odstraňte překážku.",
-        "error.filter": "Zkontrolujte a vyčistěte filtr.",
-        "error.generic": "Došlo k chybě. Zkontrolujte robota.",
-        "locate.here": "Jsem tady.",
-        "network.connected": "Připojení k síti bylo úspěšné.",
-        "network.failed": "Připojení k síti se nezdařilo.",
-        "clean.room.start": "Spouštím úklid místnosti.",
-        "clean.zone.start": "Spouštím úklid zóny."
-      }
-    },
-    "sk": {
-      "name": "Slovenčina",
-      "phrases": {
-        "clean.start": "Spúšťam upratovanie.",
-        "clean.pause": "Upratovanie pozastavené.",
-        "clean.complete": "Upratovanie dokončené.",
-        "dock.return.charge": "Vraciam sa do nabíjacej stanice.",
-        "dock.charging": "Prebieha nabíjanie.",
-        "battery.low": "Nízky stav batérie.",
-        "error.main_brush": "Hlavná kefa je zablokovaná. Vyčistite ju.",
-        "error.side_brush": "Bočná kefa je zablokovaná. Vyčistite ju.",
-        "error.robot_trapped": "Robot uviazol. Odstráňte prekážku.",
-        "error.filter": "Skontrolujte a vyčistite filter.",
-        "error.generic": "Vyskytla sa chyba. Skontrolujte robota.",
-        "locate.here": "Som tu.",
-        "network.connected": "Pripojenie k sieti bolo úspešné.",
-        "network.failed": "Pripojenie k sieti zlyhalo.",
-        "clean.room.start": "Spúšťam upratovanie miestnosti.",
-        "clean.zone.start": "Spúšťam upratovanie zóny."
-      }
-    },
-    "hu": {
-      "name": "Magyar",
-      "phrases": {
-        "clean.start": "Takarítás indítása.",
-        "clean.pause": "Takarítás szüneteltetve.",
-        "clean.complete": "Takarítás befejezve.",
-        "dock.return.charge": "Visszatérek a töltőállomásra.",
-        "dock.charging": "Töltés folyamatban.",
-        "battery.low": "Alacsony akkumulátorszint.",
-        "error.main_brush": "A főkefe elakadt. Kérjük, tisztítsa meg.",
-        "error.side_brush": "Az oldalkefe elakadt. Kérjük, tisztítsa meg.",
-        "error.robot_trapped": "A robot elakadt. Távolítsa el az akadályt.",
-        "error.filter": "Ellenőrizze és tisztítsa meg a szűrőt.",
-        "error.generic": "Hiba történt. Ellenőrizze a robotot.",
-        "locate.here": "Itt vagyok.",
-        "network.connected": "Sikeres hálózati kapcsolat.",
-        "network.failed": "Nem sikerült csatlakozni a hálózathoz.",
-        "clean.room.start": "Szobatakarítás indítása.",
-        "clean.zone.start": "Zónatakarítás indítása."
+        "clean.start": "A iniciar a limpeza.",
+        "clean.pause": "Limpeza em pausa.",
+        "clean.complete": "Limpeza concluída.",
+        "dock.return.charge": "A regressar à base de carregamento.",
+        "dock.charging": "A carregar a bateria.",
+        "battery.low": "Bateria fraca.",
+        "error.main_brush": "A escova principal está bloqueada. Limpe-a.",
+        "error.side_brush": "A escova lateral está bloqueada. Limpe-a.",
+        "error.robot_trapped": "O robô está preso. Remova o obstáculo.",
+        "error.filter": "Verifique e limpe o filtro.",
+        "error.generic": "Ocorreu um erro. Verifique o robô.",
+        "locate.here": "Estou aqui.",
+        "network.connected": "Ligação à rede estabelecida.",
+        "network.failed": "Falha na ligação à rede.",
+        "clean.room.start": "A iniciar a limpeza da divisão.",
+        "clean.zone.start": "A iniciar a limpeza da zona."
       }
     },
     "ro": {
@@ -315,6 +357,48 @@
         "clean.zone.start": "Încep curățenia zonei."
       }
     },
+    "ru": {
+      "name": "Русский",
+      "phrases": {
+        "clean.start": "Начинаю уборку.",
+        "clean.pause": "Уборка приостановлена.",
+        "clean.complete": "Уборка завершена.",
+        "dock.return.charge": "Возвращаюсь на базу для зарядки.",
+        "dock.charging": "Заряжаюсь.",
+        "battery.low": "Низкий заряд аккумулятора.",
+        "error.main_brush": "Основная щётка заблокирована. Пожалуйста, очистите её.",
+        "error.side_brush": "Боковая щётка заблокирована. Пожалуйста, очистите её.",
+        "error.robot_trapped": "Робот застрял. Уберите препятствие.",
+        "error.filter": "Проверьте и очистите фильтр.",
+        "error.generic": "Произошла ошибка. Проверьте робот-пылесос.",
+        "locate.here": "Я здесь.",
+        "network.connected": "Подключение к сети выполнено.",
+        "network.failed": "Не удалось подключиться к сети.",
+        "clean.room.start": "Начинаю уборку комнаты.",
+        "clean.zone.start": "Начинаю уборку выбранной зоны."
+      }
+    },
+    "sk": {
+      "name": "Slovenčina",
+      "phrases": {
+        "clean.start": "Spúšťam upratovanie.",
+        "clean.pause": "Upratovanie pozastavené.",
+        "clean.complete": "Upratovanie dokončené.",
+        "dock.return.charge": "Vraciam sa do nabíjacej stanice.",
+        "dock.charging": "Prebieha nabíjanie.",
+        "battery.low": "Nízky stav batérie.",
+        "error.main_brush": "Hlavná kefa je zablokovaná. Vyčistite ju.",
+        "error.side_brush": "Bočná kefa je zablokovaná. Vyčistite ju.",
+        "error.robot_trapped": "Robot uviazol. Odstráňte prekážku.",
+        "error.filter": "Skontrolujte a vyčistite filter.",
+        "error.generic": "Vyskytla sa chyba. Skontrolujte robota.",
+        "locate.here": "Som tu.",
+        "network.connected": "Pripojenie k sieti bolo úspešné.",
+        "network.failed": "Pripojenie k sieti zlyhalo.",
+        "clean.room.start": "Spúšťam upratovanie miestnosti.",
+        "clean.zone.start": "Spúšťam upratovanie zóny."
+      }
+    },
     "tr": {
       "name": "Türkçe",
       "phrases": {
@@ -336,46 +420,46 @@
         "clean.zone.start": "Bölge temizliği başlatılıyor."
       }
     },
-    "ja": {
-      "name": "日本語",
+    "uk": {
+      "name": "Українська",
       "phrases": {
-        "clean.start": "掃除を開始します。",
-        "clean.pause": "掃除を一時停止しました。",
-        "clean.complete": "掃除が完了しました。",
-        "dock.return.charge": "充電ドックに戻ります。",
-        "dock.charging": "充電中です。",
-        "battery.low": "バッテリー残量が少なくなっています。",
-        "error.main_brush": "メインブラシが詰まっています。清掃してください。",
-        "error.side_brush": "サイドブラシが詰まっています。清掃してください。",
-        "error.robot_trapped": "ロボットが動けません。障害物を取り除いてください。",
-        "error.filter": "フィルターを確認して清掃してください。",
-        "error.generic": "エラーが発生しました。ロボットを確認してください。",
-        "locate.here": "ここにいます。",
-        "network.connected": "ネットワークに接続しました。",
-        "network.failed": "ネットワークへの接続に失敗しました。",
-        "clean.room.start": "部屋の掃除を開始します。",
-        "clean.zone.start": "エリアの掃除を開始します。"
+        "clean.start": "Починаю прибирання.",
+        "clean.pause": "Прибирання призупинено.",
+        "clean.complete": "Прибирання завершено.",
+        "dock.return.charge": "Повертаюся на базу для заряджання.",
+        "dock.charging": "Заряджаюся.",
+        "battery.low": "Низький заряд акумулятора.",
+        "error.main_brush": "Основна щітка заблокована. Будь ласка, очистьте її.",
+        "error.side_brush": "Бічна щітка заблокована. Будь ласка, очистьте її.",
+        "error.robot_trapped": "Робот застряг. Приберіть перешкоду.",
+        "error.filter": "Перевірте й очистьте фільтр.",
+        "error.generic": "Сталася помилка. Перевірте робот-пилосос.",
+        "locate.here": "Я тут.",
+        "network.connected": "Підключення до мережі встановлено.",
+        "network.failed": "Не вдалося підключитися до мережі.",
+        "clean.room.start": "Починаю прибирання кімнати.",
+        "clean.zone.start": "Починаю прибирання вибраної зони."
       }
     },
-    "ko": {
-      "name": "한국어",
+    "vi": {
+      "name": "Tiếng Việt",
       "phrases": {
-        "clean.start": "청소를 시작합니다.",
-        "clean.pause": "청소가 일시 중지되었습니다.",
-        "clean.complete": "청소가 완료되었습니다.",
-        "dock.return.charge": "충전 도크로 돌아갑니다.",
-        "dock.charging": "충전 중입니다.",
-        "battery.low": "배터리가 부족합니다.",
-        "error.main_brush": "메인 브러시가 걸렸습니다. 청소해 주세요.",
-        "error.side_brush": "사이드 브러시가 걸렸습니다. 청소해 주세요.",
-        "error.robot_trapped": "로봇이 끼었습니다. 장애물을 치워 주세요.",
-        "error.filter": "필터를 확인하고 청소해 주세요.",
-        "error.generic": "오류가 발생했습니다. 로봇을 확인해 주세요.",
-        "locate.here": "여기 있습니다.",
-        "network.connected": "네트워크에 연결되었습니다.",
-        "network.failed": "네트워크 연결에 실패했습니다.",
-        "clean.room.start": "방 청소를 시작합니다.",
-        "clean.zone.start": "구역 청소를 시작합니다."
+        "clean.start": "Bắt đầu dọn dẹp.",
+        "clean.pause": "Đã tạm dừng dọn dẹp.",
+        "clean.complete": "Đã dọn dẹp xong.",
+        "dock.return.charge": "Đang quay về đế sạc.",
+        "dock.charging": "Đang sạc pin.",
+        "battery.low": "Pin yếu.",
+        "error.main_brush": "Chổi chính bị kẹt. Vui lòng làm sạch.",
+        "error.side_brush": "Chổi bên bị kẹt. Vui lòng làm sạch.",
+        "error.robot_trapped": "Robot bị mắc kẹt. Vui lòng dọn vật cản.",
+        "error.filter": "Vui lòng kiểm tra và làm sạch bộ lọc.",
+        "error.generic": "Đã xảy ra lỗi. Vui lòng kiểm tra robot hút bụi.",
+        "locate.here": "Tôi ở đây.",
+        "network.connected": "Đã kết nối mạng.",
+        "network.failed": "Kết nối mạng thất bại.",
+        "clean.room.start": "Bắt đầu dọn dẹp phòng.",
+        "clean.zone.start": "Bắt đầu dọn dẹp khu vực đã chọn."
       }
     },
     "zh-Hans": {
