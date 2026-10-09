@@ -75,7 +75,7 @@ def test_corrupt_zip_and_path_traversal_refused(tmp_path):
         for item in original.infolist():
             dest.writestr("../escape" if item.filename.startswith("audio/") else item.filename,
                           original.read(item))
-    with pytest.raises(ValueError, match="(assignment|archive|unsafe)"):
+    with pytest.raises(ValueError, match="(duplicate|assignment|archive|unsafe)"):
         verify_backup(evil)
     assert not (tmp_path / "escape").exists()
 
