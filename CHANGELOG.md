@@ -1,3 +1,9 @@
+## v1.6.0 — Offline Community Research Moderation
+
+- New copy-on-write research-only community evidence inbox with SHA-256 source binding and human decision trail.
+- Strict 256-report bound, duplicate/symlink/secret rejection, model and firmware checks, redacted metadata-only snapshots.
+- No automatic device verification, hosting, network, licensing or installer claims.
+
 ## v1.5.0 — Visual local audio timeline
 
 - Browser-local Creator waveform, precise selection and separate WAV download; no network upload and no Creator source mutation.

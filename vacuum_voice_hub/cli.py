@@ -373,6 +373,23 @@ def main():
     sp.add_argument("--allow-synthetic",action="store_true")
     sp.add_argument("--overlay",help="Local translation overlay for extra voice events")
     sp.add_argument("--lexicon",help="Optional local pronunciation lexicon for Piper")
+    community=sub.add_parser("community",help="Local no-upload moderation of community hardware research")
+    cs=community.add_subparsers(dest="community_cmd",required=True)
+    s=cs.add_parser("init",help="Create new metadata-only community inbox")
+    s.add_argument("--output",required=True)
+    s=cs.add_parser("add",help="Copy on write: import one checked hardware self-report")
+    s.add_argument("inbox")
+    s.add_argument("--report",required=True)
+    s.add_argument("--output",required=True)
+    s=cs.add_parser("moderate",help="Copy on write: human research decision (never device certification)")
+    s.add_argument("inbox")
+    s.add_argument("--submission",required=True)
+    s.add_argument("--decision",required=True,choices=["research-accepted","needs-evidence","rejected"])
+    s.add_argument("--reviewer",required=True)
+    s.add_argument("--note",required=True)
+    s.add_argument("--output",required=True)
+    s=cs.add_parser("audit",help="Validate metadata snapshot and hash-linked review history")
+    s.add_argument("inbox")
     s=sub.add_parser("model-info");s.add_argument("model_id")
     s=sub.add_parser("model-compare",help="Research-only comparison of two robot voice-event profiles");s.add_argument("left_model");s.add_argument("right_model")
     s=sub.add_parser("info");s.add_argument("voice_id")
@@ -430,6 +447,14 @@ def main():
     _credential_parser(sub)
 
     a=p.parse_args()
+    if a.cmd=="community":
+        from .community_inbox import init_inbox, add_report, moderate_report, audit_inbox
+        if a.community_cmd=="init":return _dump(init_inbox(a.output))
+        if a.community_cmd=="add":return _dump(add_report(a.inbox,a.report,a.output))
+        if a.community_cmd=="moderate":
+            return _dump(moderate_report(a.inbox,a.submission,a.decision,
+                                         a.reviewer,a.note,a.output))
+        return _dump(audit_inbox(a.inbox))
     if a.cmd=="creator":return _creator_main(a)
     if a.cmd=="credential":return _credential_main(a)
     if a.cmd=="release":

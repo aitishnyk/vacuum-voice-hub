@@ -1,19 +1,22 @@
-# Project status — v1.5.0 SOFTWARE STABLE (source candidate)
+# Project status — v1.6.0 SOFTWARE STABLE (source)
 
-Feature scope: Creator Studio local browser waveform timeline with
-non-destructive 16 kHz mono selected-range WAV download, and identical
-bounded offline Python CLI waveform and cut-preview engineering tools.
-Each selection remains **unapproved** until separately reviewed by humans.
-Audio files are not sent to a robot, included in public metadata archives,
-or distributed without verified rights.
+This source increment adds an **offline local evidence review inbox** for
+community volunteers: create, import an existing exact-model hardware
+self-report, audit a redacted snapshot, and record a human research
+decision in a **new** hash-linked copy.
 
-Exact-head CI, CodeQL, Public Site, Release Bundle, Windows/macOS/Linux
-desktop packaging and GitHub Release publication remain separate gates.
-Existing model and locale preservation audits remain mandatory.
+The queue is not an online moderation service or remote upload endpoint.
+It stores no volunteer evidence URLs, addresses, robot credentials,
+source filenames, voice/firmware bytes or tokens. Research acceptance
+is NOT independent device or rights verification.
 
-Baseline: 223 model profiles, 55 credited voice variants,
->=22 text-only locales, and only Xiaomi X10 hardware-verified. No
-automatically approved additional firmware or manufacturer transports.
-
-See [guide](docs/AUDIO_TIMELINE_V150.md) and
+GitHub Release publication, exact merged-main CI, CodeQL, desktop builds,
+catalog preservation and version-specific SHA-256 publisher are separate
+mandatory acceptance gates. See
+[guide](docs/COMMUNITY_INBOX_V160.md) and
 [roadmap](https://github.com/aitishnyk/vacuum-voice-hub/issues/55).
+
+Historical baseline: 223 researched model identities, 55 attributed
+voice variants, >=22 **text-only** locales; Xiaomi X10 is the only
+physically verified VVH custom-voice target. No device certification
+or transport install permissions are added.

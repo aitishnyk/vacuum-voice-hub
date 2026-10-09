@@ -1,5 +1,10 @@
 # Roadmap
 
+## v1.6 — Community research moderation (local source release)
+
+A functioning local privacy-conscious inbox imports exact hardware evidence JSON, hashes and redacts submissions, logs human research decisions in new copy-on-write snapshots with SHA-linked history; it never certifies hardware. [Docs](docs/COMMUNITY_INBOX_V160.md). A hosted moderation website, a donated-device logistics portal and independent hardware acceptance are not claimed.
+
+
 ## v1.5 — Audio Timeline (implemented first Creator 2.0 wave)
 
 Working local waveform canvas, start/end selector and non-destructive WAV export inside Creator Studio, plus bounded deterministic Python CLI cut-preview. This is not full multitrack DAW, LUFS mastering or automatic audio approval. [Documentation](docs/AUDIO_TIMELINE_V150.md).
