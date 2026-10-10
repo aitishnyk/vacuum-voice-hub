@@ -1,4 +1,4 @@
-import json,re,tempfile
+import json,os,re,shutil,tempfile
 from pathlib import Path
 from .audio import normalize
 from .catalog import events,event_profile_for_model,model_by_id,event_by_semantic
@@ -91,9 +91,28 @@ def assign_audio(path,semantic,source_file,copy=True):
     if src.suffix.lower() not in AUDIO_SUFFIXES:
         raise ValueError(f"unsupported audio extension: {src.suffix}")
     safe_name=f"{semantic.replace('/','_')}{src.suffix.lower()}"
-    dst=root/"audio"/safe_name
+    audio_dir=root/"audio"
+    if audio_dir.is_symlink() or not audio_dir.is_dir():
+        raise ValueError("workspace audio directory must be a real directory")
+    dst=audio_dir/safe_name
+    if dst.is_symlink():
+        raise ValueError("refusing to overwrite symlinked assigned audio")
     if copy:
-        dst.write_bytes(src.read_bytes())
+        # Stage the new assignment independently; a failed read/write must
+        # not truncate an existing clip already assigned to this semantic.
+        staged=None
+        try:
+            with tempfile.NamedTemporaryFile(
+                mode="wb", prefix=".assign-", suffix=src.suffix.lower(),
+                dir=audio_dir, delete=False
+            ) as stream:
+                staged=Path(stream.name)
+                with src.open("rb") as incoming:
+                    shutil.copyfileobj(incoming,stream,length=1024*1024)
+            os.replace(staged,dst)
+        finally:
+            if staged is not None:
+                staged.unlink(missing_ok=True)
         rel=f"audio/{safe_name}"
     else:
         try:
@@ -111,12 +130,23 @@ def assign_audio_bytes(path,semantic,filename,data):
     if suffix not in AUDIO_SUFFIXES:
         raise ValueError(f"unsupported audio extension: {suffix or '(none)'}")
     root,_=load_workspace(path)
-    temp=root/"audio"/("_upload"+suffix)
-    temp.write_bytes(data)
+    audio_dir=root/"audio"
+    if audio_dir.is_symlink() or not audio_dir.is_dir():
+        raise ValueError("workspace audio directory must be a real directory")
+    temp=None
     try:
+        # A unique, exclusive staging file prevents clobbering another
+        # upload (or an older Creator file named _upload.wav).
+        with tempfile.NamedTemporaryFile(
+            mode="wb", prefix="_upload-", suffix=suffix,
+            dir=audio_dir, delete=False
+        ) as stream:
+            temp=Path(stream.name)
+            stream.write(data)
         return assign_audio(root,semantic,temp,copy=True)
     finally:
-        temp.unlink(missing_ok=True)
+        if temp is not None:
+            temp.unlink(missing_ok=True)
 
 def remove_event(path,semantic):
     root,manifest=load_workspace(path)
