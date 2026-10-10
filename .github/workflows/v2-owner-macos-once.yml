@@ -1,0 +1,95 @@
+name: v2 Owner macOS Ephemeral Acceptance
+
+# Deliberately manual and not triggered by pull_request or push:
+# never run public contributions on the owner's personal computer.
+on:
+  workflow_dispatch:
+    inputs:
+      expected_sha:
+        description: Exact reviewed main commit SHA
+        required: true
+        type: string
+      runner_label:
+        description: Per-run unique single-use runner label
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  v2-mac:
+    if: >-
+      github.actor == 'vbrekher' &&
+      github.ref == 'refs/heads/main' &&
+      startsWith(inputs.runner_label, 'vvh-v2-once-') &&
+      github.sha == inputs.expected_sha
+    runs-on: ${{ inputs.runner_label }}
+    timeout-minutes: 90
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Exact reviewed main checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.expected_sha }}
+          persist-credentials: false
+      - name: Verify immutable source identity
+        env:
+          EXPECTED_SHA: ${{ inputs.expected_sha }}
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"
+          test "$GITHUB_SHA" = "$EXPECTED_SHA"
+          test "$(python3.12 -c 'from sys import version_info; print(version_info.major, version_info.minor)')" = "3 12"
+      - name: Install isolated macOS Python dependencies
+        run: |
+          set -euo pipefail
+          python3.12 -m venv "$RUNNER_TEMP/vvh-v2-venv"
+          "$RUNNER_TEMP/vvh-v2-venv/bin/python" -m pip install -e '.[desktop,security,review-signing]' pytest pyinstaller
+          echo "$RUNNER_TEMP/vvh-v2-venv/bin" >> "$GITHUB_PATH"
+      - name: Full Python regression
+        run: python -m pytest -q
+      - name: Model matrix
+        run: python scripts/model_matrix_audit.py
+      - name: Stable compatibility
+        run: python scripts/stable_release_audit.py
+      - name: v2 release acceptance
+        run: python scripts/v2_release_acceptance.py
+      - name: Python syntax
+        run: python -m compileall -q vacuum_voice_hub
+      - name: CLI smoke
+        run: |
+          python -m vacuum_voice_hub --version
+          python -m vacuum_voice_hub stats
+      - name: Web JavaScript syntax
+        run: python scripts/check_web_js.py
+      - name: Public site build and verify
+        run: |
+          python -m vacuum_voice_hub site build --output "$RUNNER_TEMP/vvh-site"
+          python -m vacuum_voice_hub site verify "$RUNNER_TEMP/vvh-site"
+      - name: Deterministic release archive and SHA-256
+        run: |
+          set -euo pipefail
+          python -m vacuum_voice_hub release build --output "$RUNNER_TEMP/vvh-release-a" --source-date-epoch 1700000000
+          python -m vacuum_voice_hub release verify "$RUNNER_TEMP/vvh-release-a"
+          python -m vacuum_voice_hub release build --output "$RUNNER_TEMP/vvh-release-b" --source-date-epoch 1700000000
+          diff -qr "$RUNNER_TEMP/vvh-release-a" "$RUNNER_TEMP/vvh-release-b"
+          (cd "$RUNNER_TEMP/vvh-release-a" && shasum -a 256 -c SHA256SUMS)
+      - name: macOS PyInstaller executable build
+        run: |
+          pyinstaller --noconfirm --clean --windowed --onefile \
+            --name VacuumVoiceHub \
+            --collect-data vacuum_voice_hub \
+            --collect-all miio \
+            --collect-all imageio_ffmpeg \
+            --collect-all webview \
+            vacuum_voice_hub/desktop.py
+          test -e dist/VacuumVoiceHub.app/Contents/MacOS/VacuumVoiceHub
+      - name: macOS installer syntax
+        run: bash -n scripts/INSTALL_MACOS.command
+      - name: Scope reminder
+        run: |
+          echo "PASS: macOS source/desktop only; not hosted Linux or Windows, CodeQL, notarization, or hardware QA."
+          echo "Exact verified main SHA: $GITHUB_SHA"
