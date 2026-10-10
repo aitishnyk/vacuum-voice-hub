@@ -2,6 +2,8 @@
 
 **v2.0.0 Universal Voice Studio:** [integrated Creator/model/locale QA](docs/UNIVERSAL_STUDIO_V200.md), safe local research and media workflows, and [non-destructive v1→v2 migration](docs/MIGRATION_V200.md). Source-stable software does not mean universal device installation, rights clearance or signed desktop binaries.
 
+**v2.0 delivery:** [Feature closure and evidence matrix](docs/V2_DELIVERY_CLOSURE.md) · [Release notes](docs/RELEASE_NOTES_V200.md). Real [macOS GitHub Actions acceptance](https://github.com/aitishnyk/vacuum-voice-hub/actions/runs/38089303529) passed on the merged source. Hosted Windows/Linux, exact-tag CodeQL and manufacturer-specific installation are **not** implied by that result. The authoritative publication state is the [GitHub Releases page](https://github.com/aitishnyk/vacuum-voice-hub/releases); a source commit alone is not an official published release.
+
 
 **v1.9.0:** [Offline Creator project backup, hash verification and safe new-folder restore](docs/CREATOR_RECOVERY_V190.md). Backup ZIPs contain private audio; no cloud transfer or overwrite.
 
