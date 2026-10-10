@@ -88,8 +88,35 @@ class H(BaseHTTPRequestHandler):
         if self.headers.get("X-VVH-Session")!=CREATOR_SESSION:
             raise PermissionError("invalid Creator Studio session")
 
+    def _local_request(self):
+        # Defend localhost-only Creator sessions against DNS rebinding and
+        # cross-origin browser requests. The server itself binds to loopback.
+        port=self.server.server_address[1]
+        allowed={f"127.0.0.1:{port}",f"localhost:{port}"}
+        host=self.headers.get("Host","")
+        origin=self.headers.get("Origin")
+        return host in allowed and (origin is None or origin in {
+            "http://"+value for value in allowed
+        })
+
     def do_GET(self):
+        if not self._local_request():
+            return self._json({"ok":False,"error":"invalid local origin or host"},403)
         parsed=urlparse(self.path);q=parse_qs(parsed.query)
+        # Metadata about a local Creator project is private just like its
+        # recordings and writes. The browser UI already supplies this token.
+        private_reads={
+            "/api/creator/workspaces",
+            "/api/creator/workspace",
+            "/api/creator/preflight",
+            "/api/creator/qa",
+            "/api/creator/language-coverage",
+        }
+        if parsed.path in private_reads:
+            try:
+                self._creator_auth()
+            except PermissionError as exc:
+                return self._json({"ok":False,"error":str(exc)},403)
         if parsed.path=="/":return self._html(HTML)
         if parsed.path=="/creator":return self._html(CREATOR_HTML)
         if parsed.path=="/api/session":return self._json({"creator_session":CREATOR_SESSION})
@@ -260,6 +287,8 @@ class H(BaseHTTPRequestHandler):
         self.send_error(404)
 
     def do_POST(self):
+        if not self._local_request():
+            return self._json({"ok":False,"error":"invalid local origin or host"},403)
         parsed=urlparse(self.path);q=parse_qs(parsed.query)
         try:
             if parsed.path=="/api/creator/audio":
