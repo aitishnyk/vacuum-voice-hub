@@ -67,3 +67,27 @@ def test_symlink_audio_directory_is_rejected_before_upload(tmp_path):
     with pytest.raises(ValueError, match="real directory"):
         assign_audio_bytes(root, "clean.start", "new.wav", b"new audio")
     assert list(external_dir.iterdir()) == []
+
+
+def test_failed_assignment_preserves_previous_clip_atomically(tmp_path, monkeypatch):
+    root = _project(tmp_path)
+    initial = tmp_path / "initial.wav"
+    initial.write_bytes(b"original approved audio")
+    assign_audio(root, "clean.start", initial)
+    target = root / "audio" / "clean.start.wav"
+    incoming = tmp_path / "replacement.wav"
+    incoming.write_bytes(b"replacement audio")
+
+    def interrupted_copy(source, destination, length):
+        destination.write(b"incomplete")
+        raise OSError("simulated interrupted copy")
+
+    monkeypatch.setattr(
+        "vacuum_voice_hub.creator.shutil.copyfileobj", interrupted_copy
+    )
+    with pytest.raises(OSError, match="interrupted copy"):
+        assign_audio(root, "clean.start", incoming)
+    assert target.read_bytes() == b"original approved audio"
+    assert [path.name for path in (root / "audio").iterdir()] == [
+        "clean.start.wav"
+    ]
