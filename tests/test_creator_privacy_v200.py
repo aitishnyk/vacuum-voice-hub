@@ -100,3 +100,20 @@ def test_creator_labels_are_encoded_as_dom_text_or_escaped():
     assert "escapeHtml(e.description||'Без описания')" in ui
     assert "escapeHtml(rel)" in ui
     assert "data-file=\"${escapeHtml(e.semantic)}\"" in ui
+
+
+def test_same_origin_browser_session_remains_accessible(creator_http):
+    status, payload = request_json(
+        creator_http, "/api/session", {"Origin": creator_http}
+    )
+    assert status == 200
+    assert payload["creator_session"] == server.CREATOR_SESSION
+
+
+def test_same_origin_creator_workspace_read_remains_accessible(creator_http):
+    status, payload = request_json(
+        creator_http, "/api/creator/workspaces",
+        {"Origin": creator_http, "X-VVH-Session": server.CREATOR_SESSION}
+    )
+    assert status == 200
+    assert payload["workspaces"][0]["name"] == "Sensitive local project"
