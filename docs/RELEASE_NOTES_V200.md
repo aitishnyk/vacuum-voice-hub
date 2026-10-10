@@ -33,3 +33,38 @@ proprietary firmware, robot credentials or private local backups.
 Migration requires no destructive conversion of prior Creator pack
 schemas. See `docs/MIGRATION_V200.md` and
 `docs/UNIVERSAL_STUDIO_V200.md`.
+
+## v2.0 release acceptance and publication evidence
+
+The exact integrated source on main commit
+[`419ca0033874b11ee60915c4a6a3be5ae0c094f2`](https://github.com/aitishnyk/vacuum-voice-hub/commit/419ca0033874b11ee60915c4a6a3be5ae0c094f2)
+passed the real owner-operated macOS
+[GitHub Actions source-acceptance job #38089303529](https://github.com/aitishnyk/vacuum-voice-hub/actions/runs/38089303529):
+full Python regression, model matrix, v2 integration/source audits, CLI,
+Python and JavaScript syntax, public site build/verify, deterministic
+SHA-256 release bundle, and macOS PyInstaller packaging all succeeded.
+
+Earlier [v2 integration PR #66](https://github.com/aitishnyk/vacuum-voice-hub/pull/66)
+passed 351/351 Python tests, CodeQL, Public Site, Release Bundle and
+Windows/macOS/Linux package builds **on that PR head**. Such earlier
+checks are not presented as exact-tag Windows/Linux or CodeQL acceptance.
+
+**Release exception requested by owner:** GitHub-hosted main CI, CodeQL
+and independent Windows/Linux desktop packaging were deferred after the
+GitHub-hosted runner repeatedly failed before starting any steps. This
+source release may be published manually from a Mac only with
+`ops/release/publish-v200-source.sh`, which verifies the successful Mac
+Actions SHA, refuses executable/source changes since it, builds/verifies
+five public assets and checks the published bytes and tag SHA. It does
+not falsely assert a green GitHub-hosted CI, vendor-approved hardware,
+independent copyright clearance, or signed/notarized desktop packages.
+
+The GitHub tag additionally provides GitHub's standard source archives.
+The custom `VacuumVoiceHub-public-2.0.0.zip` contains the public static
+catalog/site and metadata **not a signed desktop app**. `SHA256SUMS`,
+`release-manifest.json`, `update-feed.json` and `sbom.spdx.json`
+are provided for integrity and distribution metadata. This release
+contains no user Creator backups, secret tokens or licensed voice files.
+
+For a complete delivery/status matrix and deferred external validation,
+see [v2 delivery closure](V2_DELIVERY_CLOSURE.md).
