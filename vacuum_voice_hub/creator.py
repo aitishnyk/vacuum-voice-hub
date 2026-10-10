@@ -1,4 +1,4 @@
-import json,re,tempfile
+import json,os,re,shutil,tempfile
 from pathlib import Path
 from .audio import normalize
 from .catalog import events,event_profile_for_model,model_by_id,event_by_semantic
@@ -98,7 +98,21 @@ def assign_audio(path,semantic,source_file,copy=True):
     if dst.is_symlink():
         raise ValueError("refusing to overwrite symlinked assigned audio")
     if copy:
-        dst.write_bytes(src.read_bytes())
+        # Stage the new assignment independently; a failed read/write must
+        # not truncate an existing clip already assigned to this semantic.
+        staged=None
+        try:
+            with tempfile.NamedTemporaryFile(
+                mode="wb", prefix=".assign-", suffix=src.suffix.lower(),
+                dir=audio_dir, delete=False
+            ) as stream:
+                staged=Path(stream.name)
+                with src.open("rb") as incoming:
+                    shutil.copyfileobj(incoming,stream,length=1024*1024)
+            os.replace(staged,dst)
+        finally:
+            if staged is not None:
+                staged.unlink(missing_ok=True)
         rel=f"audio/{safe_name}"
     else:
         try:
