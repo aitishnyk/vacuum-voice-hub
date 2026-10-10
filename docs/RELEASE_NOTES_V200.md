@@ -29,9 +29,6 @@ or signed/notarized desktop binary is asserted without actual evidence.
 The official public release ZIP contains generated catalog/source
 metadata only; it does not bundle copyrighted prerecorded content,
 proprietary firmware, robot credentials or private local backups.
-There is **no** Telegram Stars payment bot or Bunny CDN integration in
-this open-source repository. A future commercial delivery system is
-separate from this source release.
 
 Migration requires no destructive conversion of prior Creator pack
 schemas. See `docs/MIGRATION_V200.md` and

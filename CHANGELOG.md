@@ -74,7 +74,7 @@
 - Stabilized offline software contracts and introduced a machine-readable `vvh.software-stable-audit.v1` gate in CI for all 223+ model profiles, 55 credited voice variants, 22+ text languages and preserved old model IDs/aliases.
 - Source/audio mastering and batch mastering remain opt-in, non-destructive and subject to human listening and licensing; package signatures do not certify devices or redistribution rights.
 - Community on-device hardware evidence, failures and voluntary manufacturer/user hardware loans/donations are tracked independently of software build gates.
-- Exact PR-head and merged-main GitHub Actions acceptance still required before calling this source release SEALED; no new physical device install permission or commercial fork code.
+- Exact PR-head and merged-main GitHub Actions acceptance still required before calling this source release SEALED; no new physical device install permission.
 
 ## 0.21.0 — 2026-10-09 (source candidate, batch audio production)
 
@@ -88,7 +88,7 @@
 - 223 model identities (+8 MIoT-index research-only profiles); 55 original voice variants preserved and hardware install authorization unchanged.
 - 22 text-script locales (+Indonesian, Vietnamese, Arabic and Hindi, 16 reference phrases each), separate from recorded/audio availability and awaiting community language review.
 - New `vvh creator master-preview`: local bounded decoding, trim/padding/fades, max +12 dB gain, exclusive WAV creation and SHA-256/QA evidence, without editing source recordings.
-- Community model/firmware/rollback evidence and manufacturer/volunteer loan or donation issue templates; no commercial Telegram, Bunny or payment code.
+- Community model/firmware/rollback evidence and manufacturer/volunteer loan or donation issue templates.
 - Physical support remains Xiaomi X10-only until independent evidence for another model.
 
 ## 0.19.0 — 2026-10-09 (signed pack source and firmware evidence bundle)

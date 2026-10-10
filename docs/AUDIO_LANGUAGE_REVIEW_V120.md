@@ -41,5 +41,4 @@ are **not** claimed by this release.
 * Only Xiaomi X10 is physically certified by VVH; users and volunteers must
   provide exact model+firmware testing to certify additional installs.
 * Community-owned audio is never uploaded by these commands.
-* No commercial Telegram payments, CDN, copyrighted bundled audio or
-  unauthorized manufacturer operations are included.
+* No copyrighted bundled audio or unauthorized manufacturer operations are included.

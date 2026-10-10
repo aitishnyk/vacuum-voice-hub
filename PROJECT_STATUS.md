@@ -26,8 +26,7 @@ CI/model preservation, security/CodeQL, public bundle and site,
 Windows/macOS/Linux desktop builds, merged-main CI and immutable
 GitHub v2.0 publisher (never claimed before their success).
 The public ZIP contains source/catalog metadata, not copyrighted
-voices or private Creator backups. Separate commercial Telegram
-Stars/Bunny functionality is out of scope.
+voices or private Creator backups.
 
 See [Universal Studio](docs/UNIVERSAL_STUDIO_V200.md),
 [migration guide](docs/MIGRATION_V200.md) and

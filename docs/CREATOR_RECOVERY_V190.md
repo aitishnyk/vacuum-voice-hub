@@ -31,5 +31,5 @@ anything on a robot.
 recovery ZIPs intentionally contain your voice audio, declared author
 metadata and potentially your source notes. Keep them private or use
 your own encrypted storage. They are NOT encrypted or signed by VVH,
-are NOT uploaded to GitHub/Bunny, and a valid backup does NOT prove
+are NOT uploaded to remote services, and a valid backup does NOT prove
 redistribution rights or hardware compatibility.

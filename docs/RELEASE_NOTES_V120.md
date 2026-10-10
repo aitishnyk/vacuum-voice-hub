@@ -19,7 +19,6 @@ the v1.1.x community-first, conservative hardware verification policy.
 - Xiaomi X10 is still the only physically verified VVH custom-voice target.
 - Human language attestation is a claim; native fluency and licensing are not
   independently verified. A/B is engineering QA, not listening or LUFS.
-- No audio, manufacturer packs, firmware, credentials or Telegram payments
-  are bundled in the public metadata archive.
+- No audio, manufacturer packages, firmware or credentials are bundled in the public metadata archive.
 - Future waveform editing, LUFS/true peak, native-speaker reviews for every
   language, and v1.3-v2.0 roadmap items are not represented as implemented.

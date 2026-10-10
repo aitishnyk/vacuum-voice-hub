@@ -47,7 +47,7 @@ vvh creator master-preview ./voice.ogg --output ./preview.wav
 vvh creator master-batch --input-dir ./voices/audio --output-dir ./review-previews
 ```
 
-[Stable software acceptance rules](docs/STABLE_SOFTWARE_V100.md) · [Community exact-device reports and optional hardware donations](docs/COMMUNITY_HARDWARE_TESTING.md). Manufacturer or community device loans/donations are welcomed but never mandatory to release stable source. No Telegram payment bot, Stars monetization or Bunny storage commerce code is included.
+[Stable software acceptance rules](docs/STABLE_SOFTWARE_V100.md) · [Community exact-device reports and optional hardware donations](docs/COMMUNITY_HARDWARE_TESTING.md). Manufacturer or community device loans/donations are welcomed but never mandatory to release stable source.
 
 ## v0.21.0 — Safe batch audio mastering
 

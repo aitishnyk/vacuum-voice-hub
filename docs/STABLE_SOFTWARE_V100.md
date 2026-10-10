@@ -23,9 +23,7 @@ starting templates, not a library of native-speaker verified recordings.
 5. GitHub Actions pull-request CodeQL for Python/actions plus all desktop
    package builds for **macOS, Windows and Linux** pass on the **same exact PR
    head**, followed by new merged-main CI/CodeQL verification.
-6. No commercial Telegram bot, paid downloads, Stars payment logic or private
-   Bunny Storage CDN integration is added to the open-source codebase.
-7. No private robot token, Wi-Fi password, address, donor personal data, vendor
+6. No private robot token, Wi-Fi password, address, donor personal data, vendor
    firmware or unlicensed audio is committed to the project.
 
 ## Physical hardware evidence and community testing

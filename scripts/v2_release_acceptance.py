@@ -70,7 +70,7 @@ def acceptance():
         "manufacturer_signature_verified": False,
         "desktop_code_signing_verified": False,
         "rights_independently_verified": False,
-        "commercial_telegram_or_bunny_deployed": False,
+        "external_services_deployed": False,
     }
 
 

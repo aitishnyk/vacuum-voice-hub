@@ -30,4 +30,4 @@ copyright ownership, redistribution authorization, spoken-language
 quality or installation compatibility. A self-created index and
 `CC-BY-4.0` string do not automatically grant you those rights.
 Only Xiaomi X10 has existing independent VVH custom voice install testing.
-No remote upload, download, commercial entitlement or hosting occurs.
+No remote upload, download or hosting occurs.

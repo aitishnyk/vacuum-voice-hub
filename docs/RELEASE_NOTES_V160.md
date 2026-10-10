@@ -17,5 +17,4 @@ local `vvh community init/add/moderate/audit` commands.
 
 This ZIP is public source/catalog metadata, **not a signed executable**,
 manufacturer-endorsed device adapter, licensed audio collection or an
-online community hosting service. The separate private Telegram Stars and
-Bunny delivery roadmap is excluded from the public project.
+online community hosting service.

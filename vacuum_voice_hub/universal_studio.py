@@ -64,7 +64,7 @@ def inspect_studio(workspace, model_id, locale, *, overlay_path=None,
         "redistribution_rights_verified": False,
         "hardware_install_authorized": False,
         "creator_source_mutated": False,
-        "commercial_payment_or_network_actions": False,
+        "remote_operations_performed": False,
     }
     if not validation["ok"]:
         result["note"] = "Creator workspace validation failed; remaining model/audio gates skipped."

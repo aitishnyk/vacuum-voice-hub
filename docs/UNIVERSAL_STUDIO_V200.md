@@ -44,7 +44,7 @@ The repository preserves and composes the v1.2–v1.9 features: offline
 translation QA and audio A/B, pronunciation lexicons, firmware matrix,
 visual editing, local research inbox, third-party interchange, local
 voice library and safe Creator recovery. All functions remain opt-in
-and no new remote service, payment, Bunny storage, Telegram bot,
-manufacturer override or unrestricted install transport is introduced.
+and no new remote service, manufacturer override or unrestricted
+install transport is introduced.
 
 See [migration](MIGRATION_V200.md) for backwards compatibility.
