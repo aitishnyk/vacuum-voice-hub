@@ -1,4 +1,4 @@
-# Project status — v2.0.0 SOFTWARE STABLE (source candidate)
+# Project status — v2.0.0 SOFTWARE COMPLETE / official publication independent
 
 **Universal Voice Studio** is an integrated offline Creator research/QA
 product layer. The v2 source introduces a real unified CLI API and
@@ -31,3 +31,24 @@ voices or private Creator backups.
 See [Universal Studio](docs/UNIVERSAL_STUDIO_V200.md),
 [migration guide](docs/MIGRATION_V200.md) and
 [roadmap](https://github.com/aitishnyk/vacuum-voice-hub/issues/55).
+
+## v2 delivery closure
+
+The complete v2 **software** feature scope is implemented, with safety PRs
+#67 and #68 merged. Real GitHub Actions [macOS acceptance #38089303529](https://github.com/aitishnyk/vacuum-voice-hub/actions/runs/38089303529)
+was `completed/success` on exact source SHA
+`419ca0033874b11ee60915c4a6a3be5ae0c094f2`, covering full Python,
+model/locale preservation, universal studio acceptance, public site,
+deterministic release archives and macOS executable packaging.
+
+Because hosted runner dispatch repeatedly failed **before steps started**,
+the owner explicitly deferred a further CI/CodeQL/Windows/Linux test cycle.
+This is a **source-only release exception**, not a fabricated verification.
+`ops/release/publish-v200-source.sh` must refuse executable/catalog
+changes since the Mac-accepted SHA and must checksum/round-trip-verify the
+five public assets. Publication remains independently verifiable from
+GitHub Releases, not inferred from source commits or this status file.
+Signed installers, rights clearance and additional physical device support
+are outside the source-only v2 acceptance.
+
+See [delivery closure](docs/V2_DELIVERY_CLOSURE.md).
