@@ -90,6 +90,20 @@ class H(BaseHTTPRequestHandler):
 
     def do_GET(self):
         parsed=urlparse(self.path);q=parse_qs(parsed.query)
+        # Metadata about a local Creator project is private just like its
+        # recordings and writes. The browser UI already supplies this token.
+        private_reads={
+            "/api/creator/workspaces",
+            "/api/creator/workspace",
+            "/api/creator/preflight",
+            "/api/creator/qa",
+            "/api/creator/language-coverage",
+        }
+        if parsed.path in private_reads:
+            try:
+                self._creator_auth()
+            except PermissionError as exc:
+                return self._json({"ok":False,"error":str(exc)},403)
         if parsed.path=="/":return self._html(HTML)
         if parsed.path=="/creator":return self._html(CREATOR_HTML)
         if parsed.path=="/api/session":return self._json({"creator_session":CREATOR_SESSION})
