@@ -189,7 +189,7 @@ function setStatus(x){status.textContent=typeof x==='string'?x:JSON.stringify(x,
 function populateModels(filter=''){
   const current=model.value,term=(filter||'').trim().toLowerCase();
   const rows=catalog.models.filter(m=>!term||(`${m.name} ${m.id} ${m.vendor||''} ${m.adapter||''}`).toLowerCase().includes(term));
-  model.innerHTML=rows.map(m=>`<option value="${m.id}">${m.name} · ${m.id}</option>`).join('');
+  model.replaceChildren(...rows.map(m=>new Option(`${m.name} · ${m.id}`,m.id)));
   if(rows.some(m=>m.id===current))model.value=current;
   if(!model.value&&rows[0])model.value=rows[0].id;
 }
@@ -206,13 +206,15 @@ async function bootstrap(){
     scriptLocale.append(option);
   }
   scriptLocale.value='ru';
-  category.innerHTML='<option value="">Все категории</option>'+catalog.stats.categories.map(c=>`<option value="${c}">${c}</option>`).join('');
+  category.replaceChildren(new Option('Все категории',''),...catalog.stats.categories.map(c=>new Option(c,c)));
   await loadWorkspaces();
 }
 async function loadWorkspaces(selectId){
   const j=await api('/api/creator/workspaces');
   const list=j.workspaces||[];
-  workspace.innerHTML=list.length?list.map(w=>`<option value="${w.id}">${w.name} · ${w.events} events${w.ok?'':' ⚠'}</option>`).join(''):'<option value="">Нет проектов</option>';
+  workspace.replaceChildren(...(list.length
+    ? list.map(w=>new Option(`${w.name} · ${w.events} events${w.ok?'':' ⚠'}`,w.id))
+    : [new Option('Нет проектов','')]));
   if(selectId&&list.some(w=>w.id===selectId))workspace.value=selectId;
   if(workspace.value)await loadWorkspace();
   else{snapshot=null;eventsEl.innerHTML='<div class="notice">Создай первый workspace.</div>'}
@@ -238,6 +240,11 @@ async function loadEvents(){
   eventRows=j.events||[];
   renderEvents();
 }
+function escapeHtml(value){
+  return String(value??'').replace(/[&<>"']/g,c=>({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  })[c]);
+}
 function renderEvents(){
   const assigned=snapshot?.validation?.manifest?.events||{};
   const term=search.value.toLowerCase();
@@ -249,12 +256,12 @@ function renderEvents(){
     const rel=assigned[e.semantic];
     const audio=rel?`<audio controls src="/api/creator/audio?id=${encodeURIComponent(workspace.value)}&semantic=${encodeURIComponent(e.semantic)}&session=${encodeURIComponent(session)}"></audio>`:'';
     return `<article class="event ${rel?'assigned':''}">
-      <h3>${e.semantic}</h3>
-      <div class="meta"><span class="badge">${e.category}</span> IDs: ${e.ids.join(', ')}<br>${e.description||'Без описания'}<br>${rel?'<span class="badge ok">audio assigned</span> '+rel:'<span class="badge warn">no audio</span>'}</div>
+      <h3>${escapeHtml(e.semantic)}</h3>
+      <div class="meta"><span class="badge">${escapeHtml(e.category)}</span> IDs: ${escapeHtml(e.ids.join(', '))}<br>${escapeHtml(e.description||'Без описания')}<br>${rel?'<span class="badge ok">audio assigned</span> '+escapeHtml(rel):'<span class="badge warn">no audio</span>'}</div>
       ${audio}
       <div class="buttons">
-        <input type="file" accept="audio/*,.wav,.mp3,.ogg,.m4a,.aac,.flac,.opus" data-file="${e.semantic}">
-        ${rel?`<button class="danger" data-remove="${e.semantic}">Удалить audio</button>`:''}
+        <input type="file" accept="audio/*,.wav,.mp3,.ogg,.m4a,.aac,.flac,.opus" data-file="${escapeHtml(e.semantic)}">
+        ${rel?`<button class="danger" data-remove="${escapeHtml(e.semantic)}">Удалить audio</button>`:''}
       </div>
     </article>`;
   }).join('')||'<div class="notice">Нет событий по фильтру.</div>';
