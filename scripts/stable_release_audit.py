@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""v1.x software-only stable baseline audit; never certifies physical devices.
+"""v1.x/v2.x software-only stable baseline audit; never certifies physical devices.
 
 Run from checkout: python scripts/stable_release_audit.py
 """
@@ -27,8 +27,8 @@ def audit():
     mm = models()
     vv = voices()
     langs = list_locales()
-    check(__version__.startswith("1.") and len(__version__.split(".")) == 3,
-          "version is not a v1.x stable semver")
+    check(__version__.split(".")[0] in {"1", "2"} and len(__version__.split(".")) == 3,
+          "version is not a supported v1.x/v2.x stable semver")
     check(len(mm) >= 223, "loss of v0.20 model identities")
     check(len(vv) == 55, "55 attributed v0.19 voice variants not preserved")
     check(len(langs) >= 22, "loss of v0.20 text script locales")

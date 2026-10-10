@@ -435,6 +435,20 @@ def main():
     s=ls.add_parser("reconcile",help="Detect source audio/manifest changes since indexing")
     s.add_argument("path")
     s.add_argument("--workspace",required=True,action="append")
+    studio=sub.add_parser("studio",help="Integrated privacy-safe Universal Voice Studio model/language QA")
+    ss=studio.add_subparsers(dest="studio_cmd",required=True)
+    ss.add_parser("capabilities",help="Actual local source catalog and tool capabilities")
+    for kind in ("inspect","report"):
+        item=ss.add_parser(kind,help="Read-only cross-workflow Creator/model/language inspection")
+        item.add_argument("--workspace",required=True)
+        item.add_argument("--model",required=True)
+        item.add_argument("--language",required=True)
+        item.add_argument("--overlay")
+        item.add_argument("--adapter")
+        item.add_argument("--translation-review")
+        item.add_argument("--recording-review")
+        item.add_argument("--audio-qa",action="store_true")
+        if kind=="report":item.add_argument("--output",required=True)
     s=sub.add_parser("model-info");s.add_argument("model_id")
     s=sub.add_parser("model-compare",help="Research-only comparison of two robot voice-event profiles");s.add_argument("left_model");s.add_argument("right_model")
     s=sub.add_parser("info");s.add_argument("voice_id")
@@ -492,6 +506,17 @@ def main():
     _credential_parser(sub)
 
     a=p.parse_args()
+    if a.cmd=="studio":
+        from .universal_studio import studio_capabilities,inspect_studio,export_studio_report
+        if a.studio_cmd=="capabilities":return _dump(studio_capabilities())
+        options={"overlay_path":a.overlay,"adapter_path":a.adapter,
+                 "translation_review":a.translation_review,
+                 "recording_review":a.recording_review,
+                 "check_audio":a.audio_qa}
+        if a.studio_cmd=="report":
+            return _dump(export_studio_report(a.workspace,a.model,a.language,
+                                              a.output,**options))
+        return _dump(inspect_studio(a.workspace,a.model,a.language,**options))
     if a.cmd=="library":
         from .voice_library import create_library,audit_library,search_library,reconcile_library
         if a.library_cmd=="index":return _dump(create_library(a.workspace,a.output))
