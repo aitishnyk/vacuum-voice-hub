@@ -1,0 +1,19 @@
+{
+  "counts": {
+    "hardware_verified_models": 1,
+    "languages": 7,
+    "models": 223,
+    "text_script_locales": 22,
+    "voices": 55
+  },
+  "files": {
+    "catalog.json": {
+      "sha256": "b504eaeedf53664c2ba10a0d2dbcd00f0922d8e8245bb3eec74ce0326af1bb96"
+    },
+    "models.json": {
+      "sha256": "08878b790fc6ffa22e716857fe052dc328136ab3f5f8e095bb9bfd17ae632c45"
+    }
+  },
+  "schema": "vvh.public-catalog.v1",
+  "version": "2.1.0"
+}
