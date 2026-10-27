@@ -1,3 +1,9 @@
+# Current status — 2.1.0 preparation
+
+The release branch adds an offline audio demo, a dark product home, original branding, reproducible native packaging and a canonical public catalog. Source acceptance and platform acceptance are separate. Consult docs/RELEASE_NOTES_V210.md and the launch acceptance report for exact evidence. No extra hardware installs are certified.
+
+## Historical status archive
+
 # Project status — v2.0.0 SOFTWARE COMPLETE / official publication independent
 
 **Universal Voice Studio** is an integrated offline Creator research/QA

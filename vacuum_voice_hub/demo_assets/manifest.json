@@ -1,0 +1,55 @@
+{
+  "schema": "vvh.demo-assets.v1",
+  "license": "CC0-1.0",
+  "generator": "eSpeak NG 1.52.0 en-us, 155 words/minute; FFmpeg mono PCM16 16kHz",
+  "events": [
+    {
+      "file": "01.wav",
+      "semantic": "clean.start",
+      "text": "Cleaning started.",
+      "sha256": "c61fe7fa058ecaaf3aaff4f34a856552838df46ef10ccebc22cdcc84c2fd7453"
+    },
+    {
+      "file": "02.wav",
+      "semantic": "clean.pause",
+      "text": "Cleaning paused.",
+      "sha256": "353551a35b53f9420b027b8a96a1147861a23c7495435afa001a168ab94dbe90"
+    },
+    {
+      "file": "03.wav",
+      "semantic": "clean.complete",
+      "text": "Cleaning completed.",
+      "sha256": "b0f79542776efd5515cb4be1281fec48f45ff037846d79777cd2e5678783d652"
+    },
+    {
+      "file": "04.wav",
+      "semantic": "dock.return.charge",
+      "text": "Returning to charging dock.",
+      "sha256": "6ae712687a04783b454c5deba0a8102e39f74deb0285a6e2ae2fbfe8dc4b0d65"
+    },
+    {
+      "file": "05.wav",
+      "semantic": "dock.charging",
+      "text": "Charging started.",
+      "sha256": "370115aeb483755dcd1cf5ea8dabb2f7e9137196b567a678135ba5530a79ee12"
+    },
+    {
+      "file": "06.wav",
+      "semantic": "error.main_brush",
+      "text": "Main brush needs attention.",
+      "sha256": "90250f80a8f453a69ea20c6bc60aa0896e7c961ee104a39c8538bb5992a851e9"
+    },
+    {
+      "file": "07.wav",
+      "semantic": "battery.low",
+      "text": "Battery low.",
+      "sha256": "636baae0038d7c9e386b4045308cda09bce50a73106f9f36dc07e3de4a8500c3"
+    },
+    {
+      "file": "08.wav",
+      "semantic": "clean.complete",
+      "text": "Task completed successfully.",
+      "sha256": "3e9316f4490e906a9fbb77d15271646a2b008d40d6d11f87c8ec75d6520226fa"
+    }
+  ]
+}

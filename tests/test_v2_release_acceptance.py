@@ -10,13 +10,14 @@ from vacuum_voice_hub import __version__
 def test_universal_studio_source_release_acceptance():
     root = Path(__file__).resolve().parents[1]
     run = subprocess.run(
-        [sys.executable, "scripts/v2_release_acceptance.py"],
+        [sys.executable, "scripts/v2_release_acceptance.py", "--compatible"],
         cwd=root, capture_output=True, text=True, timeout=40
     )
     assert run.returncode == 0, run.stdout + run.stderr
     result = json.loads(run.stdout)
     assert result["schema"] == "vvh.v2-source-acceptance.v1"
-    assert result["version"] == "2.0.0" == __version__
+    assert result["version"] == __version__
+    assert __version__.startswith("2.")
     assert result["ok"] is True
     assert result["required_feature_count"] >= 10
     assert result["all_required_feature_modules_importable"] is True

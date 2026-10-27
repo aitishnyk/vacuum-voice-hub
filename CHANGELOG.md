@@ -1,3 +1,10 @@
+# 2.1.0 — Product launch preparation
+
+- Offline bundled speech demo, isolated mastering/waveform and model-package export.
+- Dark home and Creator experience, original vector branding and app icons.
+- Canonical public catalog filters, CSV, model anchors and user documentation.
+- Reproducible native packaging with explicit signing and acceptance states.
+
 ## v2.0.0 — Universal Voice Studio (source stable)
 
 - Unified `vvh studio capabilities/inspect/report` composes real Creator,

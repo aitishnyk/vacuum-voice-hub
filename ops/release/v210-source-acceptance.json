@@ -1,0 +1,76 @@
+{
+  "schema": "vvh.v21-launch-acceptance.v1",
+  "version": "2.1.0",
+  "date": "2026-10-27",
+  "source_status": "SOURCE_TESTED",
+  "python_regression": {
+    "passed": 383,
+    "failed": 0,
+    "python": "3.12.6",
+    "platform": "macOS x86_64"
+  },
+  "demo_e2e": true,
+  "demo_asset_license": "CC0-1.0",
+  "demo_assets_integrity_checked": true,
+  "redistributable_codec_targeted_tests": {
+    "passed": 34,
+    "failed": 0
+  },
+  "catalog": {
+    "model_profiles": 223,
+    "voice_variants": 55,
+    "text_script_locales": 22,
+    "hardware_verified_models": 1
+  },
+  "v2_invariants_preserved": true,
+  "canonical_catalog_changed": false,
+  "javascript_syntax": "PASS",
+  "python_compile": "PASS",
+  "wheel_data_inclusion": "PASS",
+  "browser_demo_playback": {
+    "ready_state": 4,
+    "media_clock_progressed": true,
+    "native_audio_output_certified": false
+  },
+  "browser_workflows": [
+    "home",
+    "demo",
+    "process",
+    "waveform",
+    "export",
+    "copy_to_creator",
+    "universal_qa",
+    "model_search",
+    "verification_filter"
+  ],
+  "screenshots": 6,
+  "native_source_smoke": {
+    "gui_loaded": true,
+    "demo_e2e": true,
+    "server_closed": true
+  },
+  "native_audible_playback_verified": false,
+  "mobile_browser_tested": false,
+  "signed": false,
+  "desktop_download_verified": false,
+  "public_stable_release_ready": false,
+  "limitations": [
+    "Native audible playback/relaunch and clean-machine acceptance remain separate owner gates",
+    "Only the native macOS Intel environment was available locally",
+    "No Apple Developer or Windows signing credentials",
+    "Browser GitHub session is logged out; social-preview upload remains an owner action"
+  ],
+  "nonredistributable_ffmpeg_rejected": true,
+  "replacement_codec": {
+    "version": "7.1",
+    "license": "LGPL-2.1-or-later",
+    "nonfree": false,
+    "matching_sources_prepared": true
+  },
+  "redistributable_codec_full_regression": {
+    "passed": 383,
+    "failed": 0
+  },
+  "public_website_verified": true,
+  "public_website_url": "https://aitishnyk.github.io/vacuum-voice-hub/"
+}

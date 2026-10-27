@@ -1,3 +1,11 @@
+# Current roadmap — v2.1
+
+The offline demo, home screen, brand identity and canonical public catalog are implemented in the v2.1 release branch. Complete native platform acceptance and binary licensing before publishing tested desktop downloads. Apple Developer notarization and Windows signing require real credentials. Hardware expansion requires independent physical evidence; there is still only one verified model.
+
+## Historical roadmap archive
+
+The entries below describe prior release planning; completed v2 features are not future promises. See CHANGELOG.md for delivered work.
+
 # Roadmap
 
 ## v2.0 — Universal Voice Studio software source

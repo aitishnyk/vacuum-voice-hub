@@ -117,7 +117,33 @@ class H(BaseHTTPRequestHandler):
                 self._creator_auth()
             except PermissionError as exc:
                 return self._json({"ok":False,"error":str(exc)},403)
-        if parsed.path=="/":return self._html(HTML)
+        if parsed.path in {"/", "/demo"}:
+            return self._html((files("vacuum_voice_hub")/"web"/"home.html").read_text(encoding="utf-8"))
+        if parsed.path=="/catalog":return self._html(HTML)
+        if parsed.path=="/api/creator/backup-file":
+            try:
+                if q.get("session",[None])[0]!=CREATOR_SESSION:raise PermissionError("invalid Creator session")
+                from .project_actions import backup_file
+                body=backup_file(q["backup_id"][0]).read_bytes()
+                self.send_response(200);self.send_header("Content-Type","application/zip");self.send_header("Cache-Control","no-store");self.send_header("Content-Length",str(len(body)));self.end_headers();self.wfile.write(body)
+            except PermissionError as exc:return self._json({"ok":False,"error":str(exc)},403)
+            except Exception as exc:return self._json({"ok":False,"error":str(exc)},400)
+            return
+        if parsed.path=="/api/demo/file":
+            try:
+                if q.get("session",[None])[0]!=CREATOR_SESSION:
+                    raise PermissionError("invalid demo session")
+                from .demo import demo_file
+                path=demo_file(q["id"][0],q["file"][0])
+                body=path.read_bytes()
+                self.send_response(200)
+                self.send_header("Content-Type",mimetypes.guess_type(path.name)[0] or "application/octet-stream")
+                self.send_header("Cache-Control","no-store")
+                self.send_header("Content-Length",str(len(body)))
+                self.end_headers();self.wfile.write(body)
+            except PermissionError as exc:return self._json({"ok":False,"error":str(exc)},403)
+            except Exception as exc:return self._json({"ok":False,"error":str(exc)},400)
+            return
         if parsed.path=="/creator":return self._html(CREATOR_HTML)
         if parsed.path=="/api/session":return self._json({"creator_session":CREATOR_SESSION})
         if parsed.path=="/api/script-locales":
@@ -291,6 +317,12 @@ class H(BaseHTTPRequestHandler):
             return self._json({"ok":False,"error":"invalid local origin or host"},403)
         parsed=urlparse(self.path);q=parse_qs(parsed.query)
         try:
+            if parsed.path=="/api/creator/restore":
+                self._creator_auth()
+                from .project_actions import restore_project,MAX_UI_BACKUP
+                size=int(self.headers.get("Content-Length","0"))
+                if not 0<size<=MAX_UI_BACKUP:raise ValueError("UI backup restore limit is 32 MiB")
+                return self._json({"ok":True,**restore_project(self.rfile.read(size))})
             if parsed.path=="/api/creator/audio":
                 self._creator_auth()
                 n=int(self.headers.get("Content-Length","0"))
@@ -329,7 +361,15 @@ class H(BaseHTTPRequestHandler):
                     source.unlink(missing_ok=True)
 
             d=self._read_json()
-            if parsed.path=="/api/install":
+            if parsed.path.startswith("/api/demo/"):
+                self._creator_auth()
+                from .demo import start_demo,process_demo,export_demo,copy_to_creator
+                if parsed.path=="/api/demo/start":result=start_demo()
+                elif parsed.path=="/api/demo/process":result=process_demo(d["id"],d["semantic"],d.get("peak",-3))
+                elif parsed.path=="/api/demo/export":result=export_demo(d["id"])
+                elif parsed.path=="/api/demo/copy":result=copy_to_creator(d["id"])
+                else:raise ValueError("unknown demo action")
+            elif parsed.path=="/api/install":
                 result=install_voice(d["voice_id"],d["model_id"],d["ip"],d["token"],fallback_voice_id=d.get("fallback") or None,fallback_categories=d.get("fallback_categories") or {},allow_experimental_transport=bool(d.get("allow_experimental_transport")))
             elif parsed.path=="/api/report":
                 result=write_report(build_report(d["ip"],d["token"],d.get("model_id")))
@@ -341,6 +381,9 @@ class H(BaseHTTPRequestHandler):
                 self._creator_auth()
                 if parsed.path=="/api/creator/new":
                     result=new_workspace(None,pack_id=d["id"],name=d["name"],author=d["author"],language=d["language"],adult=bool(d.get("adult")),license_name=d.get("license") or "UNLICENSED",source_url=d.get("source_url"),description=d.get("description"))
+                elif parsed.path=="/api/creator/backup":
+                    from .project_actions import backup_project
+                    result=backup_project(d["id"])
                 elif parsed.path=="/api/creator/manifest":
                     result=update_manifest(workspace_by_id(d["id"]),d.get("updates") or {})
                 elif parsed.path=="/api/creator/remove":

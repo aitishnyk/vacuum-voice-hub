@@ -1,3 +1,5 @@
+> Current v2.1 installation, codec redistribution and native acceptance instructions: [Installation](INSTALLATION.md), [Developer guide](DEVELOPER_GUIDE.md), [Platform acceptance](PLATFORM_ACCEPTANCE.md). The historical notes below do not certify a tested download.
+
 # Desktop application
 
 Vacuum Voice Hub provides a native pywebview shell for the local UI and Creator Studio.

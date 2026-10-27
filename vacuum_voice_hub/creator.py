@@ -64,7 +64,19 @@ def load_workspace(path):
 
 def save_manifest(root,manifest):
     root=Path(root)
-    (root/"manifest.json").write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+    target=root/"manifest.json"
+    if target.is_symlink():
+        raise ValueError("symlinked Creator manifest refused")
+    staged=None
+    try:
+        with tempfile.NamedTemporaryFile(mode="w",encoding="utf-8",prefix=".manifest-",suffix=".json",dir=root,delete=False) as stream:
+            staged=Path(stream.name)
+            stream.write(json.dumps(manifest,ensure_ascii=False,indent=2)+"\n")
+            stream.flush()
+            os.fsync(stream.fileno())
+        os.replace(staged,target)
+    finally:
+        if staged is not None:staged.unlink(missing_ok=True)
 
 def update_manifest(path,updates):
     root,manifest=load_workspace(path)
