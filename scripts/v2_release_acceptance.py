@@ -26,11 +26,11 @@ FEATURES = {
 }
 
 
-def acceptance():
+def acceptance(*, compatible=False):
     preservation = audit()
     cap = studio_capabilities()
     errors = list(preservation["errors"])
-    if __version__ != "2.0.0":
+    if not (__version__.startswith("2.") if compatible else __version__ == "2.0.0"):
         errors.append("expected exact 2.0.0 package version")
     if cap["model_profiles"] < 223 or cap["recorded_voice_variants"] != 55:
         errors.append("historical voice or model baseline regressed")
@@ -75,6 +75,10 @@ def acceptance():
 
 
 if __name__ == "__main__":
-    report = acceptance()
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--compatible",action="store_true",help="Audit v2 invariants on a later v2 release; default retains the exact historical 2.0.0 gate")
+    args = parser.parse_args()
+    report = acceptance(compatible=args.compatible)
     print(json.dumps(report, ensure_ascii=False, sort_keys=True, indent=2))
     raise SystemExit(0 if report["ok"] else 1)

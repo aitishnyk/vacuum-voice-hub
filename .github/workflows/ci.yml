@@ -25,3 +25,8 @@ jobs:
         run: bash -n scripts/INSTALL_MACOS.command
       - name: Web UI JavaScript syntax
         run: python scripts/check_web_js.py
+
+      - name: v2 compatibility and v2.1 source acceptance
+        run: |
+          python scripts/v2_release_acceptance.py --compatible
+          python scripts/v21_release_acceptance.py

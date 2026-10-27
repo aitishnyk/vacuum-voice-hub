@@ -1,3 +1,5 @@
+> v2.1 adds Home → Try Demo and independent Creator copies, plus Download project backup / Restore as new project (UI restore limit 32 MiB). Metadata saves now use atomic replacement. See [Getting started](GETTING_STARTED.md) and [Demo tutorial](DEMO_TUTORIAL.md).
+
 # Creator Studio — vvh.voicepack.v1
 
 Creator Studio is a local authoring environment for model-independent robot-vacuum voices.

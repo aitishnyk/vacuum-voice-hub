@@ -1,3 +1,5 @@
+> Current v2.1 installation, codec redistribution and native acceptance instructions: [Installation](INSTALLATION.md), [Developer guide](DEVELOPER_GUIDE.md), [Platform acceptance](PLATFORM_ACCEPTANCE.md). The historical notes below do not certify a tested download.
+
 # Distribution Hardening
 
 Vacuum Voice Hub v0.7 adds a deterministic release-bundle contract.

@@ -11,3 +11,8 @@ build/
 *.zip
 !examples/*.zip
 .env
+
+*.egg-info/
+build/
+dist/
+*.spec

@@ -1,7 +1,14 @@
-import shutil, subprocess
+import shutil, subprocess, os, sys
 from pathlib import Path
 
 def ffmpeg_bin():
+    bundled=Path(getattr(sys,"_MEIPASS",Path(__file__).parent))/('ffmpeg.exe' if os.name=='nt' else 'ffmpeg')
+    if getattr(sys,"frozen",False) and bundled.is_file():return str(bundled)
+    override=os.environ.get("VVH_FFMPEG")
+    if override:
+        candidate=Path(override).expanduser().resolve(strict=True)
+        if not candidate.is_file():raise ValueError("VVH_FFMPEG must name an executable file")
+        return str(candidate)
     p=shutil.which("ffmpeg")
     if p: return p
     import imageio_ffmpeg

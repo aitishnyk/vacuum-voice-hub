@@ -1,0 +1,14 @@
+Vacuum Voice Hub original demonstration scripts and generated recordings
+Copyright 2026 Vacuum Voice Hub contributors
+
+To the extent possible under law, the authors dedicate these eight original
+scripts and their synthetic audio outputs to the public domain under CC0 1.0:
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Generated locally using eSpeak NG 1.52.0, the generic en-us voice, at 155 wpm.
+No character impersonation, commercial voice pack or third-party recording.
+eSpeak NG itself is GPL-3.0-or-later and is NOT bundled with the application.
+The bundled files are synthesis outputs, not eSpeak software or voice data.
+Regenerate with: python scripts/generate_demo.py (requires espeak-ng).
+Hashes and generation parameters are in manifest.json. Listen to these
+recordings as examples, not hardware playback or linguistic certification.

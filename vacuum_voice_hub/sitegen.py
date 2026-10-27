@@ -1,4 +1,4 @@
-import hashlib,json
+import hashlib,json,shutil
 from importlib.resources import files
 from pathlib import Path
 from . import __version__
@@ -35,6 +35,11 @@ def _public_model(m,profiles):
         "id":m["id"],
         "name":m["name"],
         "vendor":m.get("vendor"),
+        "family":m.get("family") or m.get("adapter"),
+        "audio_format":(m.get("package") or {}).get("audio_codec"),
+        "offline_build_available":bool(m.get("adapter") and p.get("known_event_ids")),
+        "evidence":t.get("evidence"),
+        "firmware_evidence":m.get("tested_firmware"),
         "aliases":m.get("aliases",[]),
         "device_tested":bool(m.get("device_tested")),
         "event_profile":m.get("event_profile"),
@@ -61,6 +66,11 @@ def _public_model(m,profiles):
 def build_site(output):
     out=Path(output).expanduser().resolve()
     out.mkdir(parents=True,exist_ok=True)
+    shutil.copytree(str(files("vacuum_voice_hub")/"brand"),out/"brand",dirs_exist_ok=True)
+    screenshots=Path(__file__).resolve().parent.parent/"docs"/"assets"/"screenshots"
+    if screenshots.exists():shutil.copytree(screenshots,out/"screenshots",dirs_exist_ok=True)
+    (out/"robots.txt").write_text("User-agent: *\nAllow: /\nSitemap: https://aitishnyk.github.io/vacuum-voice-hub/sitemap.xml\n")
+    (out/"sitemap.xml").write_text('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://aitishnyk.github.io/vacuum-voice-hub/</loc></url></urlset>')
     profile_map={p["id"]:p for p in event_profiles()}
     vv=[_public_voice(v) for v in voices()]
     mm=[_public_model(m,profile_map) for m in models()]

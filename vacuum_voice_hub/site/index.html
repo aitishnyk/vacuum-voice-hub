@@ -4,16 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Vacuum Voice Hub public voice-pack and robot compatibility catalog">
-<title>Vacuum Voice Hub — Public Catalog</title>
+<title>Vacuum Voice Hub — Offline Voice Studio & Compatibility</title>
 <style>
 :root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#171717;background:#f5f5f3}*{box-sizing:border-box}body{margin:0}.wrap{max-width:1280px;margin:auto;padding:30px 20px 72px}.hero{background:#111;color:#fff;border-radius:28px;padding:38px}.hero h1{font-size:clamp(38px,6vw,68px);letter-spacing:-.05em;margin:0 0 8px}.hero p{max-width:850px;color:#c7c7cc;line-height:1.55}.metrics{display:flex;gap:28px;flex-wrap:wrap;margin-top:22px}.metric b{font-size:28px;display:block}.metric span{font-size:10px;letter-spacing:.1em;color:#aaa;text-transform:uppercase}.toolbar{display:flex;gap:9px;flex-wrap:wrap;margin:18px 0}input,select{font:inherit;border:1px solid #d5d5d2;border-radius:12px;padding:11px 13px;background:white}.grow{flex:1;min-width:220px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:13px}.card{background:white;border:1px solid #e5e5e2;border-radius:17px;padding:17px}.card h3{margin:0 0 8px}.small{font-size:12px;line-height:1.5;color:#666}.tag{display:inline-block;padding:4px 7px;border-radius:99px;background:#efefed;font-size:10px;margin:2px}.adult{background:#fee2e2;color:#991b1b}.verified{background:#dcfce7;color:#166534}.experimental{background:#ffedd5;color:#9a3412}.credit{margin-top:12px;font-size:12px;line-height:1.45}.credit a{color:#111}.tabs{display:flex;gap:8px;margin:26px 0 12px}.tabs button{border:0;border-radius:99px;padding:9px 13px;cursor:pointer}.tabs button.active{background:#111;color:white}.hidden{display:none}.notice{font-size:12px;color:#666;margin:10px 0}
-</style>
-</head>
+
+:root{color-scheme:dark;background:#0b1220;color:#f8fafc}.hero{background:#162235;border:1px solid #324962}.card{background:#162235;border-color:#324962}.small,.notice{color:#b9c8da}a,.credit a{color:#22d3ee}input,select,button{background:#162235;color:#f8fafc;border:1px solid #52637c;padding:11px;border-radius:10px;font:inherit}.tabs button{background:#162235;color:#f8fafc}.tabs button.active,.cta{background:#22d3ee;color:#0b1220}.cta{padding:13px 18px;border-radius:12px;text-decoration:none;font-weight:700}.cta.secondary{background:#24354b;color:#f8fafc}.product{margin:40px 0;line-height:1.7}.product img{max-width:100%;height:auto;border-radius:20px;border:1px solid #324962}.card{overflow-wrap:anywhere}.tag{color:#0b1220}.metric b{color:#22d3ee}:focus-visible{outline:3px solid #a78bfa;outline-offset:4px}#download{padding:24px;border:1px solid #324962;border-radius:20px;line-height:1.7}
+table{width:100%;border-collapse:collapse;margin:18px 0 30px;font-size:13px;text-align:left}caption{text-align:left;padding:12px;color:#b9c8da}td,th{padding:13px;border-bottom:1px solid #324962;vertical-align:top}th{color:#22d3ee;background:#162235}td:nth-child(3){font-family:monospace}tr:hover{background:#162235}</style>
+<link rel="icon" href="brand/favicon.ico"><link rel="canonical" href="https://aitishnyk.github.io/vacuum-voice-hub/"><meta property="og:title" content="Vacuum Voice Hub — Give your robot vacuum a voice"><meta property="og:description" content="Open-source offline voice studio, real audio demo and transparent model compatibility."><meta property="og:image" content="https://aitishnyk.github.io/vacuum-voice-hub/brand/social.png"><meta property="og:type" content="website"></head>
 <body><div class="wrap">
 <section class="hero">
   <h1>Vacuum Voice Hub</h1>
-  <p>Public, credits-first catalog of robot-vacuum voice packs and compatibility profiles. Hardware verification is only shown when physical-device evidence exists.</p>
-  <div class="metrics">
+  <p>Give your robot vacuum a voice. Create, customize, preview and build voice packs with an offline, model-aware voice studio.</p>
+  <div class="toolbar"><a class="cta" href="#download">Download & installation</a><a class="cta secondary" href="https://github.com/aitishnyk/vacuum-voice-hub/blob/main/docs/DEMO_TUTORIAL.md">Try the offline demo</a><a class="cta secondary" href="https://github.com/aitishnyk/vacuum-voice-hub">GitHub ↗</a></div><div class="metrics">
     <div class="metric"><b id="voices">—</b><span>voice variants</span></div>
     <div class="metric"><b id="models">—</b><span>model profiles</span></div>
     <div class="metric"><b id="langs">—</b><span>recorded languages</span></div>
@@ -21,7 +23,7 @@
     <div class="metric"><b id="verified">—</b><span>hardware verified</span></div>
   </div>
 </section>
-<div class="tabs"><button id="tabVoices" class="active">Voice catalog</button><button id="tabModels">Robot models</button></div>
+<section class="product"><img src="screenshots/home.png" alt="Real Vacuum Voice Hub home screen" width="1280" loading="lazy"><h2>One studio. Your own sound.</h2><p>Import recordings, inspect waveforms, master local previews, map semantic events, build model-specific packages and review integrity. Optional offline Piper/eSpeak workflows, backup and recovery are included.</p><p>223 research profiles are not 223 verified installations. Only Xiaomi X10 has physical custom-voice installation evidence in VVH.</p></section><section id="download"><h2>Get started</h2><p id="downloads">Desktop downloads will appear here only after platform acceptance and published-asset checksum verification. Source installation is available now.</p><a href="https://github.com/aitishnyk/vacuum-voice-hub/releases">Actual published releases →</a><p><a href="https://github.com/aitishnyk/vacuum-voice-hub/blob/main/docs/GETTING_STARTED.md">Installation & first demo</a> · <a href="https://github.com/aitishnyk/vacuum-voice-hub/blob/main/docs/TROUBLESHOOTING.md">Troubleshooting</a> · <a href="https://github.com/aitishnyk/vacuum-voice-hub/issues">Issues</a></p></section><h2 id="compatibility">Explore the canonical catalog</h2><div class="tabs"><button id="tabVoices" class="active">Voice catalog</button><button id="tabModels">Robot models</button></div>
 <section id="voiceSection">
   <div class="toolbar">
     <input id="q" class="grow" placeholder="Search voices, tags, credits…">
@@ -33,7 +35,7 @@
 <section id="modelSection" class="hidden">
   <div class="notice">Hardware verified means a physical robot produced accepted/downloaded/success evidence. Similar hardware alone is not enough.</div>
   <div class="toolbar"><input id="modelQ" class="grow" placeholder="Search model, ID, adapter, transport…"></div>
-  <div id="modelGrid" class="grid"></div>
+  <div class="toolbar"><label>Status <select id="verification"><option value="">All evidence levels</option><option value="hardware-verified">Hardware Verified</option><option value="experimental">Experimental Transport</option><option value="build-only">Build / Preview Only</option><option value="official-signed-only">Unsupported / Vendor Restricted</option></select></label><label>Sort <select id="sortModels"><option value="name">Model name</option><option value="vendor">Manufacturer</option><option value="id">Canonical ID</option></select></label><button id="csv">Export visible CSV</button></div><p id="modelCount" role="status"></p><div style="overflow-x:auto"><table><caption>Canonical compatibility matrix · select a model for full evidence and limits</caption><thead><tr><th scope="col">Manufacturer</th><th scope="col">Model</th><th scope="col">Canonical ID</th><th scope="col">Package</th><th scope="col">Evidence level</th><th scope="col">Offline build</th><th scope="col">Tested firmware</th></tr></thead><tbody id="modelRows"></tbody></table></div><div id="modelGrid" class="grid"></div>
 </section>
 <div class="notice">Script locales are translatable text templates, not prerecorded voices or verified hardware installations.</div>
 <div class="notice">Generated from the canonical repository catalog. Machine-readable files: catalog.json, models.json, manifest.json.</div>
@@ -57,23 +59,29 @@ function renderVoices(){
     const tags=(v.tags||[]).map(function(t){return '<span class="tag">'+esc(t)+'</span>'}).join('');
     const adult=v.adult?'<span class="tag adult">18+</span>':'';
     const link=v.source_page?'<a href="'+esc(v.source_page)+'" target="_blank" rel="noopener noreferrer">Upstream source ↗</a>':'';
-    return '<article class="card"><h3>'+esc(v.title)+' '+adult+'</h3><div>'+tags+'</div><div class="small">ID: '+esc(v.id)+'<br>Language: '+esc(v.language)+'<br>Origin: '+esc(v.origin_model)+'<br>Format: '+esc(v.format)+'<br>Source verification: '+esc(v.source_verification)+'</div><div class="credit"><b>Credit:</b> '+esc(v.credit)+'<br>'+link+'</div></article>';
+    return '<article class="card"><h3>'+esc(v.title)+' '+adult+'</h3><div>'+tags+'</div><div class="small">ID: '+esc(v.id)+'<br>Language: '+esc(v.language)+'<br>Origin: '+esc(v.origin_model)+'<br>Format: '+esc(v.format)+'<br>Source verification: '+esc(v.source_verification)+'<br>License / redistribution: '+esc(typeof v.redistribution==='object'?JSON.stringify(v.redistribution):(v.redistribution||'Not cleared for redistribution'))+'</div><div class="credit"><b>Credit:</b> '+esc(v.credit)+'<br>'+link+'</div></article>';
   }).join('');
 }
 function renderModels(){
   const term=(byId('modelQ')?byId('modelQ').value:'').toLowerCase();
-  const rows=models.models.filter(function(m){const hay=(m.name+' '+m.id+' '+(m.adapter||'')+' '+(m.transport_verification||'')+' '+(m.custom_install_policy||'')).toLowerCase();return !term||hay.indexOf(term)>=0});
+  const rows=filteredModels(term);
+  byId('modelCount').textContent=rows.length+' of '+models.models.length+' canonical profiles';
+  byId('modelRows').innerHTML=rows.map(m=>'<tr><td>'+esc(m.vendor||'Unconfirmed')+'</td><td><a href="#model-'+esc(m.id)+'">'+esc(m.name)+'</a></td><td>'+esc(m.id)+'</td><td>'+esc(m.package_container)+'</td><td>'+esc(m.custom_install_policy)+'</td><td>'+esc(m.offline_build_available)+'</td><td>'+esc((m.firmware_evidence||[]).join(', ')||'Not documented')+'</td></tr>').join('');
   byId('modelGrid').innerHTML=rows.map(function(m){
     const policy=m.custom_install_policy||'build-only';
     const badge=m.device_tested?'<span class="tag verified">hardware verified</span>':(policy==='experimental'?'<span class="tag experimental">experimental install</span>':policy==='official-signed-only'?'<span class="tag experimental">official signed only</span>':'<span class="tag">build only</span>');
     const source=m.identity_source_url && /^https:\/\/home\\.miot-spec\\.com\//.test(m.identity_source_url)
       ?'<div class="credit"><a href="'+esc(m.identity_source_url)+'" target="_blank" rel="noopener noreferrer">MIoT identity source ↗</a></div>':'';
-    return '<article class="card"><h3>'+esc(m.name)+' '+badge+'</h3><div class="small">Model ID: '+esc(m.id)+'<br>Adapter: '+esc(m.adapter)+' · '+esc(m.package_container)+'<br>Events: '+esc(m.event_count)+'<br>Profile: '+esc(m.event_profile)+' · '+esc(m.profile_kind)+'<br>Transport: '+esc(m.transport_verification||m.transport_kind)+'<br>Mi Home product/plugin: '+esc(m.product_id||'—')+' / '+esc(m.plugin_id||'—')+'<br>'+esc(m.notes||'')+'</div>'+source+'</article>';
+    return '<article class="card" id="model-'+esc(m.id)+'"><h3><a href="#model-'+esc(m.id)+'">'+esc(m.name)+'</a>'+' '+badge+'</h3><div class="small">Model ID: '+esc(m.id)+'<br>Manufacturer: '+esc(m.vendor||'Unconfirmed')+'<br>Aliases: '+esc((m.aliases||[]).join(', ')||'None documented')+'<br>Device family: '+esc(m.family||m.adapter)+'<br>Adapter: '+esc(m.adapter)+' · '+esc(m.package_container)+'<br>Events: '+esc(m.event_count)+'<br>Profile: '+esc(m.event_profile)+' · '+esc(m.profile_kind)+'<br>Audio: '+esc(m.audio_format||'See adapter')+'<br>Offline build: '+esc(m.offline_build_available)+' · Preview: local owned recordings<br>Local install default: '+esc(m.install_default)+'<br>Firmware evidence: '+esc(m.firmware_evidence||'Not documented')+'<br>Evidence: '+esc(m.evidence||'See documented model notes')+'<br>Transport: '+esc(m.transport_verification||m.transport_kind)+'<br>Mi Home product/plugin: '+esc(m.product_id||'—')+' / '+esc(m.plugin_id||'—')+'<br>'+esc(m.notes||'')+'</div>'+source+'</article>';
   }).join('');
 }
 byId('q').oninput=renderVoices;byId('lang').onchange=renderVoices;byId('adult').onchange=renderVoices;byId('modelQ').oninput=renderModels;
 byId('tabVoices').onclick=function(){byId('voiceSection').classList.remove('hidden');byId('modelSection').classList.add('hidden');byId('tabVoices').classList.add('active');byId('tabModels').classList.remove('active')};
 byId('tabModels').onclick=function(){byId('modelSection').classList.remove('hidden');byId('voiceSection').classList.add('hidden');byId('tabModels').classList.add('active');byId('tabVoices').classList.remove('active')};
-init();
+function filteredModels(term){const status=byId('verification').value,key=byId('sortModels').value;return models.models.filter(m=>(!term||JSON.stringify(m).toLowerCase().includes(term))&&(!status||m.custom_install_policy===status)).sort((a,b)=>String(a[key]||'').localeCompare(String(b[key]||'')))}
+byId('verification').onchange=renderModels;byId('sortModels').onchange=renderModels;
+byId('csv').onclick=function(){const rows=filteredModels(byId('modelQ').value.toLowerCase()),keys=['vendor','name','id','aliases','event_profile','package_container','custom_install_policy','install_default','device_tested','evidence','notes'];const cell=v=>'"'+String(Array.isArray(v)?v.join('; '):v==null?'':v).replace(/"/g,'""').replace(/^[=+@-]/,"'$&")+'"';const csv=[keys.join(','),...rows.map(m=>keys.map(k=>cell(m[k])).join(','))].join('\r\n');const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='vvh-compatibility.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),30000)};
+if(location.hash==='#compatibility'||location.hash.startsWith('#model-'))byId('tabModels').click();
+init().then(()=>{if(location.hash.startsWith('#model-'))document.getElementById(location.hash.slice(1))?.scrollIntoView()});
 </script>
 </body></html>
