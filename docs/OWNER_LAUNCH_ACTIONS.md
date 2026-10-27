@@ -38,9 +38,10 @@ gh run list --repo aitishnyk/vacuum-voice-hub --limit 10
 gh run view RUN_ID --repo aitishnyk/vacuum-voice-hub --json jobs,conclusion
 ```
 
-If jobs have no executed steps, that is an infrastructure failure, not passing
-software tests. Read the run annotations and fix the account/runner availability
-issue they identify. Do not repeatedly dispatch expensive desktop workflows.
+The v2.1 PR annotations state: "The job was not started because your account
+is locked due to a billing issue." The account owner must resolve the billing
+lock in GitHub account settings, then rerun one source CI workflow. Jobs with
+no executed steps are infrastructure failures, not passing software tests. Do not repeatedly dispatch expensive desktop workflows.
 Local acceptance commands remain in Developer guide.
 
 ## Pages recovery

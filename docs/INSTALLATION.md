@@ -47,8 +47,9 @@ No Linux native acceptance is implied by these build instructions.
 
 ## Codecs, optional tools and data
 
-FFmpeg comes from imageio-ffmpeg in the Python dependency and is collected in
-desktop builds. The bundled eight WAV demo files do not need eSpeak or Piper.
+Source installations can use the imageio-ffmpeg dependency fallback. Desktop
+builds use the separately built, pinned LGPL codec and include its notices and
+matching source bundle; the nonfree macOS dependency binary is never redistributed. The bundled eight WAV demo files do not need eSpeak or Piper.
 Optional TTS requires locally installed engines and separately licensed models.
 Do not redistribute models without checking their licenses.
 

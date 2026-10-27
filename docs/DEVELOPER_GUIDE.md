@@ -19,6 +19,11 @@ python -m compileall -q vacuum_voice_hub
 vvh --help
 vvh site build --output public
 vvh site verify public
+python scripts/fetch_codec_sources.py --output work/codec-source
+sh scripts/build_codec.sh work/codec-source
+export VVH_FFMPEG="$PWD/work/codec-source/runtime/bin/ffmpeg"
+export VVH_CODEC_NOTICES="$PWD/work/codec-source/NOTICES"
+python scripts/build_sbom.py --output work/SBOM.json --notices work/codec-source/NOTICES
 python scripts/build_desktop.py
 ```
 
