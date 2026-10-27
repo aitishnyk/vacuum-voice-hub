@@ -36,6 +36,7 @@ def _public_model(m,profiles):
         "name":m["name"],
         "vendor":m.get("vendor"),
         "family":m.get("family") or m.get("adapter"),
+        "voice_preview_availability":"Local licensed recordings only",
         "audio_format":(m.get("package") or {}).get("audio_codec"),
         "offline_build_available":bool(m.get("adapter") and p.get("known_event_ids")),
         "evidence":t.get("evidence"),
