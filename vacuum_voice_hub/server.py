@@ -1,6 +1,7 @@
 import json,secrets,mimetypes
 from pathlib import Path
 from http.server import BaseHTTPRequestHandler,ThreadingHTTPServer
+from socketserver import TCPServer
 from importlib.resources import files
 from urllib.parse import urlparse,parse_qs
 from .catalog import voices,models,backlog,categories,model_by_id,events,event_profile_for_model
@@ -439,8 +440,15 @@ class H(BaseHTTPRequestHandler):
 
     def log_message(self,*a):pass
 
+class LoopbackHTTPServer(ThreadingHTTPServer):
+    """The fixed loopback identity never needs a reverse-DNS lookup."""
+    def server_bind(self):
+        TCPServer.server_bind(self)
+        self.server_name="localhost"
+        self.server_port=self.server_address[1]
+
 def make_server(port=8787):
-    return ThreadingHTTPServer(("127.0.0.1",port),H)
+    return LoopbackHTTPServer(("127.0.0.1",port),H)
 
 def serve(port=8787):
     server=make_server(port)

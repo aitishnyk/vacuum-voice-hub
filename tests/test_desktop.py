@@ -12,3 +12,16 @@ def test_server_can_bind_ephemeral_localhost_port():
 
 def test_desktop_module_imports_without_pywebview_at_import_time():
     assert callable(desktop.main)
+
+def test_loopback_startup_does_not_resolve_dns(monkeypatch):
+    import socket
+    def unexpected_lookup(*args):
+        raise AssertionError('fixed loopback server must not perform reverse DNS')
+    monkeypatch.setattr(socket,'getfqdn',unexpected_lookup)
+    server=make_server(0)
+    try:
+        assert server.server_address[0]=='127.0.0.1'
+        assert server.server_name=='localhost'
+        assert server.server_port>0
+    finally:
+        server.server_close()
