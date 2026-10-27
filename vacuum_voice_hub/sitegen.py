@@ -69,6 +69,7 @@ def build_site(output):
     out.mkdir(parents=True,exist_ok=True)
     shutil.copytree(str(files("vacuum_voice_hub")/"brand"),out/"brand",dirs_exist_ok=True)
     screenshots=Path(__file__).resolve().parent.parent/"docs"/"assets"/"screenshots"
+    if not screenshots.exists():screenshots=Path(str(files("vacuum_voice_hub")/"site"/"screenshots"))
     if screenshots.exists():shutil.copytree(screenshots,out/"screenshots",dirs_exist_ok=True)
     (out/"robots.txt").write_text("User-agent: *\nAllow: /\nSitemap: https://aitishnyk.github.io/vacuum-voice-hub/sitemap.xml\n")
     (out/"sitemap.xml").write_text('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://aitishnyk.github.io/vacuum-voice-hub/</loc></url></urlset>')

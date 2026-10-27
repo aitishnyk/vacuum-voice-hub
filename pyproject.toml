@@ -29,4 +29,4 @@ vvh-desktop = "vacuum_voice_hub.desktop:main"
 include = ["vacuum_voice_hub*"]
 
 [tool.setuptools.package-data]
-vacuum_voice_hub = ["web/*", "data/*.json", "site/*", "demo_assets/*", "brand/*"]
+vacuum_voice_hub = ["web/*", "data/*.json", "site/*", "site/screenshots/*.png", "demo_assets/*", "brand/*"]

@@ -16,3 +16,8 @@ Use a fresh test-only VVH_DATA_DIR. Do not expose tokens, IP/MAC identifiers,
 private projects or absolute user paths. Screen data uses bundled CC0 examples.
 Browser playback reached readyState 4 and a progressing nonpaused media clock;
 this is browser playback evidence, not certification of native audio output.
+
+After updating home.png, synchronize the packaged fallback with:
+`cp docs/assets/screenshots/home.png vacuum_voice_hub/site/screenshots/home.png`.
+The regression suite requires these to match so installed wheels can generate
+a complete public site without a repository docs directory.

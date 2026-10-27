@@ -44,3 +44,13 @@ def test_sha256sums_does_not_claim_self_hash(tmp_path):
     assert "update-feed.json" in sums
     assert "sbom.spdx.json" in sums
     assert "SHA256SUMS" not in sums
+
+def test_public_bundle_includes_referenced_product_assets(tmp_path):
+    import zipfile
+    out=tmp_path/'release'
+    build_release(out,EPOCH)
+    archive=next(out.glob('VacuumVoiceHub-public-*.zip'))
+    with zipfile.ZipFile(archive) as data:
+        for name in ('public/brand/favicon.ico','public/brand/social.png','public/screenshots/home.png','public/sitemap.xml','public/robots.txt'):
+            assert name in data.namelist(),name
+            assert len(data.read(name))>0

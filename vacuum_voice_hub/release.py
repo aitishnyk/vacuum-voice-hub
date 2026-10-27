@@ -59,10 +59,12 @@ def _sbom(epoch):
 
 def _make_public_zip(site_dir,out,epoch):
     dt=_zip_datetime(epoch)
-    names=["index.html","catalog.json","models.json","manifest.json"]
+    names=sorted(p.relative_to(site_dir).as_posix() for p in Path(site_dir).rglob("*") if p.is_file())
     with zipfile.ZipFile(out,"w",compression=zipfile.ZIP_DEFLATED,compresslevel=9) as zf:
         for name in names:
-            data=(Path(site_dir)/name).read_bytes()
+            path=Path(site_dir)/name
+            if path.is_symlink():raise ValueError("symlinked public asset refused")
+            data=path.read_bytes()
             info=zipfile.ZipInfo("public/"+name,date_time=dt)
             info.compress_type=zipfile.ZIP_DEFLATED
             info.external_attr=(0o100644<<16)
@@ -145,7 +147,7 @@ def build_release(output,source_date_epoch=None):
         ],
         "desktop_builds":{
             "workflow":".github/workflows/desktop.yml",
-            "artifact_names":["VacuumVoiceHub-macOS","VacuumVoiceHub-Windows","VacuumVoiceHub-Linux"],
+            "artifact_names":["VacuumVoiceHub-macos-15-intel","VacuumVoiceHub-macos-latest","VacuumVoiceHub-ubuntu-latest"],
             "hashes_in_this_manifest":False,
         },
         "signature":{

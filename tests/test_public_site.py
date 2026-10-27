@@ -44,3 +44,9 @@ def test_public_site_html_has_search_models_and_adult_gate(tmp_path):
     assert 'id="adult"' in html
     assert 'id="modelGrid"' in html
     assert "Hardware verified" in html or "hardware verified" in html
+
+def test_packaged_home_screenshot_matches_real_capture():
+    from importlib.resources import files
+    packaged=files('vacuum_voice_hub')/'site'/'screenshots'/'home.png'
+    real=Path(__file__).resolve().parents[1]/'docs/assets/screenshots/home.png'
+    assert packaged.read_bytes()==real.read_bytes()
