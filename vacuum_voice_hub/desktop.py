@@ -23,7 +23,7 @@ def main():
               'native_audible_playback_verified':False,'signed':False}
     if smoke:
         import os
-        from .demo import start_demo,process_demo,export_demo
+        from vacuum_voice_hub.demo import start_demo,process_demo,export_demo
         with tempfile.TemporaryDirectory(prefix='vvh-native-smoke-') as td:
             old=os.environ.get('VVH_DATA_DIR');os.environ['VVH_DATA_DIR']=td
             try:
